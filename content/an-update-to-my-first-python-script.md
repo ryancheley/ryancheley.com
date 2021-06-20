@@ -21,26 +21,26 @@ The updated script will now also get the image data to display into the multi ma
 
     | Name | Title | Image |
     | --- | --- | --- |
-    |Mike Cheley|CEO/Creative Director|![alt text](http://www.graphtek.com/user_images/Team/Mike_Cheley.png "Mike Cheley")|
-    |Ozzy|Official Greeter|![alt text](http://www.graphtek.com/user_images/Team/Ozzy.png "Ozzy")|
-    |Jay Sant|Vice President|![alt text](http://www.graphtek.com/user_images/Team/Jay_Sant.png "Jay Sant")|
-    |Shawn Isaac|Vice President|![alt text](http://www.graphtek.com/user_images/Team/Shawn_Isaac.png "Shawn Isaac")|
-    |Jason Gurzi|SEM Specialist|![alt text](http://www.graphtek.com/user_images/Team/Jason_Gurzi.png "Jason Gurzi")|
-    |Yvonne Valles|Director of First Impressions|![alt text](http://www.graphtek.com/user_images/Team/Yvonne_Valles.png "Yvonne Valles")|
-    |Ed Lowell|Senior Designer|![alt text](http://www.graphtek.com/user_images/Team/Ed_Lowell.png "Ed Lowell")|
-    |Paul Hasas|User Interface Designer|![alt text](http://www.graphtek.com/user_images/Team/Paul_Hasas.png "Paul Hasas")|
-    |Alan Schmidt|Senior Web Developer|![alt text](http://www.graphtek.com/user_images/Team/Alan_Schmidt.png "Alan Schmidt")|
+    |Mike Cheley|CEO/Creative Director|![alt text](https://www.graphtek.com/user_images/Team/Mike_Cheley.png "Mike Cheley")|
+    |Ozzy|Official Greeter|![alt text](https://www.graphtek.com/user_images/Team/Ozzy.png "Ozzy")|
+    |Jay Sant|Vice President|![alt text](https://www.graphtek.com/user_images/Team/Jay_Sant.png "Jay Sant")|
+    |Shawn Isaac|Vice President|![alt text](https://www.graphtek.com/user_images/Team/Shawn_Isaac.png "Shawn Isaac")|
+    |Jason Gurzi|SEM Specialist|![alt text](https://www.graphtek.com/user_images/Team/Jason_Gurzi.png "Jason Gurzi")|
+    |Yvonne Valles|Director of First Impressions|![alt text](https://www.graphtek.com/user_images/Team/Yvonne_Valles.png "Yvonne Valles")|
+    |Ed Lowell|Senior Designer|![alt text](https://www.graphtek.com/user_images/Team/Ed_Lowell.png "Ed Lowell")|
+    |Paul Hasas|User Interface Designer|![alt text](https://www.graphtek.com/user_images/Team/Paul_Hasas.png "Paul Hasas")|
+    |Alan Schmidt|Senior Web Developer|![alt text](https://www.graphtek.com/user_images/Team/Alan_Schmidt.png "Alan Schmidt")|
 
 Which gets displayed as this:
 
   Name            Title                           Image
   --------------- ------------------------------- -----------------------------------------------------------------------------------------
-  Mike Cheley     CEO/Creative Director           ![alt text](http://www.graphtek.com/user_images/Team/Mike_Cheley.png "Mike Cheley")
-  Ozzy            Official Greeter                ![alt text](http://www.graphtek.com/user_images/Team/Ozzy.png "Ozzy")
-  Jay Sant        Vice President                  ![alt text](http://www.graphtek.com/user_images/Team/Jay_Sant.png "Jay Sant")
-  Shawn Isaac     Vice President                  ![alt text](http://www.graphtek.com/user_images/Team/Shawn_Isaac.png "Shawn Isaac")
-  Jason Gurzi     SEM Specialist                  ![alt text](http://www.graphtek.com/user_images/Team/Jason_Gurzi.png "Jason Gurzi")
-  Yvonne Valles   Director of First Impressions   ![alt text](http://www.graphtek.com/user_images/Team/Yvonne_Valles.png "Yvonne Valles")
-  Ed Lowell       Senior Designer                 ![alt text](http://www.graphtek.com/user_images/Team/Ed_Lowell.png "Ed Lowell")
-  Paul Hasas      User Interface Designer         ![alt text](http://www.graphtek.com/user_images/Team/Paul_Hasas.png "Paul Hasas")
-  Alan Schmidt    Senior Web Developer            ![alt text](http://www.graphtek.com/user_images/Team/Alan_Schmidt.png "Alan Schmidt")
+  Mike Cheley     CEO/Creative Director           ![alt text](https://www.graphtek.com/user_images/Team/Mike_Cheley.png "Mike Cheley")
+  Ozzy            Official Greeter                ![alt text](https://www.graphtek.com/user_images/Team/Ozzy.png "Ozzy")
+  Jay Sant        Vice President                  ![alt text](https://www.graphtek.com/user_images/Team/Jay_Sant.png "Jay Sant")
+  Shawn Isaac     Vice President                  ![alt text](https://www.graphtek.com/user_images/Team/Shawn_Isaac.png "Shawn Isaac")
+  Jason Gurzi     SEM Specialist                  ![alt text](https://www.graphtek.com/user_images/Team/Jason_Gurzi.png "Jason Gurzi")
+  Yvonne Valles   Director of First Impressions   ![alt text](https://www.graphtek.com/user_images/Team/Yvonne_Valles.png "Yvonne Valles")
+  Ed Lowell       Senior Designer                 ![alt text](https://www.graphtek.com/user_images/Team/Ed_Lowell.png "Ed Lowell")
+  Paul Hasas      User Interface Designer         ![alt text](https://www.graphtek.com/user_images/Team/Paul_Hasas.png "Paul Hasas")
+  Alan Schmidt    Senior Web Developer            ![alt text](https://www.graphtek.com/user_images/Team/Alan_Schmidt.png "Alan Schmidt")
