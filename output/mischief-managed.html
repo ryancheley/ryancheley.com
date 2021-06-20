@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Mischief Managed</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="A few weeks back I decided to try and update my Python version with Homebrew. I had already been through an issue where the an update like this..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li class="active"><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/mischief-managed.html" rel="bookmark"
+           title="Permalink to Mischief Managed">Mischief Managed</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-02-10T05:36:00+01:00">
+                Published: Mon 10 February 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/macos.html">macOS</a>.</p>
+<p>tags: <a href="/tag/pycharm.html">PyCharm</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>A few weeks back I decided to try and update my Python version with Homebrew. I had already been through an issue where the an update like this was going to cause an issue, but I also knew what the fix <a href="/fixing-a-pycharm-issue-when-updating-python-made-via-homebrew/" title="Homebrew and PyCharm don’t mix">was</a>.</p>
+<p>With this knowledge in hand I happily performed the update. To my surprise, 2 things happened:</p>
+<ol>
+<li>The update seemed to have me go from Python 3.7.6 to 3.7.3</li>
+<li>When trying to reestablish my <code>Virtual Environment</code> two packages wouldn’t installed: <code>psycopg2</code> and <code>django-heroku</code>  </li>
+</ol>
+<p>Now, the update/backdate isn’t the end of the world. Quite honestly, next weekend I’m going to just ditch homebrew and go with the standard download from <a href="https://www.python.org" title="Python">Python.org</a> because I’m hoping that this non-sense won’t be an issue anymore</p>
+<p>The second issue was a bit more irritating though. I spent several hours trying to figure out what the problem was, only to find out, there wasn’t one really.</p>
+<p>The ‘fix’ to the issue was to</p>
+<ol>
+<li>Open PyCharm</li>
+<li>Go to Setting</li>
+<li>Go to ‘Project Interpreter’</li>
+<li>Click the ‘+’ to add a package</li>
+<li>Look for the package that wouldn’t install</li>
+<li>Click ‘Install Package’</li>
+<li>Viola ... <a href="https://www.hp-lexicon.org/magic/mischief-managed/">mischief managed</a>  </li>
+</ol>
+<p>The next time this happens I’m just buying a new computer</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

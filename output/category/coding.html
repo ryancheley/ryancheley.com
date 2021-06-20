@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - Coding</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li class="active"><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/fizz-buzz.html">Fizz Buzz</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-11-28T19:11:00+01:00">
+                Published: Wed 28 November 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/coding.html">Coding</a>.</p>
+<p>tags: <a href="/tag/bash.html">Bash</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info --><p>I was listening to the most recent episode of <a href="http://atp.fm/episodes/302">ATP</a> and John Siracusa mentioned a programmer test called <a href="http://wiki.c2.com/?FizzBuzzTest">fizz buzz</a> that I hadn’t heard of before.</p>
+<p>I decided that I’d give it a shot when I got home using Python and Bash, just to see if I could (I was sure I could, but you know, wanted to make sure).</p>
+<p>Sure enough, with a bit of googling to remember some syntax fo Python, and learn some syntax for bash, I had two stupid little programs for fizz buzz.</p>
+<h2>Python</h2>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">main</span><span class="ss">()</span>:
+
+    <span class="nv">my_number</span> <span class="o">=</span> <span class="nv">input</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Enter a number: </span><span class="s2">&quot;</span><span class="ss">)</span>
+
+    <span class="k">if</span> <span class="nv">not</span> <span class="nv">my_number</span>.<span class="nv">isdigit</span><span class="ss">()</span>:
+        <span class="k">return</span>
+    <span class="k">else</span>:
+        <span class="nv">my_number</span> <span class="o">=</span> <span class="nv">int</span><span class="ss">(</span><span class="nv">my_number</span><span class="ss">)</span>
+        <span class="k">if</span> <span class="nv">my_number</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">my_number</span><span class="o">%</span><span class="mi">15</span><span class="o">!=</span><span class="mi">0</span>:
+            <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">fizz</span><span class="s2">&quot;</span><span class="ss">)</span>
+        <span class="nv">elif</span> <span class="nv">my_number</span><span class="o">%</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">my_number</span><span class="o">%</span><span class="mi">15</span><span class="o">!=</span><span class="mi">0</span>:
+            <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">buzz</span><span class="s2">&quot;</span><span class="ss">)</span>
+        <span class="nv">elif</span> <span class="nv">my_number</span><span class="o">%</span><span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span>:
+            <span class="nv">print</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">fizz buzz</span><span class="s2">&quot;</span><span class="ss">)</span>      
+        <span class="k">else</span>:
+            <span class="nv">print</span><span class="ss">(</span><span class="nv">my_number</span><span class="ss">)</span>
+
+
+<span class="k">if</span> <span class="nv">__name__</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">__main__</span><span class="s1">&#39;</span>:
+    <span class="nv">main</span><span class="ss">()</span>
+</code></pre></div>
+
+<h2>Bash</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="ch">#! /bin/bash</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Enter a Number: &quot;</span>
+
+<span class="nb">read</span> my_number
+
+<span class="nv">re</span><span class="o">=</span><span class="s1">&#39;^[+-]?[0-9]+$&#39;</span>
+<span class="k">if</span> ! <span class="o">[[</span> <span class="nv">$my_number</span> <span class="o">=</span>~ <span class="nv">$re</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+   <span class="nb">echo</span> <span class="s2">&quot;error: Not a number&quot;</span> &gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span> <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> ! <span class="o">((</span>my_number % <span class="m">3</span><span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span>my_number % <span class="m">15</span><span class="o">))</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;fizz&quot;</span>
+<span class="k">elif</span> ! <span class="o">((</span>my_number % <span class="m">5</span><span class="o">))</span> <span class="o">&amp;&amp;</span> <span class="o">((</span>my_number % <span class="m">15</span><span class="o">))</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;buzz&quot;</span>
+<span class="k">elif</span> ! <span class="o">((</span>my_number % <span class="m">15</span><span class="o">))</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;fizz buzz&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> my_number
+<span class="k">fi</span>
+</code></pre></div>
+</td></tr></table>
+<p>And because if it isn’t in GitHub it didn’t happen, I committed it to my <a href="https://github.com/ryancheley/fizz-buzz">fizz-buzz repo</a>.</p>
+<p>I figure it might be kind of neat to write it in as many languages as I can, you know … for when I’m bored.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

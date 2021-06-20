@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Pitching Stats and Python</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="I'm an avid Twitter user, mostly as a replacement RSS feeder, but also because I can't stand Facebook and this allows me to learn about really..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/pitching-stats-and-python.html" rel="bookmark"
+           title="Permalink to Pitching Stats and Python">Pitching Stats and Python</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-21T05:19:00+01:00">
+                Published: Mon 21 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/mlb.html">mlb</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>I'm an avid <a href="https://www.twitter.com">Twitter</a> user, mostly as a replacement <a href="https://en.wikipedia.org/wiki/RSS">RSS</a> feeder, but also because I can't stand <a href="https://www.facebook.com">Facebook</a> and this allows me to learn about really important world events when I need to and to just stay isolated with <a href="http://gerdleonhard.typepad.com/.a/6a00d8341c59be53ef013488b614d8970c-800wi">my head in the sand</a> when I don't. It's perfect for me.</p>
+<p>One of the people I follow on <a href="https://twitter.com/drdrang">Twitter</a> is <a href="http://www.leancrew.com/all-this/">Dr. Drang</a> who is an Engineer of some kind by training. He also appears to be a fan of baseball and posted an <a href="http://leancrew.com/all-this/2016/09/jake-arrieta-and-python/">analysis of Jake Arrieata's pitching</a> over the course of the 2016 MLB season (through September 22 at least).</p>
+<p>When I first read it I hadn't done too much with Python, and while I found the results interesting, I wasn't sure what any of the code was doing (not really anyway).</p>
+<p>Since I had just spent the last couple of days learning more about <code>BeautifulSoup</code> specifically and <code>Python</code> in general I thought I'd try to do two things:</p>
+<ol>
+<li>Update the data used by Dr. Drang</li>
+<li>Try to generalize it for any pitcher</li>
+</ol>
+<p>Dr. Drang uses a flat csv file for his analysis and I wanted to use <code>BeautifulSoup</code> to scrape the data from <a href="https://www.espn.com">ESPN</a> directly.</p>
+<p>OK, I know how to do that (sort of ¯\<em>(ツ)</em>/¯)</p>
+<p>First things first, import your libraries:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">strptime</span>
+</code></pre></div>
+
+<p>The next two lines I ~~stole~~ borrowed directly from Dr. Drang's post. The first line is to force the plot output to be inline with the code entered in the terminal. The second he explains as such:</p>
+<blockquote>
+<blockquote>
+<p>The odd ones are the <code>rcParams</code> call, which makes the inline graphs bigger than the tiny Jupyter default, and the functools import, which will help us create ERAs over small portions of the season.</p>
+</blockquote>
+</blockquote>
+<p>I'm not using <a href="http://jupyter.org">Jupyter</a> I'm using <a href="http://rodeo.yhat.com">Rodeo</a> as my IDE but I kept them all the same:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">%matplotlib</span> <span class="kr">inline</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">rcParams</span><span class="p">[</span><span class="err">&#39;</span><span class="n">figure</span><span class="p">.</span><span class="n">figsize</span><span class="err">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+</code></pre></div>
+
+<p>In the next section I use <code>BeautifulSoup</code> to scrape the data I want from <a href="https://www.espn.com">ESPN</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">http://www.espn.com/mlb/player/gamelog/_/id/30145/jake-arrieta</span><span class="s1">&#39;</span>
+<span class="nv">r</span> <span class="o">=</span> <span class="nv">requests</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">url</span><span class="ss">)</span>
+<span class="nv">year</span> <span class="o">=</span> <span class="mi">2016</span>
+
+<span class="nv">date_pitched</span> <span class="o">=</span> []
+<span class="nv">full_ip</span> <span class="o">=</span> []
+<span class="nv">part_ip</span> <span class="o">=</span> []
+<span class="nv">earned_runs</span> <span class="o">=</span> []
+
+<span class="nv">tables</span> <span class="o">=</span> <span class="nv">BeautifulSoup</span><span class="ss">(</span><span class="nv">r</span>.<span class="nv">text</span>, <span class="s1">&#39;</span><span class="s">lxml</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">find_all</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">table</span><span class="s1">&#39;</span>, <span class="nv">class_</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">tablehead mod-player-stats</span><span class="s1">&#39;</span><span class="ss">)</span>
+<span class="k">for</span> <span class="nv">table</span> <span class="nv">in</span> <span class="nv">tables</span>:
+    <span class="k">for</span> <span class="nv">row</span> <span class="nv">in</span> <span class="nv">table</span>.<span class="nv">find_all</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">tr</span><span class="s1">&#39;</span><span class="ss">)</span>: # <span class="nv">Remove</span> <span class="nv">header</span>
+        <span class="nv">columns</span> <span class="o">=</span> <span class="nv">row</span>.<span class="nv">find_all</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">td</span><span class="s1">&#39;</span><span class="ss">)</span>
+        <span class="nv">try</span>:
+            <span class="k">if</span> <span class="nv">re</span>.<span class="nv">match</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">[a-zA-Z]{3}\s</span><span class="s1">&#39;</span>, <span class="nv">columns</span>[<span class="mi">0</span>].<span class="nv">text</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">None</span>:
+                <span class="nv">date_pitched</span>.<span class="nv">append</span><span class="ss">(</span>
+                    <span class="nv">date</span><span class="ss">(</span>
+                    <span class="nv">year</span>
+                    , <span class="nv">strptime</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">0</span>].<span class="nv">text</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="mi">0</span>], <span class="s1">&#39;</span><span class="s">%b</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">tm_mon</span>
+                    , <span class="nv">int</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">0</span>].<span class="nv">text</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="mi">1</span>]<span class="ss">)</span>
+                    <span class="ss">)</span>
+                <span class="ss">)</span>
+                <span class="nv">full_ip</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">str</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">3</span>].<span class="nv">text</span><span class="ss">)</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">.</span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="mi">0</span>]<span class="ss">)</span>
+                <span class="nv">part_ip</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">str</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">3</span>].<span class="nv">text</span><span class="ss">)</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">.</span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="mi">1</span>]<span class="ss">)</span>
+                <span class="nv">earned_runs</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">6</span>].<span class="nv">text</span><span class="ss">)</span>
+        <span class="nv">except</span> <span class="nv">Exception</span> <span class="nv">as</span> <span class="nv">e</span>:
+            <span class="nv">pass</span>
+</code></pre></div>
+
+<p>This is basically a rehash of what I did for my Passer scraping (<a href="https://www.ryancheley.com/blog/2016/11/17/web-scrapping">here</a>, <a href="https://www.ryancheley.com/blog/2016/11/18/web-scrapping-passer-data-part-ii">here</a>, and <a href="https://www.ryancheley.com/blog/2016/11/19/web-scrapping-passer-data-part-iii">here</a>).</p>
+<p>This proved a useful starting point, but unlike the NFL data on ESPN which has pre- and regular season breaks, the MLB data on ESPN has monthly breaks, like this:</p>
+<div class="highlight"><pre><span></span><code>Regular Season Games through October 2, 2016
+DATE
+Oct 1
+Monthly Totals
+DATE
+Sep 24
+Sep 19
+Sep 14
+Sep 9
+Monthly Totals
+DATE
+Jun 26
+Jun 20
+Jun 15
+Jun 10
+Jun 4
+Monthly Totals
+DATE
+May 29
+May 23
+May 17
+May 12
+May 7
+May 1
+Monthly Totals
+DATE
+Apr 26
+Apr 21
+Apr 15
+Apr 9
+Apr 4
+Monthly Totals
+</code></pre></div>
+
+<p>However, all I wanted was the lines that correspond to <code>columns[0].text</code> with actual dates like 'Apr 21'.</p>
+<p>In reviewing how the dates were being displayed it was basically '%b %D', i.e. May 12, Jun 4, etc. This is great because it means I want 3 letters and then a space and nothing else. Turns out, Regular Expressions are great for stuff like this!</p>
+<p>After a bit of <a href="https://www.google.com">Googling</a> I got what I was looking for:</p>
+<div class="highlight"><pre><span></span><code>re.match(&#39;[a-zA-Z]{3}\s&#39;, columns[0].text)
+</code></pre></div>
+
+<p>To get my regular expression and then just add an <code>if</code> in front and call it good!</p>
+<p>The only issue was that as I ran it in testing, I kept getting no return data. What I didn't realize is that returns a <code>NoneType</code> when it's false. Enter more Googling and I see that in order for the <code>if</code> to work I have to add the <code>is not None</code> which leads to results that I wanted:</p>
+<div class="highlight"><pre><span></span><code>Oct 22
+Oct 16
+Oct 13
+Oct 11
+Oct 7
+Oct 1
+Sep 24
+Sep 19
+Sep 14
+Sep 9
+Jun 26
+Jun 20
+Jun 15
+Jun 10
+Jun 4
+May 29
+May 23
+May 17
+May 12
+May 7
+May 1
+Apr 26
+Apr 21
+Apr 15
+Apr 9
+Apr 4
+</code></pre></div>
+
+<p>The next part of the transformation is to convert to a date so I can sort on it (and display it properly) later.</p>
+<p>With all of the data I need, I put the columns into a <code>Dictionary</code>:</p>
+<div class="highlight"><pre><span></span><code>dic = {&#39;date&#39;: date_pitched, &#39;Full_IP&#39;: full_ip, &#39;Partial_IP&#39;: part_ip, &#39;ER&#39;: earned_runs}
+</code></pre></div>
+
+<p>and then into a <code>DataFrame</code>:</p>
+<div class="highlight"><pre><span></span><code>games = pd.DataFrame(dic)
+</code></pre></div>
+
+<p>and apply some manipulations to the <code>DataFrame</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">games</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">games</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="o">[</span><span class="n">&#39;date&#39;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">ascending</span><span class="o">=[</span><span class="n">True</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<span class="n">games</span><span class="o">[</span><span class="n">[&#39;Full_IP&#39;,&#39;Partial_IP&#39;, &#39;ER&#39;</span><span class="o">]</span><span class="err">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">games</span><span class="o">[</span><span class="n">[&#39;Full_IP&#39;,&#39;Partial_IP&#39;, &#39;ER&#39;</span><span class="o">]</span><span class="err">]</span><span class="p">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="n">to_numeric</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Now to apply some Baseball math to get the Earned Run Average:</p>
+<div class="highlight"><pre><span></span><code>games[&#39;IP&#39;] = games.Full_IP + games.Partial_IP/3
+games[&#39;GERA&#39;] = games.ER/games.IP*9
+games[&#39;CIP&#39;] = games.IP.cumsum()
+games[&#39;CER&#39;] = games.ER.cumsum()
+games[&#39;ERA&#39;] = games.CER/games.CIP*9
+</code></pre></div>
+
+<p>In the next part of Dr. Drang's post he writes a custom function to help create moving averages. It looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">rera</span><span class="ss">(</span><span class="nv">games</span>, <span class="nv">row</span><span class="ss">)</span>:
+    <span class="k">if</span> <span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nv">games</span>:
+        <span class="nv">ip</span> <span class="o">=</span> <span class="nv">df</span>.<span class="nv">IP</span>[:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+        <span class="nv">er</span> <span class="o">=</span> <span class="nv">df</span>.<span class="nv">ER</span>[:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+    <span class="k">else</span>:
+        <span class="nv">ip</span> <span class="o">=</span> <span class="nv">df</span>.<span class="nv">IP</span>[<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="nv">games</span>:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+        <span class="nv">er</span> <span class="o">=</span> <span class="nv">df</span>.<span class="nv">ER</span>[<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="nv">games</span>:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+    <span class="k">return</span> <span class="nv">er</span><span class="o">/</span><span class="nv">ip</span><span class="o">*</span><span class="mi">9</span>
+</code></pre></div>
+
+<p>The only problem with it is I called my <code>DataFrame</code> <code>games</code>, not <code>df</code>. Simple enough, I'll just replace <code>df</code> with <code>games</code> and call it a day, right? Nope:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">rera</span><span class="ss">(</span><span class="nv">games</span>, <span class="nv">row</span><span class="ss">)</span>:
+    <span class="k">if</span> <span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nv">games</span>:
+        <span class="nv">ip</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">IP</span>[:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+        <span class="nv">er</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">ER</span>[:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+    <span class="k">else</span>:
+        <span class="nv">ip</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">IP</span>[<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="nv">games</span>:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+        <span class="nv">er</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">ER</span>[<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="nv">games</span>:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+    <span class="k">return</span> <span class="nv">er</span><span class="o">/</span><span class="nv">ip</span><span class="o">*</span><span class="mi">9</span>
+</code></pre></div>
+
+<p>When I try to run the code I get errors. Lots of them. This is because while i made sure to update the <code>DataFrame</code> name to be correct I overlooked that the function was using a parameter called <code>games</code> and <code>Python</code> got a bit confused about what was what.</p>
+<p>OK, round two, replace the paramater <code>games</code> with <code>games_t</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">def</span> <span class="nv">rera</span><span class="ss">(</span><span class="nv">games_t</span>, <span class="nv">row</span><span class="ss">)</span>:
+    <span class="k">if</span> <span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nv">games_t</span>:
+        <span class="nv">ip</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">IP</span>[:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+        <span class="nv">er</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">ER</span>[:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+    <span class="k">else</span>:
+        <span class="nv">ip</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">IP</span>[<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="nv">games_t</span>:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+        <span class="nv">er</span> <span class="o">=</span> <span class="nv">games</span>.<span class="nv">ER</span>[<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="nv">games_t</span>:<span class="nv">row</span>.<span class="nv">name</span><span class="o">+</span><span class="mi">1</span>].<span class="nv">sum</span><span class="ss">()</span>
+    <span class="k">return</span> <span class="nv">er</span><span class="o">/</span><span class="nv">ip</span><span class="o">*</span><span class="mi">9</span>
+</code></pre></div>
+
+<p>No more errors! Now we calculate the 3- and 4-game moving averages:</p>
+<div class="highlight"><pre><span></span><code>era4 = partial(rera, 4)
+era3 = partial(rera,3)
+</code></pre></div>
+
+<p>and then add them to the <code>DataFrame</code>:</p>
+<div class="highlight"><pre><span></span><code>games[&#39;ERA4&#39;] = games.apply(era4, axis=1)
+games[&#39;ERA3&#39;] = games.apply(era3, axis=1)
+</code></pre></div>
+
+<p>And print out a pretty graph:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">plt</span>.<span class="nv">plot_date</span><span class="ss">(</span><span class="nv">games</span>.<span class="nv">date</span>, <span class="nv">games</span>.<span class="nv">ERA3</span>, <span class="s1">&#39;</span><span class="s">-b</span><span class="s1">&#39;</span>, <span class="nv">lw</span><span class="o">=</span><span class="mi">2</span><span class="ss">)</span>
+<span class="nv">plt</span>.<span class="nv">plot_date</span><span class="ss">(</span><span class="nv">games</span>.<span class="nv">date</span>, <span class="nv">games</span>.<span class="nv">ERA4</span>, <span class="s1">&#39;</span><span class="s">-r</span><span class="s1">&#39;</span>, <span class="nv">lw</span><span class="o">=</span><span class="mi">2</span><span class="ss">)</span>
+<span class="nv">plt</span>.<span class="nv">plot_date</span><span class="ss">(</span><span class="nv">games</span>.<span class="nv">date</span>, <span class="nv">games</span>.<span class="nv">GERA</span>, <span class="s1">&#39;</span><span class="s">.k</span><span class="s1">&#39;</span>, <span class="nv">ms</span><span class="o">=</span><span class="mi">10</span><span class="ss">)</span>
+<span class="nv">plt</span>.<span class="nv">plot_date</span><span class="ss">(</span><span class="nv">games</span>.<span class="nv">date</span>, <span class="nv">games</span>.<span class="nv">ERA</span>, <span class="s1">&#39;</span><span class="s">--k</span><span class="s1">&#39;</span>, <span class="nv">lw</span><span class="o">=</span><span class="mi">2</span><span class="ss">)</span>
+<span class="nv">plt</span>.<span class="k">show</span><span class="ss">()</span>
+</code></pre></div>
+
+<p>Dr. Drang focused on Jake Arrieta (he is a Chicago guy after all), but I thought it was be interested to look at the Graphs for Arrieta and the top 5 finishers in the NL Cy Young Voting (because Clayton Kershaw was 5th place and I'm a Dodgers guy).</p>
+<p>Here is the graph for <a href="http://www.espn.com/mlb/player/gamelog/_/id/30145/jake-arrieta">Jake Arrieata</a>:</p>
+<p><img alt="" class="alignnone size-medium wp-image-177" height="222" src="/images/uploads/2016/11/arrieta-300x222.png" width="300"></p>
+<p>And here are the graphs for the top 5 finishers in Ascending order in the <a href="http://bbwaa.com/16-nl-cy/">2016 NL Cy Young voting</a>:</p>
+<p><a href="http://www.espn.com/mlb/player/gamelog/_/id/28976/max-scherzer">Max Scherzer</a> winner of the 2016 NL <a href="https://en.wikipedia.org/wiki/Cy_Young_Award">Cy Young Award</a><br>
+<img alt="" class="alignnone size-medium wp-image-178" height="229" src="/images/uploads/2016/11/scherzer-300x229.png" width="300"></p>
+<p><a href="http://www.espn.com/mlb/player/gamelog/_/id/28487/jon-lester">Jon Lester</a><br>
+<img alt="" class="alignnone size-medium wp-image-182" height="223" src="/images/uploads/2016/11/lester-300x223.png" width="300"></p>
+<p><a href="http://www.espn.com/mlb/player/gamelog/_/id/33173/kyle-hendricks">Kyle Hendricks</a><br>
+<img alt="" class="alignnone size-medium wp-image-179" height="225" src="/images/uploads/2016/11/hendricks-300x225.png" width="300"></p>
+<p><a href="http://www.espn.com/mlb/player/gamelog/_/id/29949/madison-bumgarner">Madison Bumgarner</a><br>
+<img alt="" class="alignnone size-medium wp-image-180" height="232" src="/images/uploads/2016/11/bumgarner-300x232.png" width="300"></p>
+<p><a href="http://www.espn.com/mlb/player/gamelog/_/id/28963/clayton-kershaw">Clayton Kershaw</a>:</p>
+<p><img alt="" class="alignnone size-medium wp-image-176" height="232" src="/images/uploads/2016/11/kershaw-300x232.png" width="300"></p>
+<p>I've not spent much time analyzing the data, but I'm sure that it says <em>something</em>. At the very least, it got me to wonder, 'How many 0 ER games did each pitcher pitch?'</p>
+<p>I also noticed that the stats include the playoffs (which I wasn't intending). Another thing to look at later.</p>
+<p>Legend:</p>
+<ul>
+<li>Black Dot - ERA on Date of Game</li>
+<li>Black Solid Line - Cummulative ERA</li>
+<li>Blue Solid Line - 3-game trailing average ERA</li>
+<li>Red Solid Line - 4-game trailing average ERA</li>
+</ul>
+<p>Full code can be found on my <a href="https://www.github.com/miloardot">Github Repo</a></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

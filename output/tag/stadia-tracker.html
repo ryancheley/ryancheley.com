@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - Stadia Tracker</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/my-first-project-after-completing-the-100-days-of-web-in-python.html">My first project after completing the 100 Days of Web in Python</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-08-31T14:14:00+02:00">
+                Published: Sat 31 August 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/django.html">django</a> <a href="/tag/heroku.html">Heroku</a> <a href="/tag/stadia-tracker.html">Stadia Tracker</a> </p>
+</footer><!-- /.post-info --><p>As I mentioned in my last post, after completing the 100 Days of Web in Python I was moving forward with a Django app I wrote.</p>
+<p>I pushed up my first version to Heroku on August 24. At that point it would allow users to add a game that they had seen, but when it disaplyed the games it would show a number (the game’s ID) instead of anything useful.</p>
+<p>A few nights ago (Aug 28) I committed a version which allows the user to see which game they add, i.e. there are actual human readable details versus just a number!</p>
+<p>The page can be found <a href="https://www.stadiatracker.com">here</a>. It feels really good to have it up in a place where people can actually see it. That being said I discovered a a couple of things on the publish that I’d like to fix.</p>
+<p>I have a method that returns details about the game. One problem is that if any of the elements return <code>None</code> then the front page returns a Server 500 error ... this is not good.</p>
+<p>It took a bit of googling to see what the issue was. The way I found the answer was to see an idea to turn Debug to True on my ‘prod’ server and see the output. That helped me identify the issue.</p>
+<p>To ‘fix’ it in the short term I just deleted all of the data for the games seen in the database.</p>
+<p>I’m glad that it happened because it taught me some stuff that I knew I needed to do, but maybe didn’t pay enough attention to ... like writing unit tests.</p>
+<p>Based on that experience I wrote out a roadmap of sorts for the updates I want to get into the app:</p>
+<ul>
+<li>Tests for all classes and methods</li>
+<li>Ability to add minor league games</li>
+<li>Create a Stadium Listing View</li>
+<li>More robust search tool that allows a single team to be selected</li>
+<li>Logged in user view for only their games</li>
+<li>Create a List View of games logged per stadium</li>
+<li>Create a List View of attendees (i.e. users) at games logged</li>
+<li>Add more user features:<ul>
+<li>Ability to add a picture</li>
+<li>Ability to add Twitter handle</li>
+<li>Ability to add Instagram handle</li>
+<li>Ability to add game notes</li>
+</ul>
+</li>
+<li>Create a Heroku Pipeline to ensure that pushes to PROD are done through a UAT site</li>
+<li>Create a blog (as a pelican standalone sub domain)</li>
+</ul>
+<p>It’s a lot of things but I’ve already done some things that I wanted to:</p>
+<ul>
+<li>Added SSL</li>
+<li>Set up to go to actual domain instead of Heroku subdomain</li>
+</ul>
+<p>I’ll write up how I did the set up for the site so I can do it again. It’s not well documented when your registrar is Hover and you’ve got your site on Heroku. Man ... it was an tough.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

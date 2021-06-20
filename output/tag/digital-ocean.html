@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - digital ocean</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/how-does-my-django-site-connect-to-the-internet-anyway.html">How does my Django site connect to the internet anyway?</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-05-31T12:49:00+02:00">
+                Published: Mon 31 May 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/django.html">django</a> <a href="/tag/nginx.html">nginx</a> </p>
+</footer><!-- /.post-info --><p>I created a Django site to troll my cousin Barry who is a big <a href="https://www.mlb.com/padres" title="San Diego Padres">San Diego Padres</a> fan. Their Shortstop is a guy called <a href="https://www.baseball-reference.com/players/t/tatisfe02.shtml" title="Fernando “Error Maker” Tatis Jr.">Fernando Tatis Jr.</a> and he’s really good. Like <strong>really</strong> good. He’s also young, and arrogant, and is everything an old dude like me doesn’t like about the ‘new generation’ of ball players that are changing the way the game is played.</p>
+<p>In all honesty though, it’s fun to watch him play (anyone but the Dodgers).</p>
+<p>The thing about him though, is that while he’s really good at the plate, he’s less good at playing defense. He currently leads the league in errors. Not just for all shortstops, but for ALL players!</p>
+<p>Anyway, back to the point. I made this Django site call <a href="https://www.doestatisjrhaveanerrortoday.com" title="Not Yet">Does Tatis Jr Have an Error Today?</a>It is a simple site that only does one thing ... tells you if Tatis Jr has made an error today. If he hasn’t, then it says <code>No</code>, and if he has, then it says <code>Yes</code>.</p>
+<p>It’s a dumb site that doesn’t do anything else. At all.</p>
+<p>But, what it did do was lead me down a path to answer the question, “How does my site connect to the internet anyway?”</p>
+<p>Seems like a simple enough question to answer, and it is, but it wasn’t really what I thought when I started.</p>
+<h2>How it works</h2>
+<p>I use a MacBook Pro to work on the code. I then deploy it to a Digital Ocean server using GitHub Actions. But they say, a picture is worth a thousand words, so here's a chart of the workflow:</p>
+<p><img alt="Workflow" src="https://raw.githubusercontent.com/ryancheley/tatis/main/custom_resources/workflow.png"></p>
+<p>This shows the development cycle, but that doesn’t answer the question, how does the site connect to the internet!</p>
+<p>How is it that when I go to the site, I see anything? I thought I understood it, and when I tried to actually draw it out, turns out I didn't!</p>
+<p>After a bit of Googling, I found <a href="https://serverfault.com/a/331263" title="How does Gunicorn interact with NgInx?">this</a> and it helped me to create this:</p>
+<p><img alt="" src="https://raw.githubusercontent.com/ryancheley/tatis/main/custom_resources/internal_working.png"></p>
+<p>My site runs on an Ubuntu 18.04 server using Nginx as proxy server. Nginx determines if the request is for a static asset (a css file for example) or dynamic one (something served up by the Django App, like answering if Tatis Jr. has an error today).</p>
+<p>If the request is static, then Nginx just gets the static data and server it. If it’s dynamic data it hands off the request to Gunicorn which then interacts with the Django App.</p>
+<p>So, what actually handles the HTTP request? From the <a href="https://serverfault.com/a/331263">serverfault.com answer above</a>:</p>
+<blockquote>
+<p>[T]he simple answer is Gunicorn. The complete answer is both Nginx and Gunicorn handle the request. Basically, Nginx will receive the request and if it's a dynamic request (generally based on URL patterns) then it will give that request to Gunicorn, which will process it, and then return a response to Nginx which then forwards the response back to the original client.</p>
+</blockquote>
+<p>In my head, I thought that Nginx was ONLY there to handle the static requests (and it is) but I wasn’t clean on how dynamic requests were handled ... but drawing this out really made me stop and ask, “Wait, how DOES that actually work?”</p>
+<p>Now I know, and hopefully you do to!</p>
+<h2>Notes:</h2>
+<p>These diagrams are generated using the amazing library <a href="https://github.com/mingrammer/diagrams" title="Diagrams">Diagrams</a>. The code used to generate them is <a href="https://github.com/ryancheley/tatis/blob/main/generate_diagram.py">here</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/setting-up-multiple-django-sites-on-a-digital-ocean-server.html" rel="bookmark"
+                           title="Permalink to Setting up multiple Django Sites on a Digital Ocean server">Setting up multiple Django Sites on a Digital Ocean server</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-03-07T12:00:00+01:00">
+                Published: Sun 07 March 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/series.html">series</a> </p>
+</footer><!-- /.post-info -->                <p>If you want to have more than 1 Django site on a single server, you can. It’s not too hard, and using the Digital Ocean tutorial as a starting point, you can get there.</p>
+<p>Using <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-18-04">this tutorial</a> as a start, we set up so that there are multiple Django …</p>
+                <a class="readmore" href="/setting-up-multiple-django-sites-on-a-digital-ocean-server.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/automating-the-deployment.html" rel="bookmark"
+                           title="Permalink to Automating the deployment">Automating the deployment</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-02-21T12:00:00+01:00">
+                Published: Sun 21 February 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/deployment.html">Deployment</a> <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/series.html">series</a> </p>
+</footer><!-- /.post-info -->                <p>We got everything set up, and now we want to automate the deployment.</p>
+<p>Why would we want to do this you ask? Let’s say that you’ve decided that you need to set up a test version of your site (what some might call UAT) on a new server …</p>
+                <a class="readmore" href="/automating-the-deployment.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/preparing-the-code-for-deployment-to-digital-ocean.html" rel="bookmark"
+                           title="Permalink to Preparing the code for deployment to Digital Ocean">Preparing the code for deployment to Digital Ocean</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-02-14T12:00:00+01:00">
+                Published: Sun 14 February 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/deployment.html">Deployment</a> <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/series.html">series</a> </p>
+</footer><!-- /.post-info -->                <p>OK, we’ve got our server ready for our Django App. We set up Gunicorn and Nginx. We created the user which will run our app and set up all of the folders that will be needed.</p>
+<p>Now, we work on deploying the code!</p>
+<h2>Deploying the Code</h2>
+<p>There are 3 …</p>
+                <a class="readmore" href="/preparing-the-code-for-deployment-to-digital-ocean.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/getting-your-domain-to-point-to-digital-ocean-your-server.html" rel="bookmark"
+                           title="Permalink to Getting your Domain to point to Digital Ocean Your Server">Getting your Domain to point to Digital Ocean Your Server</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-02-07T12:00:00+01:00">
+                Published: Sun 07 February 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/web.html">Web</a>.</p>
+<p>tags: <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/series.html">series</a> <a href="/tag/server.html">server</a> <a href="/tag/setup.html">setup</a> </p>
+</footer><!-- /.post-info -->                <p>I use Hover for my domain purchases and management. Why? Because they have a clean, easy to use, not-slimy interface, and because I listed to enough Tech Podcasts that I’ve drank the Kool-Aid.</p>
+<p>When I was trying to get my Hover Domain to point to my Digital Ocean server …</p>
+                <a class="readmore" href="/getting-your-domain-to-point-to-digital-ocean-your-server.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/logging-in-a-django-app.html" rel="bookmark"
+                           title="Permalink to Logging in a Django App">Logging in a Django App</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2020-10-21T17:39:00+02:00">
+                Published: Wed 21 October 2020
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/django.html">django</a> </p>
+</footer><!-- /.post-info -->                <p>Per the <a href="https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-ADMINS">Django Documentation</a> you can set up</p>
+<blockquote>
+<p>A list of all the people who get code error notifications. When DEBUG=False and AdminEmailHandler is configured in LOGGING (done by default), Django emails these people the details of exceptions raised in the request/response cycle.</p>
+</blockquote>
+<p>In order to set this …</p>
+                <a class="readmore" href="/logging-in-a-django-app.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/making-it-easy-to-ssh-into-a-remote-server.html" rel="bookmark"
+                           title="Permalink to Making it easy to ssh into a remote server">Making it easy to ssh into a remote server</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-05-05T12:54:00+02:00">
+                Published: Sat 05 May 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/raspberry-pi.html">Raspberry Pi</a>.</p>
+<p>tags: <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/linux.html">linux</a> <a href="/tag/remote-servers.html">Remote servers</a> <a href="/tag/ssh.html">SSH</a> <a href="/tag/terminal.html">Terminal</a> </p>
+</footer><!-- /.post-info -->                <p>Logging into a remote server is a drag. Needing to remember the password (or get it from <a href="https://1password.com">1Password</a>); needing to remember the IP address of the remote server. Ugh.</p>
+<p>It’d be so much easier if I could just</p>
+<div class="highlight"><pre><span></span><code><span class="n">ssh</span><span class="w"> </span><span class="n">username</span><span class="nv">@servername</span><span class="w"></span>
+</code></pre></div>
+
+<p>and get into the server.</p>
+<p>And it turns …</p>
+                <a class="readmore" href="/making-it-easy-to-ssh-into-a-remote-server.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

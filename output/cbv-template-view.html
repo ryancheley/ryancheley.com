@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>CBV - Template View</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="From Classy Class Based Views the TemplateView will Render a template. Pass keyword arguments from the URLconf to the context. It is an extended..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li class="active"><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/cbv-template-view.html" rel="bookmark"
+           title="Permalink to CBV - Template View">CBV - Template View</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-11-03T10:00:00+01:00">
+                Published: Sun 03 November 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/cbv.html">CBV</a> <a href="/tag/class-based-views.html">class based views</a> <a href="/tag/django.html">django</a> </p>
+</footer><!-- /.post-info -->      <p>From <a href="http://ccbv.co.uk/projects/Django/2.2/django.views.generic.base/TemplateView/">Classy Class Based Views</a> the <code>TemplateView</code> will</p>
+<blockquote>
+<blockquote>
+<p>Render a template. Pass keyword arguments from the URLconf to the context.</p>
+</blockquote>
+</blockquote>
+<p>It is an extended version of the <code>View</code> CBV with the the <code>ContextMixin</code> and the <code>TemplateResponseMixin</code> added to it.</p>
+<p>It has several attributes that can be set</p>
+<ul>
+<li>content_type: will allow you to define the MIME type that the page will return. The default is <code>DEFAULT\_CONTENT\_TYPE</code> but can be overridden with this attribute.</li>
+<li>extra_context: this can be used as a keyword argument in the <code>as\_view()</code> but not in the class of the CBV. Adding it there will do nothing</li>
+<li>http_method_name: derived from <code>View</code> and has the same definition</li>
+<li>response_classes: The response class to be returned by render_to_response method it defaults to a TemplateResponse. See below for further discussion</li>
+<li>template_engine: can be used to specify which template engine to use IF you have configured the use of multiple template engines in your <code>settings.py</code> file. See the <a href="https://docs.djangoproject.com/en/2.2/topics/templates/#usage">Usage</a> section of the Django Documentation on Templates</li>
+<li>template_name: this attribute is required IF the method <code>get\_template\_names()</code> is not used.</li>
+</ul>
+<h2>More on <code>response_class</code></h2>
+<p>This confuses the ever living crap out of me. The best (only) explanation I have found is by GitHub user <code>spapas</code> in his article <a href="https://spapas.github.io/2014/09/15/django-non-html-responses/#rendering-to-non-html">Django non-HTML responses</a>:</p>
+<blockquote>
+<blockquote>
+<p>From the previous discussion we can conclude that if your non-HTML response needs a template then you just need to create a subclass of TemplateResponse and assign it to the response<em>class attribute (and also change the content</em>type attribute). On the other hand, if your non-HTML respond does not need a template to be rendered then you have to override render<em>to</em>response completely (since the template parameter does not need to be passed now) and either define a subclass of HttpResponse or do the rendering in the render<em>to</em>response.</p>
+</blockquote>
+</blockquote>
+<p>Basically, if you ever want to use a non-HTML template you’d set this attribute, but it seems available mostly as a ‘just-in-case’ and not something that’s used every day.</p>
+<p>My advise … just leave it as is.</p>
+<h2>When to use the <code>get</code> method</h2>
+<p>An answer which makes sense to me that I found on <a href="https://stackoverflow.com/questions/35824904/django-view-get-context-data-vs-get">StackOverflow</a> was (slightly modified to make it more understandable)</p>
+<blockquote>
+<blockquote>
+<p>if you need to have data available every time, use get_context_data(). If you need the data only for a specific request method (eg. in get), then put it in get.</p>
+</blockquote>
+</blockquote>
+<h2>When to use the <code>get_template_name</code> method</h2>
+<p>This method allows you to easily change a template being used based on values passed through GET.</p>
+<p>This can be helpful if you want to have one template for a super user and another template for a basic user. This helps to keep business logic out of the template and in the view where it belongs.</p>
+<p>This can also be useful if you want to specify several possible templates to use. A list is passed and Django will work through that list from the first element to the last until it finds a template that exists and render it.</p>
+<p>If you don’t specify template_name you have to use this method.</p>
+<h2>When to use the <code>get_context_data</code> method</h2>
+<p>See above in the section When to use the <code>get</code> method</p>
+<h2>Diagram</h2>
+<p>A visual representation of how <code>TemplateView</code> derives from <code>View</code> ^<a class="footnote" href="#fn1" id="ffn1">1</a>^</p>
+<p><img alt="" src="https://yuml.me/diagram/plain;/class/%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D.svg"></p>
+<h2>Conclusion</h2>
+<p>If you want to roll your own CBV because you have a super specific use case, starting at the <code>TemplateView</code> is going to be a good place to start. However, you may find that there is already a view that is going to do what you need it to. Writing your own custom implementation of <code>TemplateView</code> may be a waste of time <strong>IF</strong> you haven’t already verified that what you need isn’t already there.</p>
+<ol>
+<li>[Original Source from Classy Class Based Views <a href="#ffn1">↩</a>]{#fn1}</li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

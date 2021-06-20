@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Place on the Internet - Web</title><link href="https://www.ryancheley.com/" rel="alternate"></link><link href="https://www.ryancheley.com/feeds/web.atom.xml" rel="self"></link><id>https://www.ryancheley.com/</id><updated>2021-02-07T12:00:00+01:00</updated><entry><title>Getting your Domain to point to Digital Ocean Your Server</title><link href="https://www.ryancheley.com/getting-your-domain-to-point-to-digital-ocean-your-server.html" rel="alternate"></link><published>2021-02-07T12:00:00+01:00</published><updated>2021-02-07T12:00:00+01:00</updated><author><name>ryan</name></author><id>tag:www.ryancheley.com,2021-02-07:/getting-your-domain-to-point-to-digital-ocean-your-server.html</id><summary type="html">&lt;p&gt;I use Hover for my domain purchases and management. Why? Because they have a clean, easy to use, not-slimy interface, and because I listed to enough Tech Podcasts that I’ve drank the Kool-Aid.&lt;/p&gt;
+&lt;p&gt;When I was trying to get my Hover Domain to point to my Digital Ocean server …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I use Hover for my domain purchases and management. Why? Because they have a clean, easy to use, not-slimy interface, and because I listed to enough Tech Podcasts that I’ve drank the Kool-Aid.&lt;/p&gt;
+&lt;p&gt;When I was trying to get my Hover Domain to point to my Digital Ocean server it seemed much harder to me than it needed to be. Specifically, I couldn’t find any guide on doing it! Many of the tutorials I did find were basically like, it’s all the same. We’ll show you with GoDaddy and then you can figure it out.&lt;/p&gt;
+&lt;p&gt;Yes, I can figure it out, but it wasn’t as easy as it could have been. That’s why I’m writing this up.&lt;/p&gt;
+&lt;h2&gt;Digital Ocean&lt;/h2&gt;
+&lt;p&gt;From Droplet screen click ‘Add a Domain’&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;lt;figure class=&amp;quot;aligncenter&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img alt="" class="wp-image-470" src="/images/uploads/2021/02/DraggedImage.png"&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Add 2 ‘A’ records (one for www and one without the www)&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" class="wp-image-469" src="/images/uploads/2021/02/DraggedImage-1.png"&gt;&lt;/p&gt;
+&lt;p&gt;Make note of the name servers&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" class="wp-image-471" src="/images/uploads/2021/02/DraggedImage-2.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Hover&lt;/h2&gt;
+&lt;p&gt;In your account at Hover.com change your Name Servers to Point to Digital Ocean ones from above.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" class="wp-image-468" src="/images/uploads/2021/02/DraggedImage-3.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Wait&lt;/h2&gt;
+&lt;p&gt;DNS … does anyone &lt;em&gt;really&lt;/em&gt; know how it works?^&lt;a class="footnote" href="#fn1" id="ffn1"&gt;1&lt;/a&gt;^ I just know that sometimes when I make a change it’s out there almost immediately for me, and sometimes it takes hours or days.&lt;/p&gt;
+&lt;p&gt;At this point, you’re just going to potentially need to wait. Why? Because DNS that’s why. Ugh!&lt;/p&gt;
+&lt;h2&gt;Setting up directory structure&lt;/h2&gt;
+&lt;p&gt;While we’re waiting for the DNS to propagate, now would be a good time to set up some file structures for when we push our code to the server.&lt;/p&gt;
+&lt;p&gt;For my code deploy I’ll be using a user called &lt;code&gt;burningfiddle&lt;/code&gt;. We have to do two things here, create the user, and add them to the &lt;code&gt;www-data&lt;/code&gt; user group on our Linux server.&lt;/p&gt;
+&lt;p&gt;We can run these commands to take care of that:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;adduser --disabled-password --gecos &amp;quot;&amp;quot; yoursite
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The first line will add the user with no password and disable them to be able to log in until a password has been set. Since this user will NEVER log into the server, we’re done with the user creation piece!&lt;/p&gt;
+&lt;p&gt;Next, add the user to the proper group&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;adduser yoursite www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we have a user and they’ve been added to the group we need them to be added. In creating the user, we also created a directory for them in the &lt;code&gt;home&lt;/code&gt; directory called &lt;code&gt;yoursite&lt;/code&gt;. You should now be able to run this command without error&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ls /home/yoursite/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If that returns an error indicating no such directory, then you may not have created the user properly.&lt;/p&gt;
+&lt;p&gt;Now we’re going to make a directory for our code to be run from.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;mkdir /home/yoursite/yoursite
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To run our Django app we’ll be using virtualenv. We can create our virtualenv directory by running this command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;python3 -m venv /home/yoursite/venv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Configuring Gunicorn&lt;/h2&gt;
+&lt;p&gt;There are two files needed for Gunicorn to run:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gunicorn.socket&lt;/li&gt;
+&lt;li&gt;gunicorn.service  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For our setup, this is what they look like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Unit&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Socket&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;ListenStream&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Install&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sockets&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;service&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Unit&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;daemon&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Requires&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;socket&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;After&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Service&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;User&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;yoursite&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;EnvironmentFile&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;environment&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;Group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;data&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;WorkingDirectory&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yoursite&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yoursite&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yoursite&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;venv&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;access&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;logfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;workers&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;bind&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;unix&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="n"&gt;yoursite&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nl"&gt;wsgi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;application&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Install&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;WantedBy&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;multi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For more on the details of the sections in both &lt;code&gt;gunicorn.service&lt;/code&gt; and &lt;code&gt;gunicorn.socket&lt;/code&gt; see this &lt;a href="https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files" title="Understanding systemd units and unit files"&gt;article&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Environment Variables&lt;/h2&gt;
+&lt;p&gt;The only environment variables we have to worry about here (since we’re using SQLite) are the DJANGO_SECRET_KEY and DJANGO_DEBUG&lt;/p&gt;
+&lt;p&gt;We’ll want to edit &lt;code&gt;/etc/environment&lt;/code&gt; with our favorite editor (I’m partial to &lt;code&gt;vim&lt;/code&gt; but use whatever you like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;vim /etc/environment
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In this file you’ll add your DJANGO_SECRET_KEY and DJANGO_DEBUG. The file will look something like this once you’re done:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;PATH=&amp;quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&amp;quot;
+DJANGO_SECRET_KEY=my_super_secret_key_goes_here
+DJANGO_DEBUG=False
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Setting up Nginx&lt;/h2&gt;
+&lt;p&gt;Now we need to create our &lt;code&gt;.conf&lt;/code&gt; file for Nginx. The file needs to be placed in &lt;code&gt;/etc/nginx/sites-available/$sitename&lt;/code&gt; where &lt;code&gt;$sitename&lt;/code&gt; is the name of your site. &lt;a href="#" title="In my case I'm leaving off the tld but you could just as easily name it with the tld"&gt;fn&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The final file will look (something) like this &lt;a href="#" title="Note that my site is called yoursite in this example"&gt;fn&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;listen&lt;/span&gt; &lt;span class="err"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;server_name&lt;/span&gt; &lt;span class="err"&gt;www.yoursite.com&lt;/span&gt; &lt;span class="err"&gt;yoursite.com&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="err"&gt;location&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;/favicon.ico&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt; &lt;span class="err"&gt;access_log&lt;/span&gt; &lt;span class="err"&gt;off&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="err"&gt;log_not_found&lt;/span&gt; &lt;span class="err"&gt;off&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nt"&gt;static&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;root&lt;/span&gt; &lt;span class="err"&gt;/home/yoursite/yoursite/&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="nt"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;include&lt;/span&gt; &lt;span class="err"&gt;proxy_params&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;proxy_pass&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;unix&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gunicorn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code&gt;.conf&lt;/code&gt; file above tells Nginx to listen for requests to either &lt;code&gt;www.buringfiddle.com&lt;/code&gt; or &lt;code&gt;buringfiddle.com&lt;/code&gt; and then route them to the location &lt;code&gt;/home/yoursite/yoursite/&lt;/code&gt; which is where our files are located for our Django project.&lt;/p&gt;
+&lt;p&gt;With that in place all that’s left to do is to make it enabled by running replacing &lt;code&gt;$sitename&lt;/code&gt; with your file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ln -s /etc/nginx/sites-available/$sitename /etc/nginx/sites-enabled
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;You’ll want to run&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;nginx -t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;to make sure there aren’t any errors. If no errors occur you’ll need to restart Nginx&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;systemctl restart nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The last thing to do is to allow full access to Nginx. You do this by running&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;ufw allow &amp;#39;Nginx Full&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;[Probably just &lt;a href="https://jvns.ca/blog/how-updating-dns-works/"&gt;Julia Evans&lt;/a&gt; &lt;a href="#ffn1"&gt;↩&lt;/a&gt;]{#fn1}&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Web"></category><category term="digital ocean"></category><category term="series"></category><category term="server"></category><category term="setup"></category></entry></feed>

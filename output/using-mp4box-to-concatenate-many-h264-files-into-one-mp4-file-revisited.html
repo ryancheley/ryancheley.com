@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Using MP4Box to concatenate many .h264 files into one MP4 file: revisited</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="In my last post I wrote out the steps that I was going to use to turn a ton of .h264 files into one mp4 file with the use of MP4Box. Before..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li class="active"><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/using-mp4box-to-concatenate-many-h264-files-into-one-mp4-file-revisited.html" rel="bookmark"
+           title="Permalink to Using MP4Box to concatenate many .h264 files into one MP4 file: revisited">Using MP4Box to concatenate many .h264 files into one MP4 file: revisited</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-02-10T15:20:00+01:00">
+                Published: Sat 10 February 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/raspberry-pi.html">Raspberry Pi</a>.</p>
+<p>tags: <a href="/tag/bash.html">Bash</a> <a href="/tag/python.html">python</a> <a href="/tag/shell-script.html">Shell Script</a> </p>
+</footer><!-- /.post-info -->      <p>In my last <a href="/using-mp4box-to-concatenate-many-h264-files-into-one-mp4-file.html">post</a> I wrote out the steps that I was going to use to turn a ton of <code>.h264</code> files into one <code>mp4</code> file with the use of <code>MP4Box</code>.</p>
+<p>Before outlining my steps I said, “The method below works but I’m sure that there is a better way to do it.”</p>
+<p>Shortly after posting that I decided to find that better way. Turns out, ~~it wasn’t really that much more work~~ it was much harder than originally thought.</p>
+<p>The command below is a single line and it will create a text file (com.txt) and then execute it as a bash script:</p>
+<p>~~<code>(echo '#!/bin/sh'; for i in *.h264; do if [ "$i" -eq 1 ]; then echo -n " -add $i"; else echo -n " -cat $i"; fi; done; echo -n " hummingbird.mp4") &gt; /Desktop/com.txt | chmod +x /Desktop/com.txt | ~/Desktop/com.txt</code>~~</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">echo</span><span class="w"> </span><span class="s1">&#39;#!/bin/sh&#39;</span><span class="p">;</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="ss">&quot;MP4Box&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">array</span><span class="o">=</span><span class="p">(</span><span class="err">$</span><span class="p">(</span><span class="n">ls</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">h264</span><span class="p">));</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="err">${!</span><span class="k">array</span><span class="o">[</span><span class="n">@</span><span class="o">]</span><span class="err">}</span><span class="p">;</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="n"> &quot;$index&quot; -eq 1 </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="ss">&quot; -add ${array[index]}&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="ss">&quot; -cat ${array[index]}&quot;</span><span class="p">;</span><span class="w"> </span><span class="n">fi</span><span class="p">;</span><span class="w"> </span><span class="n">done</span><span class="p">;</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="ss">&quot; hummingbird.mp4&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="n">txt</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">chmod</span><span class="w"> </span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+</code></pre></div>
+
+<p>Next you execute the script with</p>
+<div class="highlight"><pre><span></span><code>./com.txt
+</code></pre></div>
+
+<p>OK, but what is it doing? The parentheses surround a set of echo commands that output to com.txt. I’m using a for loop with an if statement. The reason I can’t do a straight for loop is because the first <code>h264</code> file used in <code>MP4Box</code> needs to have the <code>-add</code> flag while all of the others need the <code>-cat</code> flag.</p>
+<p>Once the file is output to the <code>com.txt</code> file (on the Desktop) I pipe it to the <code>chmod +x</code> command to change it’s mode to make it executable.</p>
+<p>Finally, I pipe that to a command to run the file <code>~/Desktop/com.txt</code></p>
+<p>I was pretty stoked when I figured it out and was able to get it to run.</p>
+<p>The next step will be to use it for the hundreds of h264 files that will be output from my hummingbird camera that I just installed today.</p>
+<p>I’ll have a post on that in the next couple of days.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

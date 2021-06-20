@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Debugging Setting up a Django Project</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Normally when I start a new Django project I’ll use the PyCharm setup wizard, but recently I wanted to try out VS Code for a Django project and..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li class="active"><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/debugging-setting-up-a-django-project.html" rel="bookmark"
+           title="Permalink to Debugging Setting up a Django Project">Debugging Setting up a Django Project</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-06-13T11:00:00+02:00">
+                Published: Sun 13 June 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/debugging.html">Debugging</a> <a href="/tag/macos.html">macOS</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>Normally when I start a new Django project I’ll use the PyCharm setup wizard, but recently I wanted to try out VS Code for a Django project and was super stumped when I would get a message like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nl">ERROR</span><span class="p">:</span><span class="nl">root</span><span class="p">:</span><span class="n">code</span> <span class="k">for</span> <span class="n">hash</span> <span class="n">md5</span> <span class="n">was</span> <span class="n">not</span> <span class="n">found</span><span class="p">.</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">147</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">globals</span><span class="p">()[</span><span class="n">__func_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">__get_hash</span><span class="p">(</span><span class="n">__func_name</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">97</span><span class="p">,</span> <span class="k">in</span> <span class="n">__get_builtin_constructor</span>
+    <span class="n">raise</span> <span class="n">ValueError</span><span class="p">(</span><span class="err">&#39;</span><span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="err">&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="nl">ValueError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="n">md5</span>
+<span class="nl">ERROR</span><span class="p">:</span><span class="nl">root</span><span class="p">:</span><span class="n">code</span> <span class="k">for</span> <span class="n">hash</span> <span class="n">sha1</span> <span class="n">was</span> <span class="n">not</span> <span class="n">found</span><span class="p">.</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">147</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">globals</span><span class="p">()[</span><span class="n">__func_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">__get_hash</span><span class="p">(</span><span class="n">__func_name</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">97</span><span class="p">,</span> <span class="k">in</span> <span class="n">__get_builtin_constructor</span>
+    <span class="n">raise</span> <span class="n">ValueError</span><span class="p">(</span><span class="err">&#39;</span><span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="err">&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="nl">ValueError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="n">sha1</span>
+<span class="nl">ERROR</span><span class="p">:</span><span class="nl">root</span><span class="p">:</span><span class="n">code</span> <span class="k">for</span> <span class="n">hash</span> <span class="n">sha224</span> <span class="n">was</span> <span class="n">not</span> <span class="n">found</span><span class="p">.</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">147</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">globals</span><span class="p">()[</span><span class="n">__func_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">__get_hash</span><span class="p">(</span><span class="n">__func_name</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">97</span><span class="p">,</span> <span class="k">in</span> <span class="n">__get_builtin_constructor</span>
+    <span class="n">raise</span> <span class="n">ValueError</span><span class="p">(</span><span class="err">&#39;</span><span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="err">&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="nl">ValueError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="n">sha224</span>
+<span class="nl">ERROR</span><span class="p">:</span><span class="nl">root</span><span class="p">:</span><span class="n">code</span> <span class="k">for</span> <span class="n">hash</span> <span class="n">sha256</span> <span class="n">was</span> <span class="n">not</span> <span class="n">found</span><span class="p">.</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">147</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">globals</span><span class="p">()[</span><span class="n">__func_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">__get_hash</span><span class="p">(</span><span class="n">__func_name</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">97</span><span class="p">,</span> <span class="k">in</span> <span class="n">__get_builtin_constructor</span>
+    <span class="n">raise</span> <span class="n">ValueError</span><span class="p">(</span><span class="err">&#39;</span><span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="err">&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="nl">ValueError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="n">sha256</span>
+<span class="nl">ERROR</span><span class="p">:</span><span class="nl">root</span><span class="p">:</span><span class="n">code</span> <span class="k">for</span> <span class="n">hash</span> <span class="n">sha384</span> <span class="n">was</span> <span class="n">not</span> <span class="n">found</span><span class="p">.</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">147</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">globals</span><span class="p">()[</span><span class="n">__func_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">__get_hash</span><span class="p">(</span><span class="n">__func_name</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">97</span><span class="p">,</span> <span class="k">in</span> <span class="n">__get_builtin_constructor</span>
+    <span class="n">raise</span> <span class="n">ValueError</span><span class="p">(</span><span class="err">&#39;</span><span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="err">&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="nl">ValueError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="n">sha384</span>
+<span class="nl">ERROR</span><span class="p">:</span><span class="nl">root</span><span class="p">:</span><span class="n">code</span> <span class="k">for</span> <span class="n">hash</span> <span class="n">sha512</span> <span class="n">was</span> <span class="n">not</span> <span class="n">found</span><span class="p">.</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">147</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">globals</span><span class="p">()[</span><span class="n">__func_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">__get_hash</span><span class="p">(</span><span class="n">__func_name</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s">&quot;/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">97</span><span class="p">,</span> <span class="k">in</span> <span class="n">__get_builtin_constructor</span>
+    <span class="n">raise</span> <span class="n">ValueError</span><span class="p">(</span><span class="err">&#39;</span><span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="err">&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+<span class="nl">ValueError</span><span class="p">:</span> <span class="n">unsupported</span> <span class="n">hash</span> <span class="n">type</span> <span class="n">sha512</span>
+</code></pre></div>
+
+<p>Here are the steps I was using to get started</p>
+<p>From a directory I wanted to create the project I would set up my virtual environment</p>
+<div class="highlight"><pre><span></span><code>python3 -m venv venv
+</code></pre></div>
+
+<p>And then activate it</p>
+<div class="highlight"><pre><span></span><code>source venv/bin/activate
+</code></pre></div>
+
+<p>Next, I would install Django</p>
+<div class="highlight"><pre><span></span><code>pip install django
+</code></pre></div>
+
+<p>Next, using the <code>startproject</code> command per the <a href="https://docs.djangoproject.com/en/3.2/ref/django-admin/#startproject" title="Start a new Django Project">docs</a> I would</p>
+<div class="highlight"><pre><span></span><code>django-admin startproject my_great_project .
+</code></pre></div>
+
+<p>And get the error message above 🤦🏻‍♂️</p>
+<p>The strangest part about the error message is that it references Python2.7 everywhere … which is odd because I’m in a Python3 virtual environment.</p>
+<p>I did a <code>pip list</code> and got:</p>
+<div class="highlight"><pre><span></span><code>Package    Version
+---------- -------
+asgiref    3.3.4
+Django     3.2.4
+pip        21.1.2
+pytz       2021.1
+setuptools 49.2.1
+sqlparse   0.4.1
+</code></pre></div>
+
+<p>OK … so everything is in my virtual environment. Let’s drop into the REPL and see what’s going on</p>
+<p><img alt="" class="wp-image-506" src="/images/uploads/2021/06/Screen-Shot-2021-06-13-at-7.52.36-AM.png"></p>
+<p>Well, that looks to be OK.</p>
+<p>Next, I checked the contents of my directory using <code>tree -L 2</code></p>
+<div class="highlight"><pre><span></span><code>├── <span class="nv">manage</span>.<span class="nv">py</span>
+├── <span class="nv">my_great_project</span>
+│   ├── <span class="nv">__init__</span>.<span class="nv">py</span>
+│   ├── <span class="nv">settings</span>.<span class="nv">py</span>
+│   ├── <span class="nv">urls</span>.<span class="nv">py</span>
+│   └── <span class="nv">wsgi</span>.<span class="nv">py</span>
+└── <span class="nv">venv</span>
+    ├── <span class="nv">bin</span>
+    ├── <span class="k">include</span>
+    ├── <span class="nv">lib</span>
+    └── <span class="nv">pyvenv</span>.<span class="nv">cfg</span>
+</code></pre></div>
+
+<p>Yep … that looks good too.</p>
+<p>OK, let’s go look at the installed packages for Python 2.7 then. On macOS they’re installed at</p>
+<div class="highlight"><pre><span></span><code>/usr/local/lib/python2.7/site-packages
+</code></pre></div>
+
+<p>Looking in there and I see that Django is installed.</p>
+<p>OK, let’s use pip to uninstall Django from Python2.7, except that <code>pip</code> gives essentially the same result as running the <code>django-admin</code> command.</p>
+<p>OK, let’s just remove it manually. After a bit of googling I found this <a href="https://stackoverflow.com/a/8146552">Stackoverflow</a> answer on how to remove the offending package (which is what I assumed would be the answer, but better to check, right?)</p>
+<p>After removing the <code>Django</code> install from Python 2.7 and running <code>django-admin --version</code> I get</p>
+<p><img alt="" class="wp-image-507" src="/images/uploads/2021/06/Screen-Shot-2021-06-13-at-8.05.55-AM.png"></p>
+<p>So I googled that error message and found another answers on <a href="https://stackoverflow.com/a/10756446">Stackoverflow</a> which lead me to look at the <code>manage.py</code> file. When I <code>cat</code> the file I get:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="o">...</span>
+</code></pre></div>
+
+<p>That first line SHOULD be finding the Python executable in my virtual environment, but it’s not.</p>
+<p>Next I googled the error message <code>django-admin code for hash sha384 was not found</code></p>
+<p>Which lead to this <a href="https://stackoverflow.com/a/60575879">Stackoverflow</a> answer. I checked to see if Python2 was installed with brew using</p>
+<div class="highlight"><pre><span></span><code>brew leaves | grep python
+</code></pre></div>
+
+<p>which returned <code>python@2</code></p>
+<p>Based on the answer above, the solution was to uninstall the Python2 that was installed by <code>brew</code>. Now, although <a href="https://www.python.org/doc/sunset-python-2/">Python2 has retired</a>, I was leery of uninstalling it on my system without first verifying that I could remove the brew version without impacting the system version which is needed by macOS.</p>
+<p>Using <code>brew info python@2</code> I determined where <code>brew</code> installed Python2 and compared it to where Python2 is installed by macOS and they are indeed different</p>
+<p>Output of <code>brew info python@2</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">...</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">Cellar</span><span class="o">/</span><span class="n">python</span><span class="mi">@2</span><span class="o">/</span><span class="mf">2.7.15</span><span class="n">_1</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">515</span> <span class="n">files</span><span class="p">,</span> <span class="mf">122.4</span><span class="n">MB</span><span class="p">)</span> <span class="o">*</span>
+  <span class="n">Built</span> <span class="n">from</span> <span class="n">source</span> <span class="n">on</span> <span class="mi">2018-08</span><span class="mo">-05</span> <span class="n">at</span> <span class="mi">15</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mi">23</span>
+<span class="p">...</span>
+</code></pre></div>
+
+<p>Output of <code>which python</code></p>
+<p><code>/usr/bin/python</code></p>
+<p>OK, now we can remove the version of Python2 installed by <code>brew</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">brew</span> <span class="n">uninstall</span> <span class="n">python</span><span class="mi">@2</span>
+</code></pre></div>
+
+<p>Now with all of that cleaned up, lets try again. From a clean project directory:</p>
+<div class="highlight"><pre><span></span><code>python3 -m venv venv
+source venv/bin/activate
+pip install django
+django-admin --version
+</code></pre></div>
+
+<p>The last command returned</p>
+<div class="highlight"><pre><span></span><code><span class="nl">zsh</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">django</span><span class="o">-</span><span class="nl">admin</span><span class="p">:</span> <span class="n">bad</span> <span class="nl">interpreter</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">python</span><span class="mi">@2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">:</span> <span class="n">no</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span>
+<span class="mf">3.2.4</span>
+</code></pre></div>
+
+<p>OK, I can get the version number and it mostly works, but can I create a new project?</p>
+<div class="highlight"><pre><span></span><code>django-admin startproject my_great_project .
+</code></pre></div>
+
+<p>Which returns</p>
+<div class="highlight"><pre><span></span><code><span class="nl">zsh</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">django</span><span class="o">-</span><span class="nl">admin</span><span class="p">:</span> <span class="n">bad</span> <span class="nl">interpreter</span><span class="p">:</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">python</span><span class="mi">@2</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">:</span> <span class="n">no</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span>
+</code></pre></div>
+
+<p>BUT, the project was installed</p>
+<div class="highlight"><pre><span></span><code>├── <span class="nv">db</span>.<span class="nv">sqlite3</span>
+├── <span class="nv">manage</span>.<span class="nv">py</span>
+├── <span class="nv">my_great_project</span>
+│   ├── <span class="nv">__init__</span>.<span class="nv">py</span>
+│   ├── <span class="nv">__pycache__</span>
+│   ├── <span class="nv">asgi</span>.<span class="nv">py</span>
+│   ├── <span class="nv">settings</span>.<span class="nv">py</span>
+│   ├── <span class="nv">urls</span>.<span class="nv">py</span>
+│   └── <span class="nv">wsgi</span>.<span class="nv">py</span>
+└── <span class="nv">venv</span>
+    ├── <span class="nv">bin</span>
+    ├── <span class="k">include</span>
+    ├── <span class="nv">lib</span>
+    └── <span class="nv">pyvenv</span>.<span class="nv">cfg</span>
+</code></pre></div>
+
+<p>And I was able to run it</p>
+<div class="highlight"><pre><span></span><code>python manage.py runserver
+</code></pre></div>
+
+<p><img alt="" class="wp-image-508" src="/images/uploads/2021/06/Screen-Shot-2021-06-13-at-9.01.19-AM.png"></p>
+<p>Success! I’ve still got that last bug to deal with, but that’s a story for a different day!</p>
+<h2>Short Note</h2>
+<p>My initial fix, and my initial draft for this article, was to use the old adage, turn it off and turn it back on. In this case, the implementation would be the <code>deactivate</code> and then re <code>activate</code> the virtual environment and that’s what I’d been doing.</p>
+<p>As I was writing up this article I was hugely influenced by the work of <a href="https://twitter.com/b0rk">Julie Evans</a> and kept asking, “but why?”. She’s been writing a lot of awesome, amazing things, and has several <a href="https://wizardzines.com">zines for purchase</a> that I would highly recommend.</p>
+<p>She’s also generated a few <a href="https://jvns.ca/blog/2021/04/16/notes-on-debugging-puzzles/">debugging ‘games’</a> that are a lot of fun.</p>
+<p>Anyway, thanks Julie for pushing me to figure out the why for this issue.</p>
+<h2>Post Script</h2>
+<p>I figured out the error message above and figured, well, I might as well update the post! I thought it had to do with <code>zsh</code>, but no, it was just more of the same.</p>
+<p>The issue was that Django had been installed in the base Python2 (which I knew). All I had to do was to uninstall it with pip.</p>
+<div class="highlight"><pre><span></span><code>pip uninstall django
+</code></pre></div>
+
+<p>The trick was that pip wasn't working out for me ... it was generating errors. So I had to run the command</p>
+<div class="highlight"><pre><span></span><code>python -m pip uninstall django
+</code></pre></div>
+
+<p>I had to run this AFTER I put the Django folder back into <code>/usr/local/lib/python2.7/site-packages</code> (if you'll recall from above, I removed it from the folder)</p>
+<p>After that clean up was done, everything worked out as expected! I just had to keep digging!</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Web Scrapping - Passer Data (Part II)</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="On a previous post I went through my new found love of Fantasy Football and the rationale behind the 'why' of this particular project. This..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li class="active"><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/web-scrapping-passer-data-part-ii.html" rel="bookmark"
+           title="Permalink to Web Scrapping - Passer Data (Part II)">Web Scrapping - Passer Data (Part II)</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-18T20:27:00+01:00">
+                Published: Fri 18 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/sports.html">Sports</a>.</p>
+<p>tags: <a href="/tag/nfl.html">nfl</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>On a previous post I went through my new found love of Fantasy Football and the rationale behind the 'why' of this particular project. This included getting the team names and their URLs from the <a href="https://www.espn.com">ESPN website</a>.</p>
+<p>As before, let's set up some basic infrastructure to be used later:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">strptime</span>
+
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span> <span class="c1"># allows us to change the year that we are interested in.</span>
+<span class="n">nfl_start_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s1">&#39;http://espn.go.com/nfl/team/schedule/_/name/</span><span class="si">{0}</span><span class="s1">/year/</span><span class="si">{1}</span><span class="s1">/</span><span class="si">{2}</span><span class="s1">&#39;</span> <span class="c1">#URL that we&#39;ll use to cycle through to get the gameid&#39;s (called match_id)</span>
+
+<span class="n">match_id</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">week_id</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">week_date</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">match_result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ha_ind</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">team_list</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div>
+
+<p>Next, we iterate through the <code>teams</code> <code>dictionary</code> that I created yesterday:</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="nv">index</span>, <span class="nv">row</span> <span class="nv">in</span> <span class="nv">teams</span>.<span class="nv">iterrows</span><span class="ss">()</span>:
+    <span class="nv">_team</span>, <span class="nv">url</span> <span class="o">=</span> <span class="nv">row</span>[<span class="s1">&#39;</span><span class="s">team</span><span class="s1">&#39;</span>], <span class="nv">row</span>[<span class="s1">&#39;</span><span class="s">url</span><span class="s1">&#39;</span>]
+    <span class="nv">r</span><span class="o">=</span><span class="nv">requests</span>.<span class="nv">get</span><span class="ss">(</span><span class="nv">BASE_URL</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">row</span>[<span class="s1">&#39;</span><span class="s">prefix_1</span><span class="s1">&#39;</span>], <span class="nv">year</span>, <span class="nv">row</span>[<span class="s1">&#39;</span><span class="s">prefix_2</span><span class="s1">&#39;</span>]<span class="ss">))</span>
+    <span class="nv">table</span> <span class="o">=</span> <span class="nv">BeautifulSoup</span><span class="ss">(</span><span class="nv">r</span>.<span class="nv">text</span>, <span class="s1">&#39;</span><span class="s">lxml</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">table</span>
+    <span class="k">for</span> <span class="nv">row</span> <span class="nv">in</span> <span class="nv">table</span>.<span class="nv">find_all</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">tr</span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="mi">2</span>:]: # <span class="nv">Remove</span> <span class="nv">header</span>
+        <span class="nv">columns</span> <span class="o">=</span> <span class="nv">row</span>.<span class="nv">find_all</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">td</span><span class="s1">&#39;</span><span class="ss">)</span>
+        <span class="nv">try</span>:
+            <span class="k">for</span> <span class="nb">result</span> <span class="nv">in</span> <span class="nv">columns</span>[<span class="mi">3</span>].<span class="nv">find</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">li</span><span class="s1">&#39;</span><span class="ss">)</span>:
+                <span class="nv">match_result</span>.<span class="nv">append</span><span class="ss">(</span><span class="nb">result</span>.<span class="nv">text</span><span class="ss">)</span>
+                <span class="nv">week_id</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">0</span>].<span class="nv">text</span><span class="ss">)</span> #<span class="nv">get</span> <span class="nv">the</span> <span class="nv">week_id</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">games</span> <span class="nv">dictionary</span> <span class="nv">so</span> <span class="nv">I</span> <span class="nv">know</span> <span class="nv">what</span> <span class="nv">week</span> <span class="nv">everything</span> <span class="nv">happened</span>
+                <span class="nv">_date</span> <span class="o">=</span> <span class="nv">date</span><span class="ss">(</span>
+                    <span class="nv">year</span>,
+                    <span class="nv">int</span><span class="ss">(</span><span class="nv">strptime</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">1</span>].<span class="nv">text</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="mi">1</span>], <span class="s1">&#39;</span><span class="s">%b</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">tm_mon</span><span class="ss">)</span>,
+                    <span class="nv">int</span><span class="ss">(</span><span class="nv">columns</span>[<span class="mi">1</span>].<span class="nv">text</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="mi">2</span>]<span class="ss">)</span>
+                <span class="ss">)</span>
+                <span class="nv">week_date</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">_date</span><span class="ss">)</span>
+                <span class="nv">team_list</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">_team</span><span class="ss">)</span>
+                <span class="k">for</span> <span class="nv">ha</span> <span class="nv">in</span> <span class="nv">columns</span>[<span class="mi">2</span>].<span class="nv">find_all</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">li</span><span class="s1">&#39;</span>, <span class="nv">class_</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">game-status</span><span class="s2">&quot;</span><span class="ss">)</span>:
+                    <span class="nv">ha_ind</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">ha</span>.<span class="nv">text</span><span class="ss">)</span>
+            <span class="k">for</span> <span class="nv">link</span> <span class="nv">in</span> <span class="nv">columns</span>[<span class="mi">3</span>].<span class="nv">find_all</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span><span class="ss">)</span>: # <span class="nv">I</span> <span class="nv">realized</span> <span class="nv">here</span> <span class="nv">that</span> <span class="nv">I</span> <span class="nv">didn</span><span class="s1">&#39;</span><span class="s">t need to do the fancy thing from the site I was mimicking http://danielfrg.com/blog/2013/04/01/nba-scraping-data/</span>
+                <span class="nv">match_id</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">link</span>.<span class="nv">get</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">href</span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="o">-</span><span class="mi">9</span>:]<span class="ss">)</span>
+
+        <span class="nv">except</span> <span class="nv">Exception</span> <span class="nv">as</span> <span class="nv">e</span>:
+            <span class="nv">pass</span>
+</code></pre></div>
+
+<p>Again, we set up some variables to be used in the <code>for</code> loop. But I want to really talk about the <code>try</code> portion of my code and the part where the <code>week_date</code> is being calculated.</p>
+<p>Although I've been developing and managing developers for a while, I've not had the need to use a construct like <code>try</code>. (I know, right, weird!)</p>
+<p>The basic premise of the <code>try</code> is that it will execute some code and if it succeeds that code will be executed. If not, it will go to the exception portion. For Python (and maybe other languages, I'm not sure) the exception <strong>MUST</strong> have something in it. In this case, I use Python's <code>pass</code> function, which basically says, 'hey, just forget about doing anything'. I'm not raising any errors here because I don't care if the result is 'bad' I just want to ignore it because there isn't any data I can use.</p>
+<p>The other interesting (or gigantic pain in the a\$\$) thing is that the way <a href="https://www.espn.com">ESPN</a> displays dates on the schedule page is as <code>Day of Week, Month Day</code>, i.e. <code>Sun Sep 11</code>. There is no year. I think this is because for the most part the regular season for an <a href="https://www.nfl.com">NFL</a> is always in the same calendar year. However, this year the last game of the season, in week 17, is in January. Since I'm only getting games that have been played, I'm <em>safe</em> for a couple more weeks, but this will need to be addressed, otherwise the date of the last games of the 2016 season will show as January 2016, instead of January 2017.</p>
+<p>Anyway, I digress. In order to change the displayed date to a date I can actually use is I had to get the necessary function. In order to get that I had to add the following line to my code from yesterday</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">strptime</span>
+</code></pre></div>
+
+<p>This allows me to make some changes to the date (see where <code>_date</code> is being calculated in <code>for result in columns[3].find('li'):</code> portion of the <code>try:</code>.</p>
+<p>One of the things that confused the heck out of me initially was the way the date is being stored in the list <code>week_date</code>. It is in the form <code>datetime.date(2016, 9, 1)</code>, but I was expecting it to be stored as <code>2016-09-01</code>. I did a couple of things to try and <em>fix</em> this, especially because once the list was added to the <code>gamesdic</code> <code>dictionary</code> and then used in the <code>games</code> <code>DataFrame</code> the <code>week_date</code> was then stored as <code>1472688000000</code> which is the milliseconds since Jan 1, 1970 to the date of the game, but it took an embarising amount of <a href="https://www.google.com">Googling</a> to ~~realize~~ discover this.</p>
+<p>With this new discovery, I forged on. The last two things that I needed to do was to create a <code>dictionary</code> to hold my data with all of my columns:</p>
+<div class="highlight"><pre><span></span><code>gamesdic = {&#39;match_id&#39;: match_id, &#39;week_id&#39;: week_id, &#39;result&#39;: match_result, &#39;ha_ind&#39;: ha_ind, &#39;team&#39;: team_list, &#39;match_date&#39;: week_date}
+</code></pre></div>
+
+<p>With dictionary in hand I was able to create a <code>DataFrame</code>:</p>
+<div class="highlight"><pre><span></span><code>games = pd.DataFrame(gamesdic).set_index(&#39;match_id&#39;)
+</code></pre></div>
+
+<p>The line above is frighteningly simple. It's basically saying, hey, take all of the data from the <code>gamesdic</code> <code>dictionary</code> and make the <code>match_id</code> the index.</p>
+<p>To get the first part, see my post <a href="https://www.ryancheley.com/blog/2016/11/17/web-scrapping">Web Scrapping - Passer Data (Part I)</a>.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

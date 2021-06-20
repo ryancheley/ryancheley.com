@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - Terminal</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/keeping-python-up-to-date-on-macos.html">Keeping Python up to date on macOS</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-12-22T04:08:00+01:00">
+                Published: Sat 22 December 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/macos.html">macOS</a> <a href="/tag/python.html">python</a> <a href="/tag/terminal.html">Terminal</a> </p>
+</footer><!-- /.post-info --><p>Sometimes the internet is a horrible, awful, ugly thing. And then other times, it’s exactly what you need.</p>
+<p>I have 2 Raspberry Pi each with different versions of Python. One running python 3.4.2 and the other running Python 3.5.3. I have previously tried to upgrade the version of the Pi running 3.5.3 to a more recent version (in this case 3.6.1) and read 10s of articles on how to do it. It did not go well. Parts seemed to have worked, while others didn’t. I have 3.6.1 installed, but in order to run it I have to issue the command <code>python3.6</code> which is <em>fine</em> but not really what I was looking for.</p>
+<p>For whatever reason, although I do nearly all of my Python development on my Mac, it hadn’t occurred to me to upgrade Python there until last night.</p>
+<p>With a simple Google search the first result came to Stackoverflow (what else?) and <a href="https://apple.stackexchange.com/questions/201612/keeping-python-3-up-to-date-on-a-mac">this</a> answer.</p>
+<div class="highlight"><pre><span></span><code>brew update
+brew upgrade python3
+</code></pre></div>
+
+<p>Sometimes things on a Mac do ‘just work’. This was one of those times.</p>
+<p>I’m now running Python 3.7.1 and I’ll I needed to do was a simple command in the terminal.</p>
+<p>God bless the internet.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/making-it-easy-to-ssh-into-a-remote-server.html" rel="bookmark"
+                           title="Permalink to Making it easy to ssh into a remote server">Making it easy to ssh into a remote server</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-05-05T12:54:00+02:00">
+                Published: Sat 05 May 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/raspberry-pi.html">Raspberry Pi</a>.</p>
+<p>tags: <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/linux.html">linux</a> <a href="/tag/remote-servers.html">Remote servers</a> <a href="/tag/ssh.html">SSH</a> <a href="/tag/terminal.html">Terminal</a> </p>
+</footer><!-- /.post-info -->                <p>Logging into a remote server is a drag. Needing to remember the password (or get it from <a href="https://1password.com">1Password</a>); needing to remember the IP address of the remote server. Ugh.</p>
+<p>It’d be so much easier if I could just</p>
+<div class="highlight"><pre><span></span><code><span class="n">ssh</span><span class="w"> </span><span class="n">username</span><span class="nv">@servername</span><span class="w"></span>
+</code></pre></div>
+
+<p>and get into the server.</p>
+<p>And it turns …</p>
+                <a class="readmore" href="/making-it-easy-to-ssh-into-a-remote-server.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

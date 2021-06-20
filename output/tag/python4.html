@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - python</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/web-scrapping-passer-data-part-iii.html" rel="bookmark"
+                           title="Permalink to Web Scrapping - Passer Data (Part III)">Web Scrapping - Passer Data (Part III)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-19T17:25:00+01:00">
+                Published: Sat 19 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/sports.html">Sports</a>.</p>
+<p>tags: <a href="/tag/nfl.html">nfl</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->                <p>In Part III I'm reviewing the code to populate a DataFrame with Passer data from the current NFL season.</p>
+<p>To start I use the <code>games</code> <code>DataFrame</code> I created in <a href="https://www.ryancheley.com/blog/2016/11/18/web-scrapping-passer-data-part-ii">Part II</a> to create 4 new <code>DataFrames</code>:</p>
+<ul>
+<li>reg_season_games - All of the Regular Season Games</li>
+<li>pre_season_games - All of the Pre Season Games …</li></ul>
+                <a class="readmore" href="/web-scrapping-passer-data-part-iii.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/web-scrapping-passer-data-part-ii.html" rel="bookmark"
+                           title="Permalink to Web Scrapping - Passer Data (Part II)">Web Scrapping - Passer Data (Part II)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-18T20:27:00+01:00">
+                Published: Fri 18 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/sports.html">Sports</a>.</p>
+<p>tags: <a href="/tag/nfl.html">nfl</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->                <p>On a previous post I went through my new found love of Fantasy Football and the rationale behind the 'why' of this particular project. This included getting the team names and their URLs from the <a href="https://www.espn.com">ESPN website</a>.</p>
+<p>As before, let's set up some basic infrastructure to be used later:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from …</span></code></pre></div>
+                <a class="readmore" href="/web-scrapping-passer-data-part-ii.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/web-scrapping.html" rel="bookmark"
+                           title="Permalink to Web Scrapping - Passer Data (Part I)">Web Scrapping - Passer Data (Part I)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-18T00:54:00+01:00">
+                Published: Fri 18 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/nfl.html">nfl</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->                <p>For the first time in <strong>many</strong> years I've joined a <a href="http://www.espn.com">Fantasy Football league</a> with some of my family. One of the reasons I have not engaged in the Fantasy football is that, frankly, I'm not very good. In fact, I'm pretty bad. I have a passing interest in Football, but …</p>
+                <a class="readmore" href="/web-scrapping.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/tag/python.html">&#8647;</a>
+        <a href="/tag/python3.html">&laquo;</a>
+    Page 4 / 4
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

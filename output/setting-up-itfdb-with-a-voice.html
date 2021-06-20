@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Setting up ITFDB with a voice</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="In a previous post I wrote about my Raspberry Pi experiment to have the SenseHat display a scrolling message 10 minutes before game time. One of..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li class="active"><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/setting-up-itfdb-with-a-voice.html" rel="bookmark"
+           title="Permalink to Setting up ITFDB with a voice">Setting up ITFDB with a voice</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-03-15T17:41:00+01:00">
+                Published: Thu 15 March 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/raspberry-pi.html">Raspberry Pi</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/raspberry-pi.html">Raspberry Pi</a> </p>
+</footer><!-- /.post-info -->      <p>In a <a href="/itfdb.html">previous post</a> I wrote about my Raspberry Pi experiment to have the SenseHat display a scrolling message 10 minutes before game time.</p>
+<p>One of the things I have wanted to do since then is have Vin Scully’s voice come from a speaker and say those five magical words, <code>It's time for Dodger Baseball!</code></p>
+<p>I found a clip of <a href="https://www.youtube.com/watch?v=4KwFuGtGU6c">Vin on Youtube</a> saying that (and a little more). I wasn’t sure how to get the audio from that YouTube clip though.</p>
+<p>After a bit of googling^<a class="footnote" href="#fn1" id="ffn1">1</a>^ I found a command line tool called <a href="https://rg3.github.io/youtube-dl/">youtube-dl</a>. The tool allowed me to download the video as an <code>mp4</code> with one simple command:</p>
+<div class="highlight"><pre><span></span><code>youtube-dl https://www.youtube.com/watch?v=4KwFuGtGU6c
+</code></pre></div>
+
+<p>Once the mp4 was downloaded I needed to extract the audio from the <code>mp4</code> file. Fortunately, <code>ffmpeg</code> is a tool for just this type of exercise!</p>
+<p>I modified <a href="https://stackoverflow.com/questions/9913032/ffmpeg-to-extract-audio-from-video">this answer from StackOverflow</a> to meet my needs</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i dodger_baseball.mp4 -ss 00:00:10 -t 00:00:9.0 -q:a 0 -vn -acodec copy dodger_baseball.aac
+</code></pre></div>
+
+<p>This got me an <code>aac</code> file, but I was going to need an <code>mp3</code> to use in my Python script.</p>
+<p>Next, I used a <a href="https://askubuntu.com/questions/35457/converting-aac-to-mp3-via-command-line">modified version of this suggestion</a> to create write my own command</p>
+<div class="highlight"><pre><span></span><code>ffmpeg -i dodger_baseball.aac -c:a libmp3lame -ac 2 -b:a 190k dodger_baseball.mp3
+</code></pre></div>
+
+<p>I could have probably combined these two steps, but … meh.</p>
+<p>OK. Now I have the famous Vin Scully saying the best five words on the planet.</p>
+<p>All that’s left to do is update the python script to play it. Using guidance from <a href="https://raspberrypi.stackexchange.com/questions/7088/playing-audio-files-with-python">here</a> I updated my <code>itfdb.py</code> file from this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nv">month_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">day_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">hour_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="mi">0</span> <span class="o">&gt;=</span> <span class="nv">minute_diff</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">10</span>:
+   <span class="nv">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">#ITFDB!!! The Dodgers will be playing {} at {}</span><span class="s1">&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">game</span>.<span class="nv">game_opponent</span>, <span class="nv">game</span>.<span class="nv">game_time</span><span class="ss">)</span>
+   <span class="nv">sense</span>.<span class="nv">show_message</span><span class="ss">(</span><span class="nv">message</span>, <span class="nv">scroll_speed</span><span class="o">=</span><span class="mi">0</span>.<span class="mi">05</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>To this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nv">month_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">day_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">hour_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="mi">0</span> <span class="o">&gt;=</span> <span class="nv">minute_diff</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">10</span>:
+   <span class="nv">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">#ITFDB!!! The Dodgers will be playing {} at {}</span><span class="s1">&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">game</span>.<span class="nv">game_opponent</span>, <span class="nv">game</span>.<span class="nv">game_time</span><span class="ss">)</span>
+   <span class="nv">sense</span>.<span class="nv">show_message</span><span class="ss">(</span><span class="nv">message</span>, <span class="nv">scroll_speed</span><span class="o">=</span><span class="mi">0</span>.<span class="mi">05</span><span class="ss">)</span>
+   <span class="nv">os</span>.<span class="nv">system</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">omxplayer -b /home/pi/Documents/python_projects/itfdb/dodger_baseball.mp3</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>However, what that does is play Vin’s silky smooth voice every minute for 10 minutes before game time. Music to my ears but my daughter was not a fan, and even my wife who LOVES Vin asked me to change it.</p>
+<p>One final tweak, and now it only plays at 5 minutes before game time and 1 minute before game time:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nv">month_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">day_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">hour_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="mi">0</span> <span class="o">&gt;=</span> <span class="nv">minute_diff</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">10</span>:
+   <span class="nv">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s">#ITFDB!!! The Dodgers will be playing {} at {}</span><span class="s1">&#39;</span>.<span class="nv">format</span><span class="ss">(</span><span class="nv">game</span>.<span class="nv">game_opponent</span>, <span class="nv">game</span>.<span class="nv">game_time</span><span class="ss">)</span>
+   <span class="nv">sense</span>.<span class="nv">show_message</span><span class="ss">(</span><span class="nv">message</span>, <span class="nv">scroll_speed</span><span class="o">=</span><span class="mi">0</span>.<span class="mi">05</span><span class="ss">)</span>
+
+<span class="k">if</span> <span class="nv">month_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">day_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="nv">hour_diff</span> <span class="o">==</span> <span class="mi">0</span> <span class="nv">and</span> <span class="ss">(</span><span class="nv">minute_diff</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="nv">or</span> <span class="nv">minute_diff</span> <span class="o">==</span> <span class="o">-</span><span class="mi">5</span><span class="ss">)</span>:
+   <span class="nv">os</span>.<span class="nv">system</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">omxplayer -b /home/pi/Documents/python_projects/itfdb/dodger_baseball.mp3</span><span class="s2">&quot;</span><span class="ss">)</span>
+</code></pre></div>
+
+<p>Now, for the rest of the season, even though Vin isn’t calling the games, I’ll get to hear his voice letting me know, “It’s Time for Dodger Baseball!!!”</p>
+<ol>
+<li>[Actually, it was an embarrassing amount <a href="#ffn1">↩</a>]{#fn1}</li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

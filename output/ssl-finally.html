@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>SSL ... Finally!</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="I’ve been futzing around with SSL on this site since last December. I’ve had about 4 attempts and it just never seemed to work. Earlier this..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li class="active"><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/ssl-finally.html" rel="bookmark"
+           title="Permalink to SSL ... Finally!">SSL ... Finally!</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-04-07T20:16:00+02:00">
+                Published: Sat 07 April 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/server.html">Server</a>.</p>
+<p>tags: <a href="/tag/ssl.html">SSL</a> </p>
+</footer><!-- /.post-info -->      <p>I’ve been futzing around with SSL on this site since last December. I’ve had about 4 attempts and it just never seemed to work.</p>
+<p>Earlier this evening I was thinking about getting a second <a href="https://www.linode.com">Linode</a> just to get a fresh start. I was <em>this</em> close to getting it when I thought, what the hell, let me try to work it out one more time.</p>
+<p>And this time it actually worked.</p>
+<p>I’m not really sure what I did differently, but using this <a href="https://certbot.eff.org/lets-encrypt/ubuntuxenial-apache">site</a> seemed to make all of the difference.</p>
+<p>The only other thing I had to do was make a change in the word press settings (from <code>http</code> to <code>https</code>) and enable a plugin <a href="https://really-simple-ssl.com">Really Simple SSL</a> and it finally worked.</p>
+<p>I even got an ‘A’ from SSL Labs!</p>
+<p><img alt="" class="alignnone size-full wp-image-265" height="2048" src="/images/uploads/2018/04/Image-4-7-18-9-15-PM.png" width="2732"></p>
+<p>Again, not really sure why this seemed so hard and took so long.</p>
+<p>I guess sometimes you just have to try over and over and over again</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

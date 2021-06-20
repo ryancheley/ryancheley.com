@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Dropbox Files Word Cloud</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="In one of my previous posts I walked through how I generated a wordcloud based on my most recent 20 tweets. I though it would be neat to do this..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/dropbox-files-word-cloud.html" rel="bookmark"
+           title="Permalink to Dropbox Files Word Cloud">Dropbox Files Word Cloud</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-25T16:22:00+01:00">
+                Published: Fri 25 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>In one of my <a href="https://www.ryancheley.com/blog/2016/11/22/twitter-word-cloud">previous posts</a> I walked through how I generated a wordcloud based on my most recent 20 tweets. I though it would be <em>neat</em> to do this for my <a href="https://www.dropbox.com">Dropbox</a> file names as well. just to see if I could.</p>
+<p>When I first tried to do it (as previously stated, the Twitter Word Cloud post was the first python script I wrote) I ran into some difficulties. I didn't really understand what I was doing (although I still don't <strong>really</strong> understand, I at least have a vague idea of what the heck I'm doing now).</p>
+<p>The script isn't much different than the <a href="https://www.twitter.com">Twitter</a> word cloud. The only real differences are:</p>
+<ol>
+<li>the way in which the <code>words</code> variable is being populated</li>
+<li>the mask that I'm using to display the cloud</li>
+</ol>
+<p>In order to go get the information from the file system I use the <code>glob</code> library:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">glob</span>
+</code></pre></div>
+
+<p>The next lines have not changed</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span><span class="p">,</span> <span class="n">STOPWORDS</span>
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">imread</span>
+</code></pre></div>
+
+<p>Instead of writing to a 'tweets' file I'm looping through the files, splitting them at the <code>/</code> character and getting the last item (i.e. the file name) and appending it to the list <code>f</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">f</span> <span class="o">=</span> []
+<span class="k">for</span> <span class="nv">filename</span> <span class="nv">in</span> <span class="nv">glob</span>.<span class="nv">glob</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/Users/Ryan/Dropbox/Ryan/**/*</span><span class="s1">&#39;</span>, <span class="nv">recursive</span><span class="o">=</span><span class="nv">True</span><span class="ss">)</span>:
+    <span class="nv">f</span>.<span class="nv">append</span><span class="ss">(</span><span class="nv">filename</span>.<span class="nv">split</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/</span><span class="s1">&#39;</span><span class="ss">)</span>[<span class="o">-</span><span class="mi">1</span>]<span class="ss">)</span>
+</code></pre></div>
+
+<p>The rest of the script generates the image and saves it to my Dropbox Account. Again, instead of using a <a href="https://www.twitter.com">Twitter</a> logo, I'm using a <strong>Cloud</strong> image I found <a href="http://www.shapecollage.com/shapes/mask-cloud.png">here</a></p>
+<div class="highlight"><pre><span></span><code><span class="nv">words</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="s"> </span><span class="s1">&#39;</span>
+<span class="k">for</span> <span class="nv">line</span> <span class="nv">in</span> <span class="nv">f</span>:
+    <span class="nv">words</span><span class="o">=</span> <span class="nv">words</span> <span class="o">+</span> <span class="nv">line</span>
+
+<span class="nv">stopwords</span> <span class="o">=</span> {<span class="s1">&#39;</span><span class="s">https</span><span class="s1">&#39;</span>}
+
+<span class="nv">logomask</span> <span class="o">=</span> <span class="nv">imread</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">mask-cloud.png</span><span class="s1">&#39;</span><span class="ss">)</span>
+
+<span class="nv">wordcloud</span> <span class="o">=</span> <span class="nv">WordCloud</span><span class="ss">(</span>
+    <span class="nv">font_path</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">/Users/Ryan/Library/Fonts/Inconsolata.otf</span><span class="s1">&#39;</span>,
+    <span class="nv">stopwords</span><span class="o">=</span><span class="nv">STOPWORDS</span>.<span class="nv">union</span><span class="ss">(</span><span class="nv">stopwords</span><span class="ss">)</span>,
+    <span class="nv">background_color</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">white</span><span class="s1">&#39;</span>,
+    <span class="nv">mask</span> <span class="o">=</span> <span class="nv">logomask</span>,
+    <span class="nv">max_words</span><span class="o">=</span><span class="mi">1000</span>,
+    <span class="nv">width</span><span class="o">=</span><span class="mi">1800</span>,
+    <span class="nv">height</span><span class="o">=</span><span class="mi">1400</span>
+<span class="ss">)</span>.<span class="nv">generate</span><span class="ss">(</span><span class="nv">words</span><span class="ss">)</span>
+
+<span class="nv">plt</span>.<span class="nv">imshow</span><span class="ss">(</span><span class="nv">wordcloud</span>.<span class="nv">recolor</span><span class="ss">(</span><span class="nv">color_func</span><span class="o">=</span><span class="nv">None</span>, <span class="nv">random_state</span><span class="o">=</span><span class="mi">3</span><span class="ss">))</span>
+<span class="nv">plt</span>.<span class="nv">axis</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">off</span><span class="s1">&#39;</span><span class="ss">)</span>
+<span class="nv">plt</span>.<span class="nv">savefig</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">/Users/Ryan/Dropbox/Ryan/Post Images/dropbox_wordcloud.png</span><span class="s1">&#39;</span>, <span class="nv">dpi</span><span class="o">=</span><span class="mi">300</span><span class="ss">)</span>
+<span class="nv">plt</span>.<span class="k">show</span><span class="ss">()</span>
+</code></pre></div>
+
+<p>And we get this:</p>
+<p><img alt="" class="alignnone size-medium wp-image-112" height="200" src="/images/uploads/2017/12/dropbox_wordcloud-300x200.png" width="300"></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

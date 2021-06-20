@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - forms</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/django-form-filters.html">Django form filters</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-01-23T12:00:00+01:00">
+                Published: Sat 23 January 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/filters.html">filters</a> <a href="/tag/forms.html">forms</a> </p>
+</footer><!-- /.post-info --><p>I’ve been working on a Django Project for a while and one of the apps I have tracks candidates. These candidates have dates of a specific type.</p>
+<p>The models look like this:</p>
+<h2>Candidate</h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">Candidate</span>(<span class="n">models</span>.<span class="n">Model</span>):
+    <span class="n">first_name</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">128</span>)
+    <span class="n">last_name</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">128</span>)
+    <span class="nb">resume</span> = <span class="n">models</span>.<span class="n">FileField</span>(<span class="n">storage</span>=<span class="n">PrivateMediaStorage</span>(), <span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+    <span class="n">cover_leter</span> = <span class="n">models</span>.<span class="n">FileField</span>(<span class="n">storage</span>=<span class="n">PrivateMediaStorage</span>(), <span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+    <span class="n">email_address</span> = <span class="n">models</span>.<span class="n">EmailField</span>(<span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+    <span class="n">linkedin</span> = <span class="n">models</span>.<span class="n">URLField</span>(<span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+    <span class="n">github</span> = <span class="n">models</span>.<span class="n">URLField</span>(<span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+    <span class="n">rejected</span> = <span class="n">models</span>.<span class="n">BooleanField</span>()
+    <span class="n">position</span> = <span class="n">models</span>.<span class="n">ForeignKey</span>(
+        <span class="s">&quot;positions.Position&quot;</span>,
+        <span class="n">on_delete</span>=<span class="n">models</span>.<span class="n">CASCADE</span>,
+    )
+    <span class="n">hired</span> = <span class="n">models</span>.<span class="n">BooleanField</span>(<span class="k">default</span>=<span class="nb">False</span>)
+</code></pre></div>
+
+<h2>CandidateDate</h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">CandidateDate</span>(<span class="n">models</span>.<span class="n">Model</span>):
+    <span class="n">candidate</span> = <span class="n">models</span>.<span class="n">ForeignKey</span>(
+        <span class="s">&quot;Candidate&quot;</span>,
+        <span class="n">on_delete</span>=<span class="n">models</span>.<span class="n">CASCADE</span>,
+    )
+    <span class="n">date_type</span> = <span class="n">models</span>.<span class="n">ForeignKey</span>(
+        <span class="s">&quot;CandidateDateType&quot;</span>,
+        <span class="n">on_delete</span>=<span class="n">models</span>.<span class="n">CASCADE</span>,
+    )
+    <span class="n">candidate_date</span> = <span class="n">models</span>.<span class="n">DateField</span>(<span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+    <span class="n">candidate_date_note</span> = <span class="n">models</span>.<span class="n">TextField</span>(<span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+    <span class="n">meeting_link</span> = <span class="n">models</span>.<span class="n">URLField</span>(<span class="n">blank</span>=<span class="nb">True</span>, <span class="n">null</span>=<span class="nb">True</span>)
+
+    <span class="k">class</span> <span class="n">Meta:</span>
+        <span class="n">ordering</span> = [<span class="s">&quot;candidate&quot;</span>, <span class="s">&quot;-candidate_date&quot;</span>]
+        <span class="n">unique_together</span> = (
+            <span class="s">&quot;candidate&quot;</span>,
+            <span class="s">&quot;date_type&quot;</span>,
+        )
+</code></pre></div>
+
+<h2>CandidateDateType</h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">CandidateDateType</span>(<span class="n">models</span>.<span class="n">Model</span>):
+    <span class="n">date_type</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">24</span>)
+    <span class="n">description</span> = <span class="n">models</span>.<span class="n">CharField</span>(<span class="n">max_length</span>=<span class="mi">255</span>, <span class="n">null</span>=<span class="nb">True</span>, <span class="n">blank</span>=<span class="nb">True</span>)
+</code></pre></div>
+
+<p>You’ll see from the CandidateDate model that the fields <code>candidate</code> and <code>date_type</code> are unique. One problem that I’ve been running into is how to help make that an easier thing to see in the form where the dates are entered.</p>
+<p>The Django built in validation will display an error message if a user were to try and select a <code>candidate</code> and <code>date_type</code> that already existed, but it felt like this could be done better.</p>
+<p>I did a fair amount of Googling and had a couple of different <em>bright</em> ideas, but ultimately it came down to a pretty simple implementation of the <code>exclude</code> keyword in the ORM</p>
+<p>The initial <code>Form</code> looked like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">CandidateDateForm</span>(<span class="n">ModelForm</span>):
+   <span class="k">class</span> <span class="n">Meta:</span>
+        <span class="n">model</span> = <span class="n">CandidateDate</span>
+        <span class="n">fields</span> = [
+            <span class="s">&quot;candidate&quot;</span>,
+            <span class="s">&quot;date_type&quot;</span>,
+            <span class="s">&quot;candidate_date&quot;</span>,
+            <span class="s">&quot;meeting_link&quot;</span>,
+            <span class="s">&quot;candidate_date_note&quot;</span>,
+        ]
+        <span class="n">widgets</span> = {
+            <span class="s">&quot;candidate&quot;</span>: <span class="n">HiddenInput</span>,
+        }
+</code></pre></div>
+
+<p>I updated it to include a <code>__init__</code> method which overrode the options in the drop down.</p>
+<div class="highlight"><pre><span></span><code>def __init__(self, *args, **kwargs):
+    super(CandidateDateForm, self).__init__(*args, **kwargs)
+    try:
+        candidate = kwargs[&quot;initial&quot;][&quot;candidate&quot;]
+        candidate_date_set = CandidateDate.objects.filter(candidate=candidate).values_list(&quot;date_type&quot;, flat=True)
+        qs = CandidateDateType.objects.exclude(id__in=candidate_date_set)
+        self.fields[&quot;date_type&quot;].queryset = qs
+    except KeyError:
+        pass
+</code></pre></div>
+
+<p>Now, with this method the drop down will only show items which can be selected, not all <code>CandidateDateType</code> options.</p>
+<p>Seems like a better user experience AND I got to learn a bit about the Django ORM</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Deploying a Django Site to Digital Ocean - A Series</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Previous Efforts When I first heard of Django I thought it looks like a really interesting, and Pythonic way, to get a website up and running. I..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li class="active"><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/deploying-a-django-site-to-digital-ocean-a-series.html" rel="bookmark"
+           title="Permalink to Deploying a Django Site to Digital Ocean - A Series">Deploying a Django Site to Digital Ocean - A Series</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-01-24T12:00:00+01:00">
+                Published: Sun 24 January 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/deployment.html">Deployment</a> <a href="/tag/series.html">series</a> </p>
+</footer><!-- /.post-info -->      <h2>Previous Efforts</h2>
+<p>When I first heard of Django I thought it looks like a really interesting, and Pythonic way, to get a website up and running. I spent a whole weekend putting together a site locally and then, using Digital Ocean, decided to push my idea up onto a live site.</p>
+<p>One problem that I ran into, which EVERY new Django Developer will run into was static files. I couldn’t get static files to work. No matter what I did, they were just … missing. I proceeded to spend the next few weekends trying to figure out why, but alas, I was not very good (or patient) with reading documentation and gave up.</p>
+<p>Fast forward a few years, and while taking the 100 Days of Code on the Web Python course from Talk Python to Me I was able to follow along on a part of the course that pushed up a Django App to Heroku.</p>
+<p>I wrote about that effort <a href="https://pybit.es/my-first-django-app.html">here</a>. Needless to say, I was pretty pumped. But, I was wondering, is there a way I can actually get a Django site to work on a non-Heroku (PaaS) type infrastructure.</p>
+<h2>Inspiration</h2>
+<p>While going through my Twitter timeline I cam across a retweet from TestDrive.io of <a href="https://mattsegal.dev/simple-django-deployment.html">Matt Segal</a>. He has an <strong>amazing</strong> walk through of deploying a Django site on the hard level (i.e. using Windows). It’s a mix of Blog posts and YouTube Videos and I highly recommend it. There is some NSFW language, BUT if you can get past that (and I can) it’s a great resource.</p>
+<p>This series is meant to be a written record of what I did to implement these recommendations and suggestions, and then to push myself a bit further to expand the complexity of the app.</p>
+<h2>Articles</h2>
+<p>A list of the Articles will go here. For now, here’s a rough outline of the planned posts:</p>
+<ul>
+<li><a href="/setting-up-the-server-on-digital-ocean.html">Setting up the Server (on Digital Ocean)</a></li>
+<li><a href="/getting-your-domain-to-point-to-digital-ocean-your-server.html">Getting your Domain to point to Digital Ocean Your Server</a></li>
+<li><a href="/preparing-the-code-for-deployment-to-digital-ocean.html">Preparing the code for deployment to Digital Ocean</a></li>
+<li><a href="/automating-the-deployment.html">Automating the deployment</a></li>
+<li>Enhancements  </li>
+</ul>
+<p>The ‘Enhancements’ will be multiple follow up posts (hopefully) as I catalog improvements make to the site. My currently planned enhancements are:</p>
+<ul>
+<li>Creating the App</li>
+<li><a href="/using-postgresql.html">Migrating from SQLite to Postgres</a></li>
+<li>Integrating Git</li>
+<li><a href="/setting-up-multiple-django-sites-on-a-digital-ocean-server.html">Having Multiple Sites on a single Server</a></li>
+<li>Adding Caching</li>
+<li>Integrating S3 on AWS to store Static Files and Media Files</li>
+<li>Migrate to Docker / Kubernetes  </li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

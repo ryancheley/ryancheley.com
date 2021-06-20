@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - homebrew</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/fixing-a-pycharm-issue-when-updating-python-made-via-homebrew.html">Fixing a PyCharm issue when updating Python made via HomeBrew</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-11-14T13:24:00+01:00">
+                Published: Thu 14 November 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/homebrew.html">homebrew</a> <a href="/tag/macos.html">macOS</a> <a href="/tag/techsupport.html">techsupport</a> </p>
+</footer><!-- /.post-info --><p>I’ve written before about how easy it is to update your version of Python using homebrew. And it totally is easy.</p>
+<p>The thing that isn’t super clear is that when you do update Python via Homebrew, it seems to break your virtual environments in PyCharm. 🤦‍♂️</p>
+<p>I did a bit of searching to find this nice <a href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000306410-Cannot-use-system-interpreter-in-PyCharm-Pro-2018-1">post on the JetBrains forum</a> which indicated</p>
+<blockquote>
+<blockquote>
+<p>unfortunately it's a known issue: <a href="https://youtrack.jetbrains.com/issue/PY-27251">https://youtrack.jetbrains.com/issue/PY-27251</a> . Please close Pycharm and remove jdk.table.xml file from \~/Library/Preferences/.PyCharm2018.1/options directory, then start Pycharm again.</p>
+</blockquote>
+</blockquote>
+<p>OK. I removed the file, but then you have to rebuild the virtual environments because that file is what stores PyCharms knowledge of those virtual environments.</p>
+<p>In order to get you back to where you need to be, do the following (after removing the <code>jdk.table.xml</code> file:</p>
+<ol>
+<li>pip-freeze > requirements.txt</li>
+<li>Remove old virtual environment <code>rm -r venv</code></li>
+<li>Create a new Virtual Environemtn with PyCharm<ol>
+<li>Go to Preferences</li>
+<li>Project > Project Interpreter</li>
+<li>Show All</li>
+<li>Click ‘+’ button</li>
+</ol>
+</li>
+<li><code>pip install -r requirements.txt</code></li>
+<li>Restart PyCharm</li>
+<li>You're back</li>
+</ol>
+<p>This is a giant PITA but thankfully it didn’t take too much to find the issue, nor to fix it. With that being said, I totally shouldn’t have to do this. But I’m writing it down so that once Python 3.8 is available I’ll be able to remember what I did to fix going from Python 3.7.1 to 3.7.5.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

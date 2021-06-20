@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Place on the Internet - iOS</title><link href="https://www.ryancheley.com/" rel="alternate"></link><link href="https://www.ryancheley.com/feeds/ios.atom.xml" rel="self"></link><id>https://www.ryancheley.com/</id><updated>2017-12-12T02:00:00+01:00</updated><entry><title>Installing fonts in Ulysses</title><link href="https://www.ryancheley.com/installing-fonts-in-ulysses.html" rel="alternate"></link><published>2017-12-12T02:00:00+01:00</published><updated>2017-12-12T02:00:00+01:00</updated><author><name>ryan</name></author><id>tag:www.ryancheley.com,2017-12-12:/installing-fonts-in-ulysses.html</id><summary type="html">&lt;p&gt;One of the people I follow online, &lt;a href="http://ticci.org"&gt;Federico Viticci&lt;/a&gt;, is an iOS power user, although I would argue that phrase doesn’t really do him justice. He can make the iPad do things that many people can’t get Macs to do.&lt;/p&gt;
+&lt;p&gt;Recently he &lt;a href="https://www.macstories.net/linked/in-search-of-the-perfect-writing-font/"&gt;posted&lt;/a&gt; an article on a new …&lt;/p&gt;</summary><content type="html">&lt;p&gt;One of the people I follow online, &lt;a href="http://ticci.org"&gt;Federico Viticci&lt;/a&gt;, is an iOS power user, although I would argue that phrase doesn’t really do him justice. He can make the iPad do things that many people can’t get Macs to do.&lt;/p&gt;
+&lt;p&gt;Recently he &lt;a href="https://www.macstories.net/linked/in-search-of-the-perfect-writing-font/"&gt;posted&lt;/a&gt; an article on a new font he is using in Ulysses and I wanted to give it a try. The article says:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Installing custsom fonts in Ulysses for iOS is easy: &lt;a href="https://github.com/iaolo/iA-Fonts/tree/master/iA%20Writer%20Duospace" title="iA Writer Duospace"&gt;go to the GitHub page&lt;/a&gt;, download each one, and open them in Ulysses (with the share sheet) to install them.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Simple enough, but it wasn’t clicking for me. I kept thinking I had done &lt;em&gt;something&lt;/em&gt; wrong. So I thought I’d write up the steps I used so I wouldn’t forget the next time I need to add a new font.&lt;/p&gt;
+&lt;h2&gt;Downloading the Font&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Download the font to somewhere you can get it. I chose to save it to iCloud and use the &lt;code&gt;Files&lt;/code&gt; app&lt;/li&gt;
+&lt;li&gt;Hit Select in the &lt;code&gt;Files&lt;/code&gt; app&lt;/li&gt;
+&lt;li&gt;Click &lt;code&gt;Share&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Open in Ulysses&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The custom font is now installed and being used.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Checking the Font:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Click the ‘A’ in the writing screen (this is the font selector) located in the upper right hand corner of Ulysses&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="" class="alignnone size-full wp-image-94" height="259" src="/images/uploads/2017/12/Image.jpeg" width="584"&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Notice that the Current font indicates it’s a custom font (in This case iA Writer Duospace:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="" class="alignnone size-full wp-image-93" height="1279" src="/images/uploads/2017/12/IMG_0025.jpg" width="704"&gt;&lt;/p&gt;
+&lt;p&gt;Not that hard, but there’s no feedback telling you that you have been successful so I wasn’t sure if I had done it or not.&lt;/p&gt;</content><category term="iOS"></category></entry></feed>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>My Place on the Internet - Cronjob</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/cronjob-finally.html">Cronjob ... Finally</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-04-10T20:10:00+02:00">
+                Published: Tue 10 April 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/automation.html">Automation</a>.</p>
+<p>tags: <a href="/tag/cronjob.html">Cronjob</a> <a href="/tag/python.html">python</a> <a href="/tag/youtube.html">youtube</a> </p>
+</footer><!-- /.post-info --><p>I’ve mentioned before that I have been working on getting the hummingbird video upload automated.</p>
+<p>Each time I thought I had it, and each time I was wrong.</p>
+<p>For some reason I could run it from the command line without issue, but when the cronjob would try and run it ... nothing.</p>
+<p>Turns out, it was running, it just wasn’t doing anything. And that was my fault.</p>
+<p>The file I had setup in cronjob was called <code>run_scrip.sh</code></p>
+<p>At first I was confused because the script was suppose to be writing out to a log file all of it’s activities. But it didn’t appear to.</p>
+<p>Then I noticed that the log.txt file it was writing was in the main <code>\`</code> directory. That should have been my first clue.</p>
+<p>I kept trying to get the script to run, but suddenly, in a blaze of glory, realized that it <strong>was</strong> running, it just wasn’t doing anything.</p>
+<p>And it wasn’t doing anything for the same reason that the log file was being written to the <code>\`</code> directory.</p>
+<p>All of the paths were relative instead of absolute, so when the script ran the command <code>./create_mp4.sh</code> it looks for that script in the home directory, didn’t find it, and moved on.</p>
+<p>The fix was simple enough, just add absolute paths and we’re golden.</p>
+<p>That means my <code>run_script.sh</code> goes from this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create the script that will be run</span>
+<span class="o">./</span><span class="n">create_script</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">echo</span> <span class="s2">&quot;Create Shell Script: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># make the script that was just created executable</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="n">create_mp4</span><span class="o">.</span><span class="n">sh</span>
+
+<span class="c1"># Create the script to create the mp4 file</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="n">create_mp4</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">echo</span> <span class="s2">&quot;Create MP4 Shell Script: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># upload video to YouTube.com</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="n">upload</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">echo</span> <span class="s2">&quot;Uploaded Video to YouTube.com: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># Next we remove the video files locally</span>
+<span class="n">rm</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/*.</span><span class="n">h264</span>
+<span class="n">echo</span> <span class="s2">&quot;removed h264 files: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="n">rm</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/*.</span><span class="n">mp4</span>
+<span class="n">echo</span> <span class="s2">&quot;removed mp4 file: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+</code></pre></div>
+
+<p>To this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># change to the directory with all of the files</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span>
+
+<span class="c1"># Create the script that will be run</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="n">create_script</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">echo</span> <span class="s2">&quot;Create Shell Script: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># make the script that was just created executable</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="n">create_mp4</span><span class="o">.</span><span class="n">sh</span>
+
+<span class="c1"># Create the script to create the mp4 file</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="n">create_mp4</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">echo</span> <span class="s2">&quot;Create MP4 Shell Script: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># upload video to YouTube.com</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="n">upload</span><span class="o">.</span><span class="n">sh</span>
+<span class="n">echo</span> <span class="s2">&quot;Uploaded Video to YouTube.com: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># Next we remove the video files locally</span>
+<span class="n">rm</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/*.</span><span class="n">h264</span>
+<span class="n">echo</span> <span class="s2">&quot;removed h264 files: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="n">rm</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/*.</span><span class="n">mp4</span>
+<span class="n">echo</span> <span class="s2">&quot;removed mp4 file: $(date)&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">python_projects</span><span class="o">/</span><span class="nb">log</span><span class="o">.</span><span class="n">txt</span>
+</code></pre></div>
+
+<p>I made this change and then started getting an error about not being able to access a <code>json</code> file necessary for the upload to <a href="https://www.youtube.com">YouTube</a>. Sigh.</p>
+<p>Then while searching for what directory the cronjob was running from I found <a href="https://unix.stackexchange.com/questions/38951/what-is-the-working-directory-when-cron-executes-a-job">this very simple</a> idea. The response was, why not just change it to the directory you want. 🤦‍♂️  </p>
+<p>I added the <code>cd</code> to the top of the file:</p>
+<div class="highlight"><pre><span></span><code># change to the directory with all of the files
+cd /home/pi/Documents/python_projects/
+</code></pre></div>
+
+<p>Anyway, now it works. Finally!</p>
+<p>Tomorrow will be the first time (unless of course something else goes wrong) that The entire process will be automated. Super pumped!</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

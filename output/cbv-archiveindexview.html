@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>CBV - ArchiveIndexView</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="From Classy Class Based Views ArchiveIndexView Top-level archive of date-based items. Attributes There are 20 attributes that can be set for the..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li class="active"><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/cbv-archiveindexview.html" rel="bookmark"
+           title="Permalink to CBV - ArchiveIndexView">CBV - ArchiveIndexView</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-11-24T10:00:00+01:00">
+                Published: Sun 24 November 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/cbv.html">CBV</a> <a href="/tag/class-based-views.html">class based views</a> <a href="/tag/django.html">django</a> </p>
+</footer><!-- /.post-info -->      <p>From <a href="http://ccbv.co.uk/projects/Django/2.2/django.views.generic.dates/ArchiveIndexView/">Classy Class Based Views</a> <code>ArchiveIndexView</code></p>
+<blockquote>
+<blockquote>
+<p>Top-level archive of date-based items.</p>
+</blockquote>
+</blockquote>
+<h2>Attributes</h2>
+<p>There are 20 attributes that can be set for the <code>ArchiveIndexView</code> but most of them are based on ancestral Classes of the CBV so we won’t be going into them in Detail.</p>
+<h3>DateMixin Attributes</h3>
+<ul>
+<li>allow_future: Defaults to False. If set to True you can show items that have dates that are in the future where the future is anything after the current date/time on the server.</li>
+<li>date_field: the field that the view will use to filter the date on. If this is not set an error will be generated</li>
+<li>uses_datetime_field: Convert a date into a datetime when the date field is a DateTimeField. When time zone support is enabled, <code>date</code> is assumed to be in the current time zone, so that displayed items are consistent with the URL.</li>
+</ul>
+<h3>BaseDateListView Attributes</h3>
+<ul>
+<li>
+<p>allow_empty: Defaults to <code>False</code>. This means that if there is no data a <code>404</code> error will be returned with the message  </p>
+<blockquote>
+<blockquote>
+<p><code>No __str__ Available</code> where ‘<code>__str__</code>’ is the display of your model</p>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p>date_list_period: This attribute allows you to break down by a specific period of time (years, months, days, etc.) and group your date driven items by the period specified. See below for implementation</p>
+</li>
+</ul>
+<p>For <code>year</code></p>
+<p>views.py</p>
+<div class="highlight"><pre><span></span><code>date_list_period=&#39;year&#39;
+</code></pre></div>
+
+<p>urls.py</p>
+<p>Nothing special needs to be done</p>
+<p>\&lt;file_name_>.html</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="cp">{%</span>  <span class="k">for</span> <span class="nv">date</span> <span class="k">in</span> <span class="nv">date_list</span> <span class="cp">%}</span>
+        <span class="cp">{{</span> <span class="nv">date.year</span> <span class="cp">}}</span>
+        <span class="nt">&lt;ul&gt;</span>
+        <span class="cp">{%</span> <span class="k">for</span> <span class="nv">p</span> <span class="k">in</span> <span class="nv">person</span> <span class="cp">%}</span>
+            <span class="cp">{%</span> <span class="k">if</span> <span class="nv">date.year</span> <span class="o">==</span> <span class="nv">p.post_date.year</span> <span class="cp">%}</span>
+                <span class="nt">&lt;li&gt;</span><span class="cp">{{</span> <span class="nv">p.post_date</span> <span class="cp">}}</span>: <span class="cp">{{</span> <span class="nv">p.first_name</span> <span class="cp">}}</span> <span class="cp">{{</span> <span class="nv">p.last_name</span> <span class="cp">}}</span><span class="nt">&lt;/li&gt;</span>
+            <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+        <span class="nt">&lt;/ul&gt;</span>
+        <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+
+<p>Will render:</p>
+<p><img alt="" class="alignnone size-full wp-image-394" height="542" src="/images/uploads/2019/11/634B59DC-6BA6-4C5F-B969-E8B924123FFA.jpeg" width="866"></p>
+<p>For <code>month</code></p>
+<p>views.py</p>
+<div class="highlight"><pre><span></span><code>date_list_period=&#39;month&#39;
+</code></pre></div>
+
+<p>urls.py</p>
+<p>Nothing special needs to be done</p>
+<p>\&lt;file_name_>.html</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="cp">{%</span>  <span class="k">for</span> <span class="nv">date</span> <span class="k">in</span> <span class="nv">date_list</span> <span class="cp">%}</span>
+        <span class="cp">{{</span> <span class="nv">date.month</span> <span class="cp">}}</span>
+        <span class="nt">&lt;ul&gt;</span>
+        <span class="cp">{%</span> <span class="k">for</span> <span class="nv">p</span> <span class="k">in</span> <span class="nv">person</span> <span class="cp">%}</span>
+            <span class="cp">{%</span> <span class="k">if</span> <span class="nv">date.month</span> <span class="o">==</span> <span class="nv">p.post_date.month</span> <span class="cp">%}</span>
+                <span class="nt">&lt;li&gt;</span><span class="cp">{{</span> <span class="nv">p.post_date</span> <span class="cp">}}</span>: <span class="cp">{{</span> <span class="nv">p.first_name</span> <span class="cp">}}</span> <span class="cp">{{</span> <span class="nv">p.last_name</span> <span class="cp">}}</span><span class="nt">&lt;/li&gt;</span>
+            <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+        <span class="nt">&lt;/ul&gt;</span>
+        <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</code></pre></div>
+
+<p>Will render:</p>
+<p><img alt="" class="alignnone size-full wp-image-395" height="668" src="/images/uploads/2019/11/04B40CD4-3B85-440D-810D-4050727D6120.jpeg" width="1061"></p>
+<h3>BaseArchiveIndexView Attributes</h3>
+<ul>
+<li>context_object_name: Name the object used in the template. As stated before, you’re going to want to do this so you don’t hate yourself (or have other developers hate you).</li>
+</ul>
+<h2>Other Attributes</h2>
+<h3>MultipleObjectMixin Attributes</h3>
+<p>These attributes were all reviewed in the <a href="/cbv-listview.html">ListView</a> post</p>
+<ul>
+<li>model = None</li>
+<li>ordering = None</li>
+<li>page_kwarg = 'page'</li>
+<li>paginate_by = None</li>
+<li>paginate_orphans = 0</li>
+<li>paginator_class = \&lt;class 'django.core.paginator.Paginator'></li>
+<li>queryset = None</li>
+</ul>
+<h3>TemplateResponseMixin Attributes</h3>
+<p>This attribute was reviewed in the <a href="/cbv-listview.html">ListView</a> post</p>
+<ul>
+<li>content_type = None</li>
+</ul>
+<h3>ContextMixin Attributes</h3>
+<p>This attribute was reviewed in the <a href="/cbv-listview.html">ListView</a> post</p>
+<ul>
+<li>extra_context = None</li>
+</ul>
+<h3>View Attributes</h3>
+<p>This attribute was reviewed in the <a href="/cbv-view.html">View</a> post</p>
+<ul>
+<li>http_method_names = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options', 'trace']</li>
+</ul>
+<h3>TemplateResponseMixin Attributes</h3>
+<p>These attributes were all reviewed in the <a href="/cbv-listview.html">ListView</a> post</p>
+<ul>
+<li>response_class = \&lt;class 'django.template.response.TemplateResponse'></li>
+<li>template_engine = None</li>
+<li>template_name = None</li>
+</ul>
+<h2>Diagram</h2>
+<p>A visual representation of how <code>ArchiveIndexView</code> is derived can be seen here:</p>
+<p><img alt="" src="https://yuml.me/diagram/plain;/class/%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BArchiveIndexView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseArchiveIndexView%7Bbg:white%7D%5D%5E-%5BArchiveIndexView%7Bbg:green%7D%5D,%20%5BBaseDateListView%7Bbg:white%7D%5D%5E-%5BBaseArchiveIndexView%7Bbg:white%7D%5D,%20%5BMultipleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectMixin%7Bbg:white%7D%5D,%20%5BDateMixin%7Bbg:white%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D.svg"></p>
+<h2>Conclusion</h2>
+<p>With date driven data (articles, blogs, etc.) The <code>ArchiveIndexView</code> is a great CBV and super easy to implement.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

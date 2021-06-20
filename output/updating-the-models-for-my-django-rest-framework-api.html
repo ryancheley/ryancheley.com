@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Updating the models for my Django Rest Framework API</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="I’ve been working on a Django project which would allow users to track games that they’ve seen and, therefore, see what stadia they have visited...." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li class="active"><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/updating-the-models-for-my-django-rest-framework-api.html" rel="bookmark"
+           title="Permalink to Updating the models for my Django Rest Framework API">Updating the models for my Django Rest Framework API</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-11-06T20:02:00+01:00">
+                Published: Wed 06 November 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/pycharm.html">PyCharm</a> <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>I’ve been working on a Django project which would allow users to track games that they’ve seen and, therefore, see what stadia they have visited.</p>
+<p>This is all being done at a site i set up called <a href="https://www.stadiatracker.com">StadiaTracker.com</a>. Initially when constructing my model I kept it relatively simple. I had one model that had two fields. The two fields tied the User from my CustomUser Model to a Game ID that I retrieve from an API that MLB provides.</p>
+<p>I thought this simple approach would be the best approach. In addition to having a Django App I set up a Django Rest Framework (DRF) API. My initial plan was to have a DRF backend with a Vue (or React) front end. (I still want to do that, but I really wanted to try and finish a project before proceeding down that path).</p>
+<p>After some development and testing I quickly realized that the page loads for the app were suffering because of the number of API calls to MLB that were being made.</p>
+<p>I created a new model to tie the user id (still from the CustomUser model I’d created) to the game id, but in addition I’d get and store the following information:</p>
+<ul>
+<li>Home Team Name</li>
+<li>Home Team Score</li>
+<li>Home Team Hits</li>
+<li>Home Team Errors</li>
+<li>Away Team Name</li>
+<li>Away Team Score</li>
+<li>Away Team Hits</li>
+<li>Away Team Errors</li>
+<li>Game Recap Headline</li>
+<li>Game Recap Summary</li>
+<li>Game Date / Time</li>
+</ul>
+<p>By storing all of this my views could render more quickly because they didn’t have to go to the MLB API to get the information.</p>
+<p>Of course, once I did this I realized that the work I had done on the DRF API would also need to be updated.</p>
+<p>Initially I kept putting off the refactoring that was going to have to be done. Finally, I just sat down and did it. And you know what, within 10 minutes I was done.</p>
+<p>I only had to change 3 files:</p>
+<ul>
+<li>serializers.py</li>
+<li>urls.py</li>
+<li>views.py</li>
+</ul>
+<p>For the <code>searializers.py</code> and <code>views.py</code> all I had to do was add the new model and then copy and paste what I had done for the previous model.</p>
+<p>For the <code>urls.py</code> it was just a simple matter of updating the the DRF path and detail path to use the new views I had just created.</p>
+<p>It was so amazingly simple I could barely believe it. This thing I had put off for a couple of weeks because I was afraid it was going to be really hard, just wasn't.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

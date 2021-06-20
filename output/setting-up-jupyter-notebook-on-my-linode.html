@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Setting up Jupyter Notebook on my Linode</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="A Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations,..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/setting-up-jupyter-notebook-on-my-linode.html" rel="bookmark"
+           title="Permalink to Setting up Jupyter Notebook on my Linode">Setting up Jupyter Notebook on my Linode</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-05-27T12:32:00+02:00">
+                Published: Sun 27 May 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/jupyter.html">jupyter</a> <a href="/tag/linux.html">linux</a> <a href="/tag/python.html">python</a> <a href="/tag/remote-servers.html">Remote servers</a> <a href="/tag/shell-script.html">Shell Script</a> </p>
+</footer><!-- /.post-info -->      <p>A <a href="http://jupyter.org">Jupyter Notebook</a> is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.</p>
+<p>Uses include:</p>
+<ol>
+<li>data cleaning and transformation</li>
+<li>numerical simulation</li>
+<li>statistical modeling</li>
+<li>data visualization</li>
+<li>machine learning</li>
+<li>and other stuff</li>
+</ol>
+<p>I’ve been interested in how to set up a Jupyter Notebook on my <a href="https://www.linode.com">Linode</a> server for a while, but kept running into a roadblock (either mental or technical I’m not really sure).</p>
+<p>Then I came across this ‘sweet’ solution to get them set up at<a href="http://blog.lerner.co.il/five-minute-guide-setting-jupyter-notebook-server/">http://blog.lerner.co.il/five-minute-guide-setting-jupyter-notebook-server/</a></p>
+<p>My main issue was what I needed to to do keep the Jupyter Notebook running once I disconnected from command line. The solution above gave me what I needed to solve that problem</p>
+<div class="highlight"><pre><span></span><code>nohup jupyter notebook
+</code></pre></div>
+
+<p><code>nohup</code> allows you to disconnect from the terminal but keeps the command running in the background (which is exactly what I wanted).</p>
+<p>The next thing I wanted to do was to have the <code>jupyter</code> notebook server run from a directory that wasn’t my home directory.</p>
+<p>To do this was way easier than I thought. You just run <code>nohup jupyter notebook</code> from the directory you want to run it from.</p>
+<p>The last thing to do was to make sure that the notebook would start up with a server reboot. For that I wrote a shell script</p>
+<div class="highlight"><pre><span></span><code># change to correct directory
+cd /home/ryan/jupyter
+
+nohup jupyter notebook &amp;&gt; /home/ryan/output.log
+</code></pre></div>
+
+<p>The last command is a slight modification of the line from above. I really wanted the output to get directed to a file that wasn’t in the directory that the <code>Jupyter</code> notebook would be running from. Not any reason (that I know of anyway) … I just didn’t like the <code>nohup.out</code> file in the working directory.</p>
+<p>Anyway, I now have a running Jupyter Notebook at <a href="http://python.ryancheley.com:8888">http://python.ryancheley.com:8888</a>^<a class="footnote" href="#fn1" id="ffn1">1</a>^</p>
+<ol>
+<li>[I’d like to update this to be running from a port other than 8888 AND I’d like to have it on SSL, but one thing at a time! <a href="#ffn1">↩</a>]{#fn1}</li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Setting up the site with SSL</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="I’ve written about my migration from Squarespace to Wordpress earlier this year. One thing I lost with that migration when I went to Wordpress in..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li class="active"><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/setting-up-the-site-with-ssl.html" rel="bookmark"
+           title="Permalink to Setting up the site with SSL">Setting up the site with SSL</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-12-15T02:00:00+01:00">
+                Published: Fri 15 December 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/server.html">Server</a>.</p>
+
+</footer><!-- /.post-info -->      <p>I’ve written about my migration from Squarespace to Wordpress earlier this year. One thing I lost with that migration when I went to Wordpress in AWS was having SSL available. While I’m sure Van Hoet will “well actually” me on this, I never could figure out how to set it up ( not that I tried particularly hard ).</p>
+<p>The thing is now that I’m hosting on Linode I’m finding some really useful tutorials. This <a href="#" title="Setting up SSL on Linode">one</a> showed me exactly what I needed to do to get it set up.</p>
+<p>Like any good planner I read the how to several times and convinced myself that it was actually relatively straight forward to do and so I started.</p>
+<h2>Step 1 Creating the cert files</h2>
+<p>Using <a href="https://www.linode.com/docs/security/ssl/create-a-self-signed-certificate-on-debian-and-ubuntu" title="Creating Self Signed Certificates on Ubuntu">this tutorial</a>I was able to create the required certificates to set up SSL. Of course, I ran into an issue when trying to run this command</p>
+<p><code>chmod 400 /etc/ssl/private/example.com.key</code></p>
+<p>I did not have persmision to chmod on that file. After a bit of Googling I found that I can switch to interactive root mode by running the command</p>
+<p><code>sudo -i</code></p>
+<p>It feels a bit dangerous to be able to just do that (I didn’t have to enter a password) but it worked.</p>
+<h2>Step 2</h2>
+<p>OK, so the tutorial above got me most(ish) of the way there, but I needed to sign my own certificate. For that I used this <a href="https://www.linode.com/docs/security/ssl/install-lets-encrypt-to-create-ssl-certificates" title="SSL">tutorial</a>. I followed the directions but kept coming up with an error:</p>
+<p><code>Problem biding to port 443: Could not bind to the IPv4 or IPv6</code></p>
+<p>I rebooted my Linode server. I restarted apache. I googled and I couldn’t find the answer I was looking for.</p>
+<p>I wanted to give up, but tried Googling one more time. Finally! An answer so simple it couldn’t work. But then it did.</p>
+<p>Stop Apache, run the command to start Apache back up and boom. The error went away and I had a certificate.</p>
+<p>However, when I tested the site using <a href="https://www.ssllabs.com/ssltest/analyze.html" title="Analyze my SSL">SSL Labs</a>I was still getting an error / warning for an untrusted site.</p>
+<p>🤦🏻‍♂️</p>
+<p>—</p>
+<p>OK ... take 2</p>
+<p>I nuked my linode host to start over again.</p>
+<p>First things first ... we need to needed to <a href="https://linode.com/docs/security/securing-your-server/" title="Securing Your Server">secure my server</a>. Next, we need to set up the server as a LAMP and Linode has <a href="https://linode.com/docs/web-servers/lamp/install-lamp-stack-on-ubuntu-16-04/" title="LAMP on Linode">this tutorial</a> to walk me through the steps of setting it up.</p>
+<p>I ran into an issue when I restarted the Apache service and realized that I had set my host name but hadn’t update the hosts file. No problem though. Just fire up <code>vim</code> and make the additional line:</p>
+<p><code>127.0.0.1   milo</code></p>
+<p>Next, I used <a href="https://www.linode.com/docs/security/ssl/create-a-self-signed-certificate-on-debian-and-ubuntu/" title="Self Signed Certificate on Ubuntu">this tutorial</a> to create a self signed certificate and <a href="https://www.linode.com/docs/security/ssl/ssl-apache2-debian-ubuntu/" title="SSL Apache2 Ubuntu">this to get the SSL to be set up</a>.</p>
+<p>One thing that I expected was that it would just work. After doing some more reading what I realized was that a self signed certificate is useful for internal applications. Once I realized this I decided to not redirect to SSL (i.e. part 443) for my site but instead to just use the ssl certificate it post from Ulysses securely.</p>
+<p>Why go to all this trouble just too use a third party application to post to a WordPress site? Because <a href="https://www.ulyssesapp.com" title="Ulysses">Ulysses</a> is an awesome writing app and I love it. If you’re writing and not using it, I’d give it a try. It really is a nice app.</p>
+<p>So really, no <em>good</em> reason. Just that. And, I like to figure stuff out.</p>
+<p>OK, so Ulysses is great. But why the need for an SSL certificate? Mostly because when I tried to post to Wordpress from Ulysses without any certificates ( self signed or not ) I would get a warning that my traffic was unencrypted and could be snooped. I figured, better safe than sorry.</p>
+<p>Now with the ssl cert all I had to do was trust my self signed certificate and I was set^<a class="footnote" href="#fn1" id="ffn1">1</a>^</p>
+<ol>
+<li>[Mostly. I still needed to specify the domain with www otherwise it didn’t work. <a href="#ffn1">↩</a>]{#fn1}</li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

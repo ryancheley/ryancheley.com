@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Automating the deployment</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="We got everything set up, and now we want to automate the deployment. Why would we want to do this you ask? Let’s say that you’ve decided that you..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li class="active"><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/automating-the-deployment.html" rel="bookmark"
+           title="Permalink to Automating the deployment">Automating the deployment</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2021-02-21T12:00:00+01:00">
+                Published: Sun 21 February 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/deployment.html">Deployment</a> <a href="/tag/digital-ocean.html">digital ocean</a> <a href="/tag/series.html">series</a> </p>
+</footer><!-- /.post-info -->      <p>We got everything set up, and now we want to automate the deployment.</p>
+<p>Why would we want to do this you ask? Let’s say that you’ve decided that you need to set up a test version of your site (what some might call UAT) on a new server (at some point I’ll write something up about about multiple Django Sites on the same server and part of this will still apply then). How can you do it?</p>
+<p>Well you’ll want to write yourself some scripts!</p>
+<p>I have a mix of Python and Shell scripts set up to do this. They are a bit piece meal, but they also allow me to run specific parts of the process without having to try and execute a script with ‘commented’ out pieces.</p>
+<p><strong>Python Scripts</strong></p>
+<p>create_server.py</p>
+<p>destroy_droplet.py</p>
+<p><strong>Shell Scripts</strong></p>
+<p>copy_for_deploy.sh</p>
+<p>create_db.sh</p>
+<p>create_server.sh</p>
+<p>deploy.sh</p>
+<p>deploy_env_variables.sh</p>
+<p>install-code.sh</p>
+<p>setup-server.sh</p>
+<p>setup_nginx.sh</p>
+<p>setup_ssl.sh</p>
+<p>super.sh</p>
+<p>upload-code.sh</p>
+<p>The Python script <code>create_server.py</code> looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># create_server.py</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">attrgetter</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="n">Server</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Server&#39;</span><span class="p">,</span> <span class="s1">&#39;created ip_address name&#39;</span><span class="p">)</span>
+
+<span class="n">doat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DIGITAL_OCEAN_ACCESS_TOKEN&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create Droplet</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Bearer </span><span class="si">{</span><span class="n">doat</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">data_keys</span><span class="o">&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; Creating Server&#39;</span><span class="p">)</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://api.digitalocean.com/v2/droplets&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; Server Created&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; Waiting for Server Stand up&#39;</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; Getting Droplet Data&#39;</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;page&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;per_page&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">get_droplets</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://api.digitalocean.com/v2/droplets&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+
+<span class="n">server_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">get_droplets</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;droplets&#39;</span><span class="p">]:</span>
+    <span class="n">server_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Server</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;networks&#39;</span><span class="p">][</span><span class="s1">&#39;v4&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;ip_address&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
+
+<span class="n">server_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">server_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">attrgetter</span><span class="p">(</span><span class="s1">&#39;created&#39;</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">server_ip_address</span> <span class="o">=</span> <span class="n">server_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ip_address</span>
+<span class="n">db_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DJANGO_PG_DB_NAME&#39;</span><span class="p">]</span>
+<span class="n">db_username</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;DJANGO_PG_USER_NAME&#39;</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">server_ip_address</span> <span class="o">!=</span> <span class="o">&lt;</span><span class="n">production_server_id</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&gt;&gt;&gt; Run server setup&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./setup-server.sh </span><span class="si">{</span><span class="n">server_ip_address</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">db_name</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">db_username</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&gt;&gt;&gt; Server setup complete. You need to add </span><span class="si">{</span><span class="n">server_ip_address</span><span class="si">}</span><span class="s1"> to the ALLOWED_HOSTS section of your settings.py file &#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: Running Server set up will destroy your current production server. Aborting process&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Earlier I said that I liked Digital Ocean because of it’s nice API for interacting with it’s servers (i.e. Droplets). Here we start to see some.</p>
+<p>The First part of the script uses my Digital Ocean Token and some input parameters to create a Droplet via the Command Line. The <code>sleep(90)</code> allows the process to complete before I try and get the IP address. Ninety seconds is a bit longer than is needed, but I figure, better safe than sorry … I’m sure that there’s a way to call to DO and ask if the just created droplet has an IP address, but I haven’t figured it out yet.</p>
+<p>After we create the droplet AND is has an IP address, we get it to pass to the bash script <code>server-setup.sh</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># server-setup.sh</span>
+
+<span class="c1">#!/bin/bash</span>
+
+<span class="c1"># Create the server on Digital Ocean</span>
+<span class="k">export</span> <span class="n">SERVER</span><span class="o">=$</span><span class="mi">1</span>
+
+<span class="c1"># Take secret key as 2nd argument</span>
+<span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="n">z</span> <span class="s2">&quot;$1&quot;</span> <span class="p">]]</span>
+<span class="n">then</span>
+    <span class="n">echo</span> <span class="s2">&quot;ERROR: No value set for server ip address1&quot;</span>
+    <span class="n">exit</span> <span class="mi">1</span>
+<span class="n">fi</span>
+
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Setting up $SERVER&quot;</span>
+<span class="n">ssh</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span>
+    <span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+
+    <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Updating apt sources&quot;</span>
+    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">qq</span> <span class="n">update</span>
+
+    <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Upgrading apt packages&quot;</span>
+    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">qq</span> <span class="n">upgrade</span>
+
+    <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Installing apt packages&quot;</span>
+    <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">qq</span> <span class="n">install</span> <span class="n">python3</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">python3</span><span class="o">-</span><span class="n">venv</span> <span class="n">tree</span> <span class="n">supervisor</span> <span class="n">postgresql</span> <span class="n">postgresql</span><span class="o">-</span><span class="n">contrib</span> <span class="n">nginx</span>
+
+    <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Create User to Run Web App&quot;</span>
+    <span class="k">if</span> <span class="n">getent</span> <span class="n">passwd</span> <span class="n">burningfiddle</span>
+    <span class="n">then</span>
+      <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; User already present&quot;</span>
+    <span class="k">else</span>
+      <span class="n">adduser</span> <span class="o">--</span><span class="n">disabled</span><span class="o">-</span><span class="n">password</span> <span class="o">--</span><span class="n">gecos</span> <span class="s2">&quot;&quot;</span> <span class="n">burningfiddle</span>
+      <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Add newly created user to www-data&quot;</span>
+      <span class="n">adduser</span> <span class="n">burningfiddle</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span>
+    <span class="n">fi</span>
+
+    <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Make directory for code to be deployed to&quot;</span>
+
+    <span class="k">if</span> <span class="p">[[</span> <span class="o">!</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;/home/burningfiddle/BurningFiddle&quot;</span> <span class="p">]]</span>
+    <span class="n">then</span>
+        <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span>
+    <span class="k">else</span>
+        <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Skipping Deploy Folder creation - already present&quot;</span>
+    <span class="n">fi</span>
+
+
+    <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Create VirtualEnv in this directory&quot;</span>
+    <span class="k">if</span> <span class="p">[[</span> <span class="o">!</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;/home/burningfiddle/venv&quot;</span> <span class="p">]]</span>
+    <span class="n">then</span>
+      <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">venv</span>
+    <span class="k">else</span>
+        <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Skipping virtualenv creation - already present&quot;</span>
+    <span class="n">fi</span>
+
+    <span class="c1"># I don&#39;t think i need this anymore</span>
+    <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Start and Enable gunicorn&quot;</span>
+    <span class="n">systemctl</span> <span class="n">start</span> <span class="n">gunicorn</span><span class="o">.</span><span class="n">socket</span>
+    <span class="n">systemctl</span> <span class="n">enable</span> <span class="n">gunicorn</span><span class="o">.</span><span class="n">socket</span>
+
+
+<span class="n">EOF</span>
+
+<span class="o">./</span><span class="n">setup_nginx</span><span class="o">.</span><span class="n">sh</span> <span class="o">$</span><span class="n">SERVER</span>
+<span class="o">./</span><span class="n">deploy_env_variables</span><span class="o">.</span><span class="n">sh</span> <span class="o">$</span><span class="n">SERVER</span>
+<span class="o">./</span><span class="n">deploy</span><span class="o">.</span><span class="n">sh</span> <span class="o">$</span><span class="n">SERVER</span>
+</code></pre></div>
+
+<p>All of that stuff we did before, logging into the server and running commands, we’re now doing via a script. What the above does is attempt to keep the server in an idempotent state (that is to say you can run it as many times as you want and you don’t get weird artifacts … if you’re a math nerd you may have heard idempotent in Linear Algebra to describe the multiplication of a matrix by itself and returning the original matrix … same idea here!)</p>
+<p>The one thing that is new here is the part</p>
+<div class="highlight"><pre><span></span><code>ssh root@$SERVER /bin/bash &lt;&lt; EOF
+    ...
+EOF
+</code></pre></div>
+
+<p>A block like that says, “take everything in between <code>EOF</code> and run it on the server I just ssh’d into using bash.</p>
+<p>At the end we run 3 shell scripts:</p>
+<ul>
+<li><code>setup_nginx.sh</code></li>
+<li><code>deploy_env_variables.sh</code></li>
+<li><code>deploy.sh</code></li>
+</ul>
+<p>Let’s review these scripts</p>
+<p>The script <code>setup_nginx.sh</code> copies several files needed for the <code>nginx</code> service:</p>
+<ul>
+<li><code>gunicorn.service</code></li>
+<li><code>gunicorn.sockets</code></li>
+<li><code>nginx.conf</code></li>
+</ul>
+<p>It then sets up a link between the <code>available-sites</code> and <code>enabled-sites</code> for <code>nginx</code> and finally restarts <code>nginx</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># setup_nginx.sh</span>
+
+<span class="k">export</span> <span class="n">SERVER</span><span class="o">=$</span><span class="mi">1</span>
+<span class="k">export</span> <span class="n">sitename</span><span class="o">=</span><span class="n">burningfiddle</span>
+<span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">config</span><span class="o">/</span><span class="n">gunicorn</span><span class="o">.</span><span class="n">service</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span>
+<span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">config</span><span class="o">/</span><span class="n">gunicorn</span><span class="o">.</span><span class="n">socket</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span>
+<span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">config</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/$</span><span class="n">sitename</span>
+
+<span class="n">ssh</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;&gt;&gt;&gt; Set up site to be linked in Nginx&quot;</span>
+  <span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/$</span><span class="n">sitename</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span>
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;&gt;&gt;&gt; Restart Nginx&quot;</span>
+  <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">nginx</span>
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;&gt;&gt;&gt; Allow Nginx Full access&quot;</span>
+  <span class="n">ufw</span> <span class="n">allow</span> <span class="s1">&#39;Nginx Full&#39;</span>
+
+<span class="n">EOF</span>
+</code></pre></div>
+
+<p>The script <code>deploy_env_variables.sh</code> copies environment variables. There are packages (and other methods) that help to manage environment variables better than this, and that is one of the enhancements I’ll be looking at.</p>
+<p>This script captures the values of various environment variables (one at a time) and then passes them through to the server. It then checks to see if these environment variables exist on the server and will place them in the <code>/etc/environment</code> file</p>
+<div class="highlight"><pre><span></span><code><span class="k">export</span> <span class="n">SERVER</span><span class="o">=$</span><span class="mi">1</span>
+
+<span class="n">DJANGO_SECRET_KEY</span><span class="o">=</span><span class="n">printenv</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">DJANGO_SECRET_KEY</span>
+<span class="n">DJANGO_PG_PASSWORD</span><span class="o">=</span><span class="n">printenv</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">DJANGO_PG_PASSWORD</span>
+<span class="n">DJANGO_PG_USER_NAME</span><span class="o">=</span><span class="n">printenv</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">DJANGO_PG_USER_NAME</span>
+<span class="n">DJANGO_PG_DB_NAME</span><span class="o">=</span><span class="n">printenv</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">DJANGO_PG_DB_NAME</span>
+<span class="n">DJANGO_SUPERUSER_PASSWORD</span><span class="o">=</span><span class="n">printenv</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">DJANGO_SUPERUSER_PASSWORD</span>
+<span class="n">DJANGO_DEBUG</span><span class="o">=</span><span class="n">False</span>
+
+<span class="n">ssh</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span>
+    <span class="k">if</span> <span class="p">[[</span> <span class="s2">&quot;\$DJANGO_SECRET_KEY&quot;</span> <span class="o">!=</span> <span class="s2">&quot;$DJANGO_SECRET_KEY&quot;</span> <span class="p">]]</span>
+    <span class="n">then</span>
+        <span class="n">echo</span> <span class="s2">&quot;DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">environment</span>
+    <span class="k">else</span>
+        <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Skipping DJANGO_SECRET_KEY - already present&quot;</span>
+    <span class="n">fi</span>
+
+    <span class="k">if</span> <span class="p">[[</span> <span class="s2">&quot;\$DJANGO_PG_PASSWORD&quot;</span> <span class="o">!=</span> <span class="s2">&quot;$DJANGO_PG_PASSWORD&quot;</span> <span class="p">]]</span>
+    <span class="n">then</span>
+        <span class="n">echo</span> <span class="s2">&quot;DJANGO_PG_PASSWORD=$DJANGO_PG_PASSWORD&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">environment</span>
+    <span class="k">else</span>
+        <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Skipping DJANGO_PG_PASSWORD - already present&quot;</span>
+    <span class="n">fi</span>
+
+    <span class="k">if</span> <span class="p">[[</span> <span class="s2">&quot;\$DJANGO_PG_USER_NAME&quot;</span> <span class="o">!=</span> <span class="s2">&quot;$DJANGO_PG_USER_NAME&quot;</span> <span class="p">]]</span>
+    <span class="n">then</span>
+        <span class="n">echo</span> <span class="s2">&quot;DJANGO_PG_USER_NAME=$DJANGO_PG_USER_NAME&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">environment</span>
+    <span class="k">else</span>
+        <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Skipping DJANGO_PG_USER_NAME - already present&quot;</span>
+    <span class="n">fi</span>
+
+    <span class="k">if</span> <span class="p">[[</span> <span class="s2">&quot;\$DJANGO_PG_DB_NAME&quot;</span> <span class="o">!=</span> <span class="s2">&quot;$DJANGO_PG_DB_NAME&quot;</span> <span class="p">]]</span>
+    <span class="n">then</span>
+        <span class="n">echo</span> <span class="s2">&quot;DJANGO_PG_DB_NAME=$DJANGO_PG_DB_NAME&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">environment</span>
+    <span class="k">else</span>
+        <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Skipping DJANGO_PG_DB_NAME - already present&quot;</span>
+    <span class="n">fi</span>
+
+    <span class="k">if</span> <span class="p">[[</span> <span class="s2">&quot;\$DJANGO_DEBUG&quot;</span> <span class="o">!=</span> <span class="s2">&quot;$DJANGO_DEBUG&quot;</span> <span class="p">]]</span>
+    <span class="n">then</span>
+        <span class="n">echo</span> <span class="s2">&quot;DJANGO_DEBUG=$DJANGO_DEBUG&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">environment</span>
+    <span class="k">else</span>
+        <span class="n">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Skipping DJANGO_DEBUG - already present&quot;</span>
+    <span class="n">fi</span>
+<span class="n">EOF</span>
+</code></pre></div>
+
+<p>The <code>deploy.sh</code> calls two scripts itself:</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="nb">set</span> -e
+<span class="c1"># Deploy Django project.</span>
+<span class="nb">export</span> <span class="nv">SERVER</span><span class="o">=</span><span class="nv">$1</span>
+<span class="c1">#./scripts/backup-database.sh</span>
+./upload-code.sh
+./install-code.sh
+</code></pre></div>
+
+<p>The final two scripts!</p>
+<p>The <code>upload-code.sh</code> script uploads the files to the <code>deploy</code> folder of the server while the <code>install-code.sh</code> script move all of the files to where then need to be on the server and restart any services.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># upload-code.sh</span>
+
+<span class="c1">#!/bin/bash</span>
+<span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Copying Django project files to server.&quot;</span>
+<span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="n">z</span> <span class="s2">&quot;$SERVER&quot;</span> <span class="p">]]</span>
+<span class="n">then</span>
+    <span class="n">echo</span> <span class="s2">&quot;ERROR: No value set for SERVER.&quot;</span>
+    <span class="n">exit</span> <span class="mi">1</span>
+<span class="n">fi</span>
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Preparing scripts locally.&quot;</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">../../</span><span class="n">deploy</span><span class="o">/*</span>
+<span class="n">rsync</span> <span class="o">-</span><span class="n">rv</span> <span class="o">--</span><span class="n">exclude</span> <span class="s1">&#39;htmlcov&#39;</span> <span class="o">--</span><span class="n">exclude</span> <span class="s1">&#39;venv&#39;</span> <span class="o">--</span><span class="n">exclude</span> <span class="s1">&#39;*__pycache__*&#39;</span> <span class="o">--</span><span class="n">exclude</span> <span class="s1">&#39;*staticfiles*&#39;</span> <span class="o">--</span><span class="n">exclude</span> <span class="s1">&#39;*.pyc&#39;</span>  <span class="o">../../</span><span class="n">BurningFiddle</span><span class="o">/*</span> <span class="o">../../</span><span class="n">deploy</span>
+
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Copying files to the server.&quot;</span>
+<span class="n">ssh</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span> <span class="s2">&quot;rm -rf /root/deploy/&quot;</span>
+<span class="n">scp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../../</span><span class="n">deploy</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span><span class="p">:</span><span class="o">/</span><span class="n">root</span><span class="o">/</span>
+
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Finished copying Django project files to server.&quot;</span>
+</code></pre></div>
+
+<p>And finally,</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># install-code.sh</span>
+
+<span class="c1">#!/bin/bash</span>
+<span class="c1"># Install Django app on server.</span>
+<span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Installing Django project on server.&quot;</span>
+<span class="k">if</span> <span class="p">[[</span> <span class="o">-</span><span class="n">z</span> <span class="s2">&quot;$SERVER&quot;</span> <span class="p">]]</span>
+<span class="n">then</span>
+    <span class="n">echo</span> <span class="s2">&quot;ERROR: No value set for SERVER.&quot;</span>
+    <span class="n">exit</span> <span class="mi">1</span>
+<span class="n">fi</span>
+<span class="n">echo</span> <span class="o">$</span><span class="n">SERVER</span>
+<span class="n">ssh</span> <span class="n">root</span><span class="err">@</span><span class="o">$</span><span class="n">SERVER</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span>
+  <span class="n">set</span> <span class="o">-</span><span class="n">e</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Activate the Virtual Environment&quot;</span>
+  <span class="n">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">venv</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">activate</span>
+
+
+  <span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Deleting old files&quot;</span>
+  <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Copying new files&quot;</span>
+  <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">deploy</span><span class="o">/</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Installing Python packages&quot;</span>
+  <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Running Django migrations&quot;</span>
+  <span class="n">python</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span><span class="o">/</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Creating Superuser&quot;</span>
+  <span class="n">python</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span><span class="o">/</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span> <span class="o">--</span><span class="n">noinput</span> <span class="o">--</span><span class="n">username</span> <span class="n">bfadmin</span> <span class="o">--</span><span class="n">email</span> <span class="n">rcheley</span><span class="err">@</span><span class="n">gmail</span><span class="o">.</span><span class="n">com</span> <span class="o">||</span> <span class="bp">true</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Load Initial Data&quot;</span>
+  <span class="n">python</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span><span class="o">/</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">loaddata</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span><span class="o">/</span><span class="n">fixtures</span><span class="o">/</span><span class="n">pages</span><span class="o">.</span><span class="n">json</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Collecting static files&quot;</span>
+  <span class="n">python</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">burningfiddle</span><span class="o">/</span><span class="n">BurningFiddle</span><span class="o">/</span><span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">collectstatic</span>
+
+  <span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Reloading Gunicorn&quot;</span>
+  <span class="n">systemctl</span> <span class="n">daemon</span><span class="o">-</span><span class="n">reload</span>
+  <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">gunicorn</span>
+
+<span class="n">EOF</span>
+
+<span class="n">echo</span> <span class="o">-</span><span class="n">e</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&gt;&gt;&gt; Finished installing Django project on server.&quot;</span>
+</code></pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

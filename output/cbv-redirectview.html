@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>CBV - RedirectView</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="From Classy Class Based View the RedirectView will Provide a redirect on any GET request. It is an extension of View and has 5 attributes:..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li class="active"><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/cbv-redirectview.html" rel="bookmark"
+           title="Permalink to CBV - RedirectView">CBV - RedirectView</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-11-10T10:00:00+01:00">
+                Published: Sun 10 November 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/django.html">Django</a>.</p>
+<p>tags: <a href="/tag/cbv.html">CBV</a> <a href="/tag/class-based-views.html">class based views</a> <a href="/tag/django.html">django</a> </p>
+</footer><!-- /.post-info -->      <p>From <a href="http://ccbv.co.uk/projects/Django/2.2/django.views.generic.base/RedirectView/">Classy Class Based View</a> the <code>RedirectView</code> will</p>
+<blockquote>
+<blockquote>
+<p>Provide a redirect on any GET request.</p>
+</blockquote>
+</blockquote>
+<p>It is an extension of <code>View</code> and has 5 attributes:</p>
+<ul>
+<li>http_method_names (from <code>View</code>)</li>
+<li>pattern_name: The name of the URL pattern to redirect to. ^<a class="footnote" href="#fn1" id="ffn1">1</a>^ This will be used if no <code>url</code> is used.</li>
+<li>permanent: a flag to determine if the redirect is permanent or not. If set to <code>True</code>, then the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection">HTTP Status Code</a> <a href="https://en.wikipedia.org/wiki/HTTP_301">301</a> is returned. If set to <code>False</code> the <a href="https://en.wikipedia.org/wiki/HTTP_302">302</a> is returned</li>
+<li>query_string: If <code>True</code> then it will pass along the query string from the RedirectView. If it’s <code>False</code> it won’t. If this is set to <code>True</code> and neither <code>pattern\_name</code> nor <code>url</code> are set then nothing will be passed to the <code>RedirectView</code></li>
+<li>url: Where the Redirect should point. It will take precedence over the patter_name so you should only <code>url</code> or <code>patter\_name</code> but not both. This will need to be an absolute url, not a relative one, otherwise you may get a <a href="https://en.wikipedia.org/wiki/HTTP_404">404</a> error</li>
+</ul>
+<p>The example below will give a <code>301</code> status code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">myRedirectView</span>(<span class="n">RedirectView</span>):
+    <span class="n">pattern_name</span> = <span class="s">&#39;rango:template_view&#39;</span>
+    <span class="n">permanent</span> = <span class="nb">True</span>
+    <span class="n">query_string</span> = <span class="nb">True</span>
+</code></pre></div>
+
+<p>While this would be a <code>302</code> status code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="n">myRedirectView</span>(<span class="n">RedirectView</span>):
+    <span class="n">pattern_name</span> = <span class="s">&#39;rango:template_view&#39;</span>
+    <span class="n">permanent</span> = <span class="nb">False</span>
+    <span class="n">query_string</span> = <span class="nb">True</span>
+</code></pre></div>
+
+<h2>Methods</h2>
+<p>The method <code>get\_redirect\_url</code> allows you to perform actions when the redirect is called. From the <a href="https://docs.djangoproject.com/en/2.2/ref/class-based-views/base/#redirectview">Django Docs</a> the example given is increasing a counter on an Article Read value.</p>
+<h2>Diagram</h2>
+<p>A visual representation of how <code>RedirectView</code> derives from <code>View</code> ^<a class="footnote" href="#fn2" id="ffn2">2</a>^</p>
+<p><img alt="" src="https://yuml.me/diagram/plain;/class/%5BView%7Bbg:lightblue%7D%5D%5E-%5BRedirectView%7Bbg:green%7D%5D.svg"></p>
+<h2>Conclusion</h2>
+<p>In general, given the power of the url mapping in Django I’m not sure why you would need to use a the Redirect View. From <a href="https://docs.djangoproject.com/en/2.2/ref/class-based-views/base/#redirectview">Real Python</a> they concur, stating:</p>
+<blockquote>
+<blockquote>
+<p>As you can see, the class-based approach does not provide any obvious benefit while adding some hidden complexity. That raises the question: <strong>when should you use RedirectView?</strong></p>
+<p>If you want to add a redirect directly in your urls.py, using RedirectView makes sense. But if you find yourself overwriting get<em>redirect</em>url, a function-based view might be easier to understand and more flexible for future enhancements.</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>[From the <a href="https://docs.djangoproject.com/en/2.2/ref/class-based-views/base/">Django Docs</a> <a href="#ffn1">↩</a>]{#fn1}</li>
+<li>[Original Source from Classy Class Based Views <a href="#ffn2">↩</a>]{#fn2}</li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

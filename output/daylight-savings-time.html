@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>Daylight Savings Time</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="Dr Drang has posted on Daylight Savings in the past, but in a recent post he critiqued (rightly so) the data presentation by a journalist at the..." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">My Place on the Internet</a></h1>
+                <nav><ul>
+                    <li><a href="/category/apple.html">Apple</a></li>
+                    <li><a href="/category/automation.html">Automation</a></li>
+                    <li><a href="/category/books.html">Books</a></li>
+                    <li><a href="/category/coding.html">Coding</a></li>
+                    <li><a href="/category/conferences.html">Conferences</a></li>
+                    <li><a href="/category/conferenes.html">Conferenes</a></li>
+                    <li><a href="/category/django.html">Django</a></li>
+                    <li><a href="/category/github.html">GitHub</a></li>
+                    <li><a href="/category/ios.html">iOS</a></li>
+                    <li><a href="/category/macos.html">macOS</a></li>
+                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/category/music.html">Music</a></li>
+                    <li><a href="/category/musings.html">Musings</a></li>
+                    <li><a href="/category/podcasts.html">Podcasts</a></li>
+                    <li><a href="/category/productivity.html">Productivity</a></li>
+                    <li><a href="/category/professional-development.html">Professional Development</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/raspberry-pi.html">Raspberry Pi</a></li>
+                    <li><a href="/category/server.html">Server</a></li>
+                    <li><a href="/category/sports.html">Sports</a></li>
+                    <li><a href="/category/web.html">Web</a></li>
+                    <li><a href="/category/writing.html">Writing</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/daylight-savings-time.html" rel="bookmark"
+           title="Permalink to Daylight Savings Time">Daylight Savings Time</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-03-26T19:02:00+02:00">
+                Published: Mon 26 March 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/ryan.html">ryan</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p><a href="http://www.leancrew.com/all-this/2013/03/why-i-like-dst/">Dr Drang has posted on Daylight Savings in the past</a>, but in a recent <a href="http://leancrew.com/all-this/2018/03/one-table-following-another/">post</a> he critiqued (rightly so) the data presentation by a journalist at the Washington Post on Daylight Savings, and that got me thinking.</p>
+<p>In the post he generated a chart showing both the total number of daylight hours and the sunrise / sunset times in Chicago. However, initially he didn’t post the code on how he generated it. The next day, in a follow up <a href="http://leancrew.com/all-this/2018/03/the-sunrise-plot/">post</a>, he did and that <strong>really</strong> got my thinking.</p>
+<p>I wonder what the chart would look like for cities up and down the west coast (say from San Diego, CA to Seattle WA)?</p>
+<p>Drang’s post had all of the code necessary to generate the graph, but for the data munging, he indicated:</p>
+<blockquote>
+<blockquote>
+<p>If I were going to do this sort of thing on a regular basis, I’d write a script to handle this editing, but for a one-off I just did it “by hand.”</p>
+</blockquote>
+</blockquote>
+<p>Doing it by hand wasn’t going to work for me if I was going to do several cities and so I needed to write a parser for the source of the data (<a href="http://aa.usno.navy.mil">The US Naval Observatory</a>).</p>
+<p>The entire script is on my GitHub <a href="https://github.com/ryancheley/sunrise_sunset">sunrise<em>sunset</em></a> repo. I won’t go into the nitty gritty details, but I will call out a couple of things that I discovered during the development process.</p>
+<p>Writing a parser is hard. Like <em>really</em> hard. Each time I thought I had it, I didn’t. I was finally able to get the parser to work o cities with <code>01</code>, <code>29</code>,<code>30</code>, or <code>31</code> in their longitude / latitude combinations.</p>
+<p>I generated the same graph as Dr. Drang for the following cities:</p>
+<ul>
+<li>Phoenix, AZ</li>
+<li>Eugene, OR</li>
+<li>Portland</li>
+<li>Salem, OR</li>
+<li>Seaside, OR</li>
+<li>Eureka, CA</li>
+<li>Indio, CA</li>
+<li>Long Beach, CA</li>
+<li>Monterey, CA</li>
+<li>San Diego, CA</li>
+<li>San Francisco, CA</li>
+<li>San Luis Obispo, CA</li>
+<li>Ventura, CA</li>
+<li>Ferndale, WA</li>
+<li>Olympia, WA</li>
+<li>Seattle, WA</li>
+</ul>
+<p>Why did I pick a city in Arizona? They don’t do Daylight Savings and I wanted to have a comparison of what it’s like for them!</p>
+<p>The charts in latitude order (from south to north) are below:</p>
+<p>San Diego</p>
+<p><img alt="" class="alignnone wp-image-242 size-full" height="900" src="/images/uploads/2018/03/N32_45_San-Diego_CA_rise_set_chart.png" width="1500"></p>
+<p>Phoenix</p>
+<p><img alt="" class="alignnone wp-image-497 size-full" height="900" src="/images/uploads/2018/03/N33_30_Phoenix_AZ_rise_set_chart.png" width="1500"></p>
+<p>Indio</p>
+<p><img alt="" class="alignnone size-full wp-image-249" height="900" src="/images/uploads/2018/03/N33_44_Indio_CA_rise_set_chart.png" width="1500"></p>
+<p>Long Beach</p>
+<p><img alt="" class="alignnone size-full wp-image-250" height="900" src="/images/uploads/2018/03/N33_49_Long-Beach_CA_rise_set_chart.png" width="1500"></p>
+<p>Ventura</p>
+<p><img alt="" class="alignnone size-full wp-image-238" height="900" src="/images/uploads/2018/03/N34_17_Ventura_CA_rise_set_chart.png" width="1500"></p>
+<p>San Luis Obispo</p>
+<p><img alt="" class="alignnone size-full wp-image-234" height="900" src="/images/uploads/2018/03/N35_17_San-Luis-Obispo_CA_rise_set_chart.png" width="1500"></p>
+<p>Monterey</p>
+<p><img alt="" class="alignnone size-full wp-image-245" height="900" src="/images/uploads/2018/03/N36_36_Monterey_CA_rise_set_chart.png" width="1500"></p>
+<p>San Francisco</p>
+<p><img alt="" class="alignnone size-full wp-image-235" height="900" src="/images/uploads/2018/03/N37_46_San-Francisco_CA_rise_set_chart.png" width="1500"></p>
+<p>Eureka</p>
+<p><img alt="" class="alignnone size-full wp-image-236" height="900" src="/images/uploads/2018/03/N40_47_Eureka_CA_rise_set_chart.png" width="1500"></p>
+<p>Eugene</p>
+<p><img alt="" class="alignnone size-full wp-image-247" height="900" src="/images/uploads/2018/03/N44_03_Eugene_OR_rise_set_chart.png" width="1500"></p>
+<p>Salem</p>
+<p><img alt="" class="alignnone size-full wp-image-240" height="900" src="/images/uploads/2018/03/N44_56_Salem_OR_rise_set_chart.png" width="1500"></p>
+<p>Portland</p>
+<p><img alt="" class="alignnone size-full wp-image-248" height="900" src="/images/uploads/2018/03/N45_31_Portland_OR_rise_set_chart.png" width="1500"></p>
+<p>Seaside</p>
+<p><img alt="" class="alignnone size-full wp-image-244" height="900" src="/images/uploads/2018/03/N45_59_Seaside_OR_rise_set_chart.png" width="1500"></p>
+<p>Olympia</p>
+<p><img alt="" class="alignnone size-full wp-image-241" height="900" src="/images/uploads/2018/03/N47_02_Olympia_WA_rise_set_chart.png" width="1500"></p>
+<p>Seattle</p>
+<p><img alt="" class="alignnone size-full wp-image-246" height="900" src="/images/uploads/2018/03/N47_38_Seattle_WA_rise_set_chart.png" width="1500"></p>
+<p>Ferndale</p>
+<p><img alt="" class="alignnone size-full wp-image-243" height="900" src="/images/uploads/2018/03/N48_51_Ferndale_WA_rise_set_chart.png" width="1500"></p>
+<p>While these images do show the different impact of Daylight Savings, I think the images are more compelling when shown as a GIF:</p>
+<p><img alt="" class="alignnone size-full wp-image-239" height="900" src="/images/uploads/2018/03/animated.gif" width="1500"></p>
+<p>We see just how different the impacts of DST are on each city depending on their latitude.</p>
+<p>One of <a href="http://www.leancrew.com/all-this/2013/03/why-i-like-dst/">Dr. Drang’s main points in support of DST</a> is:</p>
+<blockquote>
+<blockquote>
+<p>If, by the way, you think the solution is to stay on DST throughout the year, I can only tell you that we tried that back in the 70s and it didn’t turn out well. Sunrise here in Chicago was after 8:00 am, which put school children out on the street at bus stops before dawn in the dead of winter. It was the same on the East Coast. Nobody liked that.</p>
+</blockquote>
+</blockquote>
+<p>I think that comment says more about our school system and less about the need for DST.</p>
+<p>For this whole argument I’m way more on the side of CGP Grey who does a <a href="https://www.youtube.com/watch?v=84aWtseb2-4">great job of explaining what Day Lights Time is</a>.</p>
+<p>I think we may want to start looking at a Universal Planetary time (say UTC) and base all activities on that <strong>regardless</strong> of where you are in the world. The only reason 5am <em>seems</em> early (to some people) is because we’ve collectively decided that 5am (depending on the time of the year) is either <strong>WAY</strong> before sunrise or just a bit before sunrise, but really it’s just a number.</p>
+<p>If we used UTC in California (where I’m at) 5am would we 12pm. Normally 12pm would be lunch time, but that’s only a convention that we have constructed. It could just as easily be the crack of dawn as it could be lunch time.</p>
+<p>Do I think a conversion like this will ever happen? No. I just really hope that at some point in the distant future when aliens finally come and visit us, we aren’t late (or them early) because we have such a wacky time system here.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://simonwillison.net">Simon Wilison</a></li>
+                            <li><a href="https://www.mattlayman.com">Matt Layman</a></li>
+                            <li><a href="https://pybit.es">PyBites</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/ryancheley/">Twitter</a></li>
+                            <li><a href="https://github.com/ryancheley">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/ryan-cheley/">LinkedIn</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
