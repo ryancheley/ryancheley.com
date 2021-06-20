@@ -133,3 +133,6 @@ dmypy.json
 
 # vs code
 .vscode
+
+# pelican
+output
