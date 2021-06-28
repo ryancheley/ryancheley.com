@@ -57,7 +57,7 @@ Nothing special needs to be done
 
 Will render:
 
-![](/images/uploads/2019/11/634B59DC-6BA6-4C5F-B969-E8B924123FFA.jpeg){.alignnone .size-full .wp-image-394 width="866" height="542"}
+![Rendered Archive Index View](/images/uploads/2019/11/634B59DC-6BA6-4C5F-B969-E8B924123FFA.jpeg){.alignnone .size-full .wp-image-394 width="866" height="542"}
 
 For `month`
 
