@@ -1,7 +1,7 @@
 Title: An Introvert’s guide to large conferences ... or how I survived HIMSS 2018 (and 2017 and 2016)
 Date: 2018-03-06 06:10
 Author: ryan
-Category: Conferenes
+Category: Conferences
 Tags: HIMSS18
 Slug: an-introverts-guide-to-large-conferences-or-how-i-survived-himss-2018-and-2017-and-2016
 Status: published
