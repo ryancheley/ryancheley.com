@@ -1,8 +1,8 @@
 Title: Moving my Pycharm Directory or How I spent my Saturday after jacking up my PyCharm environment
 Date: 2018-08-12 15:00
 Author: ryan
-Category: macOS
-Tags: MacBook Pro, python
+Category: Technology
+Tags: MacBook Pro, python, macOS
 Slug: moving-my-pycharm-directory-or-how-i-spent-my-saturday-after-jacking-up-my-pycharm-environment
 Status: published
 

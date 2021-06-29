@@ -1,7 +1,7 @@
 Title: My Mac session with Apple
 Date: 2017-12-27 21:00
 Author: ryan
-Category: macOS
+Category: Technology
 Tags: MacBook Pro, macOS, TouchBar
 Slug: my-mac-session-with-apple
 Status: published

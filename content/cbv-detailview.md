@@ -1,7 +1,7 @@
 Title: CBV - DetailView
 Date: 2019-11-24 10:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: CBV, class based views, django
 Slug: cbv-detailview
 Status: published

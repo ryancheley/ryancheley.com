@@ -1,8 +1,8 @@
 Title: Updating my meeting Workflow for Drafts 5
 Date: 2018-05-19 17:56
 Author: ryan
-Category: Automation
-Tags: automation, Workflow
+Category: Technology
+Tags: automation, Workflow, Automation
 Slug: updating-my-meeting-workflow-for-drafts-5
 Status: published
 

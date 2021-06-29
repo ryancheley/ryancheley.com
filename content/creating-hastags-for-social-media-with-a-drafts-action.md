@@ -1,8 +1,8 @@
 Title: Creating Hastags for Social Media with a Drafts Action
 Date: 2019-03-30 05:46
 Author: ryan
-Category: Automation
-Tags: Drafts, JavaScript, Social Media
+Category: Technology
+Tags: Drafts, JavaScript, Social Media, Automation
 Slug: creating-hastags-for-social-media-with-a-drafts-action
 Status: published
 

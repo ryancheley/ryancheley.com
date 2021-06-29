@@ -1,8 +1,8 @@
 Title: HIMSS 2017 - Day 0
 Date: 2017-02-19 02:16
 Author: ryan
-Category: Conferences
-Tags: HIMSS17
+Category: Musings
+Tags: HIMSS17, Conferences
 Slug: himss-2017-day-0
 Status: published
 

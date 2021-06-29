@@ -1,7 +1,7 @@
 Title: How to pick a team to root for (when the Dodgers aren’t playing)
 Date: 2018-04-02 17:41
 Author: ryan
-Category: Sports
+Category: Musings
 Tags: Baseball, Rooting
 Slug: how-to-pick-a-team-to-root-for-when-the-dodgers-arent-playing
 Status: published

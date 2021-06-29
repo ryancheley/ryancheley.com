@@ -1,8 +1,8 @@
 Title: Keeping Python up to date on macOS
 Date: 2018-12-22 04:08
 Author: ryan
-Category: Python
-Tags: macOS, python, Terminal
+Category: Technology
+Tags: macOS, Python, Terminal
 Slug: keeping-python-up-to-date-on-macos
 Status: published
 

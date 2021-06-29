@@ -1,7 +1,7 @@
 Title: The Sports Center Effect
 Date: 2018-02-04 18:29
 Author: ryan
-Category: Sports
+Category: Musings
 Tags: sportsball
 Slug: the-sports-center-effect
 Status: published

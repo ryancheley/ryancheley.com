@@ -1,7 +1,8 @@
 Title: Making Background Images
 Date: 2017-09-17 23:24
 Author: ryan
-Category: macOS
+Category: Technology
+Tags: macOS
 Slug: making-background-images
 Status: published
 

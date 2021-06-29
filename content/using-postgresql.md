@@ -1,7 +1,7 @@
 Title: Using PostgreSQL
 Date: 2021-02-28 12:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: postgres, series
 Slug: using-postgresql
 Status: published

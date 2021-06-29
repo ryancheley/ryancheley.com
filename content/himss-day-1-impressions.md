@@ -1,8 +1,8 @@
 Title: HIMSS Day 1 Impressions
 Date: 2018-03-07 06:51
 Author: ryan
-Category: Conferences
-Tags: HIMSS18, HIT
+Category: Musings
+Tags: HIMSS18, HIT, Conferences
 Slug: himss-day-1-impressions
 Status: published
 

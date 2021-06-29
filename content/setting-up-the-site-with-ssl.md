@@ -1,7 +1,8 @@
 Title: Setting up the site with SSL
 Date: 2017-12-15 02:00
 Author: ryan
-Category: Server
+Category: Technology
+Tags: Server
 Slug: setting-up-the-site-with-ssl
 Status: published
 

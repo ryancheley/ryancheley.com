@@ -1,7 +1,8 @@
 Title: Converting Writing Examples from doc to markdown: My Process
 Date: 2016-10-07 16:21
 Author: ryan
-Category: Writing
+Category: Musings
+Tags: writing
 Slug: converting-writing-examples-from-doc-to-markdown-my-process
 Status: published
 

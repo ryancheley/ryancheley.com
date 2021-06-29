@@ -1,7 +1,7 @@
 Title: Setting up multiple Django Sites on a Digital Ocean server
 Date: 2021-03-07 12:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: digital ocean, series
 Slug: setting-up-multiple-django-sites-on-a-digital-ocean-server
 Status: published

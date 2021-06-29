@@ -1,8 +1,8 @@
 Title: Fixing a PyCharm issue when updating Python made via HomeBrew
 Date: 2019-11-14 13:24
 Author: ryan
-Category: Python
-Tags: homebrew, macOS, techsupport
+Category: Technology
+Tags: homebrew, macOS, techsupport, Python
 Slug: fixing-a-pycharm-issue-when-updating-python-made-via-homebrew
 Status: published
 

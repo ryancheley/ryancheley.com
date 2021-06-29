@@ -1,7 +1,8 @@
 Title: Talk Python Build 10 Apps Review
 Date: 2018-03-20 13:27
 Author: ryan
-Category: Python
+Category: Technology
+Tags: Python
 Slug: talk-python-build-10-apps-review
 Status: published
 

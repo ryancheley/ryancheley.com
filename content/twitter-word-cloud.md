@@ -1,8 +1,8 @@
 Title: Twitter Word Cloud
 Date: 2016-11-23 03:41
 Author: ryan
-Category: Python
-Tags: python, twitter
+Category: Technology
+Tags: Python, twitter
 Slug: twitter-word-cloud
 Status: published
 

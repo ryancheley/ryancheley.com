@@ -1,7 +1,7 @@
 Title: Home, End, PgUp, PgDn ... BBEdit Preferences
 Date: 2016-11-22 05:21
 Author: ryan
-Category: macOS
+Category: Technology
 Tags: BBEdit, macOS, preferences
 Slug: home-end-pgup-pgdn-bbedit-preferences
 Status: published

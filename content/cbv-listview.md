@@ -1,7 +1,7 @@
 Title: CBV - ListView
 Date: 2019-11-17 10:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: CBV, class based views, django
 Slug: cbv-listview
 Status: published

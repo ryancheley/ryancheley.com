@@ -1,7 +1,7 @@
 Title: CBV - PasswordChangeDoneView
 Date: 2019-12-25 10:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: CBV, class based views, django
 Slug: cbv-passwordchangedoneview
 Status: published

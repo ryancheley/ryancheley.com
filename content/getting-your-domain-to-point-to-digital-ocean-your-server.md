@@ -1,8 +1,8 @@
 Title: Getting your Domain to point to Digital Ocean Your Server
 Date: 2021-02-07 12:00
 Author: ryan
-Category: Web
-Tags: digital ocean, series, server, setup
+Category: Technology
+Tags: digital ocean, series, server, setup, web
 Slug: getting-your-domain-to-point-to-digital-ocean-your-server
 Status: published
 

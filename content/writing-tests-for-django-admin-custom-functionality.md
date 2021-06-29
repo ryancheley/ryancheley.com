@@ -1,7 +1,7 @@
 Title: Writing tests for Django Admin Custom Functionality
 Date: 2021-01-27 12:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: admin, tests
 Slug: writing-tests-for-django-admin-custom-functionality
 Status: published

@@ -1,8 +1,8 @@
 Title: Installing the osmnx package for Python
 Date: 2016-11-24 16:44
 Author: ryan
-Category: Python
-Tags: osmnx, package, python
+Category: Technology
+Tags: osmnx, package, Python
 Slug: installing-the-osmnx-package-for-python
 Status: published
 

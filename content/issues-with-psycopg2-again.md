@@ -1,8 +1,8 @@
 Title: Issues with psycopg2 … again
 Date: 2020-05-03 14:00
 Author: ryan
-Category: Python
-Tags: package, python
+Category: Technology
+Tags: package, Python
 Slug: issues-with-psycopg2-again
 Status: published
 

@@ -1,8 +1,8 @@
 Title: A Summary of Dale Carnegie’s “How to Win Friends and Influence People”
 Date: 2018-05-23 16:49
 Author: ryan
-Category: Books
-Tags: Influence, productivity
+Category: Musings
+Tags: Influence, productivity, books
 Slug: a-summary-of-dale-carnegies-how-to-win-friends-and-influence-people
 Status: published
 

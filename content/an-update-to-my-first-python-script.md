@@ -1,7 +1,8 @@
 Title: An Update to my first Python Script
 Date: 2016-10-22 16:00
 Author: ryan
-Category: Python
+Category: Technology
+Tags: Python
 Slug: an-update-to-my-first-python-script
 Status: published
 

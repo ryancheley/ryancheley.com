@@ -1,8 +1,8 @@
 Title: My Experience with the 100 Days of Web in Python
 Date: 2019-08-18 09:42
 Author: ryan
-Category: Python
-Tags: coding, python
+Category: Technology
+Tags: coding, Python
 Slug: my-experience-with-the-100-days-of-web-in-python
 Status: published
 

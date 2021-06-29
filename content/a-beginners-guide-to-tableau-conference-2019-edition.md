@@ -1,8 +1,8 @@
 Title: A beginners guide to Tableau Conference - 2019 edition
 Date: 2019-12-17 06:01
 Author: ryan
-Category: Conferences
-Tags: Beginner, Tableau
+Category: Musings
+Tags: Beginner, Tableau, Conferences
 Slug: a-beginners-guide-to-tableau-conference-2019-edition
 Status: published
 

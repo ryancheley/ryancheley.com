@@ -1,7 +1,7 @@
 Title: Basketball Conference Finals OR How the actions of one person can fire up the other team and lead them to win
 Date: 2018-06-08 08:00
 Author: ryan
-Category: Sports
+Category: Musings
 Tags: nba finals, team
 Slug: basketball-conference-finals-or-how-the-actions-of-one-person-can-fire-up-the-other-team-and-lead-them-to-win
 Status: published

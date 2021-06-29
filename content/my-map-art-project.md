@@ -1,8 +1,8 @@
 Title: My Map Art Project
 Date: 2018-01-12 05:44
 Author: ryan
-Category: Python
-Tags: art, python
+Category: Technology
+Tags: art, Python
 Slug: my-map-art-project
 Status: published
 

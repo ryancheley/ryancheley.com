@@ -1,7 +1,7 @@
 Title: My First Django Project
 Date: 2020-05-02 14:43
 Author: ryan
-Category: Django
+Category: Technology
 Tags: doing, python
 Slug: my-first-django-project
 Status: published

@@ -1,7 +1,7 @@
 Title: Using different .env files
 Date: 2021-01-16 14:53
 Author: ryan
-Category: Django
+Category: Technology
 Tags: DevOps, JustFile
 Slug: using-different-env-files
 Status: published

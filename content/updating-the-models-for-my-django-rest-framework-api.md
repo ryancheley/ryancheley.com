@@ -1,7 +1,7 @@
 Title: Updating the models for my Django Rest Framework API
 Date: 2019-11-06 20:02
 Author: ryan
-Category: Django
+Category: Technology
 Tags: PyCharm, python
 Slug: updating-the-models-for-my-django-rest-framework-api
 Status: published

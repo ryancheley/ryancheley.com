@@ -1,7 +1,7 @@
 Title: An Evening with Post Modern Jukebox
 Date: 2018-12-15 07:07
 Author: ryan
-Category: Music
+Category: Musings
 Tags: concert, Music, PMJ
 Slug: an-evening-with-post-modern-jukebox
 Status: published

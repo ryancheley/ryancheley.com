@@ -1,8 +1,8 @@
 Title: Using Drafts 5 at Work
 Date: 2018-06-07 04:43
 Author: ryan
-Category: Automation
-Tags: automation, Drafts, Meetings, Workflow
+Category: Technology
+Tags: automation, Drafts, Meetings, Workflow, Automation
 Slug: using-drafts-5-at-work
 Status: published
 

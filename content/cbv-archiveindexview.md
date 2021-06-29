@@ -1,8 +1,8 @@
 Title: CBV - ArchiveIndexView
 Date: 2019-11-24 10:00
 Author: ryan
-Category: Django
-Tags: CBV, class based views, django
+Category: Technology
+Tags: CBV, class based views, Django
 Slug: cbv-archiveindexview
 Status: published
 

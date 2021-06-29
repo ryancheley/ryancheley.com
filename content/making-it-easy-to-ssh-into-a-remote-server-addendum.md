@@ -1,7 +1,7 @@
 Title: Making it easy to ssh into a remote server: Addendum
 Date: 2019-03-25 18:30
 Author: ryan
-Category: Raspberry Pi
+Category: Technology
 Tags: SSH
 Slug: making-it-easy-to-ssh-into-a-remote-server-addendum
 Status: published

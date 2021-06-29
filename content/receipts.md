@@ -1,8 +1,8 @@
 Title: Receipts
 Date: 2019-03-16 05:37
 Author: ryan
-Category: Automation
-Tags: iOS, Siri Shortcuts
+Category: Technology
+Tags: iOS, Siri Shortcuts, Automation
 Slug: receipts
 Status: published
 

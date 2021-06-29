@@ -1,8 +1,8 @@
 Title: Dropbox Files Word Cloud
 Date: 2016-11-25 16:22
 Author: ryan
-Category: Python
-Tags: python
+Category: Technology
+Tags: Python
 Slug: dropbox-files-word-cloud
 Status: published
 

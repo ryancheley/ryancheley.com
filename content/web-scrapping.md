@@ -1,8 +1,8 @@
 Title: Web Scrapping - Passer Data (Part I)
 Date: 2016-11-18 00:54
 Author: ryan
-Category: Python
-Tags: nfl, python
+Category: Technology
+Tags: nfl, Python
 Slug: web-scrapping
 Status: published
 

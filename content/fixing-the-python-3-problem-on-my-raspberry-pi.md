@@ -1,8 +1,8 @@
 Title: Fixing the Python 3 Problem on my Raspberry Pi
 Date: 2018-02-13 21:00
 Author: ryan
-Category: Python
-Tags: linux, python, unlink
+Category: Technology
+Tags: linux, python, unlink, Python
 Slug: fixing-the-python-3-problem-on-my-raspberry-pi
 Status: published
 

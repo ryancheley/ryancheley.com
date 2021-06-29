@@ -1,7 +1,7 @@
 Title: Using MP4Box to concatenate many .h264 files into one MP4 file
 Date: 2018-02-08 05:25
 Author: ryan
-Category: Raspberry Pi
+Category: Technology
 Tags: automation, Bash, python, Shell Script
 Slug: using-mp4box-to-concatenate-many-h264-files-into-one-mp4-file
 Status: published

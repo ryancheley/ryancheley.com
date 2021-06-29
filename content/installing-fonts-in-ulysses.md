@@ -1,7 +1,8 @@
 Title: Installing fonts in Ulysses
 Date: 2017-12-12 02:00
 Author: ryan
-Category: iOS
+Category: Technology
+Tags: iOS
 Slug: installing-fonts-in-ulysses
 Status: published
 
