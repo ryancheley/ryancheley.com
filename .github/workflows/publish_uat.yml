@@ -1,9 +1,9 @@
-name: Pelican Publish
+name: Pelican Publish UAT
 
 on:
   push:
     branches:
-      - main
+      - uat
 
 jobs:
   deploy:
@@ -12,13 +12,13 @@ jobs:
       - name: deploy code
         uses: appleboy/ssh-action@v0.1.2
         with:
-          host: ${{ secrets.SSH_HOST }}
-          key: ${{ secrets.SSH_KEY }}
-          username: ${{ secrets.SSH_USERNAME }}
+          host: ${{ secrets.SSH_HOST_UAT }}
+          key: ${{ secrets.SSH_KEY_UAT }}
+          username: ${{ secrets.SSH_USERNAME_UAT }}
 
           script: |
             rm -rf ryancheley.com
-            git clone git@github.com:ryancheley/ryancheley.com.git
+            git clone --branch uat git@github.com:ryancheley/ryancheley.com.git
 
             source /home/ryancheley/venv/bin/activate
 
