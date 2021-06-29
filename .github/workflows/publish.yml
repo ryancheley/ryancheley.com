@@ -22,4 +22,8 @@ jobs:
 
             source /home/ryancheley/venv/bin/activate
 
-            pelican ryancheley.com/content -o /home/ryancheley/output
+            cd /home/ryancheley
+
+            rm -rf output/
+
+            pelican content
