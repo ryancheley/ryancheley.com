@@ -1,8 +1,8 @@
 Title: SSL ... Finally!
 Date: 2018-04-07 20:16
 Author: ryan
-Category: Server
-Tags: SSL
+Category: Technology
+Tags: SSL, Server
 Slug: ssl-finally
 Status: published
 

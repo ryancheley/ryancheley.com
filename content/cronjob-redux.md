@@ -1,8 +1,8 @@
 Title: Cronjob Redux
 Date: 2018-04-20 19:10
 Author: ryan
-Category: Automation
-Tags: automation, python, Raspberry Pi, Shell Script, video, youtube
+Category: Technology
+Tags: automation, python, Raspberry Pi, Shell Script, video, youtube, Automation
 Slug: cronjob-redux
 Status: published
 

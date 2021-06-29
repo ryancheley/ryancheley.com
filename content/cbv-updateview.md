@@ -1,7 +1,7 @@
 Title: CBV - UpdateView
 Date: 2019-12-08 10:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: CBV, class based views, django
 Slug: cbv-updateview
 Status: published

@@ -1,8 +1,8 @@
 Title: ITFDB Demo
 Date: 2018-04-01 16:38
 Author: ryan
-Category: Python
-Tags: Easter, Family, Shell Script, Workflow
+Category: Technology
+Tags: Easter, Family, Shell Script, Workflow, Python
 Slug: itfdb-demo
 Status: published
 

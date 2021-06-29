@@ -1,7 +1,7 @@
 Title: How does my Django site connect to the internet anyway?
 Date: 2021-05-31 12:49
 Author: ryan
-Category: Django
+Category: Technology
 Tags: digital ocean, django, nginx
 Slug: how-does-my-django-site-connect-to-the-internet-anyway
 Status: published

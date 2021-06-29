@@ -1,7 +1,7 @@
 Title: New  Watch
 Date: 2018-11-03 11:44
 Author: ryan
-Category: Apple
+Category: Technology
 Tags: Apple, Watch
 Slug: new-apple-watch
 Status: published

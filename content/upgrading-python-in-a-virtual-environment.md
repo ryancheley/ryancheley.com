@@ -1,8 +1,8 @@
 Title: Upgrading Python in a Virtual Environment
 Date: 2019-04-25 05:05
 Author: ryan
-Category: Python
-Tags: Heroku, PyCharm, venv, Virtual Environment
+Category: Technology
+Tags: Heroku, PyCharm, venv, Virtual Environment, Python
 Slug: upgrading-python-in-a-virtual-environment
 Status: published
 

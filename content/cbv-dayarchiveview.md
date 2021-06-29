@@ -1,8 +1,8 @@
 Title: CBV - DayArchiveView
 Date: 2019-11-27 10:00
 Author: ryan
-Category: Django
-Tags: CBV, class based views, django
+Category: Technology
+Tags: CBV, class based views, Django
 Slug: cbv-dayarchiveview
 Status: published
 

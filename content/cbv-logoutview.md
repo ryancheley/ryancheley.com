@@ -1,7 +1,7 @@
 Title: CBV - LogoutView
 Date: 2019-12-15 10:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: authentication, CBV, class based views, django
 Slug: cbv-logoutview
 Status: published

@@ -1,8 +1,8 @@
 Title: CBV - CreateView
 Date: 2019-12-01 10:00
 Author: ryan
-Category: Django
-Tags: CBV, class based views, django
+Category: Technology
+Tags: CBV, class based views, Django
 Slug: cbv-createview
 Status: published
 

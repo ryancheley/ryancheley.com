@@ -1,8 +1,8 @@
 Title: Writing a Raffle Script
 Date: 2020-06-29 05:24
 Author: ryan
-Category: Python
-Tags: PyBites, python
+Category: Technology
+Tags: PyBites, Python
 Slug: writing-a-raffle-script
 Status: published
 

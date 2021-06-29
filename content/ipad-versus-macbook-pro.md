@@ -1,7 +1,7 @@
 Title: iPad versus MacBook Pro
 Date: 2018-12-01 06:37
 Author: ryan
-Category: macOS
+Category: Technology
 Tags: iOS, iPad, MacBook Pro, macOS
 Slug: ipad-versus-macbook-pro
 Status: published

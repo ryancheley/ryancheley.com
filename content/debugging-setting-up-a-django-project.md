@@ -1,7 +1,7 @@
 Title: Debugging Setting up a Django Project
 Date: 2021-06-13 11:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: Debugging, macOS, python
 Slug: debugging-setting-up-a-django-project
 Status: published

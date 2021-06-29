@@ -1,8 +1,8 @@
 Title: ITFDB!!!
 Date: 2018-02-13 18:23
 Author: ryan
-Category: Python
-Tags: Baseball, dodgers, python, Raspberry Pi
+Category: Technology
+Tags: Baseball, dodgers, python, Raspberry Pi, Python
 Slug: itfdb
 Status: published
 

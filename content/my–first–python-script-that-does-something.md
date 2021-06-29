@@ -1,7 +1,8 @@
 Title: My First Python Script that does 'something'
 Date: 2016-10-15 21:33
 Author: ryan
-Category: Python
+Category: Technology
+Tags: Python
 Slug: my–first–python-script-that-does-something
 Status: published
 

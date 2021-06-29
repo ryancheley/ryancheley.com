@@ -1,7 +1,7 @@
 Title: Logging in a Django App
 Date: 2020-10-21 17:39
 Author: ryan
-Category: Django
+Category: Technology
 Tags: digital ocean, django
 Slug: logging-in-a-django-app
 Status: published

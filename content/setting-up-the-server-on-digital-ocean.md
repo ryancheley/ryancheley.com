@@ -1,8 +1,8 @@
 Title: Setting up the Server (on Digital Ocean)
 Date: 2021-01-31 12:00
 Author: ryan
-Category: Server
-Tags: Deployment, series
+Category: Technology
+Tags: Deployment, series, Server
 Slug: setting-up-the-server-on-digital-ocean
 Status: published
 

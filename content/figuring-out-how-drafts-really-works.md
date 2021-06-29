@@ -1,8 +1,8 @@
 Title: Figuring out how Drafts REALLY works
 Date: 2019-05-05 08:15
 Author: ryan
-Category: Automation
-Tags: Drafts, iOS, Writing
+Category: Technology
+Tags: Drafts, iOS, Writing, Automation
 Slug: figuring-out-how-drafts-really-works
 Status: published
 

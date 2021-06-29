@@ -1,8 +1,8 @@
 Title: Daylight Savings Time
 Date: 2018-03-26 19:02
 Author: ryan
-Category: Python
-Tags: python
+Category: Technology
+Tags: Python
 Slug: daylight-savings-time
 Status: published
 

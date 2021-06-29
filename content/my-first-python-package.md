@@ -1,8 +1,8 @@
 Title: My First Python Package
 Date: 2021-06-06 18:11
 Author: ryan
-Category: Python
-Tags: datasette, python, python package
+Category: Technology
+Tags: datasette, Python, python package
 Slug: my-first-python-package
 Status: published
 

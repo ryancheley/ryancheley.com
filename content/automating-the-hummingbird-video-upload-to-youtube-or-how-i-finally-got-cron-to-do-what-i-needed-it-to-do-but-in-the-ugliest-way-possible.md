@@ -1,7 +1,7 @@
 Title: Automating the Hummingbird Video Upload to YouTube or How I finally got Cron to do what I needed it to do but in the ugliest way possible
 Date: 2018-05-02 16:44
 Author: ryan
-Category: Raspberry Pi
+Category: Technology
 Tags: automation, Raspberry Pi, youtube
 Slug: automating-the-hummingbird-video-upload-to-youtube-or-how-i-finally-got-cron-to-do-what-i-needed-it-to-do-but-in-the-ugliest-way-possible
 Status: published

@@ -1,8 +1,8 @@
 Title: CBV - DeleteView
 Date: 2019-12-11 10:00
 Author: ryan
-Category: Django
-Tags: CBV, class based views, django
+Category: Technology
+Tags: CBV, class based views, Django
 Slug: cbv-deleteview
 Status: published
 

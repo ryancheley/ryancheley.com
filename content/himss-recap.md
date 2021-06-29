@@ -1,8 +1,8 @@
 Title: HIMSS Recap
 Date: 2017-02-25 19:10
 Author: ryan
-Category: Conferences
-Slug: himss-recap
+Category: Musings
+Slug: himss-recap, Conferences
 Status: published
 
 I've gone through all of my notes, reviewed all of the presentations and am feeling really good about my experience at HIMSS.

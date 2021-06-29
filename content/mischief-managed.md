@@ -1,8 +1,8 @@
 Title: Mischief Managed
 Date: 2020-02-10 05:36
 Author: ryan
-Category: macOS
-Tags: PyCharm, python
+Category: Technology
+Tags: PyCharm, python, macOS
 Slug: mischief-managed
 Status: published
 

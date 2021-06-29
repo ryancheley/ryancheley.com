@@ -1,8 +1,8 @@
 Title: ITFKH!!!
 Date: 2018-11-09 19:33
 Author: ryan
-Category: Python
-Tags: Hockey, python, Raspberry Pi
+Category: Technology
+Tags: Hockey, Python, Raspberry Pi
 Slug: itfkh
 Status: published
 

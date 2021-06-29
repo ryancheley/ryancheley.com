@@ -1,8 +1,8 @@
 Title: Pushing Changes from Pythonista to GitHub - Step 1
 Date: 2016-10-29 16:00
 Author: ryan
-Category: Automation
-Tags: Github, Workflow
+Category: Technology
+Tags: Github, Workflow, Automation
 Slug: pushing-changes-from-pythonista-to-github-step1
 Status: published
 

@@ -1,8 +1,8 @@
 Title: Presenting Data - Referee Crew Calls in the NFL
 Date: 2016-12-25 20:00
 Author: ryan
-Category: Python
-Tags: data visualization, nfl, python
+Category: Technology
+Tags: data visualization, nfl, Python
 Slug: presenting-data-referee-crew-calls-in-the-nfl
 Status: published
 

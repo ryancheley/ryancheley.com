@@ -1,7 +1,7 @@
 Title: CBV - RedirectView
 Date: 2019-11-10 10:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: CBV, class based views, django
 Slug: cbv-redirectview
 Status: published

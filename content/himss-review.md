@@ -1,8 +1,8 @@
 Title: HIMSS review
 Date: 2017-02-23 04:19
 Author: ryan
-Category: Conferences
-Tags: HIMSS17
+Category: Musings
+Tags: HIMSS17, Conferences
 Slug: himss-review
 Status: published
 

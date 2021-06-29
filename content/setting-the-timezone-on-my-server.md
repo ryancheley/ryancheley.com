@@ -1,7 +1,8 @@
 Title: Setting the Timezone on my server
 Date: 2017-12-15 02:41
 Author: ryan
-Category: Server
+Category: Technology
+Tags: server
 Slug: setting-the-timezone-on-my-server
 Status: published
 

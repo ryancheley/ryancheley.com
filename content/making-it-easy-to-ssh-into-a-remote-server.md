@@ -1,7 +1,7 @@
 Title: Making it easy to ssh into a remote server
 Date: 2018-05-05 12:54
 Author: ryan
-Category: Raspberry Pi
+Category: Technology
 Tags: digital ocean, linux, Remote servers, SSH, Terminal
 Slug: making-it-easy-to-ssh-into-a-remote-server
 Status: published

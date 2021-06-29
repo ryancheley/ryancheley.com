@@ -1,8 +1,8 @@
 Title: Pitching Stats and Python
 Date: 2016-11-21 05:19
 Author: ryan
-Category: Python
-Tags: mlb, python
+Category: Technology
+Tags: mlb, Python
 Slug: pitching-stats-and-python
 Status: published
 

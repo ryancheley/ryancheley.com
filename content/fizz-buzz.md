@@ -1,8 +1,8 @@
 Title: Fizz Buzz
 Date: 2018-11-28 19:11
 Author: ryan
-Category: Coding
-Tags: Bash, python
+Category: Technology
+Tags: Bash, python, coding
 Slug: fizz-buzz
 Status: published
 

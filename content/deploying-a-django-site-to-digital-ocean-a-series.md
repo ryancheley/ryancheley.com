@@ -1,7 +1,7 @@
 Title: Deploying a Django Site to Digital Ocean - A Series
 Date: 2021-01-24 12:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: Deployment, series
 Slug: deploying-a-django-site-to-digital-ocean-a-series
 Status: published

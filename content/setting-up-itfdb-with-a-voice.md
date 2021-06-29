@@ -1,7 +1,7 @@
 Title: Setting up ITFDB with a voice
 Date: 2018-03-15 17:41
 Author: ryan
-Category: Raspberry Pi
+Category: Technology
 Tags: python, Raspberry Pi
 Slug: setting-up-itfdb-with-a-voice
 Status: published

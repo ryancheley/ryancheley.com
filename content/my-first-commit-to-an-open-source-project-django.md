@@ -1,7 +1,7 @@
 Title: My first commit to an Open Source Project: Django
 Date: 2019-12-07 15:54
 Author: ryan
-Category: Django
+Category: Technology
 Tags: django, documentation, Github
 Slug: my-first-commit-to-an-open-source-project-django
 Status: published

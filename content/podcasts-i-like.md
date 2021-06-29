@@ -1,7 +1,7 @@
 Title: Podcasts I like
 Date: 2017-09-24 17:04
 Author: ryan
-Category: Podcasts
+Category: Musings
 Slug: podcasts-i-like
 Status: published
 

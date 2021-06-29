@@ -1,8 +1,8 @@
 Title: Setting up Jupyter Notebook on my Linode
 Date: 2018-05-27 12:32
 Author: ryan
-Category: Python
-Tags: jupyter, linux, python, Remote servers, Shell Script
+Category: Technology
+Tags: jupyter, linux, Python, Remote servers, Shell Script
 Slug: setting-up-jupyter-notebook-on-my-linode
 Status: published
 

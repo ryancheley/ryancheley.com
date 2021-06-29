@@ -1,7 +1,7 @@
 Title: CBV - FormView
 Date: 2019-12-04 10:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: CBV, class based views, django
 Slug: cbv-formview
 Status: published

@@ -1,7 +1,7 @@
 Title: Enhancements: Using GitHub Actions to Deploy
 Date: 2021-03-14 11:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: Deployment, github actions, series
 Slug: enhancements-using-github-actions-to-deploy
 Status: published

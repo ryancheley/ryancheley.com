@@ -1,7 +1,7 @@
 Title: My first project after completing the 100 Days of Web in Python
 Date: 2019-08-31 14:14
 Author: ryan
-Category: Django
+Category: Technology
 Tags: django, Heroku, Stadia Tracker
 Slug: my-first-project-after-completing-the-100-days-of-web-in-python
 Status: published

@@ -1,8 +1,8 @@
 Title: HIMSS Day 2
 Date: 2018-03-08 06:23
 Author: ryan
-Category: Conferences
-Tags: HIMSS18
+Category: Musings
+Tags: HIMSS18, Conferences
 Slug: himss-day-2
 Status: published
 

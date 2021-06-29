@@ -1,8 +1,8 @@
 Title: Adding my Raspberry Pi Project code to GitHub
 Date: 2018-11-25 19:30
 Author: ryan
-Category: GitHub
-Tags: Raspberry Pi, version control
+Category: Technology
+Tags: Raspberry Pi, version control, GitHub
 Slug: adding-my-raspberry-pi-project-code-to-github
 Status: published
 

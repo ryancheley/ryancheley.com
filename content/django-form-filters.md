@@ -1,7 +1,7 @@
 Title: Django form filters
 Date: 2021-01-23 12:00
 Author: ryan
-Category: Django
+Category: Technology
 Tags: filters, forms
 Slug: django-form-filters
 Status: published

@@ -1,8 +1,8 @@
 Title: CBV - BaseListView
 Date: 2019-11-17 10:00
 Author: ryan
-Category: Django
-Tags: CBV, class based views, django
+Category: Technology
+Tags: CBV, class based views, Django
 Slug: cbv-baselistview
 Status: published
 

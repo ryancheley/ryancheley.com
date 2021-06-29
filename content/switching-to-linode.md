@@ -1,7 +1,8 @@
 Title: Switching to Linode
 Date: 2017-12-03 02:56
 Author: ryan
-Category: Server
+Category: Technology
+Tags: Server
 Slug: switching-to-linode
 Status: published
 

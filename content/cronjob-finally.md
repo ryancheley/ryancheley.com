@@ -1,8 +1,8 @@
 Title: Cronjob ... Finally
 Date: 2018-04-10 20:10
 Author: ryan
-Category: Automation
-Tags: Cronjob, python, youtube
+Category: Technology
+Tags: Cronjob, python, youtube, Automation
 Slug: cronjob-finally
 Status: published
 
