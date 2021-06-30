@@ -35,6 +35,8 @@ PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 ARCHIVES_SAVE_AS = 'archives.html'
 ARCHIVES_URL = 'archives'
+YEAR_ARCHIVE_URL = 'archives/{date:%Y}/'
+YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
 
 # Blogroll
 LINKS = (('Simon Wilison', 'https://simonwillison.net'),
