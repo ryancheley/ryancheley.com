@@ -19,7 +19,14 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 STATIC_PATHS = ['images']
 
-DISPLAY_CATEGORIES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = False
+MENUITEMS = [
+    ('About', 'about'),
+    ('Categories', 'categories'),
+    ('Curriculum Vitae', 'curriculum-vitae')
+]
+
 
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
