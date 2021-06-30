@@ -21,10 +21,10 @@ STATIC_PATHS = ['images']
 
 DISPLAY_CATEGORIES_ON_MENU = True
 
-ARTICLE_URL = 'index.php/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = 'index.php/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
-PAGE_URL = 'index.php/{slug}/'
-PAGE_SAVE_AS = 'index.php/{slug}/index.html'
+ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
 
 # Blogroll
 LINKS = (('Simon Wilison', 'https://simonwillison.net'),
