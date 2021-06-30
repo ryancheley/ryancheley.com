@@ -1,5 +1,4 @@
-Title: Not Found
-Status: hidden
-Save_as: 404.html
+Title: About
+Save_as: about.html
 
-The requested item could not be located. 
+This is the about page
