@@ -24,7 +24,8 @@ DISPLAY_PAGES_ON_MENU = False
 MENUITEMS = [
     ('About', 'about'),
     ('Categories', 'categories'),
-    ('Curriculum Vitae', 'curriculum-vitae')
+    ('Curriculum Vitae', 'curriculum-vitae'),
+    ('Archives', 'archives'),
 ]
 
 
@@ -33,6 +34,7 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 ARCHIVES_SAVE_AS = 'archives.html'
+ARCHIVES_URL = 'archives'
 
 # Blogroll
 LINKS = (('Simon Wilison', 'https://simonwillison.net'),
