@@ -28,4 +28,4 @@ jobs:
 
             pip install -r requirements.txt
 
-            pelican content -e DELETE_OUTPUT_DIRECTORY=true
+            pelican content -s publishconf.py -e SITEURL="https://uat.ryancheley.com"
