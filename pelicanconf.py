@@ -19,12 +19,24 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 STATIC_PATHS = ['images']
 
-DISPLAY_CATEGORIES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = False
+MENUITEMS = [
+    ('About', '/about.html'),
+    ('Categories', '/categories.html'),
+    ('Curriculum Vitae', '/curriculum-vitae.html'),
+    ('Archives', '/archives.html'),
+]
+
 
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
+ARCHIVES_SAVE_AS = 'archives.html'
+ARCHIVES_URL = 'archives'
+YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
+YEAR_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/index.html'
 
 # Blogroll
 LINKS = (('Simon Wilison', 'https://simonwillison.net'),
