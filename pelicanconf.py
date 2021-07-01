@@ -22,10 +22,10 @@ STATIC_PATHS = ['images']
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
 MENUITEMS = [
-    ('About', 'about'),
-    ('Categories', 'categories'),
-    ('Curriculum Vitae', 'curriculum-vitae'),
-    ('Archives', 'archives'),
+    ('About', '/about.html'),
+    ('Categories', '/categories.html'),
+    ('Curriculum Vitae', '/curriculum-vitae.html'),
+    ('Archives', '/archives.html'),
 ]
 
 
@@ -35,8 +35,8 @@ PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 ARCHIVES_SAVE_AS = 'archives.html'
 ARCHIVES_URL = 'archives'
-YEAR_ARCHIVE_URL = 'archives/{date:%Y}/'
-YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
+YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
+YEAR_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/index.html'
 
 # Blogroll
 LINKS = (('Simon Wilison', 'https://simonwillison.net'),
