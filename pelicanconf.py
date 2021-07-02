@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*- #
 
 AUTHOR = 'Ryan Cheley'
-SITENAME = 'My Place on the Internet'
+SITENAME = 'RyanCheley.com'
+SITESUBTITLE = 'My Place on the Internet'
 SITEURL = ''
 
 PATH = 'content'
