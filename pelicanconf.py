@@ -53,5 +53,7 @@ SOCIAL = (('Twitter', 'https://twitter.com/ryancheley/'),
 
 DEFAULT_PAGINATION = 10
 
+TWITTER_USERNAME = 'ryancheley'
+
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
