@@ -18,14 +18,14 @@ Responsible for the design, development and implementation of Business Informati
 * During COVID-19 pandemic had first team in organization that was fully remote 
 * During COVID-19 pandemic team saw increase in productivity with work from home
 * Lead team to implement several clinical and business workflow improvements
-** Auth Queue
-** COVID Tracking System
-** Claim Tracker System
-** Referral Tracking System
-** Provider Management System
+    * Auth Queue
+    * COVID Tracking System
+    * Claim Tracker System
+    * Referral Tracking System
+    * Provider Management System
 * Had two teams recognized as Administrative Department / Team of the year
-** NextGen Support Services in 2017
-** Health Plan Audting and Reporting in 2019
+    * NextGen Support Services in 2017
+    * Health Plan Audting and Reporting in 2019
 
 
 ### February 2012 - July 2016, Director - NextGen Support Services, DESERT OASIS HEALTHCARE
@@ -73,6 +73,10 @@ BS Economics/Finance, Minor in Statistics, California Polytechnic State Universi
 
 ## Other Activities
 Member of Bermuda Dunes Community Council, September 2009 - June 2013
+
 Member of HIMSS December 2016 - present
-Member of the American Heart Associated Executive Leadership Team December 2020 - present
+
+Member of the American Heart Associated Executive Leadership 
+Team December 2020 - present
+
 Ran 13 half marathons in 13 months, December 2013 - December 2014
