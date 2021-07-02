@@ -5,7 +5,7 @@ Save_as: curriculum-vitae.html
 
 ### July 2016 - Present, Regional Director Business Informatics, DESERT OASIS HEALTHCARE
 
-Responsible for the design, development and implementation of Business Information processes, system upgrades, and reporting to support both Clinical and Administrative operations through the effecient and effective use of technology solutions. I lead a team that works with the senior- and clinical-managers at several Heritage Provider Network Companies including Desert Oasis Healthcare, Arizona Priority Care, Heritage Victor Valley Medical Group, and several Hospice companies to build and maintain web application workflow improvement solutions, dashboards and ad-hoc reports, as well as maintain Health Plan Authorization and Claim Letters, submission of Health Plan Reports, and Claim Inload and Encounter Reporting to contracted Health Plans.
+Responsible for the design, development and implementation of Business Information processes, system upgrades, and reporting to support both Clinical and Administrative operations through the efficient and effective use of technology solutions. I lead a team that works with the senior- and clinical-managers at several Heritage Provider Network Companies including Desert Oasis Healthcare, Arizona Priority Care, Heritage Victor Valley Medical Group, and several Hospice companies to build and maintain web application workflow improvement solutions, dashboards and ad-hoc reports, as well as maintain Health Plan Authorization and Claim Letters, submission of Health Plan Reports, and Claim Inload and Encounter Reporting to contracted Health Plans.
 
 * Directed daily operations of 11 employees working in 2 states including 1 supervisor with 3 direct reports
 * Implemented Agile Development Process for Web Developers
@@ -18,14 +18,14 @@ Responsible for the design, development and implementation of Business Informati
 * During COVID-19 pandemic had first team in organization that was fully remote 
 * During COVID-19 pandemic team saw increase in productivity with work from home
 * Lead team to implement several clinical and business workflow improvements
-    * Auth Queue
-    * COVID Tracking System
-    * Claim Tracker System
-    * Referral Tracking System
-    * Provider Management System
+	* Auth Queue
+	* COVID Tracking System
+	* Claim Tracker System
+	* Referral Tracking System
+	* Provider Management System
 * Had two teams recognized as Administrative Department / Team of the year
-    * NextGen Support Services in 2017
-    * Health Plan Audting and Reporting in 2019
+	* NextGen Support Services in 2017
+	* Health Plan Audting and Reporting in 2019
 
 
 ### February 2012 - July 2016, Director - NextGen Support Services, DESERT OASIS HEALTHCARE
