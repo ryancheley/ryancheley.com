@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*- #
 
 AUTHOR = 'Ryan Cheley'
-SITENAME = 'My Place on the Internet'
+SITENAME = 'RyanCheley.com'
+SITESUBTITLE = 'My Place on the Internet'
 SITEURL = ''
 
 PATH = 'content'
@@ -52,6 +53,8 @@ SOCIAL = (('Twitter', 'https://twitter.com/ryancheley/'),
           ('LinkedIn', 'https://www.linkedin.com/in/ryan-cheley/'),)
 
 DEFAULT_PAGINATION = 10
+
+TWITTER_USERNAME = 'ryancheley'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
