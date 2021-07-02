@@ -136,3 +136,7 @@ dmypy.json
 
 # pelican
 output
+
+# Ulysses
+
+.Ulysses*
