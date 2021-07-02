@@ -7,6 +7,8 @@ SITEURL = ''
 
 PATH = 'content'
 
+THEME = "rc_custom"
+
 TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'en'
@@ -35,6 +37,7 @@ PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 ARCHIVES_SAVE_AS = 'archives.html'
 ARCHIVES_URL = 'archives'
+CATEGORIES_SAVE_AS = 'categories.html'
 YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
 YEAR_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/index.html'
 
