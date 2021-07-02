@@ -3,7 +3,7 @@ Date: 2021-07-02
 Author: ryan
 Category: Technology
 Tags: WordPress, Pelican
-Slug: migrating-from-pelican-to-wordpress
+Slug: migrating-to-pelican-from-wordpress
 Status: published
 
 ## A little back story
