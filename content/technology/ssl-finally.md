@@ -17,7 +17,7 @@ The only other thing I had to do was make a change in the word press settings (f
 
 I even got an ‘A’ from SSL Labs!
 
-![](/images/uploads/2018/04/Image-4-7-18-9-15-PM.png){.alignnone .size-full .wp-image-265 width="2732" height="2048"}
+![SSL Labs A](/images/uploads/2018/04/Image-4-7-18-9-15-PM.png){.alignnone .size-full .wp-image-265 width="2732" height="2048"}
 
 Again, not really sure why this seemed so hard and took so long.
 

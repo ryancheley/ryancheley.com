@@ -54,7 +54,7 @@ See above in the section When to use the `get` method
 
 A visual representation of how `TemplateView` derives from `View` ^[1](#fn1){#ffn1 .footnote}^
 
-![](https://yuml.me/diagram/plain;/class/%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D.svg)
+![TemplateView](https://yuml.me/diagram/plain;/class/%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D.svg)
 
 ## Conclusion
 

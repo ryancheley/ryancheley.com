@@ -64,7 +64,7 @@ This `View` will return `content` to the page rendered as plain text. This CBV i
 
 Here’s what it looks like in the browser:
 
-![](/images/uploads/2019/10/F817D382-9A10-45C6-B30A-D66AAD942F80_4_5005_c.jpeg){.alignnone .size-full .wp-image-374 width="952" height="320"}
+![View](/images/uploads/2019/10/F817D382-9A10-45C6-B30A-D66AAD942F80_4_5005_c.jpeg){.alignnone .size-full .wp-image-374 width="952" height="320"}
 
 ## Conclusion
 

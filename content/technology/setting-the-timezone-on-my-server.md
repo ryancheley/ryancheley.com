@@ -7,7 +7,7 @@ Status: published
 
 When I scheduled my last post on December 14th to be published at 6pm that night I noticed that the schedule time was a bit … off:
 
-![](/images/uploads/2017/12/Image-12-14-17-6-36-PM.jpeg){.alignnone .size-full .wp-image-99 width="601" height="479"}
+![What time is it?](/images/uploads/2017/12/Image-12-14-17-6-36-PM.jpeg){.alignnone .size-full .wp-image-99 width="601" height="479"}
 
 I realized that the server times as still set to GMT and that I had missed the step in the Linode Getting Started guide to Set the Timezone.
 

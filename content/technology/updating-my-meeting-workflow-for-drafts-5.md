@@ -27,7 +27,7 @@ In order to make the update I had to look for [URL Scheme](https://www.w3.org/TR
 
 This is the section of the workflow that needs to be updated:
 
-![](/images/uploads/2018/05/Image-5-19-18-6-37-PM.png){.alignnone .size-full .wp-image-282 width="1619" height="388"}
+![workflow to update](/images/uploads/2018/05/Image-5-19-18-6-37-PM.png){.alignnone .size-full .wp-image-282 width="1619" height="388"}
 
 Since Drafts 5 isn’t included in the Built in Apps I was going to need to pass a URL and open the app.
 
@@ -37,7 +37,7 @@ This would require 3 separate steps in Workflow
 2.  Prepend the URL Scheme for creating a new draft to the URL Encoded String
 3.  Open the URL
 
-![](/images/uploads/2018/05/Image-5-19-18-6-37-PM-1.png){.alignnone .size-full .wp-image-283 width="1622" height="1490"}
+![updated workflow](/images/uploads/2018/05/Image-5-19-18-6-37-PM-1.png){.alignnone .size-full .wp-image-283 width="1622" height="1490"}
 
 This basically means that 1 step is now replaced with 3 ... but hey, that’s the price of progress must be paid!
 

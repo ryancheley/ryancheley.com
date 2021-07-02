@@ -53,7 +53,7 @@ You need to set the `URL_LOGIN` value in your `settings.py`. It defaults to `/ac
 
 A visual representation of how `PasswordChangeDoneView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BPasswordContextMixin%7Bbg:white%7D%5D%5E-%5BPasswordChangeDoneView%7Bbg:green%7D%5D,%20%5BTemplateView%7Bbg:lightblue%7D%5D%5E-%5BPasswordChangeDoneView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:lightblue%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:lightblue%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BTemplateView%7Bbg:lightblue%7D%5D.svg)
+![PasswordChangeDoneView](https://yuml.me/diagram/plain;/class/%5BPasswordContextMixin%7Bbg:white%7D%5D%5E-%5BPasswordChangeDoneView%7Bbg:green%7D%5D,%20%5BTemplateView%7Bbg:lightblue%7D%5D%5E-%5BPasswordChangeDoneView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:lightblue%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:lightblue%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BTemplateView%7Bbg:lightblue%7D%5D.svg)
 
 ## Conclusion
 

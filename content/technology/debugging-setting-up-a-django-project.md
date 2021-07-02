@@ -97,7 +97,7 @@ sqlparse   0.4.1
 
 OK … so everything is in my virtual environment. Let’s drop into the REPL and see what’s going on
 
-![](/images/uploads/2021/06/Screen-Shot-2021-06-13-at-7.52.36-AM.png){.wp-image-506}
+![REPL](/images/uploads/2021/06/Screen-Shot-2021-06-13-at-7.52.36-AM.png){.wp-image-506}
 
 Well, that looks to be OK.
 
@@ -133,7 +133,7 @@ OK, let’s just remove it manually. After a bit of googling I found this [Stack
 
 After removing the `Django` install from Python 2.7 and running `django-admin --version` I get
 
-![](/images/uploads/2021/06/Screen-Shot-2021-06-13-at-8.05.55-AM.png){.wp-image-507}
+![Django-admin --version](/images/uploads/2021/06/Screen-Shot-2021-06-13-at-8.05.55-AM.png){.wp-image-507}
 
 So I googled that error message and found another answers on [Stackoverflow](https://stackoverflow.com/a/10756446) which lead me to look at the `manage.py` file. When I `cat` the file I get:
 
@@ -233,7 +233,7 @@ And I was able to run it
 python manage.py runserver
 ```
 
-![](/images/uploads/2021/06/Screen-Shot-2021-06-13-at-9.01.19-AM.png){.wp-image-508}
+![Django Debug Homepage](/images/uploads/2021/06/Screen-Shot-2021-06-13-at-9.01.19-AM.png){.wp-image-508}
 
 Success! I’ve still got that last bug to deal with, but that’s a story for a different day!
 

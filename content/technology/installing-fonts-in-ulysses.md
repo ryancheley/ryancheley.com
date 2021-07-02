@@ -25,10 +25,10 @@ Simple enough, but it wasn’t clicking for me. I kept thinking I had done *some
 
 1.  Click the ‘A’ in the writing screen (this is the font selector) located in the upper right hand corner of Ulysses
 
-![](/images/uploads/2017/12/Image.jpeg){.alignnone .size-full .wp-image-94 width="584" height="259"}
+![Ulysses Menu](/images/uploads/2017/12/Image.jpeg){.alignnone .size-full .wp-image-94 width="584" height="259"}
 
 1.  Notice that the Current font indicates it’s a custom font (in This case iA Writer Duospace:
 
-![](/images/uploads/2017/12/IMG_0025.jpg){.alignnone .size-full .wp-image-93 width="704" height="1279"}
+![Ulysses Font Selector](/images/uploads/2017/12/IMG_0025.jpg){.alignnone .size-full .wp-image-93 width="704" height="1279"}
 
 Not that hard, but there’s no feedback telling you that you have been successful so I wasn’t sure if I had done it or not.

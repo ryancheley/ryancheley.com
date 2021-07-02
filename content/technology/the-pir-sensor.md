@@ -19,11 +19,11 @@ But no, it turns out that the link I was using as the basis for my project had a
 
 I had assumed that the diagram was correct and that I didn’t need to read the description, but it turns out I did BECAUSE the diagram had the connections set up in a way that didn’t line up with the PIR sensor(s) I have.
 
-![](/images/uploads/2018/11/pir-diagram-1.png){.alignnone .size-full .wp-image-313 width="1000" height="375"}
+![rPi wires diagram](/images/uploads/2018/11/pir-diagram-1.png){.alignnone .size-full .wp-image-313 width="1000" height="375"}
 
 In the Parent Detector PIR sensor the connectors are (1) Power, (2) Ground, (3) Out
 
-![](/images/uploads/2018/11/IMG_0282.jpg){.alignnone .size-full .wp-image-314 width="3024" height="4032"}
+![movement sensor](/images/uploads/2018/11/IMG_0282.jpg){.alignnone .size-full .wp-image-314 width="3024" height="4032"}
 
 In my PIR sensor the connectors are (1) Power, (2) Out, (3) Ground.
 

@@ -53,7 +53,7 @@ urls.py
 
 A visual representation of how `UpdateView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BUpdateView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseUpdateView%7Bbg:white%7D%5D%5E-%5BUpdateView%7Bbg:green%7D%5D,%20%5BModelFormMixin%7Bbg:white%7D%5D%5E-%5BBaseUpdateView%7Bbg:white%7D%5D,%20%5BFormMixin%7Bbg:white%7D%5D%5E-%5BModelFormMixin%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BFormMixin%7Bbg:white%7D%5D,%20%5BSingleObjectMixin%7Bbg:white%7D%5D%5E-%5BModelFormMixin%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectMixin%7Bbg:white%7D%5D,%20%5BProcessFormView%7Bbg:white%7D%5D%5E-%5BBaseUpdateView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BProcessFormView%7Bbg:white%7D%5D.svg)
+![UpdateView](https://yuml.me/diagram/plain;/class/%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BUpdateView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseUpdateView%7Bbg:white%7D%5D%5E-%5BUpdateView%7Bbg:green%7D%5D,%20%5BModelFormMixin%7Bbg:white%7D%5D%5E-%5BBaseUpdateView%7Bbg:white%7D%5D,%20%5BFormMixin%7Bbg:white%7D%5D%5E-%5BModelFormMixin%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BFormMixin%7Bbg:white%7D%5D,%20%5BSingleObjectMixin%7Bbg:white%7D%5D%5E-%5BModelFormMixin%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectMixin%7Bbg:white%7D%5D,%20%5BProcessFormView%7Bbg:white%7D%5D%5E-%5BBaseUpdateView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BProcessFormView%7Bbg:white%7D%5D.svg)
 
 ## Conclusion
 

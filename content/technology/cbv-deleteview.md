@@ -54,7 +54,7 @@ Below is just the form that would be needed to get the delete to work.
 
 A visual representation of how `DeleteView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BDeleteView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseDeleteView%7Bbg:white%7D%5D%5E-%5BDeleteView%7Bbg:green%7D%5D,%20%5BDeletionMixin%7Bbg:white%7D%5D%5E-%5BBaseDeleteView%7Bbg:white%7D%5D,%20%5BBaseDetailView%7Bbg:white%7D%5D%5E-%5BBaseDeleteView%7Bbg:white%7D%5D,%20%5BSingleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseDetailView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectMixin%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseDetailView%7Bbg:white%7D%5D.svg)
+![DeleteView](https://yuml.me/diagram/plain;/class/%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BDeleteView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseDeleteView%7Bbg:white%7D%5D%5E-%5BDeleteView%7Bbg:green%7D%5D,%20%5BDeletionMixin%7Bbg:white%7D%5D%5E-%5BBaseDeleteView%7Bbg:white%7D%5D,%20%5BBaseDetailView%7Bbg:white%7D%5D%5E-%5BBaseDeleteView%7Bbg:white%7D%5D,%20%5BSingleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseDetailView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BSingleObjectMixin%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseDetailView%7Bbg:white%7D%5D.svg)
 
 ## Conclusion
 

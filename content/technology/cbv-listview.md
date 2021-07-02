@@ -53,7 +53,7 @@ If you want to return something interesting you’ll also need to specify
 -   ordering: allows you to specify the order that the data will be returned in. The field specified must exist in the `model` or `queryset` that you’ve used
 -   page_kwarg: this indicates the name to use when going from page x to y; defaults to `name` but overriding it to something more sensible can be helpful for SEO. For example you can use `name` instead of `page` if you’ve got a page that has a bunch of names
 
-![](/images/uploads/2019/11/6FD85C21-0593-42E3-80E3-F835126CDB72_4_5005_c.jpeg){.alignnone .size-full .wp-image-387 width="488" height="37"}
+![ListView](/images/uploads/2019/11/6FD85C21-0593-42E3-80E3-F835126CDB72_4_5005_c.jpeg){.alignnone .size-full .wp-image-387 width="488" height="37"}
 
 -   paginate_by: determines the maximum number of records to return on any page.
 -   paginate_orphans: number of items to add to the last page; this helps keep pages with singletons (or some other small number
@@ -63,7 +63,7 @@ If you want to return something interesting you’ll also need to specify
 
 A visual representation of how `ListView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BListView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseListView%7Bbg:white%7D%5D%5E-%5BListView%7Bbg:green%7D%5D,%20%5BMultipleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseListView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectMixin%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseListView%7Bbg:white%7D%5D.svg)
+![ListView](https://yuml.me/diagram/plain;/class/%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BListView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseListView%7Bbg:white%7D%5D%5E-%5BListView%7Bbg:green%7D%5D,%20%5BMultipleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseListView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectMixin%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseListView%7Bbg:white%7D%5D.svg)
 
 ## Conclusion
 

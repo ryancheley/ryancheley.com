@@ -15,11 +15,11 @@ In order to make 'all my troubles go away' I found [this](https://support.omnigr
 
 using the instructions I found where the `ofocus` file was located and changed it's name from this:
 
-![](/images/uploads/2016/11/OmniFocus-Original-300x115.png){.alignnone .size-medium .wp-image-172 width="300" height="115"}
+![OmniFocus Start](/images/uploads/2016/11/OmniFocus-Original-300x115.png){.alignnone .size-medium .wp-image-172 width="300" height="115"}
 
 to this:
 
-![](/images/uploads/2016/11/OmniFocus-Updated-300x114.png){.alignnone .size-medium .wp-image-171 width="300" height="114"}
+![OmniFocus End](/images/uploads/2016/11/OmniFocus-Updated-300x114.png){.alignnone .size-medium .wp-image-171 width="300" height="114"}
 
 Then I just followed the steps 5 - 11 and magically all of my tasks were gone. Just. Like. That.
 

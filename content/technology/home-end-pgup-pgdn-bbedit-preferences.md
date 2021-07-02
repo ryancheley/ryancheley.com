@@ -11,10 +11,10 @@ While driving home from work today I was listening to [ATP Episode 196](https://
 
 When I got home I fired up [BBEdit](http://www.barebones.com/products/bbedit/index.html) and jumped into the preferences and saw this:
 
-![](/images/uploads/2017/12/BBEdit-Default-Keyboard-Preferences-300x273.png){.alignnone .size-medium .wp-image-110 width="300" height="273"}
+![Keyboard preferences](/images/uploads/2017/12/BBEdit-Default-Keyboard-Preferences-300x273.png){.alignnone .size-medium .wp-image-110 width="300" height="273"}
 
 I made a couple of changes, and now the keys that I use to navigate through the text editor are now how I want them to be:
 
-![](/images/uploads/2017/12/BBEdit-Ryans-Keyboard-Preferences-300x270.png){.alignnone .size-medium .wp-image-111 width="300" height="270"}
+![My keyboard preferences](/images/uploads/2017/12/BBEdit-Ryans-Keyboard-Preferences-300x270.png){.alignnone .size-medium .wp-image-111 width="300" height="270"}
 
 Nothing too fancy, or anything, but goodness, does it feel right to have the keys work the way I need them to.

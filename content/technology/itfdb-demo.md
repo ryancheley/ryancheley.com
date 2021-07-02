@@ -47,6 +47,6 @@ Finally, I created a WorkFlow which has only one action `Run Script over SSH` an
 
 The WorkFlow looks like this:
 
-![](/images/uploads/2018/04/IMG_9450.png){.alignnone .size-full .wp-image-254 width="1242" height="2208"}
+![ITFDB Workflow Demo](/images/uploads/2018/04/IMG_9450.png){.alignnone .size-full .wp-image-254 width="1242" height="2208"}
 
 Nothing too fancy, but I was able to reliably and easily demonstrate what I had done. And it was pretty freaking cool!

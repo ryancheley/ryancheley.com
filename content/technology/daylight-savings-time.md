@@ -46,71 +46,71 @@ The charts in latitude order (from south to north) are below:
 
 San Diego
 
-![](/images/uploads/2018/03/N32_45_San-Diego_CA_rise_set_chart.png){.alignnone .wp-image-242 .size-full width="1500" height="900"}
+![San Diego](/images/uploads/2018/03/N32_45_San-Diego_CA_rise_set_chart.png){.alignnone .wp-image-242 .size-full width="1500" height="900"}
 
 Phoenix
 
-![](/images/uploads/2018/03/N33_30_Phoenix_AZ_rise_set_chart.png){.alignnone .wp-image-497 .size-full width="1500" height="900"}
+![Phoenix](/images/uploads/2018/03/N33_30_Phoenix_AZ_rise_set_chart.png){.alignnone .wp-image-497 .size-full width="1500" height="900"}
 
 Indio
 
-![](/images/uploads/2018/03/N33_44_Indio_CA_rise_set_chart.png){.alignnone .size-full .wp-image-249 width="1500" height="900"}
+![Indio](/images/uploads/2018/03/N33_44_Indio_CA_rise_set_chart.png){.alignnone .size-full .wp-image-249 width="1500" height="900"}
 
 Long Beach
 
-![](/images/uploads/2018/03/N33_49_Long-Beach_CA_rise_set_chart.png){.alignnone .size-full .wp-image-250 width="1500" height="900"}
+![Long Beach](/images/uploads/2018/03/N33_49_Long-Beach_CA_rise_set_chart.png){.alignnone .size-full .wp-image-250 width="1500" height="900"}
 
 Ventura
 
-![](/images/uploads/2018/03/N34_17_Ventura_CA_rise_set_chart.png){.alignnone .size-full .wp-image-238 width="1500" height="900"}
+![Ventura](/images/uploads/2018/03/N34_17_Ventura_CA_rise_set_chart.png){.alignnone .size-full .wp-image-238 width="1500" height="900"}
 
 San Luis Obispo
 
-![](/images/uploads/2018/03/N35_17_San-Luis-Obispo_CA_rise_set_chart.png){.alignnone .size-full .wp-image-234 width="1500" height="900"}
+![San Luis Obispo](/images/uploads/2018/03/N35_17_San-Luis-Obispo_CA_rise_set_chart.png){.alignnone .size-full .wp-image-234 width="1500" height="900"}
 
 Monterey
 
-![](/images/uploads/2018/03/N36_36_Monterey_CA_rise_set_chart.png){.alignnone .size-full .wp-image-245 width="1500" height="900"}
+![Monterey](/images/uploads/2018/03/N36_36_Monterey_CA_rise_set_chart.png){.alignnone .size-full .wp-image-245 width="1500" height="900"}
 
 San Francisco
 
-![](/images/uploads/2018/03/N37_46_San-Francisco_CA_rise_set_chart.png){.alignnone .size-full .wp-image-235 width="1500" height="900"}
+![San Francisco](/images/uploads/2018/03/N37_46_San-Francisco_CA_rise_set_chart.png){.alignnone .size-full .wp-image-235 width="1500" height="900"}
 
 Eureka
 
-![](/images/uploads/2018/03/N40_47_Eureka_CA_rise_set_chart.png){.alignnone .size-full .wp-image-236 width="1500" height="900"}
+![Eureka](/images/uploads/2018/03/N40_47_Eureka_CA_rise_set_chart.png){.alignnone .size-full .wp-image-236 width="1500" height="900"}
 
 Eugene
 
-![](/images/uploads/2018/03/N44_03_Eugene_OR_rise_set_chart.png){.alignnone .size-full .wp-image-247 width="1500" height="900"}
+![Eugene](/images/uploads/2018/03/N44_03_Eugene_OR_rise_set_chart.png){.alignnone .size-full .wp-image-247 width="1500" height="900"}
 
 Salem
 
-![](/images/uploads/2018/03/N44_56_Salem_OR_rise_set_chart.png){.alignnone .size-full .wp-image-240 width="1500" height="900"}
+![Salem](/images/uploads/2018/03/N44_56_Salem_OR_rise_set_chart.png){.alignnone .size-full .wp-image-240 width="1500" height="900"}
 
 Portland
 
-![](/images/uploads/2018/03/N45_31_Portland_OR_rise_set_chart.png){.alignnone .size-full .wp-image-248 width="1500" height="900"}
+![Portland](/images/uploads/2018/03/N45_31_Portland_OR_rise_set_chart.png){.alignnone .size-full .wp-image-248 width="1500" height="900"}
 
 Seaside
 
-![](/images/uploads/2018/03/N45_59_Seaside_OR_rise_set_chart.png){.alignnone .size-full .wp-image-244 width="1500" height="900"}
+![Seaside](/images/uploads/2018/03/N45_59_Seaside_OR_rise_set_chart.png){.alignnone .size-full .wp-image-244 width="1500" height="900"}
 
 Olympia
 
-![](/images/uploads/2018/03/N47_02_Olympia_WA_rise_set_chart.png){.alignnone .size-full .wp-image-241 width="1500" height="900"}
+![Olympia](/images/uploads/2018/03/N47_02_Olympia_WA_rise_set_chart.png){.alignnone .size-full .wp-image-241 width="1500" height="900"}
 
 Seattle
 
-![](/images/uploads/2018/03/N47_38_Seattle_WA_rise_set_chart.png){.alignnone .size-full .wp-image-246 width="1500" height="900"}
+![Seattle](/images/uploads/2018/03/N47_38_Seattle_WA_rise_set_chart.png){.alignnone .size-full .wp-image-246 width="1500" height="900"}
 
 Ferndale
 
-![](/images/uploads/2018/03/N48_51_Ferndale_WA_rise_set_chart.png){.alignnone .size-full .wp-image-243 width="1500" height="900"}
+![Ferndale](/images/uploads/2018/03/N48_51_Ferndale_WA_rise_set_chart.png){.alignnone .size-full .wp-image-243 width="1500" height="900"}
 
 While these images do show the different impact of Daylight Savings, I think the images are more compelling when shown as a GIF:
 
-![](/images/uploads/2018/03/animated.gif){.alignnone .size-full .wp-image-239 width="1500" height="900"}
+![All Cities GIF](/images/uploads/2018/03/animated.gif){.alignnone .size-full .wp-image-239 width="1500" height="900"}
 
 We see just how different the impacts of DST are on each city depending on their latitude.
 

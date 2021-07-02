@@ -43,17 +43,17 @@ That's great and all, but what does it look like?
 
 ### The Search Tool
 
-![](/images/uploads/2020/05/add-a-game.png){.wp-image-440}
+![Search tool](/images/uploads/2020/05/add-a-game.png){.wp-image-440}
 
 ### Stadia Listing
 
 #### National League West
 
-![](/images/uploads/2020/05/visited-stadia-nl-west.png){.wp-image-439}
+![National League West](/images/uploads/2020/05/visited-stadia-nl-west.png){.wp-image-439}
 
 #### American League West
 
-![](/images/uploads/2020/05/visited-stadia-al-west.png){.wp-image-438}
+![American League West](/images/uploads/2020/05/visited-stadia-al-west.png){.wp-image-438}
 
 ## What’s next?
 
