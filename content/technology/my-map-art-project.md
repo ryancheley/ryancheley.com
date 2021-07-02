@@ -144,8 +144,8 @@ Within a couple of days I had my bright and shiny fractures to hang on my wall
 
 So that my office wall is no longer blank and boring:
 
-![](/images/uploads/2018/01/UNADJUSTEDNONRAW_thumb_380b.jpg){.alignnone .size-full .wp-image-189 width="1024" height="768"}
+![Borking Wall](/images/uploads/2018/01/UNADJUSTEDNONRAW_thumb_380b.jpg){.alignnone .size-full .wp-image-189 width="1024" height="768"}
 
 but interesting and fun to look at
 
-![](/images/uploads/2018/01/IMG_9156.jpg){.alignnone .size-full .wp-image-186 width="4032" height="3024"}
+![Artful Wall](/images/uploads/2018/01/IMG_9156.jpg){.alignnone .size-full .wp-image-186 width="4032" height="3024"}

@@ -44,7 +44,7 @@ password_change_form.html
 
 A visual representation of how `PasswordChangeView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BPasswordContextMixin%7Bbg:white%7D%5D%5E-%5BPasswordChangeView%7Bbg:green%7D%5D,%20%5BFormView%7Bbg:lightblue%7D%5D%5E-%5BPasswordChangeView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:lightblue%7D%5D,%20%5BBaseFormView%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:lightblue%7D%5D,%20%5BFormMixin%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BFormMixin%7Bbg:white%7D%5D,%20%5BProcessFormView%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BProcessFormView%7Bbg:white%7D%5D.svg)
+![PasswordChangeView](https://yuml.me/diagram/plain;/class/%5BPasswordContextMixin%7Bbg:white%7D%5D%5E-%5BPasswordChangeView%7Bbg:green%7D%5D,%20%5BFormView%7Bbg:lightblue%7D%5D%5E-%5BPasswordChangeView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:lightblue%7D%5D,%20%5BBaseFormView%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:lightblue%7D%5D,%20%5BFormMixin%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BFormMixin%7Bbg:white%7D%5D,%20%5BProcessFormView%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BProcessFormView%7Bbg:white%7D%5D.svg)
 
 ## Conclusion
 

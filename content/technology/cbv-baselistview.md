@@ -19,7 +19,7 @@ Almost all of the functionality of `BaseListView` comes from the `MultipleObject
 
 A visual representation of how `BaseListView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BMultipleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseListView%7Bbg:green%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectMixin%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseListView%7Bbg:green%7D%5D.svg)
+![BaseListView](https://yuml.me/diagram/plain;/class/%5BMultipleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseListView%7Bbg:green%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectMixin%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseListView%7Bbg:green%7D%5D.svg)
 
 ## Conclusion
 

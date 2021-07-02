@@ -39,7 +39,7 @@ The method `get\_redirect\_url` allows you to perform actions when the redirect 
 
 A visual representation of how `RedirectView` derives from `View` ^[2](#fn2){#ffn2 .footnote}^
 
-![](https://yuml.me/diagram/plain;/class/%5BView%7Bbg:lightblue%7D%5D%5E-%5BRedirectView%7Bbg:green%7D%5D.svg)
+![Redirect View](https://yuml.me/diagram/plain;/class/%5BView%7Bbg:lightblue%7D%5D%5E-%5BRedirectView%7Bbg:green%7D%5D.svg)
 
 ## Conclusion
 

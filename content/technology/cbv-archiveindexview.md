@@ -87,7 +87,7 @@ Nothing special needs to be done
 
 Will render:
 
-![](/images/uploads/2019/11/04B40CD4-3B85-440D-810D-4050727D6120.jpeg){.alignnone .size-full .wp-image-395 width="1061" height="668"}
+![BaseArchiveIndexView](/images/uploads/2019/11/04B40CD4-3B85-440D-810D-4050727D6120.jpeg){.alignnone .size-full .wp-image-395 width="1061" height="668"}
 
 ### BaseArchiveIndexView Attributes
 
@@ -137,7 +137,7 @@ These attributes were all reviewed in the [ListView](/cbv-listview.html) post
 
 A visual representation of how `ArchiveIndexView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BArchiveIndexView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseArchiveIndexView%7Bbg:white%7D%5D%5E-%5BArchiveIndexView%7Bbg:green%7D%5D,%20%5BBaseDateListView%7Bbg:white%7D%5D%5E-%5BBaseArchiveIndexView%7Bbg:white%7D%5D,%20%5BMultipleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectMixin%7Bbg:white%7D%5D,%20%5BDateMixin%7Bbg:white%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D.svg)
+![ArchiveIndexView](https://yuml.me/diagram/plain;/class/%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BArchiveIndexView%7Bbg:green%7D%5D,%20%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectTemplateResponseMixin%7Bbg:white%7D%5D,%20%5BBaseArchiveIndexView%7Bbg:white%7D%5D%5E-%5BArchiveIndexView%7Bbg:green%7D%5D,%20%5BBaseDateListView%7Bbg:white%7D%5D%5E-%5BBaseArchiveIndexView%7Bbg:white%7D%5D,%20%5BMultipleObjectMixin%7Bbg:white%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BMultipleObjectMixin%7Bbg:white%7D%5D,%20%5BDateMixin%7Bbg:white%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BBaseDateListView%7Bbg:white%7D%5D.svg)
 
 ## Conclusion
 

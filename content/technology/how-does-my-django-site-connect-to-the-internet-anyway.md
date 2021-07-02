@@ -31,7 +31,7 @@ How is it that when I go to the site, I see anything? I thought I understood it,
 
 After a bit of Googling, I found [this](https://serverfault.com/a/331263 "How does Gunicorn interact with NgInx?") and it helped me to create this:
 
-![](https://raw.githubusercontent.com/ryancheley/tatis/main/custom_resources/internal_working.png)
+![Internal workings](https://raw.githubusercontent.com/ryancheley/tatis/main/custom_resources/internal_working.png)
 
 My site runs on an Ubuntu 18.04 server using Nginx as proxy server. Nginx determines if the request is for a static asset (a css file for example) or dynamic one (something served up by the Django App, like answering if Tatis Jr. has an error today).
 

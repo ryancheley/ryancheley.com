@@ -77,6 +77,6 @@ Full Code can be found on my [GitHub Report](https://www.github.com/miloardot/)
 
 My Twitter Word Cloud as of today looks like this:
 
-![](/images/uploads/2017/12/Twitter-Word-Cloud-20161122-300x200.png){.alignnone .size-medium .wp-image-116 width="300" height="200"}
+![Word Cloud](/images/uploads/2017/12/Twitter-Word-Cloud-20161122-300x200.png){.alignnone .size-medium .wp-image-116 width="300" height="200"}
 
 I think it will be fun to post this image every once in a while, so as I remember, I'll run the script again and update the Word Cloud!

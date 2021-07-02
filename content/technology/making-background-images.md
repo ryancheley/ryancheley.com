@@ -105,11 +105,11 @@ The `print` statements at the end of the `for` loops were so that I could tell t
 
 This was a pretty straightforward project, but it was pretty fun. It allowed me to go from this:
 
-![](/images/uploads/2017/09/Cortex-5K-small-original-300x169.png){.alignnone .size-medium .wp-image-121 width="300" height="169"}
+![Cortex Background Original](/images/uploads/2017/09/Cortex-5K-small-original-300x169.png){.alignnone .size-medium .wp-image-121 width="300" height="169"}
 
 To this:
 
-![](/images/uploads/2017/09/Cortex-5K-small-300x169.png){.alignnone .size-medium .wp-image-122 width="300" height="169"}
+![Cortex Background resized](/images/uploads/2017/09/Cortex-5K-small-300x169.png){.alignnone .size-medium .wp-image-122 width="300" height="169"}
 
 For the text attributes I had to play around with them for a while until I found the color, font and font size that I liked and looked good (to me).
 

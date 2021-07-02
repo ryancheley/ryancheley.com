@@ -79,7 +79,7 @@ urls.py
 
 A visual representation of how `FormView` is derived can be seen here:
 
-![](https://yuml.me/diagram/plain;/class/%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:green%7D%5D,%20%5BBaseFormView%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:green%7D%5D,%20%5BFormMixin%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BFormMixin%7Bbg:white%7D%5D,%20%5BProcessFormView%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BProcessFormView%7Bbg:white%7D%5D.svg)
+![FormView](https://yuml.me/diagram/plain;/class/%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:green%7D%5D,%20%5BBaseFormView%7Bbg:white%7D%5D%5E-%5BFormView%7Bbg:green%7D%5D,%20%5BFormMixin%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BFormMixin%7Bbg:white%7D%5D,%20%5BProcessFormView%7Bbg:white%7D%5D%5E-%5BBaseFormView%7Bbg:white%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BProcessFormView%7Bbg:white%7D%5D.svg)
 
 ## Conclusion
 

@@ -18,24 +18,24 @@ From Droplet screen click ‘Add a Domain’
 ```{=html}
 <figure class="aligncenter">
 ```
-![](/images/uploads/2021/02/DraggedImage.png){.wp-image-470}
+![Add a Domain](/images/uploads/2021/02/DraggedImage.png){.wp-image-470}
 
 ```{=html}
 </p>
 ```
 Add 2 ‘A’ records (one for www and one without the www)
 
-![](/images/uploads/2021/02/DraggedImage-1.png){.wp-image-469}
+![A record](/images/uploads/2021/02/DraggedImage-1.png){.wp-image-469}
 
 Make note of the name servers
 
-![](/images/uploads/2021/02/DraggedImage-2.png){.wp-image-471}
+![Nameserver](/images/uploads/2021/02/DraggedImage-2.png){.wp-image-471}
 
 ## Hover
 
 In your account at Hover.com change your Name Servers to Point to Digital Ocean ones from above.
 
-![](/images/uploads/2021/02/DraggedImage-3.png){.wp-image-468}
+![Hover](/images/uploads/2021/02/DraggedImage-3.png){.wp-image-468}
 
 ## Wait
 

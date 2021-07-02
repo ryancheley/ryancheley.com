@@ -72,7 +72,7 @@ Let's sum up the defensive penalties (Defensive Offsides, Encroachment, and Neut
 
 Now we can see what might actually be going on, but it's still a bit hard for those visual people. If we take this data and then generate a scatter plot we might have a picture to show us the issue. Something like this:
 
-![](/images/uploads/2017/12/Officials-Crew-Calls-NFL-2016-300x222.png){.alignnone .size-medium .wp-image-113 width="300" height="222"}
+![Referee Crew Penalty Calls](/images/uploads/2017/12/Officials-Crew-Calls-NFL-2016-300x222.png){.alignnone .size-medium .wp-image-113 width="300" height="222"}
 
 The horizontal dashed blue lines represent the average defensive calls per crew while the vertical dashed blue line represents the average offensive calls per crew. The gray box represents the area containing plus/minus 2 standard deviations from the mean for both offensive and defensive penalty calls.
 

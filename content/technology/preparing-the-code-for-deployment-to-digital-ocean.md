@@ -23,7 +23,7 @@ Why don’t we just copy to the spot on the server we want o finally be in? Beca
 
 My project is structured such that there is a `deploy` folder which is on the Same Level as my Django Project Folder. That is to say
 
-![](/images/uploads/2021/02/DraggedImage-4.png){.wp-image-475}
+![Project Structure](/images/uploads/2021/02/DraggedImage-4.png){.wp-image-475}
 
 We want to clear out any old code. To do this we run from the same level that the Django Project Folder is in
 

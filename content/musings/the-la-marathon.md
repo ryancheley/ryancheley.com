@@ -47,7 +47,7 @@ I kind of wanted to cry. I wanted to cry because I had accomplished an amazing p
 
 With the wave of emotion and the feeling of having completed such an awesome experience I walked towards the people handing out the medals and got my finisher’s medal.
 
-![](/images/uploads/2018/03/IMG_9370.jpg){.alignnone .size-full .wp-image-224 width="3088" height="2320"}
+![Finisher's Medal](/images/uploads/2018/03/IMG_9370.jpg){.alignnone .size-full .wp-image-224 width="3088" height="2320"}
 
 Now, not only did I have the feeling of completing the LA Marathon, I had a physical manifestation of that feat!
 

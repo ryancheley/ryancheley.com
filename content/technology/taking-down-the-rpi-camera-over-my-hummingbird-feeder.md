@@ -15,12 +15,12 @@ Anyway, I could describe it or just take some pictures ... so here are some pict
 
 Above the feeder:
 
-![](/images/uploads/2019/06/Image-6-23-19-3-39-PM.png){.alignnone .size-full .wp-image-359 width="4032" height="3024"}
+![rPi wires](/images/uploads/2019/06/Image-6-23-19-3-39-PM.png){.alignnone .size-full .wp-image-359 width="4032" height="3024"}
 
 Wires to the sensor:
 
-![](/images/uploads/2019/06/Image-6-22-19-11-03-AM.png){.alignnone .size-full .wp-image-357 width="4032" height="3024"}
+![rPi sensor wires](/images/uploads/2019/06/Image-6-22-19-11-03-AM.png){.alignnone .size-full .wp-image-357 width="4032" height="3024"}
 
 Wires to the GPIO pins:
 
-![](/images/uploads/2019/06/Image-6-22-19-11-03-AM-1.png){.alignnone .size-full .wp-image-358 width="4032" height="3024"}
+![rPi GPIO wires](/images/uploads/2019/06/Image-6-22-19-11-03-AM-1.png){.alignnone .size-full .wp-image-358 width="4032" height="3024"}

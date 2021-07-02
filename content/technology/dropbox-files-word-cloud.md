@@ -57,4 +57,4 @@ The rest of the script generates the image and saves it to my Dropbox Account. A
 
 And we get this:
 
-![](/images/uploads/2017/12/dropbox_wordcloud-300x200.png){.alignnone .size-medium .wp-image-112 width="300" height="200"}
+![Word Cloud](/images/uploads/2017/12/dropbox_wordcloud-300x200.png){.alignnone .size-medium .wp-image-112 width="300" height="200"}
