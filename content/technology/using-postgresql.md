@@ -142,8 +142,6 @@ This will run any migrations that we had created previously on our new Postgres 
 A few things to note:
 
 1.  You will need to create a new `superuser`
-2.  You will need to migrate over any data from the old SQLite database^[1](#fn1){#ffn1 .footnote}^
+2.  You will need to migrate over any data from the old SQLite database[ref]This can be done with the `datadump` and `dataload` commands available in `manage.py`[/ref]
 
 Congratulations! You’ve migrated from SQLite to Postgres!
-
-1.  [This can be done with the `datadump` and `dataload` commands available in `manage.py` [↩](#ffn1)]{#fn1}

@@ -12,7 +12,7 @@ Digital Ocean has a pretty nice API which makes it easy to automate the creation
 
 I won’t jump into the automation piece just yet, but once you have your DO account setup (sign up [here](https://m.do.co/c/cc5fdad15654) if you don’t have one), it’s a simple interface to [Setup Your Droplet](https://www.digitalocean.com/docs/droplets/how-to/create/).
 
-I chose the Ubuntu 18.04 LTS image with a \$5 server (1GB Ram, 1CPU, 25GB SSD Space, 1000GB Transfer) hosted in their San Francisco data center (SFO2^[1](#fn1){#ffn1 .footnote}^).
+I chose the Ubuntu 18.04 LTS image with a \$5 server (1GB Ram, 1CPU, 25GB SSD Space, 1000GB Transfer) hosted in their San Francisco data center (SFO2[ref]SFO2 is disabled for new customers and you will now need to use SFO3 unless you already have resources on SFO2, but if you’re following along you probably don’t. What’s the difference between the two? Nothing 😁[/ref]).
 
 ## We’ve got a server … now what?
 
@@ -27,5 +27,3 @@ apt-get install python3 python3-pip python3-venv tree postgresql postgresql-cont
 That’s it! We’ve now got a server that is ready to be setup for our Django Project.
 
 In the next post, I’ll walk through how to get your Domain Name to point to the Digital Ocean Server.
-
-1.  [SFO2 is disabled for new customers and you will now need to use SFO3 unless you already have resources on SFO2, but if you’re following along you probably don’t. What’s the difference between the two? Nothing 😁 [↩](#ffn1)]{#fn1}

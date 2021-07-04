@@ -61,6 +61,4 @@ So really, no *good* reason. Just that. And, I like to figure stuff out.
 
 OK, so Ulysses is great. But why the need for an SSL certificate? Mostly because when I tried to post to Wordpress from Ulysses without any certificates ( self signed or not ) I would get a warning that my traffic was unencrypted and could be snooped. I figured, better safe than sorry.
 
-Now with the ssl cert all I had to do was trust my self signed certificate and I was set^[1](#fn1){#ffn1 .footnote}^
-
-1.  [Mostly. I still needed to specify the domain with www otherwise it didn’t work. [↩](#ffn1)]{#fn1}
+Now with the ssl cert all I had to do was trust my self signed certificate and I was set[ref]Mostly. I still needed to specify the domain with www otherwise it didn’t work.[/ref]

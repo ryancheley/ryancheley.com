@@ -40,7 +40,7 @@ In your account at Hover.com change your Name Servers to Point to Digital Ocean 
 
 ## Wait
 
-DNS … does anyone *really* know how it works?^[1](#fn1){#ffn1 .footnote}^ I just know that sometimes when I make a change it’s out there almost immediately for me, and sometimes it takes hours or days.
+DNS … does anyone *really* know how it works?[ref]Probably just [Julia Evans](https://jvns.ca/blog/how-updating-dns-works/[/ref] I just know that sometimes when I make a change it’s out there almost immediately for me, and sometimes it takes hours or days.
 
 At this point, you’re just going to potentially need to wait. Why? Because DNS that’s why. Ugh!
 
@@ -198,5 +198,3 @@ The last thing to do is to allow full access to Nginx. You do this by running
 ``` {.wp-block-code}
 ufw allow 'Nginx Full'
 ```
-
-1.  [Probably just [Julia Evans](https://jvns.ca/blog/how-updating-dns-works/) [↩](#ffn1)]{#fn1}

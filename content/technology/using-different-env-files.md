@@ -19,7 +19,7 @@ I had tried to use a different `.env` file using an assortment of methods, but t
 >
 > Now `ENV_PATH=other-env ./manage.py runserver` uses `other-env` while `./manage.py runserver` uses `.env`.
 
-But there’s no example about how to actually set that up 🤦🏻‍♂️^[1](#fn1){#ffn1 .footnote}^.
+But there’s no example about how to actually set that up 🤦🏻‍♂️[ref]I’d like to figure out how to set up multiple `.env` files, create an example and contribute to the docs ... but honestly I have *no freaking clue* how to do it. If I am able to figure it out, you can bet I’m going to write up a PR for the docs![/ref].
 
 In fact, this bit in the documentation reminded me of this[video](https://youtu.be/MAlSjtxy5ak "Every Programming Tutorial") on YouTube.
 
@@ -63,4 +63,3 @@ And I’ll know if I have passed the 12 factor checking for my Django project or
 
 I’d like to figure out how to set up multiple `.env` files, create an example and contribute to the docs ... but honestly I have *no freaking clue* how to do it. If I am able to figure it out, you can bet I’m going to write up a PR for the docs!
 
-1.  [I’d like to figure out how to set up multiple `.env` files, create an example and contribute to the docs ... but honestly I have *no freaking clue* how to do it. If I am able to figure it out, you can bet I’m going to write up a PR for the docs! [↩](#ffn1)]{#fn1}

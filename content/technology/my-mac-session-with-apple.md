@@ -13,7 +13,7 @@ For Christmas I bought myself a 2017 13-inch MacBook Pro with Touch Bar. Several
 
 Now I didn’t know about item number 3 when I made the purchase, but was greeted with an email informing me of my great luck.
 
-This is my fifth Mac^[1](#fn1){#ffn1 .footnote}^ and I don’t remember ever getting this kind of service before. So I figured, what the hell and decided to snooze the email until the day after Christmas to remind myself to sign up for the session.
+This is my fifth Mac[ref]They are in order of purchase: 2012 15-inch MacBook Pro, 2014 27-inch 5K iMac, 2015 MacBook, 2016 13-inch 2 Thunderbolt MacBook Pro; 2017 13-inch MacBook Pro with Touch Bar[/ref] and I don’t remember ever getting this kind of service before. So I figured, what the hell and decided to snooze the email until the day after Christmas to remind myself to sign up for the session.
 
 When I entered the session I was asked to optionally provide some information about myself. I indicated that I had been using a Mac for several years and considered myself an intermediate user.
 
@@ -55,5 +55,3 @@ After the call I received a nice follow up email from Apple / Jaime
 
   
 I’m glad that I had the Mac session and I will encourage anyone that buys a Mac in the future to schedule one.
-
-1.  [They are in order of purchase: 2012 15-inch MacBook Pro, 2014 27-inch 5K iMac, 2015 MacBook, 2016 13-inch 2 Thunderbolt MacBook Pro; 2017 13-inch MacBook Pro with Touch Bar [↩](#ffn1)]{#fn1}
