@@ -1,7 +1,7 @@
 Title: Getting your Domain to point to Digital Ocean Your Server
 Date: 2021-02-07 12:00
 Author: ryan
-Tags: digital ocean, series, server, setup, web
+Tags: digital ocean, server, setup, web
 Series: Deploying your Django App to Digital Ocean
 Slug: getting-your-domain-to-point-to-digital-ocean-your-server
 Status: published

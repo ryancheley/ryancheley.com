@@ -1,7 +1,7 @@
 Title: Setting up the Server (on Digital Ocean)
 Date: 2021-01-31 12:00
 Author: ryan
-Tags: Deployment, series, Server
+Tags: Deployment, Server
 Series: Deploying your Django App to Digital Ocean
 Slug: setting-up-the-server-on-digital-ocean
 Status: published
