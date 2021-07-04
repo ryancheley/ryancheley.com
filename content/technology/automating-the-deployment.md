@@ -2,6 +2,7 @@ Title: Automating the deployment
 Date: 2021-02-21 12:00
 Author: ryan
 Tags: Deployment, digital ocean, series, Django
+Series: Deploying your Django App to Digital Ocean
 Slug: automating-the-deployment
 Status: published
 

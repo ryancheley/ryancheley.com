@@ -8,6 +8,8 @@ SITEURL = ''
 
 PATH = 'content'
 
+PLUGINS = ['pelican.plugins.series']
+
 THEME = "rc_custom"
 
 TIMEZONE = 'America/Los_Angeles'

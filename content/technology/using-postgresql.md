@@ -2,6 +2,7 @@ Title: Using PostgreSQL
 Date: 2021-02-28 12:00
 Author: ryan
 Tags: postgres, series
+Series: Deploying your Django App to Digital Ocean
 Slug: using-postgresql
 Status: published
 
