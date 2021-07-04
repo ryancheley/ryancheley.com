@@ -1,7 +1,8 @@
 Title: Enhancements: Using GitHub Actions to Deploy
 Date: 2021-03-14 11:00
 Author: ryan
-Tags: Deployment, github actions, series
+Tags: Deployment, github actions, 
+Series: Deploying your Django App to Digital Ocean
 Slug: enhancements-using-github-actions-to-deploy
 Status: published
 

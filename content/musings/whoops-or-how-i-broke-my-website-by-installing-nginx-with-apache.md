@@ -5,7 +5,7 @@ Tags: apache2, django, nginx
 Slug: whoops-or-how-i-broke-my-website-by-installing-nginx-with-apache
 Status: published
 
-I’ve been working on a project to create a [Django](https://www.djangoproject.com) based website. Over the weekend (Saturday I think) I tried to get it up and running on my [Linode](https://www.djangoproject.com) server. However, after a couple of failed attempts I decided to use the free hosting coupon^[1](#fn1){#ffn1 .footnote}^ I had for [DigitalOcean](https://www.digitalocean.com) to see if that allowed me to reply more easily deploy … the short answer … meh.
+I’ve been working on a project to create a [Django](https://www.djangoproject.com) based website. Over the weekend (Saturday I think) I tried to get it up and running on my [Linode](https://www.djangoproject.com) server. However, after a couple of failed attempts I decided to use the free hosting coupon[ref][Thanks to the Talk Python to Me Course for Entrepreneurs[/ref] I had for [DigitalOcean](https://www.digitalocean.com) to see if that allowed me to reply more easily deploy … the short answer … meh.
 
 What I didn’t realize over the weekend is that while I had been trying to deploy my Django site, I had installed [Nginx](http://nginx.org) on my Linode server that was also running [apache2](https://httpd.apache.org). This lead to them both trying to listen on port 80 but because Nginx was the last thing I had kicked off, it was *winning*.
 
@@ -73,7 +73,3 @@ What did I learn from this experience?
 3.  A good night’s sleep can make all the difference
 4.  Rolling your own web server is less expensive than having it be Turnkey (a la SquareSpace, or some other hosted solution) but you end up being your own Sys Admin and that’s actually pretty easy when things are going well, and a freaking nightmare when they’re not
 
-```{=html}
-<!-- -->
-```
-1.  [Thanks to the Talk Python to Me Course for Entrepreneurs [↩](#ffn1)]{#fn1}

@@ -11,7 +11,7 @@ One of the things I have wanted to do since then is have Vin Scully’s voice co
 
 I found a clip of [Vin on Youtube](https://www.youtube.com/watch?v=4KwFuGtGU6c) saying that (and a little more). I wasn’t sure how to get the audio from that YouTube clip though.
 
-After a bit of googling^[1](#fn1){#ffn1 .footnote}^ I found a command line tool called [youtube-dl](https://rg3.github.io/youtube-dl/). The tool allowed me to download the video as an `mp4` with one simple command:
+After a bit of googling[ref]Actually, it was an embarrassing amount[/ref] I found a command line tool called [youtube-dl](https://rg3.github.io/youtube-dl/). The tool allowed me to download the video as an `mp4` with one simple command:
 
     youtube-dl https://www.youtube.com/watch?v=4KwFuGtGU6c
 
@@ -56,5 +56,3 @@ One final tweak, and now it only plays at 5 minutes before game time and 1 minut
        os.system("omxplayer -b /home/pi/Documents/python_projects/itfdb/dodger_baseball.mp3")
 
 Now, for the rest of the season, even though Vin isn’t calling the games, I’ll get to hear his voice letting me know, “It’s Time for Dodger Baseball!!!”
-
-1.  [Actually, it was an embarrassing amount [↩](#ffn1)]{#fn1}

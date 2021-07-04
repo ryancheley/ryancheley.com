@@ -48,7 +48,7 @@ df['Tickets'] = tickets
 
 Our dataframe now looks like this: Student Name, Grade, Available Points, Tickets.
 
-Next, we need to figure out the Raffle ticket numbers. To do that I count the total number of Tickets available. I’m also using some extra features of the range function which allows me to set the start number of the Raffle.^[1](#fn1){#ffn1 .footnote}^
+Next, we need to figure out the Raffle ticket numbers. To do that I count the total number of Tickets available. I’m also using some extra features of the range function which allows me to set the start number of the Raffle.[ref]Why am I doing this, versus just stating a `0`? Mostly because I wanted the Raffle Ticket numbers to look like *real* Raffle Ticket Numbers. How many times have you seen a raffle ticket with number 0 on it?[/ref]
 
 ``` {.wp-block-code}
 total_number_of_tickets = sum(df['Tickets'])
@@ -142,5 +142,3 @@ For each student we output to a line to a file with the student’s name, the wi
 ## Conclusion
 
 This was a fun project for me because it was needed for a real world application, allowed me to use MANY of the concepts I learned at PyBites [CodeChalleng.es](https://codechalleng.es) AND helped my daughter’s school.
-
-1.  [Why am I doing this, versus just stating a `0`? Mostly because I wanted the Raffle Ticket numbers to look like *real* Raffle Ticket Numbers. How many times have you seen a raffle ticket with number 0 on it? [↩](#ffn1)]{#fn1}

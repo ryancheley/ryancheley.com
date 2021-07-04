@@ -82,7 +82,7 @@ This is great and all, but now what? We can’t really use subjective measures t
 
 My daughter and her friend aren’t coders, but I did explain to them that we needed a more scientific way to determine cleanliness. I suggested that we use `python` to examine the image and determine the brightness of the image.
 
-We could then use some math to compare the brightness.^[1](#fn:1)^
+We could then use some math to compare the brightness. [ref][The score is the ratio of how clean the cleaning method was able to get the sample compared to where it started, i.e. the ratio of the difference of the `cleaned` sample and the `dirty` sample to the difference of the `starting` sample and the `dirty` sample.[/ref]
 
 Now, onto the code!
 
@@ -196,10 +196,3 @@ I think the best part of all of this was the time I got to spend with my daughte
 I was also really excited when her friend said, “Science is pretty cool” and then had a big smile on her face.
 
 They didn’t go onto district, or get a blue ribbon, but they won in that they learned how neat science can be.
-
-::: {.footnotes}
-
-------------------------------------------------------------------------
-
-1.  [The score is the ratio of how clean the cleaning method was able to get the sample compared to where it started, i.e. the ratio of the difference of the `cleaned` sample and the `dirty` sample to the difference of the `starting` sample and the `dirty` sample.[↩](#fnref:1)]{#fn:1}
-:::

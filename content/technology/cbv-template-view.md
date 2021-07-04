@@ -52,12 +52,10 @@ See above in the section When to use the `get` method
 
 ## Diagram
 
-A visual representation of how `TemplateView` derives from `View` ^[1](#fn1){#ffn1 .footnote}^
+A visual representation of how `TemplateView` derives from `View` [ref]Original Source from Classy Class Based Views[/ref]
 
 ![TemplateView](https://yuml.me/diagram/plain;/class/%5BTemplateResponseMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BContextMixin%7Bbg:white%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D,%20%5BView%7Bbg:lightblue%7D%5D%5E-%5BTemplateView%7Bbg:green%7D%5D.svg)
 
 ## Conclusion
 
 If you want to roll your own CBV because you have a super specific use case, starting at the `TemplateView` is going to be a good place to start. However, you may find that there is already a view that is going to do what you need it to. Writing your own custom implementation of `TemplateView` may be a waste of time **IF** you haven’t already verified that what you need isn’t already there.
-
-1.  [Original Source from Classy Class Based Views [↩](#ffn1)]{#fn1}

@@ -39,6 +39,4 @@ The last thing to do was to make sure that the notebook would start up with a se
 
 The last command is a slight modification of the line from above. I really wanted the output to get directed to a file that wasn’t in the directory that the `Jupyter` notebook would be running from. Not any reason (that I know of anyway) … I just didn’t like the `nohup.out` file in the working directory.
 
-Anyway, I now have a running Jupyter Notebook at <http://python.ryancheley.com:8888>^[1](#fn1){#ffn1 .footnote}^
-
-1.  [I’d like to update this to be running from a port other than 8888 AND I’d like to have it on SSL, but one thing at a time! [↩](#ffn1)]{#fn1}
+Anyway, I now have a running Jupyter Notebook at <http://python.ryancheley.com:8888>[ref]I’d like to update this to be running from a port other than 8888 AND I’d like to have it on SSL, but one thing at a time![/ref]

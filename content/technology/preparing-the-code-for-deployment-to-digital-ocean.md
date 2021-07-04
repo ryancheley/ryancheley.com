@@ -1,7 +1,8 @@
 Title: Preparing the code for deployment to Digital Ocean
 Date: 2021-02-14 12:00
 Author: ryan
-Tags: Deployment, digital ocean, series
+Tags: Deployment, digital ocean
+Series: Deploying your Django App to Digital Ocean
 Slug: preparing-the-code-for-deployment-to-digital-ocean
 Status: published
 
