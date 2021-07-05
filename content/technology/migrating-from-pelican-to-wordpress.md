@@ -2,6 +2,7 @@ Title: Migrating to Pelican from Wordpress
 Date: 2021-07-02
 Author: ryan
 Tags: WordPress, Pelican
+Series: Migrating to Pelican
 Slug: migrating-to-pelican-from-wordpress
 Status: published
 
