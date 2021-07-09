@@ -13,7 +13,7 @@ Responsible for the design, development and implementation of Business Informati
 * Implemented Enterprise Reporting Solutions using SSRS and Tableau
 * Lead effort for cross training of staff to maximize support capabilities of team
 * Implemented dimensional data warehouse
-* Institued 1 on 1's with staff
+* Instituted 1 on 1's with staff
 * Worked with Interdisciplinary team to implement new Life Planning process across Enterprise
 * During COVID-19 pandemic had first team in organization that was fully remote 
 * During COVID-19 pandemic team saw increase in productivity with work from home
@@ -25,7 +25,7 @@ Responsible for the design, development and implementation of Business Informati
 	* Provider Management System
 * Had two teams recognized as Administrative Department / Team of the year
 	* NextGen Support Services in 2017
-	* Health Plan Audting and Reporting in 2019
+	* Health Plan Auditing and Reporting in 2019
 
 
 ### February 2012 - July 2016, Director - NextGen Support Services, DESERT OASIS HEALTHCARE
