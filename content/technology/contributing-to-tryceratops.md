@@ -1,5 +1,5 @@
 Title: Contributing to Tryceratops
-Date: 2021-08-09
+Date: 2021-08-07
 Tags: oss, contributing
 Slug: contributing-to-tryceratops
 Author: ryan
