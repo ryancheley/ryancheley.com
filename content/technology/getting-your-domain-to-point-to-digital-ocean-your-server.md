@@ -52,7 +52,7 @@ For my code deploy I’ll be using a user called `burningfiddle`. We have to do 
 
 We can run these commands to take care of that:
 
-``` {.wp-block-code}
+```
 adduser --disabled-password --gecos "" yoursite
 ```
 
@@ -60,13 +60,13 @@ The first line will add the user with no password and disable them to be able to
 
 Next, add the user to the proper group
 
-``` {.wp-block-code}
+```
 adduser yoursite www-data
 ```
 
 Now we have a user and they’ve been added to the group we need them to be added. In creating the user, we also created a directory for them in the `home` directory called `yoursite`. You should now be able to run this command without error
 
-``` {.wp-block-code}
+```
 ls /home/yoursite/
 ```
 
@@ -74,13 +74,13 @@ If that returns an error indicating no such directory, then you may not have cre
 
 Now we’re going to make a directory for our code to be run from.
 
-``` {.wp-block-code}
+```
 mkdir /home/yoursite/yoursite
 ```
 
 To run our Django app we’ll be using virtualenv. We can create our virtualenv directory by running this command
 
-``` {.wp-block-code}
+```
 python3 -m venv /home/yoursite/venv
 ```
 
@@ -93,7 +93,7 @@ There are two files needed for Gunicorn to run:
 
 For our setup, this is what they look like:
 
-``` {.wp-block-code}
+```
 # gunicorn.socket
 
 [Unit]
@@ -106,7 +106,7 @@ ListenStream=/run/gunicorn.sock
 WantedBy=sockets.target
 ```
 
-``` {.wp-block-code}
+```
 # gunicorn.service
 
 [Unit]
@@ -138,13 +138,13 @@ The only environment variables we have to worry about here (since we’re using 
 
 We’ll want to edit `/etc/environment` with our favorite editor (I’m partial to `vim` but use whatever you like
 
-``` {.wp-block-code}
+```
 vim /etc/environment
 ```
 
 In this file you’ll add your DJANGO_SECRET_KEY and DJANGO_DEBUG. The file will look something like this once you’re done:
 
-``` {.wp-block-code}
+```
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 DJANGO_SECRET_KEY=my_super_secret_key_goes_here
 DJANGO_DEBUG=False
@@ -156,7 +156,7 @@ Now we need to create our `.conf` file for Nginx. The file needs to be placed in
 
 The final file will look (something) like this [fn](# "Note that my site is called yoursite in this example")
 
-``` {.wp-block-code}
+```
 server {
     listen 80;
     server_name www.yoursite.com yoursite.com;
@@ -177,24 +177,24 @@ The `.conf` file above tells Nginx to listen for requests to either `www.buringf
 
 With that in place all that’s left to do is to make it enabled by running replacing `$sitename` with your file
 
-``` {.wp-block-code}
+```
 ln -s /etc/nginx/sites-available/$sitename /etc/nginx/sites-enabled
 ```
 
 You’ll want to run
 
-``` {.wp-block-code}
+```
 nginx -t
 ```
 
 to make sure there aren’t any errors. If no errors occur you’ll need to restart Nginx
 
-``` {.wp-block-code}
+```
 systemctl restart nginx
 ```
 
 The last thing to do is to allow full access to Nginx. You do this by running
 
-``` {.wp-block-code}
+```
 ufw allow 'Nginx Full'
 ```

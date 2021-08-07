@@ -23,13 +23,13 @@ Each student had some number of Hero Points. The PTO decided that 10 Hero Points
 
 I decided to use a `namedtuple` to store the Raffle Tickets. Specifically, I store the student name, ticket numbers they drew, and the number of tickets they have
 
-``` {.wp-block-code}
+```
 Raffle_Tickets = namedtuple('Raffle_Tickets', ['name', 'ticket_numbers', 'tickets'])
 ```
 
 The list of student names and total Hero Points was stored in an Excel File (.xlsx) so I decided to use the Pandas Package to import it and manipulate it into a dataframe. The structure of the excel file is: Student Name, Grade, Available Points.
 
-``` {.wp-block-code}
+```
 df = pd.read_excel (r'/Users/ryan/Documents/python-files/8th  Hero Points.xlsx')
 ```
 
@@ -37,7 +37,7 @@ After a bit of review it turned out that there were a couple of students with NE
 
 The code below filters the dataframe to only return students with positive ‘Available Points’ and then reindex. Finally, it calculates the number of Raffle tickets by dividing by 10 and rounding up using Python’s `ceil` function. It puts all of this into a list called `tickets`. We append our `tickets` list to the original dataframe.
 
-``` {.wp-block-code}
+```
 df = df[df['Available Points'] >0]
 df.reset_index(inplace=True, drop=True)
 tickets = []
@@ -50,7 +50,7 @@ Our dataframe now looks like this: Student Name, Grade, Available Points, Ticket
 
 Next, we need to figure out the Raffle ticket numbers. To do that I count the total number of Tickets available. I’m also using some extra features of the range function which allows me to set the start number of the Raffle.[ref]Why am I doing this, versus just stating a `0`? Mostly because I wanted the Raffle Ticket numbers to look like *real* Raffle Ticket Numbers. How many times have you seen a raffle ticket with number 0 on it?[/ref]
 
-``` {.wp-block-code}
+```
 total_number_of_tickets = sum(df['Tickets'])
 ticket_number_start = 1000000
 ticket_number_list = []
@@ -62,13 +62,13 @@ Once we have the list of ticket numbers I want to make a copy of it … remember
 
 For more on deepcopy versus (shallow) copy [see the documentation](https://docs.python.org/3/library/copy.html "Deepcopy")
 
-``` {.wp-block-code}
+```
 assigned_ticket_number_list = deepcopy(ticket_number_list)
 ```
 
 Finally, I reindex the dataframe just to add a bit more randomness to the list
 
-``` {.wp-block-code}
+```
 df = df.reindex(np.random.permutation(df.index))
 ```
 
@@ -76,7 +76,7 @@ df = df.reindex(np.random.permutation(df.index))
 
 Next we’ll assign the tickets randomly to the students.
 
-``` {.wp-block-code}
+```
 raffle_list = []
 for student in range(df.shape[0]):
     student_ticket_list = []
@@ -93,7 +93,7 @@ OK … the code above looks pretty dense, but basically all we’re doing is loo
 
 Now we want to ‘draw’ the tickets from the ‘bowl’. We want to select 25 winners, but we also don’t want to have any student win more than once. Honestly, the ’25 winning tickets with 25 distinct winners’ was the hardest part to get through.
 
-``` {.wp-block-code}
+```
 selected_tickets = []
 for i in range(25):
     selected_ticket_number_index = randint(0, len(ticket_number_list) - 1)
@@ -110,7 +110,7 @@ We see above that we’ll select 25 items from the ‘bowl’ of tickets. We sel
 
 We now have 25 tickets with 25 winners. Now we just need to get their names!
 
-``` {.wp-block-code}
+```
 winners_list=[]
 for r in raffle_list:
     for t in r.ticket_numbers:
@@ -126,7 +126,7 @@ Again, we construct a list of `namedtuple` `Raffle\_Tickets` only this time it�
 
 Whew! Now that we have the results we want to write them to a file.
 
-``` {.wp-block-code}
+```
 with open('/Users/ryan/PyBites/Raffle/winners_new.txt', 'w+') as f:
     for winner in winners_list:
         tickets = ticket_count(winner.name)

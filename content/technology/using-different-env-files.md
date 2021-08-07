@@ -25,7 +25,7 @@ In fact, this bit in the documentation reminded me of this[video](https://youtu.
 
 Instead of trying to figure out the use of multiple `.env` files I instead used a [just](https://github.com/casey/just) recipe in my `justfile` to get the job done.
 
-``` {.wp-block-code}
+```
 # checks the deployment for prod settings; will return error if the check doesn't pass
 check:
     cp core/.env core/.env_staging
@@ -38,13 +38,13 @@ OK. What does this recipe do?
 
 First, we copy the development `.env` file to a `.env_staging` file to keep the original development settings ‘somewhere’
 
-``` {.wp-block-code}
+```
  cp core/.env core/.env_staging
 ```
 
 Next, we copy the `.env_prod` to the `.env` so that we can use it when we run `-python manage.py check --deploy`.
 
-``` {.wp-block-code}
+```
 cp core/.env_prod core/.env
 -python manage.py check --deploy
 ```
@@ -55,7 +55,7 @@ Finally, we copy the original contents of the `.env` file from the `.env_staging
 
 Now, I can simply run
 
-``` {.wp-block-code}
+```
 just check
 ```
 

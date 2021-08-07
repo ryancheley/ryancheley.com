@@ -46,7 +46,7 @@ upload-code.sh
 
 The Python script `create_server.py` looks like this:
 
-``` {.wp-block-code}
+```
 # create_server.py
 
 import requests
@@ -105,7 +105,7 @@ The First part of the script uses my Digital Ocean Token and some input paramete
 
 After we create the droplet AND is has an IP address, we get it to pass to the bash script `server-setup.sh`.
 
-``` {.wp-block-code}
+```
 # server-setup.sh
 
 #!/bin/bash
@@ -178,7 +178,7 @@ All of that stuff we did before, logging into the server and running commands, w
 
 The one thing that is new here is the part
 
-``` {.wp-block-code}
+```
 ssh root@$SERVER /bin/bash << EOF
     ...
 EOF
@@ -202,7 +202,7 @@ The script `setup_nginx.sh` copies several files needed for the `nginx` service:
 
 It then sets up a link between the `available-sites` and `enabled-sites` for `nginx` and finally restarts `nginx`
 
-``` {.wp-block-code}
+```
 # setup_nginx.sh
 
 export SERVER=$1
@@ -227,7 +227,7 @@ The script `deploy_env_variables.sh` copies environment variables. There are pac
 
 This script captures the values of various environment variables (one at a time) and then passes them through to the server. It then checks to see if these environment variables exist on the server and will place them in the `/etc/environment` file
 
-``` {.wp-block-code}
+```
 export SERVER=$1
 
 DJANGO_SECRET_KEY=printenv | grep DJANGO_SECRET_KEY
@@ -277,7 +277,9 @@ EOF
 
 The `deploy.sh` calls two scripts itself:
 
-``` {.wp-block-code}
+```
+# deploy.sh
+
 #!/bin/bash
 set -e
 # Deploy Django project.
@@ -291,7 +293,7 @@ The final two scripts!
 
 The `upload-code.sh` script uploads the files to the `deploy` folder of the server while the `install-code.sh` script move all of the files to where then need to be on the server and restart any services.
 
-``` {.wp-block-code}
+```
 # upload-code.sh
 
 #!/bin/bash
@@ -316,7 +318,7 @@ echo -e "\n>>> Finished copying Django project files to server."
 
 And finally,
 
-``` {.wp-block-code}
+```
 # install-code.sh
 
 #!/bin/bash

@@ -114,7 +114,7 @@ I love solving problems, and I love writing code, so this kind of stuff just rea
 
 Now, I’ve contributed to an open source project (that makes 3 now!) and the issue with the `/dashboard/` has been fixed. 
 
-All in all, a pretty great week. 
+All
 
 [1]:	https://github.com/simonw/django-sql-dashboard/releases/tag/1.0
 [2]:	https://github.com/simonw/django-sql-dashboard/issues/57

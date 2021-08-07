@@ -11,7 +11,7 @@ This was a first for me, and it was pretty straight forward to accomplish the ta
 
 To do this, I sub-classed the Django Admin `SimpleListFilter` with the following code:
 
-``` {.wp-block-code}
+```
 class EmployeeListFilter(admin.SimpleListFilter):
     title = "Employee"
     parameter_name = "employee"
@@ -33,7 +33,7 @@ class EmployeeListFilter(admin.SimpleListFilter):
 
 And implemented it like this:
 
-``` {.wp-block-code}
+```
 @admin.register(EmployeeO3Note)
 class EmployeeO3NoteAdmin(admin.ModelAdmin):
     list_filter = (EmployeeListFilter, "o3_date")
@@ -63,7 +63,7 @@ The thing that helps me out the most when trying to determine how to write tests
 
 This is what the test ended up looking like:
 
-``` {.wp-block-code}
+```
 import pytest
 
 from employees.models import EmployeeO3Note

@@ -11,7 +11,7 @@ Per the [Django Documentation](https://docs.djangoproject.com/en/3.1/ref/setting
 
 In order to set this up you need to include in your `settings.py` file something like:
 
-``` {.wp-block-code}
+```
 ADMINS = [
     ('John', 'john@example.com'), 
     ('Mary', 'mary@example.com')
@@ -29,7 +29,7 @@ Again, per the [Django Documentation](https://docs.djangoproject.com/en/3.1/topi
 
 Reading through the documentation didn’t **really** help me all that much. The docs show the following example:
 
-``` {.wp-block-code}
+```
 'handlers': {
     'mail_admins': {
         'level': 'ERROR',
@@ -43,7 +43,7 @@ That’s great, but there’s not a direct link (that I could find) to the examp
 
 The important thing to do is to include the above in the appropriate `LOGGING` setting, like this:
 
-``` {.wp-block-code}
+```
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -66,7 +66,7 @@ In order to accomplish this I use [SendGrid](https://sendgrid.com "SendGrid"). N
 
 There are [great tutorials online](https://sendgrid.com/docs/for-developers/sending-email/django/ "Django and SendGrid Tutorials") for how to get SendGrid integrated with Django, so I won’t rehash that here. I’ll just drop my the settings I used in my `settings.py`
 
-``` {.wp-block-code}
+```
 SENDGRID_API_KEY = env("SENDGRID_API_KEY")
 
 EMAIL_HOST = "smtp.sendgrid.net"
@@ -80,7 +80,7 @@ One final thing I needed to do was to update the email address that was being us
 
 You can override this by setting
 
-``` {.wp-block-code}
+```
 SERVER_EMAIL = myemail@mydomain.tld
 ```
 

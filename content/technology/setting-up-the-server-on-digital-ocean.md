@@ -18,7 +18,7 @@ I chose the Ubuntu 18.04 LTS image with a \$5 server (1GB Ram, 1CPU, 25GB SSD Sp
 
 We’re going to want to update, upgrade, and install all of the (non-Python) packages for the server. For my case, that meant running the following:
 
-``` {.wp-block-code}
+```
 apt-get update
 apt-get upgrade
 apt-get install python3 python3-pip python3-venv tree postgresql postgresql-contrib nginx

@@ -28,13 +28,13 @@ My project is structured such that there is a `deploy` folder which is on the Sa
 
 We want to clear out any old code. To do this we run from the same level that the Django Project Folder is in
 
-``` {.wp-block-code}
+```
 rm -rf deploy/*
 ```
 
 This will remove ALL of the files and folders that were present. Next, we want to copy the data from the `yoursite` folder to the deploy folder:
 
-``` {.wp-block-code}
+```
 rsync -rv --exclude 'htmlcov' --exclude 'venv' --exclude '*__pycache__*' --exclude '*staticfiles*' --exclude '*.pyc'  yoursite/* deploy
 ```
 
@@ -46,13 +46,13 @@ We have the files collected, now we need to copy them to the server.
 
 This is done in two steps. Again, we want to remove ALL of the files in the deploy folder on the server (see rationale from above)
 
-``` {.wp-block-code}
+```
 ssh root@$SERVER "rm -rf /root/deploy/"
 ```
 
 Next, we use `scp` to secure copy the files to the server
 
-``` {.wp-block-code}
+```
 scp -r deploy root@$SERVER:/root/
 ```
 
@@ -74,49 +74,49 @@ Before we can do any of this we’ll need to `ssh` into our server. Once that’
 
 Above we created our virtual environment in a folder called `venv` located in `/home/yoursite/`. We’ll want to activate it now (1)
 
-``` {.wp-block-code}
+```
 source /home/yoursite/venv/bin/activate
 ```
 
 Next, we change directory into the yoursite home directory
 
-``` {.wp-block-code}
+```
 cd /home/yoursite/
 ```
 
 Now, we delete the old files from the last install (2):
 
-``` {.wp-block-code}
+```
 rm -rf /home/yoursite/yoursite
 ```
 
 Copy our new files (3)
 
-``` {.wp-block-code}
+```
 cp -r /root/deploy/ /home/yoursite/yoursite
 ```
 
 Install our Python packages (4)
 
-``` {.wp-block-code}
+```
 pip install -r /home/yoursite/yoursite/requirements.txt
 ```
 
 Run any migrations (5)
 
-``` {.wp-block-code}
+```
 python /home/yoursite/yoursite/manage.py migrate
 ```
 
 Collect Static Files (6)
 
-``` {.wp-block-code}
+```
 python /home/yoursite/yoursite/manage.py collectstatic
 ```
 
 Finally, reload Gunicorn
 
-``` {.wp-block-code}
+```
 systemctl daemon-reload
 systemctl restart gunicorn
 ```
