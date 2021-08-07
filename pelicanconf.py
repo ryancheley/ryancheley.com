@@ -30,6 +30,7 @@ MENUITEMS = [
     ('About', '/about.html'),
     ('Categories', '/categories.html'),
     ('Curriculum Vitae', '/curriculum-vitae.html'),
+    ('Brag Doc', '/brag-doc.html'),
     ('Archives', '/archives.html'),
 ]
 

@@ -32,7 +32,7 @@ The steps are:
 8.  Flake8 - runs `flake8` on my code
 9.  Run Tests - runs all of the tests to ensure they pass
 
-``` {.wp-block-code}
+```
 name: Django CI
 
 on:
@@ -101,7 +101,7 @@ jobs:
 
 The code here does essentially they same thing that is done in the `deploy.sh` in my earlier post [Automating the Deployment](/automating-the-deployment.html) except that it pulls code from my `dev` branch on GitHub onto the server. The other difference is that this is on my UAT server, not my production server, so if something goes off the rails, I don’t hose production.
 
-``` {.wp-block-code}
+```
 name: Dev CI
 
 on:
@@ -151,7 +151,7 @@ jobs:
 
 Again, the code here does essentially they same thing that is done in the `deploy.sh` in my earlier post [Automating the Deployment](/automating-the-deployment.html) except that it pulls code from my `main` branch on GitHub onto the server.
 
-``` {.wp-block-code}
+```
 name: Prod CI
 
 on:

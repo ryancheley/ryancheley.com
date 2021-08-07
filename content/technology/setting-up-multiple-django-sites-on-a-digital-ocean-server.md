@@ -18,19 +18,19 @@ Start by creating and opening two systemd socket file for Gunicorn with sudo pri
 
 Site 1
 
-``` {.wp-block-code}
+```
 sudo vim /etc/systemd/system/site1.socket
 ```
 
 Site 2
 
-``` {.wp-block-code}
+```
 sudo vim /etc/systemd/system/site2.socket
 ```
 
 The contents of the files will look like this:
 
-``` {.wp-block-code}
+```
 [Unit]
 Description=siteX socket
 
@@ -45,13 +45,13 @@ Where `siteX` is the site you want to server from that socket
 
 Next, create and open a systemd service file for Gunicorn with sudo privileges in your text editor. The service filename should match the socket filename with the exception of the extension
 
-``` {.wp-block-code}
+```
 sudo vim /etc/systemd/system/siteX.service
 ```
 
 The contents of the file will look like this:
 
-``` {.wp-block-code}
+```
 [Unit]
 Description=gunicorn daemon
 Requires=siteX.socket
@@ -77,7 +77,7 @@ Follow tutorial for testing Gunicorn
 
 ## Nginx
 
-``` {.wp-block-code}
+```
 server {
     listen 80;
     server_name server_domain_or_IP;

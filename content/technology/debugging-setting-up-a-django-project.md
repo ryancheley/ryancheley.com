@@ -7,7 +7,7 @@ Status: published
 
 Normally when I start a new Django project I’ll use the PyCharm setup wizard, but recently I wanted to try out VS Code for a Django project and was super stumped when I would get a message like this:
 
-``` {.wp-block-code}
+```
 ERROR:root:code for hash md5 was not found.
 Traceback (most recent call last):
   File "/usr/local/Cellar/python@2/2.7.15_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
@@ -56,25 +56,25 @@ Here are the steps I was using to get started
 
 From a directory I wanted to create the project I would set up my virtual environment
 
-``` {.wp-block-code}
+```
 python3 -m venv venv
 ```
 
 And then activate it
 
-``` {.wp-block-code}
+```
 source venv/bin/activate
 ```
 
 Next, I would install Django
 
-``` {.wp-block-code}
+```
 pip install django
 ```
 
 Next, using the `startproject` command per the [docs](https://docs.djangoproject.com/en/3.2/ref/django-admin/#startproject "Start a new Django Project") I would
 
-``` {.wp-block-code}
+```
 django-admin startproject my_great_project .
 ```
 
@@ -84,7 +84,7 @@ The strangest part about the error message is that it references Python2.7 every
 
 I did a `pip list` and got:
 
-``` {.wp-block-code}
+```
 Package    Version
 ---------- -------
 asgiref    3.3.4
@@ -103,7 +103,7 @@ Well, that looks to be OK.
 
 Next, I checked the contents of my directory using `tree -L 2`
 
-``` {.wp-block-code}
+```
 ├── manage.py
 ├── my_great_project
 │   ├── __init__.py
@@ -121,7 +121,7 @@ Yep … that looks good too.
 
 OK, let’s go look at the installed packages for Python 2.7 then. On macOS they’re installed at
 
-``` {.wp-block-code}
+```
 /usr/local/lib/python2.7/site-packages
 ```
 
@@ -137,7 +137,9 @@ After removing the `Django` install from Python 2.7 and running `django-admin --
 
 So I googled that error message and found another answers on [Stackoverflow](https://stackoverflow.com/a/10756446) which lead me to look at the `manage.py` file. When I `cat` the file I get:
 
-``` {.wp-block-code}
+```
+# manage.py
+
 #!/usr/bin/env python
 import os
 import sys
@@ -151,7 +153,7 @@ Next I googled the error message `django-admin code for hash sha384 was not foun
 
 Which lead to this [Stackoverflow](https://stackoverflow.com/a/60575879) answer. I checked to see if Python2 was installed with brew using
 
-``` {.wp-block-code}
+```
 brew leaves | grep python
 ```
 
@@ -163,7 +165,7 @@ Using `brew info python@2 ` I determined where `brew` installed Python2 and comp
 
 Output of `brew info python@2`
 
-``` {.wp-block-code}
+```
 ...
 /usr/local/Cellar/python@2/2.7.15_1 (7,515 files, 122.4MB) *
   Built from source on 2018-08-05 at 15:18:23
@@ -176,13 +178,13 @@ Output of `which python`
 
 OK, now we can remove the version of Python2 installed by `brew`
 
-``` {.wp-block-code}
+```
 brew uninstall python@2
 ```
 
 Now with all of that cleaned up, lets try again. From a clean project directory:
 
-``` {.wp-block-code}
+```
 python3 -m venv venv
 source venv/bin/activate
 pip install django
@@ -191,26 +193,26 @@ django-admin --version
 
 The last command returned
 
-``` {.wp-block-code}
+```
 zsh: /usr/local/bin/django-admin: bad interpreter: /usr/local/opt/python@2/bin/python2.7: no such file or directory
 3.2.4
 ```
 
 OK, I can get the version number and it mostly works, but can I create a new project?
 
-``` {.wp-block-code}
+```
 django-admin startproject my_great_project .
 ```
 
 Which returns
 
-``` {.wp-block-code}
+```
 zsh: /usr/local/bin/django-admin: bad interpreter: /usr/local/opt/python@2/bin/python2.7: no such file or directory
 ```
 
 BUT, the project was installed
 
-``` {.wp-block-code}
+```
 ├── db.sqlite3
 ├── manage.py
 ├── my_great_project
@@ -229,7 +231,7 @@ BUT, the project was installed
 
 And I was able to run it
 
-``` {.wp-block-code}
+```
 python manage.py runserver
 ```
 
@@ -253,13 +255,13 @@ I figured out the error message above and figured, well, I might as well update 
 
 The issue was that Django had been installed in the base Python2 (which I knew). All I had to do was to uninstall it with pip.
 
-``` {.wp-block-code}
+```
 pip uninstall django
 ```
 
 The trick was that pip wasn't working out for me ... it was generating errors. So I had to run the command
 
-``` {.wp-block-code}
+```
 python -m pip uninstall django
 ```
 

@@ -140,3 +140,6 @@ output
 # Ulysses
 
 .Ulysses*
+
+# datasette objects
+md-sqlite.py

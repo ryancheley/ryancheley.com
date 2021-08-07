@@ -38,7 +38,7 @@ For this example, I’ll be as generic as possible and choose the following:
 
 From our terminal we’ll run a couple of commands:
 
-``` {.wp-block-code}
+```
 # This will open the Postgres Shell
 
 psql
@@ -56,7 +56,7 @@ The last 3 `ALTER` commands are based on Django recommendations for Postgres use
 
 One thing to note, before you go creating databases and users, you should make sure that they don’t already exist. The `\l` will list the various databases present. If this is your first time in the psql shell you’ll see three databases list:
 
-``` {.wp-block-code}
+```
 postgres
 template0
 template1
@@ -64,7 +64,7 @@ template1
 
 To see a list of the users `\du` will display that. If this is your first time in the psql shell you’ll see one user listed:
 
-``` {.wp-block-code}
+```
 postgres
 ```
 
@@ -76,7 +76,7 @@ OK … the database has been created. Next, we start updating our project to use
 
 The only python package needed to use Postgres is `psycopg2-binary` so we’ll
 
-``` {.wp-block-code}
+```
 pip install psycopg2-binary
 ```
 
@@ -84,7 +84,7 @@ pip install psycopg2-binary
 
 The `DATABASES` portion of the `settings.py` is set to use SQLite by default and will look (something) like this:
 
-``` {.wp-block-code}
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -95,7 +95,7 @@ DATABASES = {
 
 The Django documentation is really good on what changes need to be made. From the [documentation](https://docs.djangoproject.com/en/3.0/ref/settings/#databases) we see that we need to update the `DATABASES` section to be something like this:
 
-``` {.wp-block-code}
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -110,7 +110,7 @@ DATABASES = {
 
 With our database from above, ours will look like this:
 
-``` {.wp-block-code}
+```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -133,7 +133,7 @@ OK, we’ve got our database set up, we’ve got our settings updated to use the
 
 All that we need to do is to:
 
-``` {.wp-block-code}
+```
 python manage.py migrate
 ```
 

@@ -11,7 +11,7 @@ The models look like this:
 
 ## Candidate
 
-``` {.wp-block-code}
+```
 class Candidate(models.Model):
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128)
@@ -30,7 +30,7 @@ class Candidate(models.Model):
 
 ## CandidateDate
 
-``` {.wp-block-code}
+```
 class CandidateDate(models.Model):
     candidate = models.ForeignKey(
         "Candidate",
@@ -54,7 +54,7 @@ class CandidateDate(models.Model):
 
 ## CandidateDateType
 
-``` {.wp-block-code}
+```
 class CandidateDateType(models.Model):
     date_type = models.CharField(max_length=24)
     description = models.CharField(max_length=255, null=True, blank=True)
@@ -68,7 +68,7 @@ I did a fair amount of Googling and had a couple of different *bright* ideas, bu
 
 The initial `Form` looked like this:
 
-``` {.wp-block-code}
+```
 class CandidateDateForm(ModelForm):
    class Meta:
         model = CandidateDate
@@ -86,7 +86,7 @@ class CandidateDateForm(ModelForm):
 
 I updated it to include a `__init__` method which overrode the options in the drop down.
 
-``` {.wp-block-code}
+```
 def __init__(self, *args, **kwargs):
     super(CandidateDateForm, self).__init__(*args, **kwargs)
     try:
