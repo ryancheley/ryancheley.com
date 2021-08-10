@@ -28,4 +28,4 @@ During this meeting, I wanted to review:
 
 In all it took less than 10 minutes to go from nothing to a local instance of `datasette` running with a prototype JSON API for the web developers to see. 
 
-I'm hoping to see the Web team use this concept more going forward as I can see huge benefits for Rapid Prototyping of ideas, especially if you already have the data housed in a database. But even if you don't, `datasette` has tons of [tools](https://datasette.io/tools) to get the data from one source into a SQLite database to use and then you can do the rapid prototyping! 
+I'm hoping to see the Web team use this concept more going forward as I can see huge benefits for Rapid Prototyping of ideas, especially if you already have the data housed in a database. But even if you don't, `datasette` has tons of [tools](https://datasette.io/tools) to get the data from a variety of sources into a SQLite database to use and then you can do the rapid prototyping! 
