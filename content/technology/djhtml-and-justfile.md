@@ -3,7 +3,7 @@ Date: 2021-08-22
 Tags: django, djhtml, just
 Slug: djhtml-and-justfile
 Authors: ryan
-Status: draft
+Status: published
 
 I had read about a project called djhtml and wanted to use it on one of my projects. The documentation is really good for adding it to precommit-ci, but I wasn't sure what I needed to do to just run it on the command line. 
 
