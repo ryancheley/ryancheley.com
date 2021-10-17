@@ -1,0 +1,13 @@
+version: 2
+updates:
+# Maintain Python dependencies my Pelican Site
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "05:00"
+      timezone: "Etc/UTC"
+    target-branch: "main"
+    labels:
+      - maintenance
+      - dependencies
