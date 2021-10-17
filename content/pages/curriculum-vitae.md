@@ -72,11 +72,7 @@ MA Economics, University of Arizona, Tucson, Arizona 2004
 BS Economics/Finance, Minor in Statistics, California Polytechnic State University, San Luis Obispo, CA 2001
 
 ## Other Activities
-Member of Bermuda Dunes Community Council, September 2009 - June 2013
-
-Member of HIMSS December 2016 - present
-
-Member of the American Heart Associated Executive Leadership 
-Team December 2020 - present
-
-Ran 13 half marathons in 13 months, December 2013 - December 2014
+- Member of Bermuda Dunes Community Council, September 2009 - June 2013
+- Member of HIMSS December 2016 - present
+- Member of the American Heart Associated Executive Leadership Team December 2020 - present
+- Ran 13 half marathons in 13 months, December 2013 - December 2014
