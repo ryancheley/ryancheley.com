@@ -1,4 +1,4 @@
-Title: Styling Clean Up
+Title: Styling Clean Up with Bash
 Date: 2021-10-26 19:23
 Tags: css, tailwind, bash
 Slug: styling-cleanup
