@@ -10,8 +10,9 @@ Save_as: brag-doc.html
     - [Diagrams](https://pypi.org/project/diagrams/) with [PR](https://github.com/mingrammer/diagrams/pull/426)
     - [MLB-StatsAPI](https://pypi.org/project/MLB-StatsAPI/) with [PR](https://github.com/toddrob99/MLB-StatsAPI/pull/41)
     - [django-sql-dashboard](https://pypi.org/project/django-sql-dashboard/) with [PR](https://github.com/simonw/django-sql-dashboard/pull/138) which I wrote about [here](https://www.ryancheley.com/2021/07/09/contributing-to-django-sql-dashboard/)
-1. Author and Maintainer of the Open Source Project [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
-2. Ran 13 half marathons in 13 months
+4. Author and Maintainer of the Open Source Project [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
+5. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
+6. Ran 13 half marathons in 13 months
     - SkyBorne, December 2013
     - Carlsbad, January 2014
     - Palm Springs, February 2014
@@ -25,4 +26,4 @@ Save_as: brag-doc.html
     - San Luis Obispo, October 2014
     - Santa Barbara, November 2014
     - SkyBorne, December 2014
-3. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
+7. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
