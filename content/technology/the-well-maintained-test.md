@@ -18,8 +18,8 @@ He came up ([with the help of Twitter](https://twitter.com/AdamChainz/status/145
 3. Is there a changelog?
 4. Is someone responding to bug reports?
 5. Are there sufficient tests?
-6. Are the tests running with the latest \<Language\> version?
-7. Are the tests running with the latest \<Integration\> version?
+6. Are the tests running with the latest <Language\> version?
+7. Are the tests running with the latest <Integration\> version?
 8. Is there a Continuous Integration (CI) configuration?
 9. Is the CI passing?
 10. Does it seem relatively well used?
