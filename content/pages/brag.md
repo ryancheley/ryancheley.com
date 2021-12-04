@@ -11,8 +11,8 @@ Save_as: brag-doc.html
     - [MLB-StatsAPI](https://pypi.org/project/MLB-StatsAPI/) with [PR](https://github.com/toddrob99/MLB-StatsAPI/pull/41)
     - [django-sql-dashboard](https://pypi.org/project/django-sql-dashboard/) with [PR](https://github.com/simonw/django-sql-dashboard/pull/138) which I wrote about [here](https://www.ryancheley.com/2021/07/09/contributing-to-django-sql-dashboard/)
 4. Author and Maintainer of the Open Source Projects:
-   - [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
-   - [the-well-maintained-test](https://pypi.org/project/the-well-maintained-test/) which I wrote about [here](https://cur.at/4n0KtYP?m=web) and got a shout out on [Django News Issue #104](https://django-news.com/issues/104)
+      - [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
+      - [the-well-maintained-test](https://pypi.org/project/the-well-maintained-test/) which I wrote about [here](https://cur.at/4n0KtYP?m=web) and got a shout out on [Django News Issue #104](https://django-news.com/issues/104)
 5. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
 6. Ran 13 half marathons in 13 months
     - SkyBorne, December 2013
