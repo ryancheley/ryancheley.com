@@ -143,3 +143,6 @@ output
 
 # datasette objects
 md-sqlite.py
+
+# original requirements
+requirements.txt.orig

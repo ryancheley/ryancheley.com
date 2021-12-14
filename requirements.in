@@ -1,0 +1,4 @@
+beautifulsoup4>=4.10.0
+pelican>=4.7
+pelican-series>=2.1
+pelican-simple-footnotes>=1.0
