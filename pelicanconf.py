@@ -8,7 +8,7 @@ SITEURL = ''
 
 PATH = 'content'
 
-PLUGINS = ['pelican.plugins.series', 'pelican.plugins.simple_footnotes']
+PLUGINS = ['pelican.plugins.series', 'pelican.plugins.simple_footnotes', 'pelican.plugins.pelican_to_sqlite']
 
 THEME = "rc_custom"
 

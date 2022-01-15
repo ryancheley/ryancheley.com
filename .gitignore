@@ -142,7 +142,7 @@ output
 .Ulysses*
 
 # datasette objects
-md-sqlite.py
+*.db
 
 # original requirements
 requirements.txt.orig
