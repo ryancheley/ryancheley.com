@@ -89,7 +89,7 @@ python3 -m venv /home/yoursite/venv
 There are two files needed for Gunicorn to run:
 
 -   gunicorn.socket
--   gunicorn.service  
+-   gunicorn.service
 
 For our setup, this is what they look like:
 
@@ -119,10 +119,10 @@ User=yoursite
 EnvironmentFile=/etc/environment
 Group=www-data
 WorkingDirectory=/home/yoursite/yoursite
-ExecStart=/home/yoursite/venv/bin/gunicorn   
-         --access-logfile -   
-         --workers 3   
-         --bind unix:/run/gunicorn.sock   
+ExecStart=/home/yoursite/venv/bin/gunicorn
+         --access-logfile -
+         --workers 3
+         --bind unix:/run/gunicorn.sock
          yoursite.wsgi:application
 
 

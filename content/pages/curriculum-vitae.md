@@ -15,7 +15,7 @@ Responsible for the design, development and implementation of Business Informati
 * Implemented dimensional data warehouse
 * Instituted 1 on 1's with staff
 * Worked with Interdisciplinary team to implement new Life Planning process across Enterprise
-* During COVID-19 pandemic had first team in organization that was fully remote 
+* During COVID-19 pandemic had first team in organization that was fully remote
 * During COVID-19 pandemic team saw increase in productivity with work from home
 * Lead team to implement several clinical and business workflow improvements
 	* Auth Queue
@@ -32,7 +32,7 @@ Responsible for the design, development and implementation of Business Informati
 
 Responsible for the design, development and implementation of business and clinical information processes; Work closely with physicians, clinical staff and business operational leadership to provide detailed requirements, develop solutions, provide end-to-end project management and on-going technical support. Manage staff, including coordinating cross-functional teams and resources.
 
-* Lead Migration of Large Enterprise EHR to new Data Center 
+* Lead Migration of Large Enterprise EHR to new Data Center
 * Managed EHR Upgrades from 2012 - 2015
 * Lead Large Client NextGen Enterprise on successful upgrade path to Meaningful Use Compliant EHR versions every year from 2012 - 2015
 * Received Peer Award for Most Innovate (2015)
@@ -47,8 +47,8 @@ Responsible for the maintenance of the Member Roster for the Living & Aging Well
 * Created Managed Care Templates in NextGen EHR that facilitated the integration of Primary Care Medical Records with Case Management Records
 
 ### March 2006 – November 2008, Web Services Project Manager GRAPHTEK ADVERTISING AND DESIGN
-Responsible for the planning and implementation of Proprietary Web CMS for Client Websites; 
-Coordinating with Client Marketing Managers, IT and Accounting personnel to ensure web site projects are completed in a timely fashion; 
+Responsible for the planning and implementation of Proprietary Web CMS for Client Websites;
+Coordinating with Client Marketing Managers, IT and Accounting personnel to ensure web site projects are completed in a timely fashion;
 Client training on CMS
 
 * Successfully implemented over 100 client websites on Custom Content Management System
@@ -62,7 +62,7 @@ Setting inventory levels for six markets with twenty-four to thirty-four daily f
 ### November 2002 - August 2003, Focused on getting into Graduate School
 
 ### August 2001 – November 2002 Global Support Analyst BARRA, INC.
-Responsible for providing technical support to Institutional Investment clients in the US, Canada and Europe; Assisting with theory, and interpretation of Multifactor Models used in predicting risk of portfolios; Resolving technical problems related to Barra’s Proprietary software; Participating in interviewing and hiring of employees; Training new employees on different aspects of Barra's Multi Factor Model; Gave presentations to new hires from different global offices; 
+Responsible for providing technical support to Institutional Investment clients in the US, Canada and Europe; Assisting with theory, and interpretation of Multifactor Models used in predicting risk of portfolios; Resolving technical problems related to Barra’s Proprietary software; Participating in interviewing and hiring of employees; Training new employees on different aspects of Barra's Multi Factor Model; Gave presentations to new hires from different global offices;
 
 * Was the top Support Analyst in terms of Tickets Closed for 3 straight months
 

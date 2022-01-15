@@ -16,13 +16,13 @@ adduser --disabled-password --gecos "" ryancheley
 adduser ryancheley www-data
 ```
 
-The first command above creates the user with no password so that they can't actually log in. It also creates the home directory `/home/ryancheley`. This is where the site will be server from. 
+The first command above creates the user with no password so that they can't actually log in. It also creates the home directory `/home/ryancheley`. This is where the site will be server from.
 
-The second commands adds the user to the `www-data` group. I don't think that's strictly neccesary here, but in order to keep this user consistent with the other web site users, I ran it to add it to the group. 
+The second commands adds the user to the `www-data` group. I don't think that's strictly neccesary here, but in order to keep this user consistent with the other web site users, I ran it to add it to the group.
 
 # Creating the nginx config file
 
-For the most part I cribbed the `nginx` config files from this [blog post](https://michael.lustfield.net/nginx/blog-with-pelican-and-nginx). 
+For the most part I cribbed the `nginx` config files from this [blog post](https://michael.lustfield.net/nginx/blog-with-pelican-and-nginx).
 
 There were some changes that were required though. As I indicated in part 1, I had several requirements I was trying to fulfill, most notably not breaking historic links.
 
@@ -78,7 +78,7 @@ Here is the config file for my UAT site (the only difference between this and th
     }
 
 
-The most interesting part of the code above is the `location` block from lines 6 - 11. 
+The most interesting part of the code above is the `location` block from lines 6 - 11.
 
     :::bash
         location / {
@@ -122,15 +122,15 @@ It took me a *really* long time to figure this out because the initial config fi
             rewrite ^ /index.html;
         }
 
-I didn't recognize the `location = / {` on line 1 as being different than the `location` block above starting at line 6. So I added 
-    
+I didn't recognize the `location = / {` on line 1 as being different than the `location` block above starting at line 6. So I added
+
     :::bash
         rewrite ^/index.php/(.*) /$1  permanent;
 
-to that block and it NEVER worked because it never could. 
+to that block and it NEVER worked because it never could.
 
 The `=` in the location block indicates a literal exact match, which the regular expression couldn't do because it's trying to be dynamic, but the `=` indicates static 🤦🏻‍♂️
 
-OK, we've got a user, and we've got a configuration file, now all we need is a way to get the files to the server. 
+OK, we've got a user, and we've got a configuration file, now all we need is a way to get the files to the server.
 
 I'll go over that in the next post.

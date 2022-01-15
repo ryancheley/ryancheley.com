@@ -36,22 +36,22 @@ After the call I received a nice follow up email from Apple / Jaime
 
 > Now that you're more familiar with your new Mac, here are some additional resources that can help you go further.
 
-> Apple Support  
+> Apple Support
 > Find answers to common questions, watch video tutorials, download user guides, and share solutions with the Apple community. [Visit Support](https://support.apple.com/mac)
 >
-> Today at Apple  
+> Today at Apple
 > Discover inspiring programs happening near you. [Visit Today at Apple](https://www.apple.com/today/)
 >
-> Accessories  
+> Accessories
 > From the Apple accessories page, you can learn about all kinds of new and innovative products that work with iPhone, iPad, Mac and more. [Visit Accessories](https://www.apple.com/shop/accessories/all-accessories)
 >
-> How to use the Touch Bar on your MacBook Pro - [https://support.apple.com/en- us/HT207055](https://support.apple.com/en-us/HT207055)  
->   
-> Use Mission Control on your Mac - [https://support.apple.com/en- us/HT204100](https://support.apple.com/en-us/HT204100)  
->   
-> Use two Mac apps side by side in Split View - [https://support.apple.com/en- us/HT204948](https://support.apple.com/en-us/HT204948)  
->   
+> How to use the Touch Bar on your MacBook Pro - [https://support.apple.com/en- us/HT207055](https://support.apple.com/en-us/HT207055)
+>
+> Use Mission Control on your Mac - [https://support.apple.com/en- us/HT204100](https://support.apple.com/en-us/HT204100)
+>
+> Use two Mac apps side by side in Split View - [https://support.apple.com/en- us/HT204948](https://support.apple.com/en-us/HT204948)
+>
 > Websites preferences - [https://support.apple.com/ guide/safari/websites- preferences-ibrwe2159f50](https://support.apple.com/guide/safari/websites-preferences-ibrwe2159f50)
 
-  
+
 I’m glad that I had the Mac session and I will encourage anyone that buys a Mac in the future to schedule one.

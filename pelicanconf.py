@@ -1,20 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
-AUTHOR = 'Ryan Cheley'
-SITENAME = 'RyanCheley.com'
-SITESUBTITLE = 'My Place on the Internet'
-SITEURL = ''
+AUTHOR = "Ryan Cheley"
+SITENAME = "RyanCheley.com"
+SITESUBTITLE = "My Place on the Internet"
+SITEURL = ""
 
-PATH = 'content'
+PATH = "content"
 
-PLUGINS = ['pelican.plugins.series', 'pelican.plugins.simple_footnotes', 'pelican.plugins.pelican_to_sqlite']
+PLUGINS = [
+    "pelican.plugins.series",
+    "pelican.plugins.simple_footnotes",
+    "pelican.plugins.pelican_to_sqlite",
+]
 
 THEME = "rc_custom"
 
-TIMEZONE = 'America/Los_Angeles'
+TIMEZONE = "America/Los_Angeles"
 
-DEFAULT_LANG = 'en'
+DEFAULT_LANG = "en"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -22,42 +26,46 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-STATIC_PATHS = ['images']
+STATIC_PATHS = ["images"]
 
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
 MENUITEMS = [
-    ('About', '/about.html'),
-    ('Categories', '/categories.html'),
-    ('Curriculum Vitae', '/curriculum-vitae.html'),
-    ('Brag Doc', '/brag-doc.html'),
-    ('Archives', '/archives.html'),
+    ("About", "/about.html"),
+    ("Categories", "/categories.html"),
+    ("Curriculum Vitae", "/curriculum-vitae.html"),
+    ("Brag Doc", "/brag-doc.html"),
+    ("Archives", "/archives.html"),
 ]
 
 
-ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
-PAGE_URL = '{slug}/'
-PAGE_SAVE_AS = '{slug}/index.html'
-ARCHIVES_SAVE_AS = 'archives.html'
-ARCHIVES_URL = 'archives'
-CATEGORIES_SAVE_AS = 'categories.html'
-YEAR_ARCHIVE_URL = 'archive/{date:%Y}/'
-YEAR_ARCHIVE_SAVE_AS = 'archive/{date:%Y}/index.html'
+ARTICLE_URL = "{date:%Y}/{date:%m}/{date:%d}/{slug}/"
+ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html"
+PAGE_URL = "{slug}/"
+PAGE_SAVE_AS = "{slug}/index.html"
+ARCHIVES_SAVE_AS = "archives.html"
+ARCHIVES_URL = "archives"
+CATEGORIES_SAVE_AS = "categories.html"
+YEAR_ARCHIVE_URL = "archive/{date:%Y}/"
+YEAR_ARCHIVE_SAVE_AS = "archive/{date:%Y}/index.html"
 
 # Blogroll
-LINKS = (('Simon Wilison', 'https://simonwillison.net'),
-         ('Matt Layman', 'https://www.mattlayman.com'),
-         ('PyBites', 'https://pybit.es'),)
+LINKS = (
+    ("Simon Wilison", "https://simonwillison.net"),
+    ("Matt Layman", "https://www.mattlayman.com"),
+    ("PyBites", "https://pybit.es"),
+)
 
 # Social widget
-SOCIAL = (('Twitter', 'https://twitter.com/ryancheley/'),
-          ('GitHub', 'https://github.com/ryancheley'),
-          ('LinkedIn', 'https://www.linkedin.com/in/ryan-cheley/'),)
+SOCIAL = (
+    ("Twitter", "https://twitter.com/ryancheley/"),
+    ("GitHub", "https://github.com/ryancheley"),
+    ("LinkedIn", "https://www.linkedin.com/in/ryan-cheley/"),
+)
 
 DEFAULT_PAGINATION = 10
 
-TWITTER_USERNAME = 'ryancheley'
+TWITTER_USERNAME = "ryancheley"
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+# RELATIVE_URLS = True

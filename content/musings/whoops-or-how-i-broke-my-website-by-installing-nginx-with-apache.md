@@ -72,4 +72,3 @@ What did I learn from this experience?
 2.  The output messages are super helpful … google each part of them and don’t give up
 3.  A good night’s sleep can make all the difference
 4.  Rolling your own web server is less expensive than having it be Turnkey (a la SquareSpace, or some other hosted solution) but you end up being your own Sys Admin and that’s actually pretty easy when things are going well, and a freaking nightmare when they’re not
-

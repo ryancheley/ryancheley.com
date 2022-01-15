@@ -148,7 +148,7 @@ I create a new `DataFrame` called `game_passer_data` which joins `player_passer_
 
 This is great, but now `game_passer_data` has all of these extra columns. Below is the result of running `game_passer_data.head()` from the terminal:
 
-    id          Name  CATCHES  ATTEMPTS  YDS  AVG  TD  INT  SACKS    
+    id          Name  CATCHES  ATTEMPTS  YDS  AVG  TD  INT  SACKS
    match_id
     400874518  2577417  Dak Prescott       22        30  292  9.7   0    0      4
     400874674  2577417  Dak Prescott       23        32  245  7.7   2    0      2
@@ -156,7 +156,7 @@ This is great, but now `game_passer_data` has all of these extra columns. Below 
     400874599  2577417  Dak Prescott       21        27  247  9.1   3    0      0
     400874599    12482  Mark Sanchez        1         1    8  8.0   0    0      0
 
-               YRDLSTSACKS                        ...                            
+               YRDLSTSACKS                        ...
    match_id                                      ...
     400874518           14                        ...
     400874674           11                        ...
@@ -164,7 +164,7 @@ This is great, but now `game_passer_data` has all of these extra columns. Below 
     400874599            0                        ...
     400874599            0                        ...
 
-               ha_ind  match_date                  opp result          team_x    
+               ha_ind  match_date                  opp result          team_x
    match_id
     400874518       @  2016-09-18  washington-redskins      W  Dallas Cowboys
     400874674       @  2016-10-02  san-francisco-49ers      W  Dallas Cowboys
@@ -172,7 +172,7 @@ This is great, but now `game_passer_data` has all of these extra columns. Below 
     400874599       @  2016-11-06     cleveland-browns      W  Dallas Cowboys
     400874599       @  2016-11-06     cleveland-browns      W  Dallas Cowboys
 
-              week_id prefix_1             prefix_2               team_y    
+              week_id prefix_1             prefix_2               team_y
    match_id
     400874518       2      wsh  washington-redskins  Washington Redskins
     400874674       4       sf  san-francisco-49ers  San Francisco 49ers
@@ -199,7 +199,7 @@ Below, the object I define is a list of columns (figured that part all out on my
 
 Which gives me this:
 
-    id          Name  CATCHES  ATTEMPTS  YDS  AVG  TD  INT  SACKS    
+    id          Name  CATCHES  ATTEMPTS  YDS  AVG  TD  INT  SACKS
    match_id
     400874518  2577417  Dak Prescott       22        30  292  9.7   0    0      4
     400874674  2577417  Dak Prescott       23        32  245  7.7   2    0      2
@@ -207,7 +207,7 @@ Which gives me this:
     400874599  2577417  Dak Prescott       21        27  247  9.1   3    0      0
     400874599    12482  Mark Sanchez        1         1    8  8.0   0    0      0
 
-               YRDLSTSACKS    RTG ha_ind  match_date result          team_x    
+               YRDLSTSACKS    RTG ha_ind  match_date result          team_x
    match_id
     400874518           14  103.8      @  2016-09-18      W  Dallas Cowboys
     400874674           11  114.7      @  2016-10-02      W  Dallas Cowboys
@@ -231,7 +231,7 @@ This is easy enough to fix (and should have probably been fixed earlier with som
 
 I now get the data I want, with column names to match!
 
-    id          Name  Catches  Attempts  YDS  Avg  TD  INT  Sacks    
+    id          Name  Catches  Attempts  YDS  Avg  TD  INT  Sacks
    match_id
     400874518  2577417  Dak Prescott       22        30  292  9.7   0    0      4
     400874674  2577417  Dak Prescott       23        32  245  7.7   2    0      2
@@ -239,7 +239,7 @@ I now get the data I want, with column names to match!
     400874599  2577417  Dak Prescott       21        27  247  9.1   3    0      0
     400874599    12482  Mark Sanchez        1         1    8  8.0   0    0      0
 
-               Yards_Lost_Sacks  Rating HA_Ind   game_date Result            Team    
+               Yards_Lost_Sacks  Rating HA_Ind   game_date Result            Team
    match_id
     400874518                14   103.8      @  2016-09-18      W  Dallas Cowboys
     400874674                11   114.7      @  2016-10-02      W  Dallas Cowboys

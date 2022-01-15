@@ -13,7 +13,7 @@ In order to set this up you need to include in your `settings.py` file something
 
 ```
 ADMINS = [
-    ('John', 'john@example.com'), 
+    ('John', 'john@example.com'),
     ('Mary', 'mary@example.com')
 ]
 ```
@@ -21,7 +21,7 @@ ADMINS = [
 The difficulties I always ran into were:
 
 1.  How to set up the AdminEmailHandler
-2.  How to set up a way to actually email from the Django Server  
+2.  How to set up a way to actually email from the Django Server
 
 Again, per the [Django Documentation](https://docs.djangoproject.com/en/3.1/topics/logging/#django.utils.log.AdminEmailHandler "AdminEmailHandler"):
 

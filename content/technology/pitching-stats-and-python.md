@@ -230,16 +230,16 @@ Here is the graph for [Jake Arrieata](http://www.espn.com/mlb/player/gamelog/_/i
 
 And here are the graphs for the top 5 finishers in Ascending order in the [2016 NL Cy Young voting](http://bbwaa.com/16-nl-cy/):
 
-[Max Scherzer](http://www.espn.com/mlb/player/gamelog/_/id/28976/max-scherzer) winner of the 2016 NL [Cy Young Award](https://en.wikipedia.org/wiki/Cy_Young_Award)  
+[Max Scherzer](http://www.espn.com/mlb/player/gamelog/_/id/28976/max-scherzer) winner of the 2016 NL [Cy Young Award](https://en.wikipedia.org/wiki/Cy_Young_Award)
 ![Max Scherzer](/images/uploads/2016/11/scherzer-300x229.png){.alignnone .size-medium .wp-image-178 width="300" height="229"}
 
-[Jon Lester](http://www.espn.com/mlb/player/gamelog/_/id/28487/jon-lester)  
+[Jon Lester](http://www.espn.com/mlb/player/gamelog/_/id/28487/jon-lester)
 ![Jon Lester](/images/uploads/2016/11/lester-300x223.png){.alignnone .size-medium .wp-image-182 width="300" height="223"}
 
-[Kyle Hendricks](http://www.espn.com/mlb/player/gamelog/_/id/33173/kyle-hendricks)  
+[Kyle Hendricks](http://www.espn.com/mlb/player/gamelog/_/id/33173/kyle-hendricks)
 ![Kyle Hendricks](/images/uploads/2016/11/hendricks-300x225.png){.alignnone .size-medium .wp-image-179 width="300" height="225"}
 
-[Madison Bumgarner](http://www.espn.com/mlb/player/gamelog/_/id/29949/madison-bumgarner)  
+[Madison Bumgarner](http://www.espn.com/mlb/player/gamelog/_/id/29949/madison-bumgarner)
 ![Madison Bumgarner](/images/uploads/2016/11/bumgarner-300x232.png){.alignnone .size-medium .wp-image-180 width="300" height="232"}
 
 [Clayton Kershaw](http://www.espn.com/mlb/player/gamelog/_/id/28963/clayton-kershaw):

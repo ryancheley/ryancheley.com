@@ -26,7 +26,7 @@ The problem is that I have a terrible memory and this isn’t something I’m go
 
 The script looks like this:
 
-    echo "Enter your commit message:" 
+    echo "Enter your commit message:"
 
     read commit_msg
 

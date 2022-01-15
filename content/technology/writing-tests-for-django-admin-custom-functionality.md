@@ -44,12 +44,12 @@ This was, as I said, relatively straight forward to do, but what was less clear 
 There are two parts that need to be tested:
 
 1.  `lookups`
-2.  `queryset `  
+2.  `queryset `
 
 Additionally, the `queryset `has two states that need to be tested
 
 1.  With `self.value()`
-2.  Without `self.value()`  
+2.  Without `self.value()`
 
 This gives a total of 3 tests to write
 
@@ -59,7 +59,7 @@ The thing that helps me out the most when trying to determine how to write tests
 2.  Instantiate the `EmployeeListFilter`
 3.  See what errors I get
 4.  Google how to fix the errors
-5.  Repeat  
+5.  Repeat
 
 This is what the test ended up looking like:
 

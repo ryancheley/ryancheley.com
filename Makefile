@@ -71,4 +71,4 @@ publish:
 vercel:
 	datasette publish vercel pelican.db --project=search-ryancheley
 
-.PHONY: html help clean regenerate serve serve-global devserver publish 
+.PHONY: html help clean regenerate serve serve-global devserver publish

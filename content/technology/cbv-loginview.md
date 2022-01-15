@@ -25,7 +25,7 @@ You’ll also need to update `settings.py` to include a value for the `LOGIN_RED
 
 Per the [Django Documentation](https://docs.djangoproject.com/en/2.2/topics/auth/default/#django.contrib.auth.decorators.login_required):
 
-> > If the user isn’t logged in, redirect to settings.LOGIN*URL, passing the current absolute path in the query string. Example: /accounts/login/?next=/polls/3/.  
+> > If the user isn’t logged in, redirect to settings.LOGIN*URL, passing the current absolute path in the query string. Example: /accounts/login/?next=/polls/3/.
 > > *
 
 If `redirect_field_name` is set then the URL would be:

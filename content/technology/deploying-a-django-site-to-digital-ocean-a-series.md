@@ -30,7 +30,7 @@ A list of the Articles will go here. For now, here’s a rough outline of the pl
 -   [Getting your Domain to point to Digital Ocean Your Server](/getting-your-domain-to-point-to-digital-ocean-your-server.html)
 -   [Preparing the code for deployment to Digital Ocean](/preparing-the-code-for-deployment-to-digital-ocean.html)
 -   [Automating the deployment](/automating-the-deployment.html)
--   Enhancements  
+-   Enhancements
 
 The ‘Enhancements’ will be multiple follow up posts (hopefully) as I catalog improvements make to the site. My currently planned enhancements are:
 
@@ -40,4 +40,4 @@ The ‘Enhancements’ will be multiple follow up posts (hopefully) as I catalog
 -   [Having Multiple Sites on a single Server](/setting-up-multiple-django-sites-on-a-digital-ocean-server.html)
 -   Adding Caching
 -   Integrating S3 on AWS to store Static Files and Media Files
--   Migrate to Docker / Kubernetes  
+-   Migrate to Docker / Kubernetes

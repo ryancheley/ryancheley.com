@@ -31,7 +31,7 @@ The basic idea is to:
 
 1.  Load the files
 2.  use pandas to compare the files
-3.  write out the differences, if they exist  
+3.  write out the differences, if they exist
 
 ### Load the Files
 
@@ -102,7 +102,7 @@ A sample of the output when the column headers have changed is below:
 In just using it a couple of times I've already spotted a couple of spots for enhancements:
 
 1.  Use `input` to allow the user to enter the names/locations of the files
-2.  Read the tab names and allow user to select from command line  
+2.  Read the tab names and allow user to select from command line
 
 ## Conclusion
 

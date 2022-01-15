@@ -16,7 +16,7 @@ Sure enough, with a bit of googling to remember some syntax fo Python, and learn
     def main():
 
         my_number = input("Enter a number: ")
-        
+
         if not my_number.isdigit():
             return
         else:
@@ -26,7 +26,7 @@ Sure enough, with a bit of googling to remember some syntax fo Python, and learn
             elif my_number%5 == 0 and my_number%15!=0:
                 print("buzz")
             elif my_number%15 == 0:
-                print("fizz buzz")      
+                print("fizz buzz")
             else:
                 print(my_number)
 
@@ -38,7 +38,7 @@ Sure enough, with a bit of googling to remember some syntax fo Python, and learn
 
     #! /bin/bash
 
-    echo "Enter a Number: " 
+    echo "Enter a Number: "
 
     read my_number
 

@@ -21,7 +21,7 @@ There are 20 attributes that can be set for the `ArchiveIndexView` but most of t
 
 ### BaseDateListView Attributes
 
--   allow_empty: Defaults to `False`. This means that if there is no data a `404` error will be returned with the message  
+-   allow_empty: Defaults to `False`. This means that if there is no data a `404` error will be returned with the message
 
     > > `No __str__ Available` where ‘`__str__`’ is the display of your model
 

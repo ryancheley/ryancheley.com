@@ -62,4 +62,3 @@ just check
 And I’ll know if I have passed the 12 factor checking for my Django project or somehow introduced something that makes the check not pass.
 
 I’d like to figure out how to set up multiple `.env` files, create an example and contribute to the docs ... but honestly I have *no freaking clue* how to do it. If I am able to figure it out, you can bet I’m going to write up a PR for the docs!
-

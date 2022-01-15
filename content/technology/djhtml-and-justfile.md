@@ -5,7 +5,7 @@ Slug: djhtml-and-justfile
 Authors: ryan
 Status: published
 
-I had read about a project called djhtml and wanted to use it on one of my projects. The documentation is really good for adding it to precommit-ci, but I wasn't sure what I needed to do to just run it on the command line. 
+I had read about a project called djhtml and wanted to use it on one of my projects. The documentation is really good for adding it to precommit-ci, but I wasn't sure what I needed to do to just run it on the command line.
 
 It took a bit of googling, but I was finally able to get the right incantation of commands to be able to get it to run on my templates:
 
@@ -17,9 +17,9 @@ But of course because I have the memory of a goldfish and this is more than 3 co
     djhtml:
         djhtml -i $(find templates -name '*.html' -print)
 
-This means that I can now run `just djhtml` and I can apply djhtml's linting to my templates. 
+This means that I can now run `just djhtml` and I can apply djhtml's linting to my templates.
 
-Pretty darn cool if you ask me. But then I got to thinking, I can make this a bit more general for 'linting' type activities. I include all of these in my precommit-ci, but I figured, what the heck, might as well have a just recipe for all of them! 
+Pretty darn cool if you ask me. But then I got to thinking, I can make this a bit more general for 'linting' type activities. I include all of these in my precommit-ci, but I figured, what the heck, might as well have a just recipe for all of them!
 
 So I refactored the recipe to be this:
 

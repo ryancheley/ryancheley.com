@@ -10,7 +10,7 @@ A few weeks back I decided to try and update my Python version with Homebrew. I 
 With this knowledge in hand I happily performed the update. To my surprise, 2 things happened:
 
 1.  The update seemed to have me go from Python 3.7.6 to 3.7.3
-2.  When trying to reestablish my `Virtual Environment` two packages wouldn’t installed: `psycopg2` and `django-heroku`  
+2.  When trying to reestablish my `Virtual Environment` two packages wouldn’t installed: `psycopg2` and `django-heroku`
 
 Now, the update/backdate isn’t the end of the world. Quite honestly, next weekend I’m going to just ditch homebrew and go with the standard download from [Python.org](https://www.python.org "Python") because I’m hoping that this non-sense won’t be an issue anymore
 
@@ -24,6 +24,6 @@ The ‘fix’ to the issue was to
 4.  Click the ‘+’ to add a package
 5.  Look for the package that wouldn’t install
 6.  Click ‘Install Package’
-7.  Viola ... [mischief managed](https://www.hp-lexicon.org/magic/mischief-managed/)  
+7.  Viola ... [mischief managed](https://www.hp-lexicon.org/magic/mischief-managed/)
 
 The next time this happens I’m just buying a new computer

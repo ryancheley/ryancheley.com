@@ -23,7 +23,7 @@ In addition to great advice, they had great implementation strategies including 
 
 [Link to HIMSS Presentation](http://www.himssconference.org/sites/himssconference/files/pdf/206.pdf)
 
-**Developing a “Need-Based” Population Management System** presented by  
+**Developing a “Need-Based” Population Management System** presented by
 Rick Lang and [Tim Hediger](https://www.linkedin.com/in/tim-hediger-a1765) hammered home the idea that "Collaboration and Partnering are KEY to success". Again, something that I *know* but it's always nice to hear it out loud.
 
 [Link to HIMSS Presentation](http://www.himssconference.org/sites/himssconference/files/pdf/124_0.pdf)
@@ -36,7 +36,7 @@ Rick Lang and [Tim Hediger](https://www.linkedin.com/in/tim-hediger-a1765) hamme
 
 [Link to HIMSS Presentation](http://www.himssconference.org/sites/himssconference/files/pdf/97_0.pdf)
 
-**Expanding Real time notifications for care transitions** presented by  
+**Expanding Real time notifications for care transitions** presented by
 [Elaine Fontaine](https://www.linkedin.com/in/elaine-fontaine-3b68144) spoke about using demographic data to determine the best discharge plan for the patient. In one of the presentations I saw (Connecticut Hospitals Drive Policy with Geospatial Analysis presented by Pat Charmel) the presenter had indicated that as much as 60% of healthcare costs are determined by demographics. If we can keep this in mind we can help control healthcare costs much more effectively, but it lead me to ask:
 
 -   how much do we know

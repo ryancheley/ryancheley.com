@@ -16,7 +16,7 @@ There are 3 parts for deploying our code:
 
 1.  Collect Locally
 2.  Copy to Server
-3.  Place in correct directory  
+3.  Place in correct directory
 
 Why don’t we just copy to the spot on the server we want o finally be in? Because we’ll need to restart Nginx once we’re fully deployed and it’s easier to have that done in 2 steps than in 1.
 
@@ -68,7 +68,7 @@ We have several steps to get through in order to install the code. They are:
 4.  Installing Python packages
 5.  Running Django migrations
 6.  Collecting static files
-7.  Reloading Gunicorn  
+7.  Reloading Gunicorn
 
 Before we can do any of this we’ll need to `ssh` into our server. Once that’s done, we can proceed with the steps below.
 

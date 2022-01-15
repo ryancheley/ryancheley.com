@@ -26,7 +26,7 @@ My Django Site uses the [MLB API](https://statsapi.mlb.com) to search for games 
 -   Users
 -   Content
 -   API
--   Stadium Tracker  
+-   Stadium Tracker
 
 The API is written using [Django Rest Framework (DRF)](https://www.django-rest-framework.org) and is super simple to implement. It’s also [really easy to changes to your models if you need to](/updating-the-models-for-my-django-rest-framework-api/).
 
@@ -37,7 +37,7 @@ The Content App was created to allow me to update the [home page](https://stadiu
 The last App, and the reason for the site itself, is the Stadium Tracker! I created a search tool that allows a user to find a game on a specific day between two teams. Once found, the user can add that game to ‘Games Seen’. This will then update the list of games seen for that user AND mark the location of the game as a stadium visited. The best part is that because the game is from the MLB API I can do some interesting things:
 
 1.  I can get the actual stadium from visited which allows the user to indicate historic (i.e. retired) stadia
-2.  I can get details of the game (final score, hits, runs, errors, stories from MLB, etc) and display them on a details page.  
+2.  I can get details of the game (final score, hits, runs, errors, stories from MLB, etc) and display them on a details page.
 
 That's great and all, but what does it look like?
 
@@ -64,7 +64,7 @@ I had created a roadmap at one point and was able to get through some (but not a
 -   Add ability to for minor league team search and stadium tracking (this is already part of the MLB API, I just never implemented it)
 -   Allow user to search for range of dates for teams
 -   Update the theme ... it’s the default MUI CSS which is nice, but I’d rather it was something a little bit different
--   Convert Swagger implementation from `django-rest-swagger` to `drf-yasg`  
+-   Convert Swagger implementation from `django-rest-swagger` to `drf-yasg`
 
 ## Final Thoughts
 

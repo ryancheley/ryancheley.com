@@ -7,7 +7,7 @@ Status: published
 
 I have a side project I've been working on for a while now. One thing that happened overtime is that the styling of the site grew organically. I'm not a designer, and I didn't have a master set of templates or design principals guiding the development. I kind of hacked it together and made it look "nice enough"
 
-That was until I really starting going from one page to another and realized that there styling of various pages wasn't just a little off ... but A LOT off. 
+That was until I really starting going from one page to another and realized that there styling of various pages wasn't just a little off ... but A LOT off.
 
 As an aside, I'm using [tailwind](https://www.tailwind.com) as my CSS Framework
 
@@ -21,13 +21,13 @@ OR
 
 Well, before we jump into either choice, let's see how many templates there are to review!
 
-As I said above, this is a Django project. I keep all of my templates in a single `templates` directory with each app having it's own sub directory. 
+As I said above, this is a Django project. I keep all of my templates in a single `templates` directory with each app having it's own sub directory.
 
 I was able to use this one line to count the number of `html` files in the templates directory (and all of the sub directories as well)
 
     ls -R templates | grep html | wc -l
 
-There are 3 parts to this: 
+There are 3 parts to this:
 
 1. `ls -R templates` will list out all of the files recursively list subdirectories encountered in the templates directory
 2. `grep html` will make sure to only return those files with `html`
@@ -35,7 +35,7 @@ There are 3 parts to this:
 
 In each case one command is piped to the next.
 
-This resulted in 41 `html` files. 
+This resulted in 41 `html` files.
 
 OK, I'm not going to want to manually review 41 files. Looks like we'll be going with option 2, "Try and write a `bash` command to do it for me"
 
@@ -43,7 +43,7 @@ In the end the `bash` script is actually relatively straight forward. We're just
 
 The first thing I want to do is find all of the lines that have the string `class=` in them. Since there are `html` templates, that's a pretty sure fire way to find all of the places where the styles I am interested in are being applied
 
-I use a package called `djhtml` to lint my templates, but just in case something got missed, I want to ignore case when doing my regex, i.e, `class=` should be found, but so should `cLass=` or `Class=`. In order to get that I need to have the `i` flag enabled. 
+I use a package called `djhtml` to lint my templates, but just in case something got missed, I want to ignore case when doing my regex, i.e, `class=` should be found, but so should `cLass=` or `Class=`. In order to get that I need to have the `i` flag enabled.
 
 Since the `html` files may be in the base directory `templates` or one of the subdirectories, I need to recursively search, so I include the `r` flag as well
 
@@ -68,11 +68,11 @@ That command will output a whole lines like this:
     templates/tasks/step_form.html:        <section class="bg-gray-400 text-center py-2">
     templates/tasks/step_form.html:            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{{view.action|default:"Add"}} </button>
 
-Great! We have the data we need, now we just want to clean it up. 
+Great! We have the data we need, now we just want to clean it up.
 
 Again, we'll use `grep` onl this time we want to look for an honest to goodness regular expression. We're trying to identify everything in between the first open angle brackey (<) and the first closed angle bracket (>)
 
-A bit of googling, searching stack overflow, and playing with the great site [regex101.com](https://regex101.com) gets you this 
+A bit of googling, searching stack overflow, and playing with the great site [regex101.com](https://regex101.com) gets you this
 
     <[^\/].*?>
 
@@ -93,4 +93,4 @@ This will output to standard out, but next I really want to use a tool for aggre
 
     grep -ri "class=" templates/* | grep -Eo "<[^\/].*?>" > tailwind.txt
 
-With these results I was able to find several styling inconsistencies and then fix them up. In all it took me a few nights of working out the bash commands and then a few more nights to get the styling consistent. In the process I learned **so** much about `grep` and `egrep`. It was a good exercise to have gone through. 
+With these results I was able to find several styling inconsistencies and then fix them up. In all it took me a few nights of working out the bash commands and then a few more nights to get the styling consistent. In the process I learned **so** much about `grep` and `egrep`. It was a good exercise to have gone through.

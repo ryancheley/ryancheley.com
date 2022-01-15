@@ -45,4 +45,3 @@ The `Review with Boss` action is the one action that is used the least of these 
 Usually emails to her take loner than 2 minutes to compose because they need to be short [ref]This idea is cribbed from Blaise Pascal’s statement, “Je n’ai fait celle-ci plus longue que parce que je n’ai pas eu le loisir de la faire plus courte” … in English, “I have made this longer than usual because I have not had time to make it shorter.” Hat tip to [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter/)[/ref]
 
 In my next post I’ll go over my review process. This is where I go through the 25 - 100 emails that have been marked as `Review` and answer the emails that need attention.
-

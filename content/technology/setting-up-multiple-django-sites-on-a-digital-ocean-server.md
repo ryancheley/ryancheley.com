@@ -61,10 +61,10 @@ After=network.target
 User=sammy
 Group=www-data
 WorkingDirectory=path/to/directory
-ExecStart=path/to/gunicorn/directory   
-         --access-logfile -   
-         --workers 3   
-         --bind unix:/run/gunicorn.sock   
+ExecStart=path/to/gunicorn/directory
+         --access-logfile -
+         --workers 3
+         --bind unix:/run/gunicorn.sock
          myproject.wsgi:application
 
 [Install]

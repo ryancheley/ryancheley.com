@@ -80,7 +80,7 @@ To this:
 
 I made this change and then started getting an error about not being able to access a `json` file necessary for the upload to [YouTube](https://www.youtube.com). Sigh.
 
-Then while searching for what directory the cronjob was running from I found [this very simple](https://unix.stackexchange.com/questions/38951/what-is-the-working-directory-when-cron-executes-a-job) idea. The response was, why not just change it to the directory you want. 🤦‍♂️  
+Then while searching for what directory the cronjob was running from I found [this very simple](https://unix.stackexchange.com/questions/38951/what-is-the-working-directory-when-cron-executes-a-job) idea. The response was, why not just change it to the directory you want. 🤦‍♂️
 
 I added the `cd` to the top of the file:
 

@@ -7,7 +7,7 @@ Status: published
 
 From [Classy Class Based Views](http://ccbv.co.uk/projects/Django/2.2/django.views.generic.edit/DeleteView/) `DeleteView`
 
-> > View for deleting an object retrieved with self.get*object(), with a  
+> > View for deleting an object retrieved with self.get*object(), with a
 > > *
 
 response rendered by a template.

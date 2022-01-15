@@ -27,7 +27,7 @@ You can also make the text that is displayed be based on a variable defined in t
 
 First, you need to define the variable
 
-    content = 'This is a {View} template and is not used for much of anything but '   
+    content = 'This is a {View} template and is not used for much of anything but '
                  'allowing extensions of it for other Views'
 
 And then you can do something like this:
@@ -53,7 +53,7 @@ By default all are allowed.
 If we put all of the pieces together we can see that a really simple `View` CBV would look something like this:
 
     class myView(View):
-        content = 'This is a {View} template and is not used for much of anything but '   
+        content = 'This is a {View} template and is not used for much of anything but '
                  'allowing extensions of it for other Views'
         http_method_names = ['get']
 

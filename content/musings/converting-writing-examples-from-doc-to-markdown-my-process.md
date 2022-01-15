@@ -21,7 +21,7 @@ So, how did I get from a .doc file written in 2004 to a converted markdown file 
 
 1.  Downloaded the Doc files from my Google Drive to my local Desktop and saved them into a folder called `Summaries`
 2.  Each week of work had it's own directory, so I had to go into each directory individually (not sure how to do recursive work *yet*)
-3.  Each of the files was written in 2004 so I had to change the file types from .doc to .docx. This was accomplished with this command:  
+3.  Each of the files was written in 2004 so I had to change the file types from .doc to .docx. This was accomplished with this command:
    `textutil -convert docx *.doc`
 4.  Once the files were converted from .doc to .docx I ran the following commands:
     1.  `cd ../yyyymmdd` where yyyy = YEAR, mm = Month in 2 digits; dd = day in 2 digits
@@ -72,7 +72,7 @@ Like any ~~good~~ ~~bad~~ lazy programer I've opted for a rute force method of c
 
 Step 1: used the command I found here [\^7](http://stackoverflow.com/questions/2709458/bash-script-to-replace-spaces-in-file-names) to recursively replace the spaces in the files names with underscores `_`
 
-> `find . -depth -name '* *' \`  
+> `find . -depth -name '* *' \`
 > `| while IFS= read -r f ; do mv -i "$f" "$(dirname "$f")/$(basename "$f"|tr ' ' _)" ; done`
 
 Step 2: Use the command found here [\^6](https://gist.github.com/bzerangue/2504041) to generate the markdown files recursively:
