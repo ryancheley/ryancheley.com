@@ -69,6 +69,13 @@ publish:
 	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(PUBLISHCONF)" $(PELICANOPTS)
 
 vercel:
-	datasette publish vercel pelican.db --project=search-ryancheley
+	{ \
+	echo "Generate content and database"; \
+	make html; \
+	echo "Content generation complete"; \
+	echo "Publish data to vercel"; \
+	datasette publish vercel pelican.db --project=search-ryancheley; \
+	echo "Publishing complete"; \
+	}
 
-.PHONY: html help clean regenerate serve serve-global devserver publish
+.PHONY: html help clean regenerate serve serve-global devserver publish vercel
