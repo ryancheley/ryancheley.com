@@ -143,6 +143,3 @@ output
 
 # datasette objects
 *.db
-
-# original requirements
-requirements.txt.orig

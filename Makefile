@@ -68,5 +68,7 @@ devserver-global:
 publish:
 	"$(PELICAN)" "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(PUBLISHCONF)" $(PELICANOPTS)
 
+vercel:
+	datasette publish vercel pelican.db --project=search-ryancheley
 
 .PHONY: html help clean regenerate serve serve-global devserver publish 
