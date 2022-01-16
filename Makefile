@@ -74,7 +74,7 @@ vercel:
 	make html; \
 	echo "Content generation complete"; \
 	echo "Publish data to vercel"; \
-	datasette publish vercel pelican.db --project=search-ryancheley; \
+	datasette publish vercel pelican.db --project=search-ryancheley --metadata metadata.json; \
 	echo "Publishing complete"; \
 	}
 
