@@ -51,6 +51,8 @@ h11==0.12.0
     # via
     #   httpcore
     #   uvicorn
+html2text==2020.1.16
+    # via pelican-to-sqlite
 html5lib==1.1
     # via pelican-simple-footnotes
 httpcore==0.14.4
@@ -63,6 +65,8 @@ idna==3.3
     # via
     #   anyio
     #   rfc3986
+importlib-metadata==4.10.0
+    # via markdown
 itsdangerous==2.0.1
     # via
     #   asgi-csrf
@@ -73,6 +77,8 @@ jinja2==3.0.3
     # via
     #   datasette
     #   pelican
+markdown==3.3.6
+    # via -r requirements.in
 markupsafe==2.0.1
     # via jinja2
 mergedeep==1.3.4
@@ -84,11 +90,12 @@ pelican==4.7.1
     #   -r requirements.in
     #   pelican-series
     #   pelican-simple-footnotes
+    #   pelican-to-sqlite
 pelican-series==2.1.0
     # via -r requirements.in
 pelican-simple-footnotes==1.0.2
     # via -r requirements.in
-pelican-to-sqlite==0.2.0
+pelican-to-sqlite==0.3.0
     # via -r requirements.in
 pint==0.18
     # via datasette
@@ -144,3 +151,5 @@ uvicorn==0.17.0
     # via datasette
 webencodings==0.5.1
     # via html5lib
+zipp==3.7.0
+    # via importlib-metadata
