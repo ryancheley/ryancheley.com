@@ -1,0 +1,22 @@
+{
+    "databases": {
+        "pelican": {
+            "queries": {
+                "article_search": {
+                    "sql": "select summary as 'Summary', url as 'URL', published_date as 'Published Data' from content where content like '%' || :text || '%' order by published_date",
+                    "title": "Search articles",
+                    "hide_sql": true
+                }
+            },
+            "tables": {
+                "content": {
+                    "plugins": {
+                        "datasette-render-html": {
+                            "columns": ["summary"]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
