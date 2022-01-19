@@ -13,6 +13,7 @@ Save_as: brag-doc.html
 4. Author and Maintainer of the Open Source Projects:
       - [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
       - [the-well-maintained-test](https://pypi.org/project/the-well-maintained-test/) which I wrote about [here](https://cur.at/4n0KtYP?m=web) and got a shout out on [Django News Issue #104](https://django-news.com/issues/104)
+      - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
 5. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
 6. Ran 13 half marathons in 13 months
     - SkyBorne, December 2013
