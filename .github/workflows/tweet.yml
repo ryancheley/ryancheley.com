@@ -1,7 +1,5 @@
 name: "tweet-trigger-release"
-on:
-  release:
-    types: [published]
+on: [push]
 
 jobs:
   build:
