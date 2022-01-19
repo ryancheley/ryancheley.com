@@ -6,7 +6,6 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'new post')"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
