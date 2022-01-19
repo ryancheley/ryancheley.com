@@ -1,11 +1,11 @@
 name: Send a Tweet
 on: [push]
 jobs:
-  tweet:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Tweet-trigger
-      - uses: mugi111/tweet-trigger-release@v1.1
+        uses: mugi111/tweet-trigger-release@v1.1
         with:
           tweet_body: "Hi, this is a test!"
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
