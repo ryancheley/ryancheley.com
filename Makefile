@@ -78,4 +78,7 @@ vercel:
 	echo "Publishing complete"; \
 	}
 
-.PHONY: html help clean regenerate serve serve-global devserver publish vercel
+tweet:
+	./tweet.sh
+
+.PHONY: html help clean regenerate serve serve-global devserver publish vercel tweet
