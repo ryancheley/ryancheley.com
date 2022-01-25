@@ -1,5 +1,5 @@
 Title: Auto Tweeting New Post
-Date: 2022-01-21 05:40
+Date: 2022-01-24
 Tags: "GitHub Actions"
 Slug: auto-tweeting-new-post
 Series: Auto Deploying my Words
