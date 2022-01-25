@@ -4,7 +4,7 @@ Tags: "GitHub Actions"
 Slug: auto-tweeting-new-post
 Series: Auto Deploying my Words
 Authors: ryan
-Status: draft
+Status: published
 
 Each time I write something for this site there are several steps that I go through to make sure that the post makes it's way to where people can see it.
 
