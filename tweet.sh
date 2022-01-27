@@ -12,14 +12,19 @@ POST_STATUS=` git status --porcelain | sed s/^...// | xargs head -7 | grep 'Stat
 
 URL="https://ryancheley.com/$POST_DATE/$SLUG/"
 
-# https://ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/
+FILE_COUNT=`git diff --cached --numstat | wc -l`
 
-
-if [ $POST_STATUS = "published" ]
+if [ $FILE_COUNT -gt 1 ]
 then
-    MESSAGE="New Post: $TITLE $URL"
+    find content -name '*.md' -print | sed 's/^/"/g' | sed 's/$/"/g' | xargs git restore --staged
+    echo "There is more than one file to commit. You'll need to do something else here."
+else
+    if [ $POST_STATUS = "published" ]
+    then
+        MESSAGE="New Post: $TITLE $URL"
 
-    git commit -m "$MESSAGE"
+        git commit -m "$MESSAGE"
 
-    git push github main
+        git push github main
+    fi
 fi
