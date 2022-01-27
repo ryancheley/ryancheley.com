@@ -1,16 +1,16 @@
 Title: git add filename automation
-Date: 2022-01-24
+Date: 2022-01-26
 Tags:
 Slug: git-add-filename-automation
 Series: Auto Deploying my Words
 Authors: ryan
-Status: draft
+Status: published
 
 In [my last post](https://www.ryancheley.com/2022/01/24/auto-tweeting-new-post/) I mentioned the steps needed in order for me to post. They are:
 
 1. Run `make html` to generate the SQLite database that powers my site's search tool[ref]`make vercel` actually runs `make html` so this isn't really a step that I need to do.[/ref]
 2. Run `make vercel` to deploy the SQLite database to vercel
-3. Run `git add <filename>` to add post to be committed to GitHub
+3. [Run `git add <filename>` to add post to be committed to GitHub](https://www.ryancheley.com/2022/01/26/git-add-filename-automation/)
 4. Run `git commit -m <message>` to commit to GitHub
 5. [Post to Twitter with a link to my new post](https://www.ryancheley.com/2022/01/24/auto-tweeting-new-post/)
 
@@ -20,7 +20,7 @@ In this post I'll be focusing on how I automated step 3, "Run `git add <filename
 
 # Automating the `git add ...` part of my workflow
 
-I have my pelican content set up so that the category that a post will be in is determined by the directory a markdown file is placed in. The structure of my content folder looks like this:
+I have my pelican content set up so that the category of a post is determined by the directory a markdown file is placed in. The structure of my content folder looks like this:
 
 ```
 content
@@ -43,7 +43,7 @@ Untracked files:
         metadata.json
 ```
 
-This is OK, but it picks up too much! All I really want is to identify the files that change in my content directory and `git add` them. Specifically, the markdown files (`md`) files.
+That means that when you run `git add .` all of those files will be added to git. For my purposes all that I need is the one updated file in the `content` directory.
 
 The command `find` does a great job of taking a directory and allowing you to search for what you want in that directory. You can run something like
 
@@ -68,7 +68,7 @@ content/productivity/auto-generating-the-commit-message.md
 content/productivity/declaring-omnifocus-bankrupty.md
 ```
 
-However, because one of my categories has a space in it's name (professional development) if you pipe the output of this to `xargs git add` it fails with the error
+However, because one of my categories has a space in it's name (`professional development`) if you pipe the output of this to `xargs git add` it fails with the error
 
 ```
 fatal: pathspec 'content/professional' did not match any files
@@ -107,8 +107,10 @@ The output looks like this:
 
 Now, you can pipe your output to `xargs git add` and there is no error!
 
+The final command looks like this:
+
+```
+find content -name '*.md' -print | sed 's/^/"/g' | sed 's/$/"/g' | xargs git add
+```
+
 In the next post, I'll walk through how I generate the commit message to be used in the automatic tweet!
-
-## Special Note
-
-As I wrote this I had more than one draft sitting in my content directory that could be commited. This caused a problem with the script. Therefore, this will only work when you have a single file (article) to commit. I'm going to need to figure out how to get the `tweet.sh` to handle multiple articles at once.
