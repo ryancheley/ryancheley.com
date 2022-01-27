@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# generate html and publish SQLite database to vercel
+make vercel
+
 # Add the post to git
 find content -name '*.md' -print | sed 's/^/"/g' | sed 's/$/"/g' | xargs git add
 
