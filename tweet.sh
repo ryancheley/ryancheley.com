@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# run pre-commit check before the next steps
+pre-commit run --all-files
+
 # generate html and publish SQLite database to vercel
 make vercel
 
