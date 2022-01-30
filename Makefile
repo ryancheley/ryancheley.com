@@ -81,4 +81,15 @@ vercel:
 tweet:
 	./tweet.sh
 
+newpost:
+	touch content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "Title: $${title}" > content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "Date: $$(date +%F)" >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "Author: ryan" >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "Tags: " >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	printf "Slug: " >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "$${title}" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "Series: Remove if Not Needed"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "Status: draft"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+
 .PHONY: html help clean regenerate serve serve-global devserver publish vercel tweet
