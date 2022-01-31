@@ -10,6 +10,7 @@ Save_as: brag-doc.html
     - [Diagrams](https://pypi.org/project/diagrams/) with [PR](https://github.com/mingrammer/diagrams/pull/426)
     - [MLB-StatsAPI](https://pypi.org/project/MLB-StatsAPI/) with [PR](https://github.com/toddrob99/MLB-StatsAPI/pull/41)
     - [django-sql-dashboard](https://pypi.org/project/django-sql-dashboard/) with [PR](https://github.com/simonw/django-sql-dashboard/pull/138) which I wrote about [here](https://www.ryancheley.com/2021/07/09/contributing-to-django-sql-dashboard/)
+    - [dnspython](https://pypi.org/project/dnspython/) with [PR](https://github.com/rthalley/dnspython/issues/775)
 4. Author and Maintainer of the Open Source Projects:
       - [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
       - [the-well-maintained-test](https://pypi.org/project/the-well-maintained-test/) which I wrote about [here](https://cur.at/4n0KtYP?m=web) and got a shout out on [Django News Issue #104](https://django-news.com/issues/104)
