@@ -3,10 +3,10 @@ Date: 2022-02-02
 Author: ryan
 Tags: automation, makefile
 Slug: automating-the-file-creation
-Series: Remove if Not Needed
-Status: draft
+Series: Auto Deploying my Words
+Status: published
 
-In my last post [Auto Generating the Commit Message](https://www.ryancheley.com/2022/01/28/auto-generating-the-commit-message/) I indicated that this post I would "throw it all together and to get a spot when I can run one make command that will do all of this for me".
+In my last post [Auto Generating the Commit Message](https://www.ryancheley.com/2022/01/28/auto-generating-the-commit-message/) I indicated that this post I would "throw it all together and to get a spot where I can run one make command that will do all of this for me".
 
 I decided to take a brief detour though as I realized I didn't have a good way to create a new post, i.e. the starting point wasn't automated!
 
@@ -47,7 +47,9 @@ giving me an updated version of the command that looks like this:
 touch content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 ```
 
-Now when I run the command `make newpost title='Automating the file creation' category='productivity'` I get a empty new files created. Now I just need to populate it with the data.
+When I run the command `make newpost title='Automating the file creation' category='productivity'` I get a empty new files created.
+
+Now I just need to populate it with the data.
 
 There are seven bits of meta data that need to be added, but four of them are the same for each post
 
@@ -76,7 +78,7 @@ The remaining metadata to be added are:
 - Date
 - Slug
 
-Of these, `Date` and `Title` is the most straightforward.
+Of these, `Date` and `Title` are the most straightforward.
 
 `bash` has a command called `date` that can be formatted in the way I want with `%F`. Using this I can get the date like this
 
@@ -118,4 +120,4 @@ newpost:
 	echo "Status: draft"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 ```
 
-This allows me to type `make newpost` and generate a new file for me to start my new post in![ref]This is an issue with the code above when generating the slug. I want the slug to be all lower case, but there's nothing in the code that does that. That's a project for another day![/ref]
+This allows me to type `make newpost` and generate a new file for me to start my new post in![ref]There is an issue with the code above when generating the slug. I want the slug to be all lower case, but there's nothing in the code that does that. That's a project for another day![/ref]
