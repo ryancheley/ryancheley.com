@@ -7,7 +7,8 @@ Save_as: curriculum-vitae.html
 
 Responsible for the design, development and implementation of Business Information processes, system upgrades, and reporting to support both Clinical and Administrative operations through the efficient and effective use of technology solutions. I lead a team that works with the senior- and clinical-managers at several Heritage Provider Network Companies including Desert Oasis Healthcare, Arizona Priority Care, Heritage Victor Valley Medical Group, and several Hospice companies to build and maintain web application workflow improvement solutions, dashboards and ad-hoc reports, as well as maintain Health Plan Authorization and Claim Letters, submission of Health Plan Reports, and Claim Inload and Encounter Reporting to contracted Health Plans.
 
-* Directed daily operations of 11 employees working in 2 states including 1 supervisor with 3 direct reports
+* Directed daily operations of 7 employees working in 2 states including 2 supervisors who oversee 7 total employees
+* Actively worked to professionally grow staff with promotion of 2 front line staff to supervisor positions; 
 * Implemented Agile Development Process for Web Developers
 * Implemented Kanban Development for Report Developers
 * Implemented Enterprise Reporting Solutions using SSRS and Tableau
