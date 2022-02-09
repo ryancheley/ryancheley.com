@@ -3,6 +3,11 @@
 # run pre-commit check before the next steps
 pre-commit run --all-files
 
+if [ $? -eq 1 ]
+then
+    exit 1
+fi
+
 # generate html and publish SQLite database to vercel
 make vercel
 
