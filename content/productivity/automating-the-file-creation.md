@@ -5,6 +5,7 @@ Tags: automation, makefile
 Slug: automating-the-file-creation
 Series: Auto Deploying my Words
 Status: published
+Modified: 2022-02-09
 
 In my last post [Auto Generating the Commit Message](https://www.ryancheley.com/2022/01/28/auto-generating-the-commit-message/) I indicated that this post I would "throw it all together and to get a spot where I can run one make command that will do all of this for me".
 
@@ -115,9 +116,9 @@ newpost:
 	echo "Author: ryan" >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 	echo "Tags: " >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 	printf "Slug: " >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
-	echo "$${title}" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+	echo "$${title}" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 	echo "Series: Remove if Not Needed"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 	echo "Status: draft"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 ```
 
-This allows me to type `make newpost` and generate a new file for me to start my new post in![ref]There is an issue with the code above when generating the slug. I want the slug to be all lower case, but there's nothing in the code that does that. That's a project for another day![/ref]
+This allows me to type `make newpost` and generate a new file for me to start my new post in![ref]When this post was originally published the slug command didn't account for making all of the text lower case. This was fixed in a subsequent [commit](https://github.com/ryancheley/ryancheley.com/commit/54f41680fdca4131735346764048d4e5fd206fd6)[/ref]
