@@ -65,8 +65,6 @@ idna==3.3
     # via
     #   anyio
     #   rfc3986
-importlib-metadata==4.10.1
-    # via markdown
 itsdangerous==2.0.1
     # via
     #   asgi-csrf
@@ -85,7 +83,7 @@ mergedeep==1.3.4
     # via datasette
 packaging==21.3
     # via pint
-pelican==4.7.1
+pelican==4.7.2
     # via
     #   -r requirements.in
     #   pelican-series
@@ -151,5 +149,3 @@ uvicorn==0.17.0
     # via datasette
 webencodings==0.5.1
     # via html5lib
-zipp==3.7.0
-    # via importlib-metadata
