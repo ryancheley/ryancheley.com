@@ -93,7 +93,7 @@ pelican-series==2.1.0
     # via -r requirements.in
 pelican-simple-footnotes==1.0.2
     # via -r requirements.in
-pelican-to-sqlite==0.4.0
+pelican-to-sqlite==0.5.0
     # via -r requirements.in
 pint==0.18
     # via datasette
