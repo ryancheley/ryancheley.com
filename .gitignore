@@ -143,3 +143,9 @@ output
 
 # datasette objects
 *.db
+
+# tailwind
+node_modules
+package-lock.json
+tailwind.config.js
+templates
