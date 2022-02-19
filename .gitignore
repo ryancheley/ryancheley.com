@@ -151,3 +151,6 @@ tailwind.config.js
 templates
 
 test.css
+
+# cog
+cog_articles/*
