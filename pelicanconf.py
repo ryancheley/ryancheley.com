@@ -8,7 +8,7 @@ SITEURL = ""
 
 PATH = "content"
 
-THEME = "rc_custom"
+THEME = "pelican-clean-blog"
 
 TIMEZONE = "America/Los_Angeles"
 
@@ -57,9 +57,17 @@ SOCIAL = (
     ("LinkedIn", "https://www.linkedin.com/in/ryan-cheley/"),
 )
 
+SHOW_SOCIAL_ON_INDEX_PAGE_HEADER = True
+
 DEFAULT_PAGINATION = 10
 
 TWITTER_USERNAME = "ryancheley"
 
+COLOR_SCHEME_CSS = "github.css"
+
+SHOW_FULL_ARTICLE = True
+
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
+
+DISABLE_CUSTOM_THEME_JAVASCRIPT = True
