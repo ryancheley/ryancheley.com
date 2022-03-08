@@ -5,6 +5,7 @@ Save_as: brag-doc.html
 2. Have been published on the [PyBites Blog](https://pybit.es/author/ryancheley/)
 3. Contributed to the following open source projects:
     - [DjangoProject.com](https://www.djangoproject.com) with [PR](https://github.com/django/django/pull/12128) which I wrote about [here](https://www.ryancheley.com/2019/12/07/my-first-commit-to-an-open-source-project-django/)
+    - [DjangoPackages.org](https://djangopackages.org) with [PR](https://github.com/djangopackages/djangopackages/commit/5463558eb5f6a10978158946c7867725b57d14dd)
     - [Tryceratops](https://pypi.org/project/tryceratops/) with [PR](https://github.com/guilatrova/tryceratops/commits?author=ryancheley) which I wrote about [here](https://www.ryancheley.com/2021/08/07/contributing-to-tryceratops/)
     - [Wagtail-Resume](https://pypi.org/project/wagtail-resume/) with [PR](https://github.com/adinhodovic/wagtail-resume/pull/32)
     - [Diagrams](https://pypi.org/project/diagrams/) with [PR](https://github.com/mingrammer/diagrams/pull/426)
