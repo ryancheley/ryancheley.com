@@ -41,7 +41,7 @@ commonmark==0.9.1
     # via rich
 datasette==0.60
     # via datasette-publish-vercel
-datasette-publish-vercel==0.12.1
+datasette-publish-vercel==0.13
     # via -r requirements.in
 docutils==0.18.1
     # via pelican
