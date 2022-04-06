@@ -12,7 +12,6 @@
         {% endif %}
 
         <title>{% block title %}{{ SITENAME }}{% if SITESUBTITLE and SHOW_SITESUBTITLE_IN_HTML %} - {{ SITESUBTITLE }}{% endif %}{% endblock title %}</title>
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
     {% for name,link in SOCIAL if name in ['rss', 'rss-square'] %}
         <link href="{{ link }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
@@ -59,6 +58,7 @@
             <!-- CSS specified by the user -->
             <link href="{{ SITEURL }}/{{ CSS_OVERRIDE }}" rel="stylesheet">
         {% endif %}
+
 
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">

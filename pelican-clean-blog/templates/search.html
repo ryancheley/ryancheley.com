@@ -1,14 +1,21 @@
-<section class="relative h-8">
-    <section class="absolute inset-y-0 right-10 w-128">
-    <form
-    class = "pl-4"
-    <
-    action="https://search-ryancheley.vercel.app/pelican/article_search?text=name"
-    method="get">
-            <label for="site-search">Search the site:</label>
-            <input class="border-2" type="search" id="site-search" name="text"
-                    aria-label="Search through site content">
-            <button class="rounded-full w-32 hover:bg-blue-300">Search</button>
-    </form>
-    </section>
-</section>
+<div class="container" role="main">
+        <div class="row">
+                <div class="col-xs-8">
+                </div>
+                <div class="col-xs-4">
+                <form action="https://search-ryancheley.vercel.app/pelican/article_search?text=name"
+                method="GET" class="form-main">
+                <div>
+                        <label class="sr-only" for="search">Search</label>
+                        <div class="input-group">
+                                <input type="text" class="form-control input-search" name="text" id="site-search" placeholder="Search">
+                        </div>
+                </div>
+                <div>
+                        <button type="submit" class="btn btn-success">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                <span class="hidden-sm hidden-xs"> Search </span>
+                        </button>
+                </div>
+        </div>
+</div>
