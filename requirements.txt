@@ -14,7 +14,7 @@ asgiref==3.4.1
     # via
     #   datasette
     #   uvicorn
-beautifulsoup4==4.10.0
+beautifulsoup4==4.11.0
     # via -r requirements.in
 blinker==1.4
     # via pelican
@@ -65,8 +65,6 @@ idna==3.3
     # via
     #   anyio
     #   rfc3986
-importlib-metadata==4.11.3
-    # via markdown
 itsdangerous==2.0.1
     # via
     #   asgi-csrf
@@ -151,5 +149,3 @@ uvicorn==0.17.0
     # via datasette
 webencodings==0.5.1
     # via html5lib
-zipp==3.7.0
-    # via importlib-metadata
