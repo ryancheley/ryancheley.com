@@ -18,7 +18,9 @@ Save_as: brag-doc.html
     - [markdown-to-sqlite](https://pypi.org/project/markdown-to-sqlite/) with [PR](https://github.com/simonw/markdown-to-sqlite/pull/3)
 5. Author and Maintainer of the Open Source Projects:
       - [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
-      - [the-well-maintained-test](https://pypi.org/project/the-well-maintained-test/) which I wrote about [here](https://cur.at/4n0KtYP?m=web) and got a shout out on [Django News Issue #104](https://django-news.com/issues/104)
+      - [the-well-maintained-test](https://pypi.org/project/the-well-maintained-test/) which I wrote about [here](https://cur.at/4n0KtYP?m=web)
+        - The package was mentioned in [Django News Issue #104](https://django-news.com/issues/104)
+        - The package is featured in the [Rich Gallery](https://www.textualize.io/rich/gallery/4)
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
 6. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
 7. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
