@@ -15,12 +15,14 @@ Save_as: brag-doc.html
     - [MLB-StatsAPI](https://pypi.org/project/MLB-StatsAPI/) with [PR](https://github.com/toddrob99/MLB-StatsAPI/pull/41)
     - [django-sql-dashboard](https://pypi.org/project/django-sql-dashboard/) with [PR](https://github.com/simonw/django-sql-dashboard/pull/138) which I wrote about [here](https://www.ryancheley.com/2021/07/09/contributing-to-django-sql-dashboard/)
     - [dnspython](https://pypi.org/project/dnspython/) with [PR](https://github.com/rthalley/dnspython/issues/775)
+    - [markdown-to-sqlite](https://pypi.org/project/markdown-to-sqlite/) with [PR](https://github.com/simonw/markdown-to-sqlite/pull/3)
 5. Author and Maintainer of the Open Source Projects:
       - [toggl-to-sqlite](https://pypi.org/project/toggl-to-sqlite/)
       - [the-well-maintained-test](https://pypi.org/project/the-well-maintained-test/) which I wrote about [here](https://cur.at/4n0KtYP?m=web) and got a shout out on [Django News Issue #104](https://django-news.com/issues/104)
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
 6. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
-7. Ran 13 half marathons in 13 months
+7. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
+8. Ran 13 half marathons in 13 months
     - SkyBorne, December 2013
     - Carlsbad, January 2014
     - Palm Springs, February 2014
@@ -34,4 +36,4 @@ Save_as: brag-doc.html
     - San Luis Obispo, October 2014
     - Santa Barbara, November 2014
     - SkyBorne, December 2014
-8. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
+9. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
