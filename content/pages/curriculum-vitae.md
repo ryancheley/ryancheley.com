@@ -7,7 +7,7 @@ Save_as: curriculum-vitae.html
 
 Responsible for the design, development and implementation of Business Information processes, system upgrades, and reporting to support both Clinical and Administrative operations through the efficient and effective use of technology solutions. I lead a team that works with the senior- and clinical-managers at several Heritage Provider Network Companies including Desert Oasis Healthcare, Arizona Priority Care, Heritage Victor Valley Medical Group, and several Hospice companies to build and maintain web application workflow improvement solutions, dashboards and ad-hoc reports, as well as maintain Health Plan Authorization and Claim Letters, submission of Health Plan Reports, and Claim Inload and Encounter Reporting to contracted Health Plans.
 
-* Directed daily operations of 7 employees working in 2 states including 2 supervisors who oversee 7 total employees
+* Directed daily operations of 8 employees working in 2 states including 2 supervisors who oversee 7 total employees
 * Actively worked to professionally grow staff with promotion of 2 front line staff to supervisor positions;
 * Implemented Agile Development Process for Web Developers
 * Implemented Kanban Development for Report Developers
@@ -75,5 +75,7 @@ BS Economics/Finance, Minor in Statistics, California Polytechnic State Universi
 ## Other Activities
 - Member of Bermuda Dunes Community Council, September 2009 - June 2013
 - Member of HIMSS December 2016 - present
-- Member of the American Heart Associated Executive Leadership Team December 2020 - present
+- Member of the American Heart Associated Executive Leadership Team, December 2020 - December 2021
+- Member of the Python Software Foundation, May 2020 - Present
+- Member of the Django Software Foundation, November 2021 - Present
 - Ran 13 half marathons in 13 months, December 2013 - December 2014
