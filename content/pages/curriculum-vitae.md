@@ -7,7 +7,7 @@ Save_as: curriculum-vitae.html
 
 **Regional Director Business Informatics, DESERT OASIS HEALTHCARE**
 
-Responsible for the design, development and implementation of Business Information processes, system upgrades, and reporting to support both Clinical and Administrative operations through the efficient and effective use of technology solutions. I lead a team that works with the senior- and clinical-managers at several Heritage Provider Network Companies including Desert Oasis Healthcare, Arizona Priority Care, Heritage Victor Valley Medical Group, and several Hospice companies to build and maintain web application workflow improvement solutions, dashboards and ad-hoc reports, as well as maintain Health Plan Authorization and Claim Letters, submission of Health Plan Reports, and Claim Inload and Encounter Reporting to contracted Health Plans.
+Responsible for the design, development and implementation of Business Information processes, system upgrades, and reporting to support both Clinical and Administrative operations through the efficient and effective use of technology solutions. I lead a team that works with the senior- and clinical-managers at several Heritage Provider Network Companies including Desert Oasis Healthcare, Arizona Priority Care, and several Hospice companies to build and maintain web application workflow improvement solutions, dashboards and ad-hoc reports, as well as maintain Health Plan Authorization and Claim Letters, submission of Health Plan Reports, and Claim Inload and Encounter Reporting to contracted Health Plans.
 
 * Directed daily operations of 8 employees working in 2 states including 2 supervisors who oversee 7 total employees
 * Actively worked to professionally grow staff with promotion of 2 front line staff to supervisor positions;
@@ -28,7 +28,7 @@ Responsible for the design, development and implementation of Business Informati
 	* Provider Management System
 * Had two teams recognized as Administrative Department / Team of the year
 	* NextGen Support Services in 2017
-	* Health Plan Auditing and Reporting in 2019
+	* Health Plan Auditing and Reporting in 2019 (this is the last year that the aware was given due to COVID-19 Pandemic)
 
 
 ### February 2012 - July 2016
@@ -38,7 +38,6 @@ Responsible for the design, development and implementation of Business Informati
 Responsible for the design, development and implementation of business and clinical information processes; Work closely with physicians, clinical staff and business operational leadership to provide detailed requirements, develop solutions, provide end-to-end project management and on-going technical support. Manage staff, including coordinating cross-functional teams and resources.
 
 * Lead Migration of Large Enterprise EHR to new Data Center
-* Managed EHR Upgrades from 2012 - 2015
 * Lead Large Client NextGen Enterprise on successful upgrade path to Meaningful Use Compliant EHR versions every year from 2012 - 2015
 * Received Peer Award for Most Innovate (2015)
 * Promoted from Supervisor of one team in NextGen Department in 2012 to Director of Department by 2015
