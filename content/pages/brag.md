@@ -6,9 +6,11 @@ Save_as: brag-doc.html
 3. Have been published on the [PyBites Blog](https://pybit.es/author/ryancheley/)
 4. Contributed to the following open source projects:
     - [DjangoProject.com](https://www.djangoproject.com) with [PR](https://github.com/django/django/pull/12128) which I wrote about [here](https://www.ryancheley.com/2019/12/07/my-first-commit-to-an-open-source-project-django/)
+    - [Django](https://github.com/django/django/) with [PR](https://github.com/django/django/pull/16243) which I wrote about [here](https://www.ryancheley.com/2022/11/12/contributing-to-django/)
     - [DjangoPackages.org](https://djangopackages.org)
         - Limited TextField size to help eliminate potential for Spam, closing a 10 year old issue with [PR](https://github.com/djangopackages/djangopackages/commit/5463558eb5f6a10978158946c7867725b57d14dd)
         - Added support for emoji with [PR](https://github.com/djangopackages/djangopackages/commit/051c5ca14d25cb39d7d56ea63e4cfb317d78c13c)
+        - Added Support for [Emojificate](https://pypi.org/project/emojificate/) with [PR](https://github.com/djangopackages/djangopackages/pull/849) to make emoji accessible "with fallback images, alt text, title text and aria labels to represent emoji in HTML"
     - [Tryceratops](https://pypi.org/project/tryceratops/) with [PR](https://github.com/guilatrova/tryceratops/commits?author=ryancheley) which I wrote about [here](https://www.ryancheley.com/2021/08/07/contributing-to-tryceratops/)
     - [Wagtail-Resume](https://pypi.org/project/wagtail-resume/) with [PR](https://github.com/adinhodovic/wagtail-resume/pull/32)
     - [Diagrams](https://pypi.org/project/diagrams/) with [PR](https://github.com/mingrammer/diagrams/pull/426)
@@ -22,9 +24,10 @@ Save_as: brag-doc.html
         - The package was mentioned in [Django News Issue #104](https://django-news.com/issues/104)
         - The package is featured in the [Rich Gallery](https://www.textualize.io/rich/gallery/4)
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
-6. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
-7. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
-8. Ran 13 half marathons in 13 months
+6. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett)
+7. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
+8. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
+9. Ran 13 half marathons in 13 months
     - SkyBorne, December 2013
     - Carlsbad, January 2014
     - Palm Springs, February 2014
@@ -38,4 +41,4 @@ Save_as: brag-doc.html
     - San Luis Obispo, October 2014
     - Santa Barbara, November 2014
     - SkyBorne, December 2014
-9. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
+10. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
