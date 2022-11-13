@@ -5,7 +5,7 @@ Tags: django, open source
 Slug: contributing-to-django
 Status: published
 
-I went to [DjangoCon US](https://2022.djangocon.us) a few weeks ago and [hung around for the sprints](https://twitter.com/pauloxnet/status/1583350887375773696). I was particularly interested in working on open tickets related to the ORM. It so happened that [Simon Charrette](https://github.com/charettes) was at Django Con and was able to meet with several of us to talk through the inner working of the ORM.
+I went to [DjangoCon US](https://2022.djangocon.us) a few weeks ago and [hung around for the sprints](https://twitter.com/pauloxnet/status/1583350887375773696). I was particularly interested in working on open tickets related to the ORM. It so happened that [Simon Charette](https://github.com/charettes) was at Django Con and was able to meet with several of us to talk through the inner working of the ORM.
 
 With Simon helping to guide us, I took a stab at an open ticket and settled on [10070](https://code.djangoproject.com/ticket/10070). After reviewing it on my own, and then with Simon, it looked like it wasn't really a bug anymore, and so we agreed that I could mark it as [done](https://code.djangoproject.com/ticket/10070#comment:22).
 
