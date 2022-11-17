@@ -28,7 +28,7 @@ Responsible for the design, development and implementation of Business Informati
 	* Provider Management System
 * Had two teams recognized as Administrative Department / Team of the year
 	* NextGen Support Services in 2017
-	* Health Plan Auditing and Reporting in 2019 (this is the last year that the aware was given due to COVID-19 Pandemic)
+	* Health Plan Auditing and Reporting in 2019 (this is the last year that the award was given due to COVID-19 Pandemic)
 
 
 ### February 2012 - July 2016
