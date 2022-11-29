@@ -18,8 +18,6 @@ Responsible for the design, development and implementation of Business Informati
 * Implemented dimensional data warehouse
 * Instituted 1 on 1's with staff
 * Worked with Interdisciplinary team to implement new Life Planning process across Enterprise
-* During COVID-19 pandemic had first team in organization that was fully remote
-* During COVID-19 pandemic team saw increase in productivity with work from home
 * Lead team to implement several clinical and business workflow improvements
 	* Auth Queue
 	* COVID Tracking System
