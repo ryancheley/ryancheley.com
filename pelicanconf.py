@@ -20,11 +20,17 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-STATIC_PATHS = ["images", "static/robots.txt", "static/favicon.ico"]
+STATIC_PATHS = [
+    "images",
+    "static/robots.txt",
+    "static/favicon.ico",
+    ".well-known/webfinger",
+]
 
 EXTRA_PATH_METADATA = {
     "static/robots.txt": {"path": "robots.txt"},
     "static/favicon.ico": {"path": "favicon.ico"},
+    ".well-known/webfinger": {"path": ".well-known/webfinger"},
 }
 
 DISPLAY_CATEGORIES_ON_MENU = False
