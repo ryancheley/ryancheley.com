@@ -20,10 +20,12 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-STATIC_PATHS = [
-    "images",
-    "static/robots.txt",
-]
+STATIC_PATHS = ["images", "static/robots.txt", "static/favicon.ico"]
+
+EXTRA_PATH_METADATA = {
+    "static/robots.txt": {"path": "robots.txt"},
+    "static/favicon.ico": {"path": "favicon.ico"},
+}
 
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
