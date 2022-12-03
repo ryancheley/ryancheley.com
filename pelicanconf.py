@@ -22,7 +22,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 STATIC_PATHS = [
     "images",
-    "robots.txt",
+    "static/robots.txt",
 ]
 
 DISPLAY_CATEGORIES_ON_MENU = False
