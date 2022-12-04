@@ -1,6 +1,8 @@
 beautifulsoup4>=4.10.0
+click
 datasette-publish-vercel>=0.12
 Markdown>=3.3.6
+Mastodon.py
 pelican>=4.7
 pelican-series>=2.1
 pelican-simple-footnotes>=1.0
