@@ -152,3 +152,7 @@ test.css
 
 # cog
 cog_articles/*
+
+# mastodon
+toot.py
+*.secret
