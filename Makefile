@@ -92,4 +92,8 @@ newpost:
 	echo "Series: Remove if Not Needed"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 	echo "Status: draft"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 
-.PHONY: html help clean regenerate serve serve-global devserver publish vercel tweet
+reqs:
+	pip-compile
+	pip install -r requirements.txt
+
+.PHONY: html help clean regenerate serve serve-global devserver publish vercel tweet reqs
