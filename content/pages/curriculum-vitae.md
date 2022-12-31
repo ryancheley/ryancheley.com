@@ -18,6 +18,7 @@ Responsible for the design, development and implementation of Business Informati
 * Implemented dimensional data warehouse
 * Instituted 1 on 1's with staff
 * Worked with Interdisciplinary team to implement new Life Planning process across Enterprise
+* Implemented fully automated solution for inbound and outbound of 837P and 837I Files
 * Lead team to implement several clinical and business workflow improvements
 	* Auth Queue
 	* COVID Tracking System
