@@ -25,9 +25,11 @@ Save_as: brag-doc.html
         - The package is featured in the [Rich Gallery](https://www.textualize.io/rich/gallery/4)
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
 6. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett)
-7. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
-8. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
-9. Ran 13 half marathons in 13 months
+7. Certifications:
+    - [Google Cloud Platform Cloud Architect](https://cloud.google.com/certification/cloud-architect)
+8. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
+9. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
+10. Ran 13 half marathons in 13 months
     - SkyBorne, December 2013
     - Carlsbad, January 2014
     - Palm Springs, February 2014
@@ -41,4 +43,4 @@ Save_as: brag-doc.html
     - San Luis Obispo, October 2014
     - Santa Barbara, November 2014
     - SkyBorne, December 2014
-10. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
+11. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
