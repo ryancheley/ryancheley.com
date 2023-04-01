@@ -7,3 +7,5 @@ pelican
 pelican-series
 pelican-simple-footnotes
 pelican-to-sqlite
+pip-tools
+pre-commit
