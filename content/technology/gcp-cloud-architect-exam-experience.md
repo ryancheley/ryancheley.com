@@ -5,8 +5,6 @@ Tags: gcp,
 Slug: gcp-cloud-architect-exam-experience
 Status: published
 
-Notes:
-
 [Last October it was announced](https://www.fiercehealthcare.com/health-tech/google-health-notches-another-provider-partner-care-studio) that Desert Oasis Healthcare (the company I work for) signed on to pilot [Google's Care Studio](https://health.google/caregivers/care-studio/). DOHC is the first ambulatory clinic to sign on. 
 
 I had been in some of the discovery meetings before the announcement and was really excited about the opportunity. So far our use of any Cloud platforms at work has been extremely limited (that is to say, we don't use ANY of the big three cloud solutions for our tech) so this seemed to provide a really good opportunity. 
