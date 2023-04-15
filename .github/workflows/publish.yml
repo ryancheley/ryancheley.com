@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: deploy code
         uses: appleboy/ssh-action@v0.1.2
@@ -17,29 +17,14 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
 
           script: |
-            rm -rf ryancheley.com
             git clone git@github.com:ryancheley/ryancheley.com.git
 
             source /home/ryancheley/venv/bin/activate
 
-            cp -r ryancheley.com/* /home/ryancheley/
-
-            cd /home/ryancheley
+            cp -r ryancheley.com/* .
 
             pip install -r requirements.txt
 
             pelican content -s publishconf.py
 
-  tweet:
-    needs: [deploy]
-    runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, 'New Post:')"
-    steps:
-      - name: new post tweet
-        uses: ethomson/send-tweet-action@v1
-        with:
-          status: ${{ github.event.head_commit.message }}
-          consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
-          consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
-          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+            rm -rf ryancheley.com/
