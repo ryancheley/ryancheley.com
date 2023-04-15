@@ -26,7 +26,7 @@ Save_as: brag-doc.html
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
 6. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett)
 7. Certifications:
-    - [Google Cloud Platform Cloud Architect](https://cloud.google.com/certification/cloud-architect)
+    - [Google Cloud Platform Cloud Architect]([https://cloud.google.com/certification/cloud-architect](https://www.credential.net/f8e9ee03-67cb-48e3-8d3e-d824afc6265b?key=38397759fd07a2225d694c34d34f994bcdde3b9922962d865e4e9c6df478f139))
 8. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
 9. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
 10. Ran 13 half marathons in 13 months
