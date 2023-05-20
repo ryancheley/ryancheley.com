@@ -28,6 +28,7 @@ Responsible for the design, development and implementation of Business Informati
 * Had two teams recognized as Administrative Department / Team of the year
 	* NextGen Support Services in 2017
 	* Health Plan Auditing and Reporting in 2019 (this is the last year that the award was given due to COVID-19 Pandemic)
+* Recognized by [KLAS Research](https://klasresearch.com/) with a Points of Light Award for Provider/Payer Collaboration in 2023
 
 
 ### February 2012 - July 2016
