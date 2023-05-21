@@ -4,67 +4,59 @@
 #
 #    pip-compile
 #
-aiofiles==0.8.0
+aiofiles==23.1.0
     # via datasette
-anyio==3.5.0
+anyio==3.6.2
     # via httpcore
 asgi-csrf==0.9
     # via datasette
-asgiref==3.4.1
-    # via
-    #   datasette
-    #   uvicorn
-beautifulsoup4==4.10.0
+asgiref==3.6.0
+    # via datasette
+beautifulsoup4==4.12.2
     # via -r requirements.in
-blinker==1.4
+blinker==1.6.2
     # via pelican
 blurhash==1.1.4
     # via mastodon-py
 build==0.10.0
     # via pip-tools
-certifi==2021.10.8
+certifi==2023.5.7
     # via
     #   httpcore
     #   httpx
     #   requests
 cfgv==3.3.1
     # via pre-commit
-charset-normalizer==2.0.10
-    # via
-    #   httpx
-    #   requests
-click==8.0.3
+charset-normalizer==3.1.0
+    # via requests
+click==8.1.3
     # via
     #   -r requirements.in
-    #   click-default-group
+    #   click-default-group-wheel
     #   datasette
     #   pelican-to-sqlite
     #   pip-tools
     #   sqlite-utils
     #   uvicorn
-click-default-group==1.2.2
+click-default-group-wheel==1.2.2
     # via
     #   datasette
     #   sqlite-utils
-colorama==0.4.4
-    # via rich
-commonmark==0.9.1
-    # via rich
-datasette==0.60
+datasette==0.64.3
     # via datasette-publish-vercel
-datasette-publish-vercel==0.12.1
+datasette-publish-vercel==0.14.2
     # via -r requirements.in
 decorator==5.1.1
     # via mastodon-py
 distlib==0.3.6
     # via virtualenv
-docutils==0.18.1
+docutils==0.20.1
     # via pelican
-feedgenerator==2.0.0
+feedgenerator==2.1.0
     # via pelican
-filelock==3.10.7
+filelock==3.12.0
     # via virtualenv
-h11==0.12.0
+h11==0.14.0
     # via
     #   httpcore
     #   uvicorn
@@ -72,44 +64,46 @@ html2text==2020.1.16
     # via pelican-to-sqlite
 html5lib==1.1
     # via pelican-simple-footnotes
-httpcore==0.14.4
+httpcore==0.17.1
     # via httpx
-httpx==0.21.3
+httpx==0.24.1
     # via datasette
-hupper==1.10.3
+hupper==1.12
     # via datasette
-identify==2.5.22
+identify==2.5.24
     # via pre-commit
-idna==3.3
+idna==3.4
     # via
     #   anyio
+    #   httpx
     #   requests
-    #   rfc3986
-itsdangerous==2.0.1
+itsdangerous==2.1.2
     # via
     #   asgi-csrf
     #   datasette
 janus==1.0.0
     # via datasette
-jinja2==3.0.3
+jinja2==3.1.2
     # via
     #   datasette
     #   pelican
-markdown==3.3.6
+markdown==3.4.3
     # via -r requirements.in
-markupsafe==2.0.1
+markdown-it-py==2.2.0
+    # via rich
+markupsafe==2.1.2
     # via jinja2
-mastodon-py==1.8.0
+mastodon-py==1.8.1
     # via -r requirements.in
+mdurl==0.1.2
+    # via markdown-it-py
 mergedeep==1.3.4
     # via datasette
-nodeenv==1.7.0
+nodeenv==1.8.0
     # via pre-commit
-packaging==21.3
-    # via
-    #   build
-    #   pint
-pelican==4.7.2
+packaging==23.1
+    # via build
+pelican==4.8.0
     # via
     #   -r requirements.in
     #   pelican-series
@@ -121,26 +115,22 @@ pelican-simple-footnotes==1.0.2
     # via -r requirements.in
 pelican-to-sqlite==0.5.0
     # via -r requirements.in
-pint==0.18
+pint==0.21
     # via datasette
-pip-tools==6.12.3
+pip-tools==6.13.0
     # via -r requirements.in
-platformdirs==3.2.0
+platformdirs==3.5.1
     # via virtualenv
 pluggy==1.0.0
     # via datasette
-pre-commit==3.2.1
+pre-commit==3.3.2
     # via -r requirements.in
-pygments==2.10.0
+pygments==2.15.1
     # via
     #   pelican
     #   rich
-pyparsing==3.0.6
-    # via packaging
 pyproject-hooks==1.0.0
     # via build
-python-baseconv==1.2.2
-    # via datasette
 python-dateutil==2.8.2
     # via
     #   mastodon-py
@@ -148,9 +138,9 @@ python-dateutil==2.8.2
     #   sqlite-utils
 python-magic==0.4.27
     # via mastodon-py
-python-multipart==0.0.5
+python-multipart==0.0.6
     # via asgi-csrf
-pytz==2021.3
+pytz==2023.3
     # via
     #   feedgenerator
     #   pelican
@@ -158,40 +148,37 @@ pyyaml==6.0
     # via
     #   datasette
     #   pre-commit
-requests==2.28.1
+requests==2.30.0
     # via mastodon-py
-rfc3986[idna2008]==1.5.0
-    # via httpx
-rich==10.16.0
+rich==13.3.5
     # via pelican
 six==1.16.0
     # via
     #   html5lib
     #   mastodon-py
     #   python-dateutil
-    #   python-multipart
-sniffio==1.2.0
+sniffio==1.3.0
     # via
     #   anyio
     #   httpcore
     #   httpx
-soupsieve==2.3.1
+soupsieve==2.4.1
     # via beautifulsoup4
-sqlite-fts4==1.0.1
+sqlite-fts4==1.0.3
     # via sqlite-utils
-sqlite-utils==3.22
+sqlite-utils==3.31
     # via pelican-to-sqlite
-tabulate==0.8.9
+tabulate==0.9.0
     # via sqlite-utils
-typing-extensions==4.0.1
+typing-extensions==4.5.0
     # via janus
-unidecode==1.3.2
+unidecode==1.3.6
     # via pelican
-urllib3==1.26.13
+urllib3==2.0.2
     # via requests
-uvicorn==0.17.0
+uvicorn==0.22.0
     # via datasette
-virtualenv==20.21.0
+virtualenv==20.23.0
     # via pre-commit
 webencodings==0.5.1
     # via html5lib
