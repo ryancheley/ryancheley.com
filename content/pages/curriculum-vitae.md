@@ -7,28 +7,26 @@ Save_as: curriculum-vitae.html
 
 **Regional Director Business Informatics, DESERT OASIS HEALTHCARE**
 
-Responsible for the design, development and implementation of Business Information processes, system upgrades, and reporting to support both Clinical and Administrative operations through the efficient and effective use of technology solutions. I lead a team that works with the senior- and clinical-managers at several Heritage Provider Network Companies including Desert Oasis Healthcare, Arizona Priority Care, and several Hospice companies to build and maintain web application workflow improvement solutions, dashboards and ad-hoc reports, as well as maintain Health Plan Authorization and Claim Letters, submission of Health Plan Reports, and Claim Inload and Encounter Reporting to contracted Health Plans.
+I am entrusted with the strategic oversight of designing, developing, and implementing cutting-edge Business Information processes, system upgrades, and reporting mechanisms to optimize both Clinical and Administrative operations through the proficient and effective utilization of state-of-the-art technology solutions. Leading a dynamic and high-performing team, I collaborate closely with senior and clinical managers across multiple prestigious Heritage Provider Network Companies, including Desert Oasis Healthcare, Arizona Priority Care, and various Hospice organizations.
 
-* Directed daily operations of 8 employees working in 2 states including 2 supervisors who oversee 7 total employees
-* Actively worked to professionally grow staff with promotion of 2 front line staff to supervisor positions;
-* Implemented Agile Development Process for Web Developers
-* Implemented Kanban Development for Report Developers
-* Implemented Enterprise Reporting Solutions using SSRS and Tableau
-* Lead effort for cross training of staff to maximize support capabilities of team
-* Implemented dimensional data warehouse
-* Instituted 1 on 1's with staff
-* Worked with Interdisciplinary team to implement new Life Planning process across Enterprise
-* Implemented fully automated solution for inbound and outbound of 837P and 837I Files
-* Lead team to implement several clinical and business workflow improvements
-	* Auth Queue
-	* COVID Tracking System
-	* Claim Tracker System
-	* Referral Tracking System
-	* Provider Management System
-* Had two teams recognized as Administrative Department / Team of the year
-	* NextGen Support Services in 2017
-	* Health Plan Auditing and Reporting in 2019 (this is the last year that the award was given due to COVID-19 Pandemic)
-* Recognized by [KLAS Research](https://klasresearch.com/) with a Points of Light Award for Provider/Payer Collaboration in 2023
+My core responsibilities encompass spearheading the creation and maintenance of innovative web application workflow improvement solutions, robust dashboards, and agile ad-hoc reports. Furthermore, I am accountable for ensuring seamless management of critical functions, such as Health Plan Authorization and Claim Letters, timely submission of Health Plan Reports, and the seamless orchestration of Claim Inload and Encounter Reporting to contracted Health Plans.
+
+By harnessing my expertise and demonstrating strong leadership acumen, I significantly contribute to elevating operational efficiency, driving performance optimization, and maximizing the strategic leverage of cutting-edge technological advancements for the benefit of these esteemed organizations.
+
+* Directed daily operations of 8 employees working across 2 states, including 2 supervisors overseeing a total of 7 employees
+* Promoted 2 front-line staff members to supervisor positions, fostering professional growth within the team
+* Implemented Agile Development Process to enhance efficiency and flexibility for Web Developers
+* Introduced Kanban Development methodology for Report Developers, optimizing workflow management
+* Implemented enterprise reporting solutions using SSRS and Tableau, enabling comprehensive and insightful reporting capabilities
+* Led cross-training initiatives to maximize team support capabilities and enhance overall efficiency
+* Orchestrated the implementation of a dimensional data warehouse for improved data integrity and advanced analytics
+* Instituted regular 1-on-1 meetings with staff to foster open communication and a supportive work environment
+* Collaborated with an interdisciplinary team to implement a new Life Planning process across the enterprise
+* Successfully implemented a fully automated solution for inbound and outbound 837P and 837I Files
+* Led the team in implementing various clinical and business workflow improvements, including Auth Queue, COVID Tracking System, Claim Tracker System, Referral Tracking System, and Provider Management System
+* Received Administrative Department/Team of the Year recognition for NextGen Support Services in 2017
+* Earned recognition as Administrative Department/Team of the Year for Health Plan Auditing and Reporting in 2019
+* Honored with the Points of Light Award for Provider/Payer Collaboration in 2023 by [KLAS Research](https://klasresearch.com/), affirming dedication to collaborative excellence in the healthcare industry.
 
 
 ### February 2012 - July 2016
