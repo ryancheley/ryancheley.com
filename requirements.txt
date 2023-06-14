@@ -123,7 +123,7 @@ platformdirs==3.5.1
     # via virtualenv
 pluggy==1.0.0
     # via datasette
-pre-commit==3.3.2
+pre-commit==3.3.3
     # via -r requirements.in
 pygments==2.15.1
     # via
