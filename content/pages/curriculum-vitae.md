@@ -49,6 +49,7 @@ Responsible for the maintenance of the Member Roster for the Living & Aging Well
 
 * Converted Member Roster from Excel format with no reporting capabilities to MS Access Database with rich feature set of reporting that allowed Medical Director to make quicker, more informed decisions
 * Received Peer Award for Most Dependable (2011)
+* Received Administrative Services Star of the Month (i.e. Employee of the Month) July 2010
 * Created Managed Care Templates in NextGen EHR that facilitated the integration of Primary Care Medical Records with Case Management Records
 
 ### March 2006 – November 2008
