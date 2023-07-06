@@ -80,3 +80,9 @@ SHOW_FULL_ARTICLE = True
 # RELATIVE_URLS = True
 
 DISABLE_CUSTOM_THEME_JAVASCRIPT = True
+
+SITEMAP = {
+    "format": "xml",
+    "priorities": {"articles": 0.75, "indexes": 0.5, "pages": 0.5},
+    "changefreqs": {"articles": "monthly", "indexes": "daily", "pages": "monthly"},
+}

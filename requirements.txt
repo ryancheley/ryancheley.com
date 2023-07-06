@@ -6,11 +6,11 @@
 #
 aiofiles==23.1.0
     # via datasette
-anyio==3.6.2
+anyio==3.7.1
     # via httpcore
 asgi-csrf==0.9
     # via datasette
-asgiref==3.6.0
+asgiref==3.7.2
     # via datasette
 beautifulsoup4==4.12.2
     # via -r requirements.in
@@ -54,7 +54,7 @@ docutils==0.20.1
     # via pelican
 feedgenerator==2.1.0
     # via pelican
-filelock==3.12.0
+filelock==3.12.2
     # via virtualenv
 h11==0.14.0
     # via
@@ -64,7 +64,7 @@ html2text==2020.1.16
     # via pelican-to-sqlite
 html5lib==1.1
     # via pelican-simple-footnotes
-httpcore==0.17.1
+httpcore==0.17.3
     # via httpx
 httpx==0.24.1
     # via datasette
@@ -89,9 +89,9 @@ jinja2==3.1.2
     #   pelican
 markdown==3.4.3
     # via -r requirements.in
-markdown-it-py==2.2.0
+markdown-it-py==3.0.0
     # via rich
-markupsafe==2.1.2
+markupsafe==2.1.3
     # via jinja2
 mastodon-py==1.8.1
     # via -r requirements.in
@@ -108,22 +108,25 @@ pelican==4.8.0
     #   -r requirements.in
     #   pelican-series
     #   pelican-simple-footnotes
+    #   pelican-sitemap
     #   pelican-to-sqlite
 pelican-series==2.1.0
     # via -r requirements.in
 pelican-simple-footnotes==1.0.2
     # via -r requirements.in
+pelican-sitemap==1.0.2
+    # via -r requirements.in
 pelican-to-sqlite==0.5.0
     # via -r requirements.in
-pint==0.21
+pint==0.22
     # via datasette
-pip-tools==6.13.0
+pip-tools==6.14.0
     # via -r requirements.in
-platformdirs==3.5.1
+platformdirs==3.8.0
     # via virtualenv
-pluggy==1.0.0
+pluggy==1.2.0
     # via datasette
-pre-commit==3.3.2
+pre-commit==3.3.3
     # via -r requirements.in
 pygments==2.15.1
     # via
@@ -148,9 +151,9 @@ pyyaml==6.0
     # via
     #   datasette
     #   pre-commit
-requests==2.30.0
+requests==2.31.0
     # via mastodon-py
-rich==13.3.5
+rich==13.4.2
     # via pelican
 six==1.16.0
     # via
@@ -166,19 +169,21 @@ soupsieve==2.4.1
     # via beautifulsoup4
 sqlite-fts4==1.0.3
     # via sqlite-utils
-sqlite-utils==3.31
+sqlite-utils==3.33
     # via pelican-to-sqlite
 tabulate==0.9.0
     # via sqlite-utils
-typing-extensions==4.5.0
-    # via janus
+typing-extensions==4.7.1
+    # via
+    #   janus
+    #   pint
 unidecode==1.3.6
     # via pelican
-urllib3==2.0.2
+urllib3==2.0.3
     # via requests
 uvicorn==0.22.0
     # via datasette
-virtualenv==20.23.0
+virtualenv==20.23.1
     # via pre-commit
 webencodings==0.5.1
     # via html5lib
