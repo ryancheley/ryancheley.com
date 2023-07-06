@@ -63,7 +63,7 @@ LINKS = (
 
 # Social widget
 SOCIAL = (
-    ("Twitter", "https://twitter.com/ryancheley/"),
+    ("Mastodon", "https://mastodon.social/@ryancheley"),
     ("GitHub", "https://github.com/ryancheley"),
     ("LinkedIn", "https://www.linkedin.com/in/ryan-cheley/"),
 )
@@ -71,8 +71,6 @@ SOCIAL = (
 SHOW_SOCIAL_ON_INDEX_PAGE_HEADER = True
 
 DEFAULT_PAGINATION = 10
-
-TWITTER_USERNAME = "ryancheley"
 
 COLOR_SCHEME_CSS = "github.css"
 
