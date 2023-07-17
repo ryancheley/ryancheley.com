@@ -124,7 +124,7 @@ pelican-to-sqlite==0.5.0
     # via -r requirements.in
 pint==0.22
     # via datasette
-pip-tools==6.14.0
+pip-tools==7.0.0
     # via -r requirements.in
 platformdirs==3.8.0
     # via virtualenv
