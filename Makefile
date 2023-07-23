@@ -96,4 +96,7 @@ reqs:
 	pip-compile
 	pip install -r requirements.txt
 
+draft:
+	./find_draft_status.sh
+
 .PHONY: html help clean regenerate serve serve-global devserver publish vercel tweet reqs
