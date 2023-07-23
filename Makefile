@@ -78,8 +78,8 @@ vercel:
 	echo "Publishing complete"; \
 	}
 
-tweet:
-	./tweet.sh
+toot:
+	./toot.sh
 
 newpost:
 	touch content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
