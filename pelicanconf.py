@@ -25,11 +25,13 @@ STATIC_PATHS = [
     "static/robots.txt",
     "static/favicon.ico",
     ".well-known/webfinger",
+    "static/rss-style.xsl",
 ]
 
 EXTRA_PATH_METADATA = {
     "static/robots.txt": {"path": "robots.txt"},
     "static/favicon.ico": {"path": "favicon.ico"},
+    "static/rss-style.xsl": {"path": "rss-style.xsl"},
     ".well-known/webfinger": {"path": ".well-known/webfinger"},
 }
 
