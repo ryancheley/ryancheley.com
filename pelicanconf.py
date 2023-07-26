@@ -10,6 +10,8 @@ PATH = "content"
 
 THEME = "pelican-clean-blog"
 
+FEED_STYLESHEET = "/static/rss-style.xsl"
+
 TIMEZONE = "America/Los_Angeles"
 
 DEFAULT_LANG = "en"
