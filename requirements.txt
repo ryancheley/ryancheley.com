@@ -56,6 +56,8 @@ distlib==0.3.7
     # via virtualenv
 docutils==0.20.1
     # via pelican
+exceptiongroup==1.1.2
+    # via anyio
 feedgenerator==2.1.0
     # via pelican
 filelock==3.12.2
@@ -74,7 +76,7 @@ httpx==0.24.1
     # via datasette
 hupper==1.12
     # via datasette
-identify==2.5.25
+identify==2.5.26
     # via pre-commit
 idna==3.4
     # via
@@ -110,17 +112,20 @@ packaging==23.1
 pelican==4.8.0
     # via
     #   -r requirements.in
+    #   pelican-feed-stylesheet
     #   pelican-series
     #   pelican-simple-footnotes
     #   pelican-sitemap
     #   pelican-to-sqlite
+pelican-feed-stylesheet==0.0.1
+    # via -r requirements.in
 pelican-series==2.1.0
     # via -r requirements.in
 pelican-simple-footnotes==1.0.2
     # via -r requirements.in
-pelican-sitemap==1.0.3
+pelican-sitemap==1.1.0
     # via -r requirements.in
-pelican-to-sqlite==0.5.0
+pelican-to-sqlite==0.6.0
     # via -r requirements.in
 pint==0.22
     # via datasette
@@ -129,7 +134,9 @@ pip-tools==7.1.0
 platformdirs==3.9.1
     # via virtualenv
 pluggy==1.2.0
-    # via datasette
+    # via
+    #   datasette
+    #   sqlite-utils
 pre-commit==3.3.3
     # via -r requirements.in
 pygments==2.15.1
@@ -173,12 +180,18 @@ soupsieve==2.4.1
     # via beautifulsoup4
 sqlite-fts4==1.0.3
     # via sqlite-utils
-sqlite-utils==3.33
+sqlite-utils==3.34
     # via pelican-to-sqlite
 tabulate==0.9.0
     # via sqlite-utils
+tomli==2.0.1
+    # via
+    #   build
+    #   pip-tools
+    #   pyproject-hooks
 typing-extensions==4.7.1
     # via
+    #   asgiref
     #   janus
     #   pint
     #   uvicorn
@@ -188,7 +201,7 @@ urllib3==2.0.4
     # via requests
 uvicorn==0.23.1
     # via datasette
-virtualenv==20.24.1
+virtualenv==20.24.2
     # via pre-commit
 webencodings==0.5.1
     # via html5lib
