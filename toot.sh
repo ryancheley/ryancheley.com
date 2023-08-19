@@ -34,11 +34,11 @@ else
     then
         MESSAGE="New Post: $TITLE $URL"
 
-        # python toot.py --title="$TITLE" --date="$POST_DATE" --slug="$SLUG"
+        python toot.py --title="$TITLE" --date="$POST_DATE" --slug="$SLUG"
 
-        # git commit -m "$MESSAGE"
+        git commit -m "$MESSAGE"
 
-        # git push github main
+        git push github main
 
         echo "$MESSAGE"
     fi
