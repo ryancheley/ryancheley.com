@@ -1,13 +1,16 @@
 version: 2
 updates:
-# Maintain Python dependencies my Pelican Site
   - package-ecosystem: pip
     directory: "/"
     schedule:
       interval: daily
-      time: "05:00"
-      timezone: "Etc/UTC"
+    groups:
+        python-packages:
+          patterns:
+            - "*"
     target-branch: "main"
+    commit-message:
+      prefix: "pip prod"
+      include: "scope"
     labels:
-      - maintenance
-      - dependencies
+      - "maintenance"
