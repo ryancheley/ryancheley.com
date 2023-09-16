@@ -1,0 +1,18 @@
+name: New Post
+description: Create idea for a new post
+title: "[New Post]: "
+labels: ["💡post idea"]
+assignees:
+  - ryancheley
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Capture idea for a new post
+  - type: textarea
+    id: post-idea
+    attributes:
+      label: Post Idea
+      description: Enter short description for the post
+    validations:
+      required: true
