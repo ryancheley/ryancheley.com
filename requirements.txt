@@ -91,7 +91,7 @@ jinja2==3.1.2
     # via
     #   datasette
     #   pelican
-markdown==3.4.4
+markdown==3.5
     # via -r requirements.in
 markdown-it-py==3.0.0
     # via rich
