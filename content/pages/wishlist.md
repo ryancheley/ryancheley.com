@@ -1,3 +1,6 @@
+Title: Wish List
+Save_as: wish-list.html
+
 # Gift Wish List
 
 - [PowerBlock Adjustable Dumbbells For Home Gym & Commercial Use](https://powerblock.com/product/pro-50-adjustable-dumbbells/)
