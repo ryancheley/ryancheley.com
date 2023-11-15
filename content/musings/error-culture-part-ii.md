@@ -1,7 +1,7 @@
 Title: Error Culture Part II
 Date: 2023-11-09
 Author: ryan
-Tags:
+Tags: culture, programming
 Slug: error-culture-part-ii
 Series: Error Culture
 Status: published
