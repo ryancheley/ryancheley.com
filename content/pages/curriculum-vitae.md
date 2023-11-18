@@ -5,7 +5,7 @@ Save_as: curriculum-vitae.html
 
 ### July 2016 - Present
 
-**Regional Director Business Informatics, DESERT OASIS HEALTHCARE**
+**Senior Regional Director Business Informatics, DESERT OASIS HEALTHCARE**
 
 I am entrusted with the strategic oversight of designing, developing, and implementing cutting-edge Business Information processes, system upgrades, and reporting mechanisms to optimize both Clinical and Administrative operations through the proficient and effective utilization of state-of-the-art technology solutions. Leading a dynamic and high-performing team, I collaborate closely with senior and clinical managers across multiple prestigious Heritage Provider Network Companies, including Desert Oasis Healthcare, Arizona Priority Care, and various Hospice organizations.
 
