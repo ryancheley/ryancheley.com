@@ -33,15 +33,17 @@ Save_as: brag-doc.html
         - The package is featured in the [Rich Gallery](https://www.textualize.io/rich/gallery/4)
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
 3. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett)
+4. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
+5. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
+
+# Certifications
+
+1. [Google Cloud Platform Cloud Architect](https://www.credential.net/f8e9ee03-67cb-48e3-8d3e-d824afc6265b?key=38397759fd07a2225d694c34d34f994bcdde3b9922962d865e4e9c6df478f139)
+2. Certified EDI Academy Professional
 
 # Other
 
-1. Certifications:
-    - [Google Cloud Platform Cloud Architect](https://www.credential.net/f8e9ee03-67cb-48e3-8d3e-d824afc6265b?key=38397759fd07a2225d694c34d34f994bcdde3b9922962d865e4e9c6df478f139)
-    - Certified EDI Academy Professional
-2. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
-3. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
-4. Ran 13 half marathons in 13 months
+1. Ran 13 half marathons in 13 months
     - SkyBorne, December 2013
     - Carlsbad, January 2014
     - Palm Springs, February 2014
@@ -55,5 +57,5 @@ Save_as: brag-doc.html
     - San Luis Obispo, October 2014
     - Santa Barbara, November 2014
     - SkyBorne, December 2014
-5. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
-6. Created a [Django site to track Stadiums](https://stadiatracker.com/Pages/home) that I've visited
+2. Member of [Bermuda Dunes Community Council](https://rivco4.org/Councils/Community-Councils), September 2009 - June 2013
+3. Created a [Django site to track Stadiums](https://stadiatracker.com/Pages/home) that I've visited
