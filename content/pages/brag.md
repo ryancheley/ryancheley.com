@@ -3,7 +3,7 @@ Save_as: brag-doc.html
 
 # Speaking / Podcasts
 
-1. Speaker at DjanogCon US 2023: [Contributing to Django or how I learned to stop worrying and just try to fix an ORM Bug](https://2023.djangocon.us/talks/contributing-to-django-or-how-i-learned-to-stop-worrying-and-just-try-to-fix-an-orm-bug/)
+1. Speaker at DjanogCon US 2023: [Contributing to Django or how I learned to stop worrying and just try to fix an ORM Bug](https://youtu.be/VPldDxuJDsg?si=r2ob3j4zIeYZY7tO)
 2. Guest on [Test & Code episode 183](https://testandcode.com/183) where I spoke about the "challenges of managing software teams, and how to handle them" and other skills
 
 # Guest Writing
