@@ -1,0 +1,1415 @@
+<div class="slide">
+  <img src="Slide001.jpeg" alt="Contributing to Django
+How | learned to stop worrying and just try to
+fix an ORM Bug
+">
+  <p>Good morning, and welcome to my talk, "Contributing to Django … OR How I learned to stop worrying and just try to fix an ORM Bug"</p>
+</div>
+<div class="slide">
+  <img src="Slide002.jpeg" alt="First DjangoCon?
+">
+  <p>But before we get started, I wanted to see how many people are attending their first DjangoCon</p>
+<p>Awesome! I’m so glad that you’re all here. And welcome</p>
+</div>
+<div class="slide">
+  <img src="Slide003.jpeg" alt="Introduction
+Ryan Cheley
+">
+  <p>My name is Ryan Cheley. </p>
+<p>I’ve been using Python for about 7 years now, and Django for about 5 years</p>
+<p>I work for a Medical Services Organization in Southern California called Desert Oasis Healthcare</p>
+<p>Part of my duties include managing a team of web developers and one of our newer projects is an internal Django Application</p>
+<p>But today I'm going to talk about the fantastic experience I had in trying to fix a bug in the Django ORM</p>
+<p>But first, a side quest</p>
+</div>
+<div class="slide">
+  <img src="Slide004.jpeg" alt="The trail head at Mt. Whitney. It shows the elevation of this point at 13300 Feet (4159 meters) above Sea Level">
+  <p>When I was 15 my Boy Scout troop did a hiking trip to Mt Whitney. For those of you that don’t know,</p>
+<p>Mt Whitney is the highest peak in the contiguous United Stantes with an elevation of 14,505 ft (4421 meters). </p>
+<p>There I was at the Mt Whitney Trail Crest, 13,600 ft above sea level … that’s 4159 meters for our metric friends</p>
+<p>We had spent the 7 days hiking to get there. </p>
+<p>I was only 3 miles from the summit of Mt Whitney ... but I wasn't sure I could go any further.</p>
+<p>You see, my hiking companions told me I didn't look so good. </p>
+<p>Honestly, I didn't feel so good either. </p>
+<p>Did I make it to the summit? </p>
+</div>
+<div class="slide">
+  <img src="Slide005.jpeg" alt="Trying to get to DjangoCon US
+
+2018
+2019
+2020
+2021
+2022
+">
+  <p>I’ll say that getting to DjangoCon US at times felt an awful lot like trying to get to the summit of Mt Whitney</p>
+<p>I've been trying to make it to DjangoCon since 2018</p>
+<p>2018: But, I had a work conference I had to attend. </p>
+<p>2019: It happened again in 2019</p>
+<p>2020: I was <em>determined</em> to go in ... but then we locked down the world and none of got to go</p>
+<p>2021: I was able to attend the online version and had a great time</p>
+<p>2022: And then I finally made it in person 2022 … And it was amazing.</p>
+</div>
+<div class="slide">
+  <img src="Slide006.jpeg" alt="Participants of DjangoCon US 2022 in front of the Marriott Hotel pool">
+  <p>This is a shot of all of the participants at DjangoCon US last year in San Diego</p>
+<p>And yes, that is actually me circled there</p>
+<p><a href="https://www.flickr.com/photos/djangocon/52487681790/in/album-72177720303543873/">https://www.flickr.com/photos/djangocon/52487681790/in/album-72177720303543873/</a></p>
+</div>
+<div class="slide">
+  <img src="Slide007.jpeg" alt="Zoomed in picture on the speaker from DjangoCon US 2022 in San Diego">
+  <p>And here it is a little closer</p>
+<p><a href="https://www.flickr.com/photos/djangocon/52487681790/in/album-72177720303543873/">https://www.flickr.com/photos/djangocon/52487681790/in/album-72177720303543873/</a></p>
+</div>
+<div class="slide">
+  <img src="Slide008.jpeg" alt="Picture of the speaker Ryan Cheley">
+  <p>Here I am … I had <em>slightly</em> longer hair then and had maybe a little less gray in my beard</p>
+</div>
+<div class="slide">
+  <img src="Slide009.jpeg" alt="Sprints!">
+  <p>I was very excited about attending the sprints and working on <em>something</em> ORM related</p>
+<p>My strategy for finding a ticket was to look for something old, that seemed straightforward(ish) and then just go for it. </p>
+<p>I spent some time during the conference </p>
+<p>trying to find something that met that criteria, </p>
+<p>and by the day of the sprints </p>
+<p>I had been able to narrow it down </p>
+<p>to a single ticket</p>
+</div>
+<div class="slide">
+  <img src="Slide010.jpeg" alt="Criteria
+« Old?
+* January of 2009
+« Straightforward(ish)
+- satite
+* Ticket 10070
+« Title: Named parameters not working on raw sq queries with sglite
+* Reported by Matias Surdi
+">
+  <p>The critiria</p>
+<p>Old? </p>
+<ul>
+<li>It was opened in Jan of 2009 making it almost 14 years old at the time of the sprints</li>
+</ul>
+<p>Straightforward</p>
+<ul>
+<li>well, it’s related to SQLite which is a bit easier for me to set up as a database</li>
+</ul>
+<p>Ticket 10070</p>
+<ul>
+<li>Named parameters not working on raw sql queries with sqlite </li>
+<li>reported by Matias Surdi</li>
+</ul>
+</div>
+<div class="slide">
+  <img src="Slide011.jpeg" alt="Owner: changed from nobody to Ryan Cheley
+Status: new -&gt; Assigned
+I’&#39;m at DjangoCon US and I’&#39;m looking at this Ticket
+">
+  <p>I went into Trac and</p>
+<p>assigned the ticket to myself</p>
+<p>I added a comment: </p>
+<p>I’m at DjangoCon US and I’m looking at this ticket</p>
+</div>
+<div class="slide">
+  <img src="Slide012.jpeg" alt="Reviewing the Ticket">
+  <p>Reviewing the Ticket</p>
+<p>I was fortunate enough to have Simon Charette at the sprints last year</p>
+<p>For those of you that don’t know who Simon Charrette is, </p>
+<p>He’s a Django contributor that’s spent the last 10+ years working on the Django ORM and the migration framework</p>
+<p>I spent time reviewing the ticket, </p>
+<p>and after talk with Simon a bit about it</p>
+<p>It <em>seemed</em> as though it wasn't a problem anymore</p>
+</div>
+<div class="slide">
+  <img src="Slide013.jpeg" alt="My Trac Comment
+* raw_query\tests
+* tests that already exist
+* available
+* appear to be testing
+« the ticket is asking for
+">
+  <p>And so, I added a comment to the ticket </p>
+<p>In looking at the tests in raw_query\tests</p>
+<p>I see a few tests that already exist</p>
+<p>These are already available</p>
+<p>and appear to be testing the very thing that</p>
+<p>the ticket is asking for</p>
+</div>
+<div class="slide">
+  <img src="Slide014.jpeg" alt="Celebration Emoji">
+  <p>With that, </p>
+<p>I marked the Ticket as Done!</p>
+</div>
+<div class="slide">
+  <img src="Slide015.jpeg" alt="Comment
+* Thanks for looking into this. | can get back to work now :)
+* By Matias Surdi
+* The Reporter of the Issue!
+">
+  <p>Later that day a comment was added to the issue thanking me for working on the ticket … from the original reporter for the ticket Matias Surdi</p>
+</div>
+<div class="slide">
+  <img src="Slide016.jpeg" alt="Letting everyone know!
+The B is Silent @ryancheley - Oct 20, 2022
+I closed a ticket while at the #DjangoConUS2022 ¢ sprints with Simon
+Charette! https://t.co/lUTR1sOnE3A
+Qo Q 118 &amp;
+1D 1583206004744867841
+View on Twitter ¢
+">
+  <p>I was so excited that I let the world know about it on Twitter / X</p>
+<p>Here we see a screenshot of my tweet, which says:</p>
+<p>I closed a ticket while at DjangoConUS2022 sprints with Simon Charette</p>
+</div>
+<div class="slide">
+  <img src="Slide017.jpeg" alt="Runner Emoji">
+  <p>I spent the rest of my time at the sprints </p>
+<p>working on other </p>
+<p>non-ORM Django related tickets (a quick documentation update)</p>
+<p>in other Django adjacent projects (an update to Django Packages to add a View More button to the home page)</p>
+<p>All in all, I had an amazing time at the conference and the sprints last year, </p>
+<p>and met some truly amazing people</p>
+<p>as I’m sure you will this year. </p>
+<p>When it was all over</p>
+</div>
+<div class="slide">
+  <img src="Slide018.jpeg" alt="House Emoji">
+  <p>I headed home </p>
+<p>having been able to close a bug </p>
+<p>in the ORM!!!!</p>
+</div>
+<div class="slide">
+  <img src="Slide019.jpeg" alt="Image of Leonardo Dicaprio as Jack from James Cameron&#39;s 1997 file Titanic ">
+  <p>And I felt <em>really</em>, <em>really</em> good about this</p>
+<p>This is a scene from the James Cameron movie Titanic, released December 19, 1997, where Leonardo DiCaprio's character Jack Dawson says, “I’m the king of the world!”</p>
+<p>And that’s kind of how I felt</p>
+</div>
+<div class="slide">
+  <img src="Slide020.jpeg" alt="But then ...
+">
+
+</div>
+<div class="slide">
+  <img src="Slide021.jpeg" alt="Another Comment
+* Broken
+* mostly for Oracle and other backends
+">
+  <p>Shai Berger is a member of the Django Security team</p>
+<p>Sorry -- this is still broken on Sqlite. </p>
+<p>The additions and fixes mentioned are mostly for Oracle and other backends. </p>
+</div>
+<div class="slide">
+  <img src="Slide022.jpeg" alt="Another Comment
+* Sqglite backend
+* supports_paramstyle_pyformat
+* borks
+">
+  <p>The Sqlite backend, at the time I write this, </p>
+<p>still has supports_paramstyle_pyformat = False </p>
+<p>and still borks with a syntax error if you try to replicate the session in the ticket description.</p>
+</div>
+<div class="slide">
+  <img src="Slide023.jpeg" alt="What is supports_paramstyle_pyformat?
+*Flag
+esupport &#39;pyformat’ style
+">
+  <p>What is  supports_paramstyle_pyformat?</p>
+<p>It’s a flag</p>
+<p>That indicates if the backend (SQLite, Postgres, Oracle, etc) support 'pyformat' style </p>
+</div>
+<div class="slide">
+  <img src="Slide024.jpeg" alt="What is supports_paramstyle_pyformat?
+*(&quot;... %(name)s ...&quot;, {&#39;name&quot;: value})
+*SQLlite this was set to False
+">
+  <p>Which looks like this</p>
+<p>("... %(name)s ...", {'name': value})</p>
+<p>For SQLite this was set to False</p>
+</div>
+<div class="slide">
+  <img src="Slide025.jpeg" alt="Sad Emoji">
+  <p>Oh No!</p>
+<p>I was faced with two potential choices:</p>
+</div>
+<div class="slide">
+  <img src="Slide026.jpeg" alt="See, hear, speak no evil emoji">
+  <p>Choice 1</p>
+<p>Ignore the bug. </p>
+<p>It had been a bug for YEARS … as you’ll recall, it was opened on January 19, 2009</p>
+<p>and didn’t seem to have caused any MAJOR issues</p>
+</div>
+<div class="slide">
+  <img src="Slide027.jpeg" alt="Hammer and Wrench emoji">
+  <p>Choice 2</p>
+<p>Or</p>
+<p>I could try to Fix it</p>
+<p>… Try to work it on my “own”</p>
+</div>
+<div class="slide">
+  <img src="Slide028.jpeg" alt="Feelings ...
+">
+  <p>I also had lots of feelings surrounding the discovery of the bug still existing</p>
+</div>
+<div class="slide">
+  <img src="Slide029.jpeg" alt="Embarrassed">
+  <p>Embarrassed</p>
+<p>I declared it fixed on Twitter</p>
+<p>I had people at the Sprints ASK ME HOW I DID IT!</p>
+</div>
+<div class="slide">
+  <img src="Slide030.jpeg" alt="Disappointed">
+  <p>Disappointed</p>
+<p>I felt like I let people down</p>
+<p>I felt like I let <em>myself</em> down</p>
+</div>
+<div class="slide">
+  <img src="Slide031.jpeg" alt="Fear">
+  <p>Fear </p>
+<p>Imposter Syndrome – started to sink in</p>
+<p>that voice </p>
+<p>in the back of my head asking, </p>
+<p>“Can YOU really work on this on your own?”</p>
+<p>“Do you really have any idea what you’re doing?”</p>
+<p>ACTION: Take a sip of water</p>
+</div>
+<div class="slide">
+  <img src="Slide032.jpeg" alt="Community
+">
+  <p>But then I remembered a talk that Carlton Gibson gave </p>
+<p>at DjangoCon US in 2018 </p>
+<p>Titled </p>
+<p>“Your Web Framework Needs You”. </p>
+<p>It's a great talk and you should totally watch it, </p>
+<p>but here are the highlights that I got out of it</p>
+</div>
+<div class="slide">
+  <img src="Slide033.jpeg" alt="Your Web Framework Needs You!
+*Ticket difficulty
+*Time
+*Thought
+*Love
+">
+  <ol>
+<li>The vast majority of tickets are no harder than the work you do to solve problems every single day using Django</li>
+</ol>
+<ul>
+<li>Yes they need, time, </li>
+<li>thought, </li>
+<li>and a little bit of your love</li>
+<li>If you get stuck while trying to solve it you can ask for help!</li>
+</ul>
+</div>
+<div class="slide">
+  <img src="Slide034.jpeg" alt="Your Web Framework Needs You!
+*The Review Process can be challenging
+*Same Process
+*Not Personal
+*Make the code better
+">
+  <ol start="2">
+<li>The review process is challenging</li>
+</ol>
+<ul>
+<li>… but everyone gets the same review process; </li>
+<li>it’s not personal</li>
+<li>Where I work we always try to make the code review about the code and never about the person that wrote the code. We all want the code to be the best it can possibly be, and these code reviews, while challenging, will make the code better AND you’ll more than likely learn something. I found this to be true as I worked on this ticket. It was never about me, but always about making the code better</li>
+</ul>
+</div>
+<div class="slide">
+  <img src="Slide035.jpeg" alt="Your Web Framework Needs You!
+*You can do it!
+*You are qualified!
+">
+  <ol start="3">
+<li>You can do it.</li>
+</ol>
+<ul>
+<li>You are qualified! </li>
+<li>If you’ve spent time working on an issue you are the World Expert for that issue (ACTION: go to Next Slide)</li>
+</ul>
+</div>
+<div class="slide">
+  <img src="Slide036.jpeg" alt="The World Expert
+*  Wondering
+*  being worked
+* initial time-boxed investigation
+«  you&#39;ll be the world expert ™
+">
+  <p>And to drive that point home I’m going to talk about a comment on another issue.</p>
+<p>In June of 2021 Sarah Boyce, who is now a member of the Triage &amp; Review team, posted a comment on ticket 32359:</p>
+<p>I was wondering if this is </p>
+<p>being worked on or if I could try and pick it up, happy to work on it in a group as well</p>
+<p>To which former fellow Carlton Gibson replied</p>
+<p>Hi Sarah - you're very welcome to pick it up. :) </p>
+<p>I'd suggest an initial time-boxed investigation to work out what the state of play is.</p>
+<p>At that point you'll be the world expert TM on this issue, so either you'll have an idea or you'll want input. If you open a PR at that point (even just adding comments in the second case) to explain what's going on, it's easier for others to get up to speed and provide input</p>
+</div>
+<div class="slide">
+  <img src="Slide037.jpeg" alt="Working on the Ticket
+... again
+">
+  <p>And so with that</p>
+<p>I went to work on the ticket</p>
+<p>again</p>
+<p>I did what most of us probably do </p>
+<p>when we’re assigned a ticket for work, </p>
+<p>or on an open source or personal project </p>
+<p>(and honestly I should have done a better job of when I initially worked the ticket at the sprints last year)</p>
+</div>
+<div class="slide">
+  <img src="Slide038.jpeg" alt="Write down what you learned u
+Replicate the Bug %
+Read some docs -
+Write some code £+
+Test the Code /
+">
+  <p>Write down what you learned ... as your learning it
+Replicate the Bug
+Read some docs … which can include Doc strings!
+Write some code
+Test the code</p>
+<p>But before we can write down what we’ve learned, we need to learn some stuff!</p>
+</div>
+<div class="slide">
+  <img src="Slide039.jpeg" alt="Bug emoji">
+  <p>Replicate the Bug</p>
+</div>
+<div class="slide">
+  <img src="Slide040.jpeg" alt="Settings.py with psql connection string
+DATABASES = {
+&quot;default&quot;: {
+&quot;ENGINE&quot;: ”django.db.backends._&quot;,
+}
+}
+">
+  <p>First, I set up the connection to point to a Postgres Database</p>
+<p>Here we see a standard connection using the postgres Django Database Engine</p>
+</div>
+<div class="slide">
+  <img src="Slide041.jpeg" alt="Steps to Reproduce the Bug: Postgres
+&gt;&gt;&gt; from django.db import connection
+&gt;&gt;&gt; ¢ = connection.cursor()
+&gt;&gt;&gt; c.execute(&quot;select app_label from django_content_type where id =
+1&quot;
+&gt;&gt;&gt; c.execute(&quot;select app_label from django_content_type where id =
+%(id)s&quot;, {&#39;id&quot;&#39;1&#39;})
+">
+  <p>Taking the code from the original ticket and putting it into the REPL</p>
+<p>When we run this </p>
+</div>
+<div class="slide">
+  <img src="Slide042.jpeg" alt="Steps to Reproduce the Bug: Postgres
+* Runs without error
+">
+  <p>This runs without error … as expected</p>
+</div>
+<div class="slide">
+  <img src="Slide043.jpeg" alt="Settings.py with sqlite3 connection string
+DATABASES = {
+&quot;default&quot;: {
+&quot;ENGINE&quot;: ”django.db.backends.-&quot;,
+}
+}
+">
+  <p>Now, we swap out the Postgres connection and put in a connection to a SQLite Database</p>
+<p>Here we see a standard connection using the SQLite Django Database Engine</p>
+<p>And try to reproduce the bug</p>
+</div>
+<div class="slide">
+  <img src="Slide044.jpeg" alt="Steps to Reproduce the Bug: SQLite
+&gt;&gt;&gt; from django.db import connection
+&gt;&gt;&gt; ¢ = connection.cursor()
+&gt;&gt;&gt; c.execute(&quot;select app_label from django_content_type where id =
+1&quot;
+&gt;&gt;&gt; c.execute(&quot;select app_label from django_content_type where id =
+%(id)s&quot;, {&#39;id&quot;:&#39;1&quot;})
+">
+  <p>Again, taking the code from the original ticket and putting it into the REPL</p>
+<p>This will generate a stack track error</p>
+</div>
+<div class="slide">
+  <img src="Slide045.jpeg" alt="Traceback (Rost recent call Tast): @
+File “/Users, ryan/PycharmProjects /tatis]r/vens/ Lib/python3./s3te-packages django/db/sackends /ut ils.py&quot;,
+return selt.cursor.executelsql, parons)
+File “/Users, ryan/PyeharmProsects/tat sy /veny/ ib/python3. /s te-packages/djngo/ o/ backends sl te3/bose.
+return Database.Cursor . execute(sel, query, parans]
+salited.Operationalirrors near &quot;W&#39;: syntax error
+The above exception was the direct cause of the folloving exceptions
+Traceback (post. recent call ast):
+File “&lt;consoles&quot;, Line 1, in &lt;nodule&gt;
+File “/Users, ryon/PycharmProjects.tatisy r/vens/ ib/python3. /s e-packages./django/b/sackends /uti15.py&quot;, Lin
+return superl) .executelsat, parans)
+File “/Users, ryan/Pycharmprojects,tatis] r/vent/ Lib/python3. /s te-packages.django/db/sackends /utils.py&quot;, Lin
+return self._execute_vith_wrappers(
+File “/Users/ryan/PycharmProjects,/tatis]r/veny/ Lib/python3./s1te-packages django/db/sackends/ut i1s.py&quot;, Lin
+return executor(sal, parans, nany, context)
+File &quot;/Users, ryan/PycharmProjects,/tatis]r/veny/ Lib/python3. /s e-packages,django/db/backends/ut 11s.py&quot;, i
+return self.cursor. execute (sql, parans)
+File “/Users/ ryan/PycharmProjects tatis) r/veny/ Lib/python3. /s te-packages/django/ b/utils.py&quot;, line 31, in
+Faise df_exc_value.with_traceback{traceback) fron exc_vaue
+File “/Users, ryan/PycharmProjects tatis]r/venu/ Lib/pythan3./site-packages django)db/sackends utils.py&quot;, Lin
+return self.cursor.executelsql, parans)
+File &quot;/Users,/ryan/PycharmProjects,/tatis]r/veny/ Lib/python3. /s e-packages django/db/backends/sqite3/base. p:
+return Databsse. Cursor. execute(sel, query, parans]
+8jango.db.ut L. OperationalError: near &quot;¥&#39;: syntax error
+">
+  <p>And we get this stack trace as reported in the bug</p>
+</div>
+<div class="slide">
+  <img src="Slide046.jpeg" alt="Workaround
+* SQLite supports named parameters
+« Different Syntax
+&gt;&gt;&gt; c.execute(&quot;select name from inventory_host where id=:id&quot;, {&#39;id&#39;: &#39;1’})
+&gt;&gt;&gt; I»)iost.objects.raw(&quot;select * from inventory_host where id=:id&quot;, {&#39;id&#39;:
+E0)
+* Consistent
+">
+  <p>A comment posted by Baptiste Mispelon in November 2019 provided a workaround. Their comment was</p>
+<p>I don't know how recent it is, but sqlite does support named parameters, </p>
+<p>albeit with a different syntax</p>
+<p>Both of these work on my machine (and Baptiste gave two commands that work)
+c.execute("select name from inventory_host where id=:id", {'id': '1’})
+Host.objects.raw("select * from inventory_host where id=:id", {'id': '1’}) </p>
+<p>Baptiste then asks the question, Do we want to try and make the syntax consistent across all backends or would it be enough to document the syntax for each one?
+</p>
+</div>
+<div class="slide">
+  <img src="Slide047.jpeg" alt="Workaround
+&gt;&gt;&gt; from django.db import connection
+&gt;&gt;&gt; ¢ = connection.cursor()
+&gt;&gt;&gt; c.execute(&quot;select app_label from django_content_type where id =
+1&quot;
+&gt;&gt;&gt; c.execute(&quot;select * from django_content_type where id =
+">
+  <p>When I applied that work around to the code that borked, to use Shia’s term above, above it does run as intended</p>
+</div>
+<div class="slide">
+  <img src="Slide048.jpeg" alt="Replicate the Bug %
+Write down what you learn
+Read some docs -
+">
+  <p>OK, we’ve replicated the bug!
+Now, we’re going to read some docs … which can include Doc strings!</p>
+</div>
+<div class="slide">
+  <img src="Slide049.jpeg" alt="Book emoji">
+  <p>Read some docs … which includes Doc Strings! </p>
+</div>
+<div class="slide">
+  <img src="Slide050.jpeg" alt="Results of Research
+« Stack Trace Error Message
+~..django/db/backends/sqlite3/
+base.py&quot;, line 357, in execute
+">
+  <p>The second to last line of the Stack Trace says</p>
+<p>django/db/backends/sqlite3/base.py", line 357, in execute</p>
+<p>So let’s start at Django.db.backends.sqlite3.base.py on line 357</p>
+</div>
+<div class="slide">
+  <img src="Slide051.jpeg" alt="Results of Research
+* SQLiteCursorWrapper:
+* execute
+* executemany
+* convert_query
+">
+  <p>When I look at that line in that file I see that there is </p>
+<p>a class called <code>SQLiteCursorWrapper</code></p>
+<p>which has three methods:</p>
+<ul>
+<li>execute</li>
+<li>executemany</li>
+<li>convert_query</li>
+</ul>
+</div>
+<div class="slide">
+  <img src="Slide052.jpeg" alt="Results of Research
+def execute(.):
+def executemany(.):
+">
+  <p>Here we see that both execute</p>
+<p>And execute many</p>
+<p>CALL</p>
+<p>upon convert_query </p>
+<p>So let’s go take a look at the code for convert_query </p>
+</div>
+<div class="slide">
+  <img src="Slide053.jpeg" alt="Results of Research
+def convert_query(self, query):
+return FORMAT_QMARK_REGEX.sub(&quot;?&quot;, query).replace(&quot;%%&quot;, &quot;%&quot;)
+">
+  <p>Here we see the entire method for convert_query </p>
+<p>is a single line that uses FORMAT_QMARK_REGEX</p>
+</div>
+<div class="slide">
+  <img src="Slide054.jpeg" alt="Results of Research
+* BUT
+* FORMAT_QMARK_REGEX = _lazy_re_compile(r&quot;(?&lt;!%)%s&quot;)
+">
+  <p>BUT</p>
+<p>FORMAT_QMARK_REGEX = _lazy_re_compile(r"(?&lt;!%)%s")</p>
+<p>Which is a method that lazily compiles regular expression </p>
+</div>
+<div class="slide">
+  <img src="Slide055.jpeg" alt="Results of Research
+* _lazy_re_compile(regex, flags=0)
+* Two parameters
+* regex
+« flags
+“rel
+“res
+">
+  <p>In looking at the helper method _lazy_re_compile() we see that it “lazily compiles a regex with flags” and has two parameters</p>
+<p>Regex: The Regular Expression to evaluate
+Flags: Flags that modify the behavior of the regex compilation</p>
+<p>Some examples of flags are</p>
+<p>re.I: ignore case sensitvity</p>
+<p>re.S: makes the dot character match any character</p>
+<p>In our case, we don’t need to worry about the flags though. I included for completeness here</p>
+</div>
+<div class="slide">
+  <img src="Slide056.jpeg" alt="Results of Research: What have we learned?
+* execute() method
+
+« convert_query() method
+
+« executemany() method
+">
+  <p>OK … so what have we learned?</p>
+<p>The issue is with the execute method
+But that is driven by the convert_query() method
+will also likely impact the executemany() method as well</p>
+</div>
+<div class="slide">
+  <img src="Slide057.jpeg" alt="Replicate the Bug %
+Read some docs -~
+Write down what you learn
+Write some code £+
+">
+  <p>What we've done and what we still have left to do</p>
+</div>
+<div class="slide">
+  <img src="Slide058.jpeg" alt="Hand writing emoji">
+  <p>Write some code</p>
+</div>
+<div class="slide">
+  <img src="Slide059.jpeg" alt="Ideas for a fix
+« select * from django_content_type where id = %(id)s&quot;, {&#39;id&#39;: &#39;1’}
+« fails
+* select * from django_content_type where id = :id&quot;, {&#39;id&#39;: &quot;1’}
+* succeeds
+">
+  <p>We know from previous slides that this select statement will fail, </p>
+<p>while the second one will succeed</p>
+<p>SO ... One solution could be to somehow transform the first statement into the second, </p>
+<p>accounting for all of the ways that someone could put in a parameter set.</p>
+</div>
+<div class="slide">
+  <img src="Slide060.jpeg" alt="Ideas for a fix
+* Regular Expression
+">
+  <p>Use a regular expression to convert the statement!</p>
+</div>
+<div class="slide">
+  <img src="Slide061.jpeg" alt="Ideas for a fix
+select * from django_content_type where id = %(id)s&quot;, {&#39;id&#39;: ‘1’}
+select * from django_content_type where id = :id&quot;, {&#39;id&#39;: &#39;1&#39;}
+">
+  <p>We want to go from this</p>
+<p>To this</p>
+</div>
+<div class="slide">
+  <img src="Slide062.jpeg" alt="My Regular Expression
+« select * from django_content_type where id = %(id)s&quot;, {&#39;id&#39;: 1’}
+« select * from django_content_type where id = %(id&quot;, {&#39;id&#39;: &#39;1’}
+« select * from django_content_type where id = :id&quot;, {&#39;id&#39;: ‘1’}
+">
+  <p>We want to replace )s with an empty string
+And we want to replace %( with a :,
+To get here</p>
+</div>
+<div class="slide">
+  <img src="Slide063.jpeg" alt="My Regular Expression
+e query = re.sub(&quot;\)s&quot;, &quot;&quot;, re.sub(&quot;%\(&quot;, &quot;:&quot;, query))
+">
+  <p>This transformation can be done with this regular expression</p>
+</div>
+<div class="slide">
+  <img src="Slide064.jpeg" alt="My Regular Expression
+« posted idea
+">
+  <p>And with that, I posted my initial idea to the ticket in Trac</p>
+</div>
+<div class="slide">
+  <img src="Slide065.jpeg" alt="Feedback from Shia Berger
+This looks quite fragile
+What if string includes -?
+Try naming-dict
+naning_dict = { param: f*:{paran}&quot; for param in paran_names}
+query = query % naming_dict
+">
+  <p>But as the (paraphrased) saying goes (originally attributed to Jamie Zawinski), “I had a problem so I used a Regular Expression and now I have two problems”</p>
+<p>ACTION: Take a sip of water</p>
+<p>This looks quite fragile </p>
+<p>consider, for example a query which, for whatever reason, includes <code>)s</code> in a string constant</p>
+<p>A more robust approach is to create a naming dictionary from all the parameter names, and use that to format the original text:</p>
+<pre><code>naming_dict = { param: f":{param}" for param in param_names}
+query = query % naming_dict
+</code></pre>
+<p>Where param_names can be collected either by parsing the query, or from the parameters given.</p>
+<p>If this would have been all that was put into the comment I might have been a bit discouraged because honestly, I was a really confused, but …</p>
+</div>
+<div class="slide">
+  <img src="Slide066.jpeg" alt="Feedback from Shia Berger
+* Take a look at the Oracle backend
+* but at the time | knew what | was doing there
+">
+  <p>Shia also left this in the comment</p>
+<p>take a look at the Oracle backend -- I wrote that piece too long ago to remember which it takes, </p>
+<p>but at the time I knew what I was doing there</p>
+</div>
+<div class="slide">
+  <img src="Slide067.jpeg" alt="Feedback from Simon Charette
+« Avoid using Regex
+* Try implementing __getitem__
+* Ensures _missing_param_ message
+« instead of KeyError message
+">
+  <p>Similarly Simon Charette said:</p>
+<p>I agree with Shai that we should avoid using regex here. Simon stated in the ticket:</p>
+<p>The most straightforward solution I can think of, </p>
+<p>I haven't looked at the Oracle implementation in details, </p>
+<p>would be to simply implement <strong>getitem</strong></p>
+<p>This will ensure the backend </p>
+<p>reports a meaningful low level message regarding <em>missing_param</em> </p>
+<p>in cases of a parameter is missing </p>
+<p>instead of a KeyError </p>
+<p>during the Django <em>translation</em> phase</p>
+<p>Which should make for a (hopefully) better developer experience in debugging</p>
+</div>
+<div class="slide">
+  <img src="Slide068.jpeg" alt="Original convert_query
+def convert_query(self, query):
+return FORMAT_QMARK_REGEX.sub(&quot;?&quot;, query).replace(&quot;%%&quot;, &quot;%&quot;)
+">
+  <p>The original code for the convert_query method is given by </p>
+<p>Again, It’s returning the FORMAT_QMARK_REGEX (which is a lazily compiled regular expression)</p>
+</div>
+<div class="slide">
+  <img src="Slide069.jpeg" alt="Incorporating Feedback
+* Feedback from Shia
+naming_dict = { param: f&quot;:{param}&quot; for param in param_names}
+query = query % naming_dict
+">
+  <p>I need to incorporate the feedback from Shia</p>
+<p>Recall the hint given by Shia regarding using the Oracle as a starting point using a naming dictionary</p>
+</div>
+<div class="slide">
+  <img src="Slide070.jpeg" alt="Incorporating Feedback
+* General Idea
+naming_dict = { param: f&quot;:{param}&quot; for param in param_names}
+query = query % naming_dict
+args = {k: &quot;:%s&quot; % k for k in params}
+query %= args
+">
+  <p>So applied the feedback to my use case</p>
+<p>Taking Shia’s hint and applying it to my use case</p>
+</div>
+<div class="slide">
+  <img src="Slide071.jpeg" alt="My initial Code
+def execute(self, query, params=None):
+if hasattr(params, &quot;keys&quot;):
+args = {k: &quot;:%s&quot; % k for k in params}
+query = query % args
+query = self.convert_query(query)
+">
+  <p>We see this implemented here. </p>
+<p>The if statement checks to make sure that params </p>
+<p>is a dictionary like object, so we check the params to ensure “keys” exists using hasattr</p>
+</div>
+<div class="slide">
+  <img src="Slide072.jpeg" alt="My initial Code
+def executemany(self, query, param_list):
+param_list = [p for p in param_list]
+try:
+if hasattr(param_list[@], &quot;keys&quot;):
+args = {k: &quot;:%s&quot; % k for k in param_list[0]}
+query = query % args
+except IndexError:
+pass
+query = self.convert_query(query)
+">
+  <p>I used the same idea here for executemany. </p>
+<p>Again checking for a dictionary like object </p>
+<p>and using a list comprehension </p>
+<p>to get information </p>
+<p>from param_list, which is potentially a generator</p>
+</div>
+<div class="slide">
+  <img src="Slide073.jpeg" alt="Replicate the Bug %
+Read some docs -
+Write some code £+
+Write down what you learn
+Test the Code /
+">
+  <p>What we've done and what we still have left to do</p>
+</div>
+<div class="slide">
+  <img src="Slide074.jpeg" alt="A testtube emoji">
+  <p>Test the code that you wrote</p>
+</div>
+<div class="slide">
+  <img src="Slide075.jpeg" alt="Tests
+* Current tests
+* New tests (if needed)
+">
+  <p>When going through something like this we want to</p>
+<p>make sure the current tests pass</p>
+<p>Write new tests if necessary</p>
+</div>
+<div class="slide">
+  <img src="Slide076.jpeg" alt="Tests: Make sure current tests pass
+* supports_paramstyle_pyformat = False
+* RawQueryTests
+* test_pyformat_params
+* test_query_representation
+">
+  <p>OK, as I work through testing the issue I've found a few things:</p>
+<p>There is a features file&nbsp;django.db.backends.sqlite3.features&nbsp;which has a&nbsp;DatabaseFeatures&nbsp;class with&nbsp;supports_paramstyle_pyformat&nbsp;value set to&nbsp;False; this was also something that Shia called out in their initial comment</p>
+<p>I see a class called RawQueryTests that has two methods
+test_pyformat_params</p>
+<p>test_query_representation</p>
+</div>
+<div class="slide">
+  <img src="Slide077.jpeg" alt="Tests: Make sure current tests pass
+@skipUnlessDBFeature(&quot;supports_paramstyle_pyformat&quot;)
+test_pyformat_params(self):
+">
+  <p>BUT, in looking at test_pyformat_params</p>
+<p>I see this decorator</p>
+<p>@skipUnlessDBFeature("supports_paramstyle_pyformat") </p>
+<p>Since supports_paramstyle_pyformat = False for SQLite</p>
+<p>This will cause the test to be skipped</p>
+</div>
+<div class="slide">
+  <img src="Slide078.jpeg" alt="Tests: Make sure current tests pass
+* Add my proposed code
+* Change supports_paramstyle_pyformat to be True
+">
+  <p>So, in order for the tests to check what is happening it looks like I have to:</p>
+<p>Add my proposed code
+Change the flag for&nbsp;supports_paramstyle_pyformat from False to True</p>
+</div>
+<div class="slide">
+  <img src="Slide079.jpeg" alt="Tests: Write New Tests
+* Not needed
+">
+  <p>Based on the tests discovered above, it doesn’t look like new tests are needed</p>
+</div>
+<div class="slide">
+  <img src="Slide080.jpeg" alt="Tests
+./runtests.py -k test_pyformat_params -k
+test_query_representation
+">
+  <p>Before changing the code, let’s see the outcome of running the two tests above</p>
+<p>So we’ll run just the two tests using this command</p>
+<p>Here we’re using the Django test runner, and using the k flag to specify the tests to run</p>
+</div>
+<div class="slide">
+  <img src="Slide081.jpeg" alt="Tests: Make sure current tests pass
+* supports_paramstyle_pyformat = False
+* test_pyformat_params
+* test_query_representation
+">
+  <p>Since supports_paramstyle_pyformat = False</p>
+<p>The test test_pyformat_params should be skipped</p>
+<p>While the test test_query_representation should pass</p>
+</div>
+<div class="slide">
+  <img src="Slide082.jpeg" alt="Tests: Make sure current tests pass
+Testing against Django installed in &#39;/Users/ryan/github/django/django’ with up to 8 processes
+Found 2 test(s).
+Creating test database for alias &#39;default&#39;...
+System check identi@®d no issues (17 silenced).
+">
+  <p>And as expected, here are the test results</p>
+<p>One test skipped denoted with the s</p>
+</div>
+<div class="slide">
+  <img src="Slide083.jpeg" alt="Tests: Make sure current tests pass
+Testing against Django installed in &#39;/Users/ryan/github/django/django’ with up to 8 processes
+Found 2 test(s).
+Creating test database for alias &#39;default&#39;...
+System check identified no issues (17 silenced).
+">
+  <p>And as expected, here are the test results</p>
+<p>One test passed denoted with the .</p>
+</div>
+<div class="slide">
+  <img src="Slide084.jpeg" alt="Possible States Testing Matrix
+Original Code 1 test should pass 1 test should pass
+1 test should be skipped 1 test should fail
+Updated Code 1 tests should pass 2 tests should pass &amp;
+1 test should be skipped
+*Flag = supports_paranstyle_pyformat
+">
+  <p>When working on testing in a sitation like this, the strategy I use is something I’m calling a Possible States Testing Matrix. I’m not sure where I got that idea or term from, but I’m sure I didn’t come up with it on my own</p>
+<p>What are our possible states? </p>
+<p>The original state, that is</p>
+<p>Flag is False</p>
+<p>With the original code</p>
+<p>Here 1 test should pass and 1 test should be skipped</p>
+<p>A broken state, that is, when the Flag is set to true with the original code where 1 test should pass and 1 test should fail. This is why the bug exists in the first place!</p>
+<p>A ‘check’ state where the flag is set to False, and the code is updated. Here, as in the original state, we should have 1 test pass and 1 test be skipped</p>
+<p>And finally, the desired state, where the flag is set to True with the updated code. Here we should have 2 passing tests!</p>
+</div>
+<div class="slide">
+  <img src="Slide085.jpeg" alt="Testing
+* Run the tests to check new behavior
+* Run entire test suite
+">
+  <p>While I’m only focusing on two tests during development, </p>
+<p>We also need to make sure that the entire test suite passes!</p>
+<p>So, after those two tests had passed I did run the entire test suite, and it did continue to pass</p>
+</div>
+<div class="slide">
+  <img src="Slide086.jpeg" alt="Replicate the Bug %
+Read some docs -
+Write some code £+
+2 Test the Code /
+Write down what you learned n
+">
+  <p>What we've done and what we still have left to do</p>
+</div>
+<div class="slide">
+  <img src="Slide087.jpeg" alt="A paper emoji">
+  <p>Write down what you’re learning as you’re learning … because we all do this, right?</p>
+<p>I didn’t until working on this issue. </p>
+<p>I was inspired by a talk given by Simon Willison at DjangoCon US 2022 titled, </p>
+<p>“Massively increase your productivity on personal projects with comprehensive documentation and automated tests”</p>
+</div>
+<div class="slide">
+  <img src="Slide088.jpeg" alt="Public Notes
+">
+  <p>This talk included an idea called Simon calls ‘public notes’. </p>
+<p>This is another talk I highly recommend watching and implementing the public notes idea</p>
+<p>As I said, this was the first time I used the idea, </p>
+<p>but I've used it a few more times since then </p>
+<p>as I try to learn about a thing. </p>
+<p>I’ve even started doing it at my day-job</p>
+</div>
+<div class="slide">
+  <img src="Slide089.jpeg" alt="What are Public Notes
+* Issue
+* Work through
+* problem
+">
+  <p>OK, great, but what ARE Public Notes?</p>
+<p>Essentially you use an issue </p>
+<p>(in my case a GitHub issue) </p>
+<p>as a spot to work through </p>
+<p>a problem </p>
+</div>
+<div class="slide">
+  <img src="Slide090.jpeg" alt="Public Notes
+* Tips
+* Hints
+* Breadcrumbs
+* What ever you want to call them
+">
+  <p>and leave yourself tips, </p>
+<p>hints, </p>
+<p>breadcrumbs </p>
+<p>… whatever you want call it</p>
+<p>for what you’ve tried and learned, </p>
+</div>
+<div class="slide">
+  <img src="Slide091.jpeg" alt="Scientific Method
+">
+  <p>basically doing what you would do </p>
+<p>in the ‘scientific method’</p>
+</div>
+<div class="slide">
+  <img src="Slide092.jpeg" alt="My Public Notes
+">
+  <p>In my notes there’s a lot of back and forth, a feeling going two steps backward, and then 1 step forward kind of thing. </p>
+<p>But even looking at it now, I can see my thought process for how the bug ended up getting fixed</p>
+<p>And honestly, were it not for the Public Notes I’m not sure I would have been able to give this talk</p>
+</div>
+<div class="slide">
+  <img src="Slide093.jpeg" alt="A video of my public notes repo">
+  <p>Here is a short video of my Public Notes on GitHub</p>
+<p>I have 40 comments </p>
+<p>as a conversation to myself, </p>
+<p>back and forth </p>
+<p>from Oct 30, 2022 </p>
+<p>to Nov 8, 2022 </p>
+<p>That’s just 10 days … </p>
+</div>
+<div class="slide">
+  <img src="Slide094.jpeg" alt="The fix
+">
+  <p>We’ve spent a bit of time getting here, but what was ‘The Fix’?</p>
+</div>
+<div class="slide">
+  <img src="Slide095.jpeg" alt="Incorporating Feedback
+* Hint from Shia
+naming_dict = { param: f&quot;:{param}&quot; for param in param_names}
+query = query % naming_dict
+">
+  <p>Recall the feedback given by Shia about the use of a naming dictionary</p>
+</div>
+<div class="slide">
+  <img src="Slide096.jpeg" alt="Incorporating Feedback
+* General Idea
+naming_dict = { param: f&quot;:{param}&quot; for param in param_names}
+query = query % naming_dict
+args = {k: &quot;:%s&quot; % k for k in params}
+query %= args
+">
+  <p>Which I adapted for my use case</p>
+</div>
+<div class="slide">
+  <img src="Slide097.jpeg" alt="My initial Code
+def execute(self, query, params=None):
+if hasattr(params, &quot;keys&quot;):
+args = {k: &quot;:%s&quot; % k for k in params}
+query = query % args
+query = self.convert_query(query)
+">
+  <p>And applied to execute method</p>
+</div>
+<div class="slide">
+  <img src="Slide098.jpeg" alt="My initial Code
+def executemany(self, query, param_list):
+param_list = [p for p in param_list]
+try:
+if hasattr(param_list[@], &quot;keys&quot;):
+args = {k: &quot;:%s&quot; % k for k in param_list[0]}
+query = query % args
+except IndexError:
+pass
+query = self.convert_guery(query)
+">
+  <p>And applied to executemany method</p>
+</div>
+<div class="slide">
+  <img src="Slide099.jpeg" alt="Original convert_query
+def convert_query(self, query):
+return FORMAT_QMARK_REGEX.sub(&quot;?&quot;, query).replace(&quot;%%&quot;, &quot;%&quot;)
+">
+  <p>While leaving convert_query unchanged</p>
+<p>As a reminder, here is the the original code for the convert_query method</p>
+</div>
+<div class="slide">
+  <img src="Slide100.jpeg" alt="Issue Comment by Nick Pope
+* Duplication
+* Potential for incorrect conversion
+« %(value)s to :value
+* Also convert %%s to %s
+* Incorrect conversion to ‘?&quot;
+">
+  <p>Nick Pope added comments to the conversation on the issue in GitHub:</p>
+<p>There is duplication </p>
+<p>which should be pushed down into <code>.convert_query()</code>.</p>
+<p>Converting <code>%(value)s</code> to <code>:value</code> in this way will </p>
+<p>also convert <code>%%s</code> to <code>%s</code> which will then be incorrectly converted to <code>?</code> in <code>.convert_query()</code>. </p>
+</div>
+<div class="slide">
+  <img src="Slide101.jpeg" alt="Issue Comment by Nick Pope
+* Potential for poor performance
+* Materialized Generator
+* Pull Request to my Pull Request
+">
+  <p>Converting <code>param_list</code> to a <code>list</code> in <code>.executemany()</code> will saddle us with poor performance. </p>
+<p>We many have been passed a generator and the current approach will force all of the parameters to be materialized. </p>
+<p>The approach needed requires that we can peek at the first item in the generator without consuming the lot.</p>
+<p>I'll provide a PR to your branch so that you can see what I mean.</p>
+</div>
+<div class="slide">
+  <img src="Slide102.jpeg" alt="PR from Nick Pope
+def convert_query(self, query, *, names=None):
+if names is None:
+return FORMAT_QMARK_REGEX.sub(&quot;?&quot;, query).replace(&quot;%%&quot;, &quot;%&quot;)
+else:
+return query % {name: f&quot;:{name}&quot; for name in names}
+">
+  <p>True to their word, Nick submitted a PR against my code </p>
+<p>Where the duplicated code was pushed into convert_query</p>
+</div>
+<div class="slide">
+  <img src="Slide103.jpeg" alt="PR from Nick Pope
+def execute(self, query, params=None):
+names = list(params) if isinstance(params, Mapping) else None
+query = self.convert_query(query, names=names)
+">
+  <p>And updated the execute() method</p>
+</div>
+<div class="slide">
+  <img src="Slide104.jpeg" alt="PR from Nick Pope
+def executemany(self, query, param_list):
+peekable, param_list = tee(iter(param_list))
+if (params := next(peekable, None)) and isinstance(params, Mapping):
+names = list(params)
+else:
+names = None
+query = self.convert_query(query, names=names)
+">
+  <p>And the executemany() method</p>
+</div>
+<div class="slide">
+  <img src="Slide105.jpeg" alt="The full diff of the convert_query method from GitHub">
+  <p>For those of you that may want to see what the Full Diff looked like here we see the convert_query </p>
+</div>
+<div class="slide">
+  <img src="Slide106.jpeg" alt="The full diff of the execute method from GitHub">
+  <p>The full diff of the execute method from GitHub</p>
+</div>
+<div class="slide">
+  <img src="Slide107.jpeg" alt="The full diff of the executemany method from GitHub">
+  <p>The full diff of the executemany method from GitHub</p>
+</div>
+<div class="slide">
+  <img src="Slide108.jpeg" alt="BONUS!
+">
+  <p>As a BONUS to all of this the SQLite Docs in the Python Standard Library got updated</p>
+</div>
+<div class="slide">
+  <img src="Slide109.jpeg" alt="Python SQLite Docs Update!
+
+sqlite3.paramstyle
+
+String constant stating the type of parameter marker formatting expected by
+
+the sqlite3 module. Required by the DB-API. Hard-coded to &quot;qmark&quot;.
+
+Note: The sqlite3 module supports both &quot;gmark&quot; and ”numeric&quot; DB-APT
+
+parameter styles, because that is what the underlying SQLite
+
+Library supports. However, the DB-API does not allow multiple
+
+values for the &quot;paramstyle&quot; attribute
+">
+  <p>Here’s the documentation pre change</p>
+<p>With a Note:</p>
+<p>The sqlite3 module supports both "qmark" </p>
+<p>and ”numeric" DB-API parameter styles, </p>
+<p>because that is what the underlying SQLite library supports. </p>
+</div>
+<div class="slide">
+  <img src="Slide110.jpeg" alt="Python SQLite Docs Update!
+
+Note: The sqlite3 module supports both &quot;gmark”,
+n n
+
+&quot;numeric&quot; and - DB-API parameter
+styles, because that is what the underlying
+SQLite library supports. However, the DB-API
+does not allow multiple values for the
+”paramstyle&quot; attribute
+">
+  <p>After the change to the documentation made by Nick, </p>
+<p>We see “named” was added</p>
+</div>
+<div class="slide">
+  <img src="Slide111.jpeg" alt="Python SQLite Docs Update!
+Note: The - DB-API parameter style is also supported
+">
+  <p>Since that update other updates have been made </p>
+<p>and is now less verbose, </p>
+<p>BUT the named parameter style is still a part of the note</p>
+</div>
+<div class="slide">
+  <img src="Slide112.jpeg" alt="The community
+">
+  <p>From this I hope it’s clear that this fix wasn't just implement or made by me</p>
+<p>I had a lot of help in getting the code to the right spot. </p>
+<p>Shia Berger
+Simon Charette
+Nick Pope
+Mariusz Felisiak </p>
+</div>
+<div class="slide">
+  <img src="Slide113.jpeg" alt="Shia Berger">
+  <p>Shia Berger</p>
+</div>
+<div class="slide">
+  <img src="Slide114.jpeg" alt="« Identified fragility
+* Regex should be avoided
+ Starting point
+">
+  <p>Feedback that the approach had some fragility</p>
+<p>that regex should be avoided (with Simon Charette agreeing)</p>
+<p>And gave a place to get started for investigation using a Oracle as a starting point</p>
+</div>
+<div class="slide">
+  <img src="Slide115.jpeg" alt="Simon Charette">
+  <p>Simon Charette</p>
+</div>
+<div class="slide">
+  <img src="Slide116.jpeg" alt="* Gave great Keynote at DjangoCon US 2022 on the State of the ORM
+* Awesome introduction on ORM structure at Sprints
+* Update to the docs!
+">
+  <p>He gave a great keynote at DjangoCon US 2022</p>
+<p>And an awesome introduction on the ORM in general at the sprints</p>
+<p>And reminded me to ‘Update the docs!’</p>
+</div>
+<div class="slide">
+  <img src="Slide117.jpeg" alt="Nick Pope">
+  <p>Nick Pope</p>
+</div>
+<div class="slide">
+  <img src="Slide118.jpeg" alt="* PR on my PR to help improve the code
+* Remove Code Duplication
+">
+  <p>As we saw above, the PR that Nick did against my code helped improve it dramatically!</p>
+<p>It removed code duplication and pushed down that duplicative code to the convert_query() method</p>
+</div>
+<div class="slide">
+  <img src="Slide119.jpeg" alt="Mariusz Felisiak">
+  <p>Mariusz Felisiak</p>
+</div>
+<div class="slide">
+  <img src="Slide120.jpeg" alt="«+ Simplified comments
+* Merged the PR
+">
+  <p>Simplified some of the comments in the code</p>
+<p>And ultimately was the one that merged the code into Django </p>
+</div>
+<div class="slide">
+  <img src="Slide121.jpeg" alt="Experience
+* Ilearned a TON about
+* sQlite
+* The ORM
+« Python
+">
+  <p>I hope I’ve been able to convey what a positive experience this was for me</p>
+<p>I also hope I’ve been able to convey how much I’ve learned</p>
+<p>This process taught me more about</p>
+<p>SQLite – it does ACTUALLY support pyformat style
+The Django ORM – specifically how it’s structured in the code and how to better reason about it
+Python – generators … up to this point I didn’t really understand them (and maybe I don’t still 100%) but I’m closer now because of the work I did on this ticket</p>
+</div>
+<div class="slide">
+  <img src="Slide122.jpeg" alt="Experience
+* Public Notes
+« Upgrading OS on Linux
+« Python 3.11 on Raspberry Pi
++ SSH Keys
+">
+  <p>Started using Public notes to learn about a thing … to write down what I learned. Public notes since then have included: </p>
+<p>Upgrading my Digital Ocean servers OS
+Installing Python 3.11 on a Raspberry Pi
+Figuring out how SSH keys work and how I should implement</p>
+</div>
+<div class="slide">
+  <img src="Slide123.jpeg" alt="Contributions Since
+« Django Packages
+« Documentation improvements
++ Code Reviews
+">
+  <p>This was a great experience, and you may think that because I’m telling you about it, that I’ve made tons more contributions since then</p>
+<p>BUT</p>
+<p>I’ve not had an opportunity to contribute again to Django since then … sometimes life gets in the way.</p>
+<p>I have contributed to a couple of other open source projects, most notably</p>
+<p>Django Packages</p>
+<ul>
+<li>Documentation improvements for developer onboarding</li>
+<li>Code Reviews</li>
+</ul>
+</div>
+<div class="slide">
+  <img src="Slide124.jpeg" alt="Contributions Since
+* Implemented Django at my employer
+« Admin
+* MSsaL
+">
+  <p>Implemented Django at DOHC</p>
+<ul>
+<li>using the admin to manage ‘administrative’ tables that could only be updated using SSMS previously</li>
+<li>using several MS SQL databases on a couple of different servers</li>
+</ul>
+</div>
+<div class="slide">
+  <img src="Slide125.jpeg" alt="Lessons">
+  <p>Lessons</p>
+</div>
+<div class="slide">
+  <img src="Slide126.jpeg" alt="The ORM can seem B I G and
+SCARY
+">
+  <p>The ORM can seem big and scary</p>
+</div>
+<div class="slide">
+  <img src="Slide127.jpeg" alt="The Code for Django can seem B I G and
+SCARY
+">
+  <p>The code for Django can seem big and scary</p>
+</div>
+<div class="slide">
+  <img src="Slide128.jpeg" alt="But remember">
+  <p>But remember</p>
+</div>
+<div class="slide">
+  <img src="Slide129.jpeg" alt="The Django ORM ...
+">
+  <p>The Django ORM ...</p>
+</div>
+<div class="slide">
+  <img src="Slide130.jpeg" alt="Is Python">
+  <p>Is Python</p>
+</div>
+<div class="slide">
+  <img src="Slide131.jpeg" alt="In fact, all of Django ...">
+  <p>In fact, all of Django ...</p>
+</div>
+<div class="slide">
+  <img src="Slide132.jpeg" alt="Is Python">
+  <p>Is Python</p>
+</div>
+<div class="slide">
+  <img src="Slide133.jpeg" alt="Looking at Tickets
+">
+  <p>So when you’re ready to go look for a ticket to work on</p>
+<p>Whether it’s </p>
+<p>ORM related or NOT,</p>
+<p>remember </p>
+<p>that there is an amazing community here </p>
+<p>that wants to see you succeed …</p>
+</div>
+<div class="slide">
+  <img src="Slide134.jpeg" alt="* Look At **
+* Read LH
+* Write £
+">
+  <p>and at the end of the day </p>
+<p>the code you’re going to </p>
+<p>look at, </p>
+<p>The code that you’re going to read, </p>
+<p>and The code that you’re going to write</p>
+</div>
+<div class="slide">
+  <img src="Slide135.jpeg" alt="Is Python">
+  <p>Is Python</p>
+</div>
+<div class="slide">
+  <img src="Slide136.jpeg" alt="A screenshot from Trac showing the number of open issues in Django">
+  <p>So just keep that in mind </p>
+<p>when you’re ready to dive in </p>
+<p>to one of the currently &lt;&gt; open tickets</p>
+<p><a href="https://code.djangoproject.com/query?owner=~nobody&amp;status=assigned&amp;status=new&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=type&amp;col=component&amp;col=version&amp;desc=1&amp;order=id">https://code.djangoproject.com/query?owner=~nobody&amp;status=assigned&amp;status=new&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=type&amp;col=component&amp;col=version&amp;desc=1&amp;order=id</a></p>
+</div>
+<div class="slide">
+  <img src="Slide137.jpeg" alt="A screenshot of the Django Documentation highlighting the header &#39;Triaging Tickets&#39;">
+  <p>And because this is Django, </p>
+<p>there is great documentation </p>
+<p>on how to triage tickets </p>
+<p>and work through them</p>
+</div>
+<div class="slide">
+  <img src="Slide138.jpeg" alt="The trail head at Mt. Whitney. It shows the elevation of this point at 13300 Feet (4159 meters) above Sea Level">
+  <p>Back to Mt Whitney</p>
+<p>As I said before, I was <strong>only</strong> three miles from the summit, but I just wasn’t feeling <strong>it</strong>. </p>
+<p>My fellow hikers didn’t discourage me from continuing, but they didn’t really encourage me either. </p>
+<p>I didn’t make it to the summit that day and it’s been a regret ever since. </p>
+<p>I’ve not attempted hike quite that big since then</p>
+<p>But why am I telling this story? What does this have to do with fixing a bug in the Django ORM. </p>
+</div>
+<div class="slide">
+  <img src="Slide139.jpeg" alt="See, hear, speak no evil emoji">
+  <p>When the bug wasn’t resolved I had an option to ignore it … to give up like I did that day at the Trail Crest on Mt Whitney</p>
+<p>I could have NOT gone to the “summit” of fixing the BUG</p>
+</div>
+<div class="slide">
+  <img src="Slide140.jpeg" alt="hammer and wrench emoji">
+  <p>But the community helped me to work through it. </p>
+<p>The solution that was ultimately submitted </p>
+<p>and merged wasn’t just mine, it was through the hard work of several people. </p>
+<p>My experience has been that this community wants you to succeed. They want you to learn. </p>
+</div>
+<div class="slide">
+  <img src="Slide141.jpeg" alt="The trail head at Mt. Whitney. It shows the elevation of this point at 13300 Feet (4159 meters) above Sea Level">
+  <p>If this community had been up there with me that day, </p>
+<p>I’m 100% sure </p>
+<p>that I would have made it to the summit </p>
+<p>because of the encouragement that is provided </p>
+<p>and the determination to want <strong>you</strong> to succeed </p>
+</div>
+<div class="slide">
+  <img src="Slide142.jpeg" alt="So remember ...">
+  <p>So remember ...</p>
+</div>
+<div class="slide">
+  <img src="Slide143.jpeg" alt="Your Framework needs YOU">
+  <p>Your Framework needs YOU</p>
+</div>
+<div class="slide">
+  <img src="Slide144.jpeg" alt="Community
+">
+  <p>And there’s a great community to support you and wants to see you succeed and learn</p>
+</div>
+<div class="slide">
+  <img src="Slide145.jpeg" alt="Sprints 2023
+* Development Sprints
+« Contribution Sprints
+">
+  <p>This year, there will be both </p>
+<p>Development Sprints and </p>
+<p>Contribution Sprints. </p>
+<p>If you’re looking to get involved, this is a great opportunity to do so and I highly encourage you all to go. </p>
+<p>I really hope to see you there</p>
+</div>
+<div class="slide">
+  <img src="Slide146.jpeg" alt="Acknowledgements
+
+* Katie McLaughlin
+* Web Developer Team
+  * Bookie
+  * Chris
+  * Jason
+  * Jon
+* Abigail Cheley
+">
+  <p>My presentation wasn’t made in a vacuum and I’d like to acknowledge the help that I received in getting this presentation created</p>
+</div>
+<div class="slide">
+  <img src="Slide147.jpeg" alt="Thank you">
+  <p>Thank you</p>
+</div>
+<div class="slide">
+  <img src="Slide148.jpeg" alt="Links for how to find me">
+  <p>Mastodon
+<a href="https://mastodon.social/@ryancheley">https://mastodon.social/@ryancheley</a></p>
+<p>GitHub
+<a href="https://github.com/ryancheley/">https://github.com/ryancheley/</a></p>
+<p>LinkedIn
+<a href="https://www.linkedin.com/in/ryan-cheley/">https://www.linkedin.com/in/ryan-cheley/</a></p>
+</div>
+<div class="slide">
+  <img src="Slide149.jpeg" alt="Reference Links
+Your Web Framework Needs You! (Slide 33)
+https://www.youtube.com/watch?v=8eYM1uPKg7c
+Increase your productivity on personal projects with comprehensive docs and automated tests - DCUS (Slide
+88)
+https://www.youtube.com/watch?v=GLkRK2r/GBO
+My Public Notes (Slide 93)
+https://github.com/ryancheley/public-notes/issues/1
+Keynote: State of the Object-Relational Mapping (ORM) with Simon Charette (Slide 116)
+https://www.youtube.com/watch?v=HNIGFriBI8o
+Django Triaging Tickets (Slide 137)
+https://docs.diangoproject.com/en/dev/internals/contributing/triaging-tickets/
+">
+  <p>Reference Links</p>
+<p>Your Web Framework Needs You! (Slide 33)
+<a href="https://www.youtube.com/watch?v=8eYM1uPKg7c">https://www.youtube.com/watch?v=8eYM1uPKg7c</a></p>
+<p>Increase your productivity on personal projects with comprehensive docs and automated tests - DCUS (Slide
+88)
+<a href="https://www.youtube.com/watch?v=GLkRK2r/GBO">https://www.youtube.com/watch?v=GLkRK2r/GBO</a></p>
+<p>My Public Notes (Slide 93)
+<a href="https://github.com/ryancheley/public-notes/issues/1">https://github.com/ryancheley/public-notes/issues/1</a></p>
+<p>Keynote: State of the Object-Relational Mapping (ORM) with Simon Charette (Slide 116)
+<a href="https://www.youtube.com/watch?v=HNIGFriBI8o">https://www.youtube.com/watch?v=HNIGFriBI8o</a></p>
+<p>Django Triaging Tickets (Slide 137)
+<a href="https://docs.diangoproject.com/en/dev/internals/contributing/triaging-tickets/">https://docs.diangoproject.com/en/dev/internals/contributing/triaging-tickets/</a></p>
+</div>
