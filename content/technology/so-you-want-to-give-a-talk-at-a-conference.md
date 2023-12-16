@@ -51,7 +51,7 @@ The dry run went *fine*, but it was clear that my presentation was missing *some
 
 Django Con offers up mentors to help you work on your talk. If you're newer to giving presentations, I **highly** recommend engaging with one of them. The feedback they provide is priceless!
 
-I had the great fortune to reach out to Katie McLaughlin who had just given a talk at PyCon Australia titled [Present Like a Pro](https://www.youtube.com/watch?v=YMcx35RGzYM). I watched that before reaching out to her and she gave some very good advice on presentation.
+I had the great fortune to reach out to [Katie McLaughlin](https://cloudisland.nz/@glasnt) who had just given a talk at PyCon Australia titled [Present Like a Pro](https://www.youtube.com/watch?v=YMcx35RGzYM). I watched that before reaching out to her and she gave some very good advice on presentation.
 
 
 ### Getting serious about preparing for the talk
@@ -90,6 +90,18 @@ Maybe, maybe not. I just happened to find this particular prep process worked we
 It was nice to hear from some of the attendees surprised that my talk was the first honest to goodness talk on my own I had ever given because it sounded so polished and well done.
 
 Practice makes better, and in this case (based on the videos) it sure did for me
+
+## A Big Thank you
+
+A presentation like this took a lot out of me, but I am extremely grateful to a few people in particular:
+
+* [Katie McLaughlin](https://cloudisland.nz/@glasnt)
+* The Team of Web Developers at work
+  * Bookie
+  * Chris
+  * Jason
+  * Jon
+* My daughter Abigail
 
 ## A little bit extra
 
