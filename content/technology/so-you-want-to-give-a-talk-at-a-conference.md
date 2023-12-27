@@ -109,6 +109,7 @@ If you want to see more details on my talk, here is a [playlist of the dry run a
 
 If you want to see the repo where the changes were tracked for my presentation it can be found [here](https://github.com/ryancheley/djangocon-us-2023)
 
+If you want to see my annotated slides, you can find them [here](https://annotated-notes.ryancheley.com/dcus2023/annotated-slides.html)
 
 ## Time tracking
 
