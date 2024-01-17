@@ -35,6 +35,7 @@ Save_as: brag-doc.html
 3. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett)
 4. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
 5. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
+6. Navigator for [Djangonaut.space](https://djangonaut.space) Session 1 (Jan 15, 2024)
 
 # Certifications
 
