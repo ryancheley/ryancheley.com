@@ -14,7 +14,7 @@ asgi-csrf==0.9
     # via datasette
 asgiref==3.7.2
     # via datasette
-beautifulsoup4==4.12.2
+beautifulsoup4==4.12.3
     # via -r requirements.in
 blinker==1.7.0
     # via pelican
@@ -48,7 +48,7 @@ datasette==0.64.3
     # via
     #   datasette-edit-templates
     #   datasette-publish-vercel
-datasette-edit-templates==0.2
+datasette-edit-templates==0.4.3
     # via -r requirements.in
 datasette-publish-vercel==0.14.2
     # via -r requirements.in
@@ -95,7 +95,7 @@ jinja2==3.1.2
     # via
     #   datasette
     #   pelican
-markdown==3.5.1
+markdown==3.5.2
     # via -r requirements.in
 markdown-it-py==3.0.0
     # via rich
