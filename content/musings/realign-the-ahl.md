@@ -66,7 +66,7 @@ I'm going to assume this is NOT the case. What I have below is from a "Does this
 
 # Realignment
 
-With my rationale for the need for realignment of the way out of the way, let's get into the actual implementation of the realignment.
+With my rationale for the need for realignment of the way, let's get into the actual implementation of the realignment.
 
 I built a [Streamlit app](https://streamlit.io/) to see what a potential realignment would look like that can be found [here](https://ahl-realignment.streamlit.app/).
 
