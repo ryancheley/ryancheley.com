@@ -4,7 +4,7 @@ Author: ryan
 Tags: ahl, hockey
 Slug: realign-the-ahl
 Series: AHL Realignment
-Status: draft
+Status: published
 
 # What is the AHL
 
