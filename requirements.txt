@@ -95,7 +95,7 @@ jinja2==3.1.2
     # via
     #   datasette
     #   pelican
-markdown==3.5.2
+markdown==3.6
     # via -r requirements.in
 markdown-it-py==3.0.0
     # via rich
@@ -141,7 +141,7 @@ pluggy==1.2.0
     # via
     #   datasette
     #   sqlite-utils
-pre-commit==3.6.2
+pre-commit==3.7.0
     # via -r requirements.in
 pygments==2.17.2
     # via
