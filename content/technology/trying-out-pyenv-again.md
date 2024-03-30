@@ -33,7 +33,8 @@ text=On%20Intel%20Macs
 %2C%20Homebrew%2C%20and,
 %2Fusr%2Flocal%2Fbin%20.&text=
 Homebrew%20chose%20%2Fusr
-%2Flocal%2F,in%20your%20PATH%20by%20default.
+%2Flocal%2F,in%20your
+%20PATH%20by%20default.
 
 The link in the comment was a bit malformed, but I was able to clean it up and get this [link](https://earthly.dev/blog/homebrew-on-m1/). This is where I re-discovered[ref]earlier in the day I was working through a [post by Marijke about Caddy](https://marijkeluttekes.dev/blog/articles/2024/03/25/custom-localhost-urls-with-caddyfile-on-macos/) and there was a statement in her write up about how Homebrew on the M1 Macs stored files in a different directory, but when I ran the command to check where Homebrew was pointing I got the Intel location, not the Apple Silicon location ... this really should have been my first clue that some part of my set up was incorrect[/ref] that the way Homebrew is installed changed with the transition to the Apple Silicon.
 
