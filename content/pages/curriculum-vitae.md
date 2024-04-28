@@ -29,7 +29,7 @@ By harnessing my expertise and demonstrating strong leadership acumen, I signifi
 * Received Administrative Department/Team of the Year recognition for NextGen Support Services in 2017
 * Earned recognition as Administrative Department/Team of the Year for Health Plan Auditing and Reporting in 2019
 * Honored with the Points of Light Award for Provider/Payer Collaboration in 2023 by [KLAS Research](https://klasresearch.com/), affirming dedication to collaborative excellence in the healthcare industry.
-* Led effort to migrate department from Subversion to Git, inclusing planning and trainging
+* Led effort to migrate department from Subversion to Git, including planning and training.
 
 
 ### February 2012 - July 2016
