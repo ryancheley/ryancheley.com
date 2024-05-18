@@ -32,7 +32,7 @@ Save_as: brag-doc.html
         - The package was mentioned in [Django News Issue #104](https://django-news.com/issues/104)
         - The package is featured in the [Rich Gallery](https://www.textualize.io/rich/gallery/4)
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
-3. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett)
+3. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett) and [Maksudul Haque](https://fosstodon.org/@saadmk11)
 4. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
 5. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
 6. Navigator for [Djangonaut.space](https://djangonaut.space) Session 1 (Jan 15, 2024)
