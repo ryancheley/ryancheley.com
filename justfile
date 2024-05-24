@@ -8,7 +8,7 @@
     make regenerate
 
 @serve:
-    make serve
+    pelican --listen --autoreload
 
 @publish:
     make publish
