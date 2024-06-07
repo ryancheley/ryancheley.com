@@ -7,4 +7,4 @@ I like writing [Python](https://www.python.org), and when developing web stuff, 
 
 The source code for [DoesTatisJrHaveAnErrorToday.com](https://doestatisjrhaveanerrortoday.com) can be found [here](https://github.com/ryancheley/tatis).
 
-If you're really interested, you can find my CV [here](https://www.ryancheley.com/curriculum-vitae.html).
+If you're really interested, you can find my CV [here](/curriculum-vitae/).
