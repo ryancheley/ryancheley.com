@@ -30,8 +30,6 @@ STATIC_PATHS = [
     "static/rss-style.xsl",
 ]
 
-PATH_METADATA = "(?P<path_no_ext>.*)\..*"
-
 EXTRA_PATH_METADATA = {
     "static/robots.txt": {"path": "robots.txt"},
     "static/favicon.ico": {"path": "favicon.ico"},
