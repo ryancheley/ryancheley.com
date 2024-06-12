@@ -1,5 +1,4 @@
 Title: Wish List
-Save_as: wish-list.html
 
 # Gift Wish List
 

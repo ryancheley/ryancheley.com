@@ -40,18 +40,18 @@ EXTRA_PATH_METADATA = {
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
 MENUITEMS = [
-    ("About", "/about"),
+    ("About", "pages/about"),
     ("Categories", "/categories"),
-    ("Curriculum Vitae", "/curriculum-vitae"),
-    ("Brag Doc", "/brag-doc"),
+    ("Curriculum Vitae", "pages/cv"),
+    ("Brag Doc", "pages/brag-doc"),
     ("Archives", "/archives"),
 ]
 
 
 ARTICLE_URL = "{date:%Y}/{date:%m}/{date:%d}/{slug}/"
 ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html"
-PAGE_URL = "{slug}/"
-PAGE_SAVE_AS = "{slug}/index.html"
+PAGE_URL = "pages/{slug}/"
+PAGE_SAVE_AS = "pages/{slug}.html"
 ARCHIVES_SAVE_AS = "archives.html"
 ARCHIVES_URL = "archives"
 CATEGORIES_SAVE_AS = "categories.html"

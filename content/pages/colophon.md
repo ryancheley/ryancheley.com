@@ -1,5 +1,4 @@
 Title: Colophon
-Save_as: colophon.html
 
 This site is made using [Pelican](https://getpelican.com/) which is a [Python](https://www.python.org/) [Static Site Generator](https://en.wikipedia.org/wiki/Static_site_generator)
 

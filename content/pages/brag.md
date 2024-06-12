@@ -1,5 +1,4 @@
 Title: Brag Doc
-Save_as: brag-doc.html
 
 # Speaking / Podcasts
 
