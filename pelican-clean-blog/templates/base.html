@@ -120,7 +120,7 @@
                     {% for title, link in MENUITEMS %}
                         <li><a href="{{ link }}">{{ title }}</a></li>
                     {% endfor %}
-
+{{ PAGES }}
                     {% if DISPLAY_PAGES_ON_MENU %}
                         {# FIXME: Simplify to 'for p in pages' when we are ready to drop support for Pelican < 3.7 #}
                         {% for p in PAGES or pages %}
