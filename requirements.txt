@@ -57,7 +57,9 @@ decorator==5.1.1
 distlib==0.3.7
     # via virtualenv
 docutils==0.20.1
-    # via pelican
+    # via
+    #   pelican
+    #   pelican-series
 exceptiongroup==1.1.3
     # via anyio
 feedgenerator==2.1.0
@@ -123,7 +125,7 @@ pelican==4.9.1
     #   pelican-to-sqlite
 pelican-feed-stylesheet==0.0.1
     # via -r requirements.in
-pelican-series==2.1.0
+pelican-series==3.0.0
     # via -r requirements.in
 pelican-simple-footnotes==1.0.2
     # via -r requirements.in
@@ -141,7 +143,7 @@ pluggy==1.2.0
     # via
     #   datasette
     #   sqlite-utils
-pre-commit==3.7.0
+pre-commit==3.7.1
     # via -r requirements.in
 pygments==2.17.2
     # via
