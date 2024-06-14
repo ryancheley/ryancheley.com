@@ -1,4 +1,6 @@
 Title: About
+Save_as: pages/about.html
+Url: pages/about
 
 I'm Ryan Cheley and this is my site. I've got various places on the internet you can find me, like [GitHub](https://github.com/ryancheley), [Mastodon](https://mastodon.social/@ryancheley), and [here](/)!
 
