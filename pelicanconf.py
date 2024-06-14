@@ -8,7 +8,7 @@ SITEURL = ""
 
 PATH = "content"
 
-THEME = "pelican-clean-blog"
+# THEME = "pelican-clean-blog"
 
 FEED_STYLESHEET = "/rss-style.xsl"
 
