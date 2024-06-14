@@ -40,11 +40,11 @@ EXTRA_PATH_METADATA = {
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
 MENUITEMS = [
-    ("About", "pages/about"),
-    ("Categories", "pages/categories"),
-    ("Curriculum Vitae", "pages/cv"),
-    ("Brag Doc", "pages/brag-doc"),
-    ("Archives", "pages/archives"),
+    ("About", "/pages/about"),
+    ("Categories", "/pages/categories"),
+    ("Curriculum Vitae", "/pages/cv"),
+    ("Brag Doc", "/pages/brag-doc"),
+    ("Archives", "/pages/archives"),
 ]
 
 
