@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: deploy code
-        uses: appleboy/ssh-action@v0.1.2
+        uses: appleboy/ssh-action@v0.1.3
         with:
           host: ${{ secrets.SSH_HOST_UAT }}
           key: ${{ secrets.SSH_KEY_UAT }}
