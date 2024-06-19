@@ -3,6 +3,7 @@ Date: 2024-03-19
 Author: ryan
 Tags: themes
 Slug: winter-of-learning
+Series: 2024 Theme
 Status: published
 
 ## Winter of Learning Retrospective
