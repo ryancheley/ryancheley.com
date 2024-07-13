@@ -5,8 +5,6 @@ Tags: tutorial, ssh keys
 Slug: ssh-keys
 Status: published
 
-# SSH Keys
-
 If you want to access a server in a 'passwordless' way, the best approach I know is to use SSH Keys. This is great, but what does that mean and how do you set it up?
 
 I'm going to attempt to write out the steps for getting this done.
