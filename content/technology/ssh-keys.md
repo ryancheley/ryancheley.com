@@ -1,5 +1,5 @@
 Title: SSH Keys
-Date: 2024-07-11
+Date: 2024-07-13
 Author: ryan
 Tags: tutorial, ssh keys
 Slug: ssh-keys
