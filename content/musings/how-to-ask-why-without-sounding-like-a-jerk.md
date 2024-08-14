@@ -1,5 +1,5 @@
 Title: How to ask why without sounding like a jerk
-Date: 2024-08-12
+Date: 2024-08-15
 Author: ryan
 Tags: solutions
 Slug: how-to-ask-why-without-sounding-like-a-jerk
