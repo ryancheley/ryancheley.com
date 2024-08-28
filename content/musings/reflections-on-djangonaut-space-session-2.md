@@ -3,7 +3,7 @@ Date: 2024-08-29
 Author: ryan
 Tags: djangonauts
 Slug: reflections-on-djangonaut-space-session-2
-Status: draft
+Status: published
 
 A few weeks ago I completed my second session as a [Djangonaut.Space](https://djangonaut.space/) [Navigator](https://github.com/djangonaut-space/program/blob/main/navigators.md). The Djangonaut.Space program is an opportunity for people to be introduced to contributing to Django and Django adjacent projects.
 
