@@ -1,5 +1,5 @@
 Title: Reflections on Djangonaut Space Session 2
-Date: 2024-08-28
+Date: 2024-08-29
 Author: ryan
 Tags: djangonauts
 Slug: reflections-on-djangonaut-space-session-2
