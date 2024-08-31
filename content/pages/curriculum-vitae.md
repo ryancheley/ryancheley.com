@@ -12,23 +12,22 @@ My core responsibilities encompass spearheading the creation and maintenance of 
 
 By harnessing my expertise and demonstrating strong leadership acumen, I significantly contribute to elevating operational efficiency, driving performance optimization, and maximizing the strategic leverage of cutting-edge technological advancements for the benefit of these esteemed organizations.
 
-* Directed daily operations of 7 employees working across 2 states, including 2 managers overseeing a total of 7 employees
+* Directed daily operations of 7 employees working across 2 states, including 2 managers overseeing a total of 14 employees
 * Promoted 2 front-line staff members to management positions, fostering professional growth within the team
 * Implemented career ladders for team members to provide a path to Individual Contributor growth
-* Founded and lead the [Data Governance](https://en.wikipedia.org/wiki/Data_governance#Micro_level) Committee for Desert Oasis Healthcare
 * Implemented Agile Development Process to enhance efficiency and flexibility for Web Developers
 * Introduced Kanban Development methodology for Report Developers, optimizing workflow management
-* Implemented enterprise reporting solutions using SSRS and Tableau, enabling comprehensive and insightful reporting capabilities
-* Led cross-training initiatives to maximize team support capabilities and enhance overall efficiency
-* Orchestrated the implementation of a dimensional data warehouse for improved data integrity and advanced analytics
+* Led effort to migrate department from Subversion to Git, including planning and training.
 * Instituted regular 1-on-1 meetings with staff to foster open communication and a supportive work environment
-* Collaborated with an interdisciplinary team to implement a new Life Planning process across the enterprise
+* Received at least 90% employee satisfaction for department each year since 2021
 * Successfully implemented a fully automated solution for inbound and outbound 837P and 837I Files
-* Led the team in implementing various clinical and business workflow improvements, including Auth Queue, COVID Tracking System, Claim Tracker System, Referral Tracking System, and Provider Management System
+* Founded and lead the [Data Governance](https://en.wikipedia.org/wiki/Data_governance#Micro_level) Committee for Desert Oasis Healthcare
+* Directed the implementation of a dimensional data warehouse for improved data integrity and advanced analytics
+* Implemented enterprise reporting solutions using SSRS and Tableau, enabling comprehensive and insightful reporting capabilities for Desert Oasis Healthcare and Arizona Priority Care
+* Led the department in implementing various clinical and business workflow improvements using web based applications, including Authorization Queue, COVID Tracking System, Claim Tracker System, Referral Tracking System, and Provider Management System
 * Received Administrative Department/Team of the Year recognition for NextGen Support Services in 2017
 * Earned recognition as Administrative Department/Team of the Year for Health Plan Auditing and Reporting in 2019
 * Honored with the Points of Light Award for Provider/Payer Collaboration in 2023 by [KLAS Research](https://klasresearch.com/), affirming dedication to collaborative excellence in the healthcare industry.
-* Led effort to migrate department from Subversion to Git, including planning and training.
 
 
 ### February 2012 - July 2016
