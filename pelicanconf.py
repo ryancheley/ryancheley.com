@@ -90,3 +90,5 @@ SITEMAP = {
     "priorities": {"articles": 0.75, "indexes": 0.5, "pages": 0.5},
     "changefreqs": {"articles": "monthly", "indexes": "daily", "pages": "monthly"},
 }
+
+WITH_FUTURE_DATES = False
