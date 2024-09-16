@@ -66,7 +66,7 @@ But slowly, as I work through the problem, I start to see connections to other p
 
 And this is a prime opportunity for you to take what you've learned, how you've learned it and help a mentee with finding an approach that helps them in similar situations.
 
-As a mentor, you don't need to be a WORLD EXPERT, you just need to be an expert on that one thing in comparison to the mentee. I once heard that an expert is just the person in the room who knows more about a topic than anyone else in that room. You don't need to be a Django Export at DjangoCon to be a Django Export at work when trying to introduce Django to developers that haven't seen it before.
+As a mentor, you don't need to be a WORLD EXPERT, you just need to be an expert on that one thing in comparison to the mentee. I once heard that an expert is just the person in the room who knows more about a topic than anyone else in that room. You don't need to be a Django Expert at DjangoCon to be a Django Expert at work when trying to introduce Django to developers that haven't seen it before.
 
 ## Wrap up
 
