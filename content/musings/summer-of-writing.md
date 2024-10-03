@@ -31,7 +31,7 @@ That, in addition to the writing, seemed to be a good thing to work on.
 
 During my Summer of Writing I only wrote 5 posts (including this one)
 
-- [Summer of Writing](/)
+- [Summer of Writing](https://www.ryancheley.com/2024/10/03/summer-of-writing/)
 - [SSH Keys](https://www.ryancheley.com/2024/07/13/ssh-keys/)
 - [How to ask a question without sounding like a jerk](https://www.ryancheley.com/2024/08/22/how-to-ask-why-without-sounding-like-a-jerk/) (mentioned in the [Django News Newsletter #248](https://django-news.com/issues/248))
 - [Reflections on Djangonaut Space Session 2](https://www.ryancheley.com/2024/08/29/reflections-on-djangonaut-space-session-2/) ([lots of love](https://mastodon.social/@ryancheley/113044831659253804) on socials)
