@@ -37,7 +37,7 @@ During my Summer of Writing I only wrote 5 posts (including this one)
 - [Reflections on Djangonaut Space Session 2](https://www.ryancheley.com/2024/08/29/reflections-on-djangonaut-space-session-2/) ([lots of love](https://mastodon.social/@ryancheley/113044831659253804) on socials)
 - [Mentors](https://www.ryancheley.com/2024/09/16/mentors/) (mentioned in [Django News Newsletter #251](https://django-news.com/issues/251#start))
 
-The articles had a total of 4229+ words and so, from the perspective of writing, I managed to do *some* writing, but it wasn't really anymore than what I had done during the Spring of Transition where I wrote 4 articles with 3890
+The articles had a total of 5237 words and so, from the perspective of writing, I managed to do *some* writing, but it wasn't really anymore than what I had done during the Spring of Transition where I wrote 4 articles with 3890
 
 - [Spring of Transition](https://www.ryancheley.com/2024/06/20/spring-of-transition/)
 - [Using justpath to go on a pyrrhic adventure to clean up my PATH](https://www.ryancheley.com/2024/05/24/using-justpath-to-go-on-a-pyrrhic-adventure-to-clean-up-my-path/)
