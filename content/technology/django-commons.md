@@ -7,9 +7,7 @@ Status: draft
 
 First, what are 'the commons'? The concept of "the commons" refers to resources that are shared and managed collectively by a community, rather than being owned privately or by the state. This idea has been applied to natural resources like air, water, and grazing land, but it has also expanded to include digital and cultural resources, such as open-source software, knowledge databases, and creative works.
 
-One of the big aspects of this concept that we as the maintainers are really trying to lean into is "Sustainability and Stewardship"
-
-Our hope is that providing these commons we'll be able to help various maintainers keep their projects going, even if they've decided to step away.
+As Organization administrators, we're focusing on sustainability and stewardship as key aspects of this initiative.
 
 Asking for help is hard, but it can be easier if done in a safe environment. As we saw with the [xz utils backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor) attack, maintainer burnout is real. And while there are several arguments about being part of a 'supply chain' if we can, as a community, offer up a place where maintainers can work toghether for the sustainability and support of their packages, the better off the Django community will be!
 
