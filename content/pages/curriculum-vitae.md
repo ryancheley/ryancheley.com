@@ -6,28 +6,30 @@ Title: CV
 
 **Senior Regional Director Business Informatics, DESERT OASIS HEALTHCARE**
 
-I am entrusted with the strategic oversight of designing, developing, and implementing cutting-edge Business Information processes, system upgrades, and reporting mechanisms to optimize both Clinical and Administrative operations through the proficient and effective utilization of state-of-the-art technology solutions. Leading a dynamic and high-performing team, I collaborate closely with senior and clinical managers across multiple prestigious Heritage Provider Network Companies, including [Desert Oasis Healthcare]([url](https://www.mydohc.com)), [Arizona Priority Care]([url](https://azprioritycare.com)), [Heritge Victor Valley Medical Group]([url](https://hvvmg.com)), and various Hospice organizations.
+Lead strategic development and implementation of Business Information systems and reporting processes across multiple Heritage Provider Network companies, including Desert Oasis Healthcare, Arizona Priority Care, and Heritage Victor Valley Medical Group.
 
-My core responsibilities encompass spearheading the creation and maintenance of innovative web application workflow improvement solutions, robust dashboards, and agile ad-hoc reports. Furthermore, I am accountable for ensuring seamless management of critical functions, such as Health Plan Authorization and Claim Letters, timely submission of Health Plan Reports, and the seamless orchestration of Claim Inload and Encounter Reporting to contracted Health Plans.
+Direct a team managing critical healthcare operations through custom web applications, dashboards, and automated reporting solutions. Key areas include health plan authorizations, claims processing, and encounter reporting.
 
-By harnessing my expertise and demonstrating strong leadership acumen, I significantly contribute to elevating operational efficiency, driving performance optimization, and maximizing the strategic leverage of cutting-edge technological advancements for the benefit of these esteemed organizations.
+Drive operational efficiency through technology optimization, workflow improvements, and data-driven decision making.
 
-* Directed daily operations of 7 employees working across 2 states, including 2 managers overseeing a total of 14 employees
-* Promoted 2 front-line staff members to management positions, fostering professional growth within the team
-* Implemented career ladders for team members to provide a path to Individual Contributor growth
-* Implemented Agile Development Process to enhance efficiency and flexibility for Web Developers
-* Introduced Kanban Development methodology for Report Developers, optimizing workflow management
-* Led effort to migrate department from Subversion to Git, including planning and training.
-* Instituted regular 1-on-1 meetings with staff to foster open communication and a supportive work environment
-* Received at least 90% employee satisfaction for department each year since 2021
-* Successfully implemented a fully automated solution for inbound and outbound 837P and 837I Files
-* Founded and lead the [Data Governance](https://en.wikipedia.org/wiki/Data_governance#Micro_level) Committee for Desert Oasis Healthcare
-* Directed the implementation of a dimensional data warehouse for improved data integrity and advanced analytics
-* Implemented enterprise reporting solutions using SSRS and Tableau, enabling comprehensive and insightful reporting capabilities for Desert Oasis Healthcare and Arizona Priority Care
-* Led the department in implementing various clinical and business workflow improvements using web based applications, including Authorization Queue, COVID Tracking System, Claim Tracker System, Referral Tracking System, and Provider Management System
-* Received Administrative Department/Team of the Year recognition for NextGen Support Services in 2017
-* Earned recognition as Administrative Department/Team of the Year for Health Plan Auditing and Reporting in 2019
-* Honored with the Points of Light Award for Provider/Payer Collaboration in 2023 by [KLAS Research](https://klasresearch.com/), affirming dedication to collaborative excellence in the healthcare industry.
+**Leadership & Team Development**
+* Led cross-state team of 15 employees across multiple locations, promoting 2 staff to management roles
+* Implemented career development initiatives including management tracks and IC growth paths
+* Maintained 90%+ employee satisfaction since 2021 through regular 1:1 meetings and mentorship
+
+**Technical Leadership & Process Improvement**
+* Modernized development practices by implementing Agile for web development, Kanban for reporting teams, and migrating from Subversion to Git
+* Architected and deployed dimensional data warehouse, enhancing data integrity and analytics capabilities
+* Automated 837P/837I file processing 
+* Established Data Governance Committee for Desert Oasis Healthcare
+
+**Healthcare Systems Implementation**
+* Developed comprehensive suite of web-based workflow solutions including Authorization Queue, COVID Tracking, Claims Management, and Provider Management systems
+* Implemented enterprise-wide reporting solutions using SSRS and Tableau across multiple facilities
+
+**Recognition**
+* Received Administrative Department of the Year awards (2017, 2019)
+* Awarded KLAS Research Points of Light Award for Provider/Payer Collaboration (2023)
 
 
 ### February 2012 - July 2016
