@@ -1,5 +1,5 @@
 Title: Weezer Live
-Date: 2024-11-23
+Date: 2024-11-26
 Author: ryan
 Tags: music
 Slug: weezer-live

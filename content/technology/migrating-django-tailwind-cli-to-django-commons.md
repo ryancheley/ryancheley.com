@@ -1,5 +1,5 @@
 Title: Migrating django-tailwind-cli to Django Commons
-Date: 2024-11-19
+Date: 2024-11-20
 Author: ryan
 Tags: django, oss, django-commons
 Slug: migrating-django-tailwind-cli-to-django-commons

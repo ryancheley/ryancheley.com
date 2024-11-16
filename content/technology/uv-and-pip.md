@@ -1,5 +1,5 @@
 Title: uv and pip
-Date: 2024-11-21
+Date: 2024-11-23
 Author: ryan
 Tags: pip, python, uv
 Slug: uv-and-pip
