@@ -17,7 +17,9 @@ asgiref==3.7.2
 beautifulsoup4==4.12.3
     # via -r requirements.in
 blinker==1.7.0
-    # via pelican
+    # via
+    #   pelican
+    #   pelican-sitemap
 blurhash==1.1.4
     # via mastodon-py
 build==1.1.1
@@ -129,7 +131,7 @@ pelican-series==3.0.0
     # via -r requirements.in
 pelican-simple-footnotes==1.0.3
     # via -r requirements.in
-pelican-sitemap==1.1.0
+pelican-sitemap==1.2.0
     # via -r requirements.in
 pelican-to-sqlite==0.6.0
     # via -r requirements.in
