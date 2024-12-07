@@ -13,21 +13,25 @@ Direct a team managing critical healthcare operations through custom web applica
 Drive operational efficiency through technology optimization, workflow improvements, and data-driven decision making.
 
 **Leadership & Team Development**
+
 * Led cross-state team of 15 employees across multiple locations, promoting 2 staff to management roles
 * Implemented career development initiatives including management tracks and IC growth paths
 * Maintained 90%+ employee satisfaction since 2021 through regular 1:1 meetings and mentorship
 
 **Technical Leadership & Process Improvement**
+
 * Modernized development practices by implementing Agile for web development, Kanban for reporting teams, and migrating from Subversion to Git
 * Architected and deployed dimensional data warehouse, enhancing data integrity and analytics capabilities
 * Automated 837P/837I file processing 
 * Established Data Governance Committee for Desert Oasis Healthcare
 
 **Healthcare Systems Implementation**
+
 * Developed comprehensive suite of web-based workflow solutions including Authorization Queue, COVID Tracking, Claims Management, and Provider Management systems
 * Implemented enterprise-wide reporting solutions using SSRS and Tableau across multiple facilities
 
 **Recognition**
+
 * Received Administrative Department of the Year awards (2017, 2019)
 * Awarded KLAS Research Points of Light Award for Provider/Payer Collaboration (2023)
 
