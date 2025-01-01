@@ -3,6 +3,7 @@ Date: 2023-12-31
 Author: ryan
 Tags:
 Slug: year-in-review-2023
+Series: Years in Review
 Status: published
 
 I've never done a year in review, but this seems like a good a time as any, right? I had a rough outline, but after reading the great Year in Review from [Tim Schilliing](https://www.better-simple.com/personal/2023/12/30/my-year-in-review/), [Paolo Melichore](https://www.paulox.net/2023/12/31/my-2023-in-review/), and [Velda Kiara](https://dev.to/veldakiara/djangoconus-2023-a-wish-fulfilled-2mmc), I was inspired to **actually** finish mine.
