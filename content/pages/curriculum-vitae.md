@@ -22,7 +22,8 @@ Drive operational efficiency through technology optimization, workflow improveme
 
 * Modernized development practices by implementing Agile for web development, Kanban for reporting teams, and migrating from Subversion to Git
 * Architected and deployed dimensional data warehouse, enhancing data integrity and analytics capabilities
-* Automated 837P/837I file processing 
+* Automated 837P/837I file processing
+* Reduced outbound 837 error rate by 89% for Institutional claims and 96.4% for Professional claims
 * Established Data Governance Committee for Desert Oasis Healthcare
 
 **Healthcare Systems Implementation**
