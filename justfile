@@ -13,8 +13,8 @@
 @publish:
     make publish
 
-@vercel:
-    make vercel
+@vercel: html
+    rsync -av pelican.db metadata.json search.ryancheley@do-web-p-003:~
 
 @toot:
     make toot
