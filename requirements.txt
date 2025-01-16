@@ -33,7 +33,7 @@ cfgv==3.3.1
     # via pre-commit
 charset-normalizer==3.2.0
     # via requests
-click==8.1.7
+click==8.1.8
     # via
     #   -r requirements.in
     #   click-default-group-wheel
@@ -117,7 +117,7 @@ ordered-set==4.1.0
     # via pelican
 packaging==23.1
     # via build
-pelican==4.10.1
+pelican==4.11.0
     # via
     #   -r requirements.in
     #   pelican-feed-stylesheet
