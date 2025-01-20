@@ -10,7 +10,7 @@ In [a previous post of this series](https://www.ryancheley.com/2025/01/27/how-to
 
 ## What should I 'watch' though?
 
-This is a tough question and depends on if you're in person or watching on TV.
+This is a tough question and depends on if you're watching on TV or in person.
 
 ### On TV
 
@@ -24,17 +24,17 @@ If, for whatever reason, you're watching an AHL game[ref]home of my beloved Coac
 
 For your first in person game, just try and follow the puck as best you can. If for whatever reason you can't do that, pick a spot on the ice to concentrate on, preferably near one of the goalies. Which one? The goalie of the team you're not rooting for is a good choice! Then you can just kind of watch the action there.
 
-Keeping in mind [the rules](https://www.ryancheley.com/2025/01/27/how-to-watch-a-hockey-game-three-rules/) pick either icing or offside to watch for for a single period. Once you have a sense for that rule, pick the other rule (i.e. if you watched for icing, now start watching for offside)
+Keeping in mind [the rules](https://www.ryancheley.com/2025/01/27/how-to-watch-a-hockey-game-three-rules/) start by focusing on just one rule - either icing or offside - for an entire period. Once you feel comfortable recognizing that rule during gameplay, switch your attention to watching for the other rule in the next period. For example, if you spent the first period watching for icing, spend the next period looking for offside plays.
 
-Hopefully after a full game you're able to see them when icing or offside happen. If not, it just means you'll need to come back and try again 😁
+Hopefully after a full game you're able to see them when icing or offside happen. If not, it just means you'll need to come back and try again 😁.
 
 ## What not to worry about
 
 Hockey is a fast paced game. No, like really fast. Don't worry too much about anything other than watching for the puck, if you can, and trying to pick up icing and offside. You'll see other stoppages in play when a penalty is called. The refs will make [hand gestures](https://www.chicagowolves.com/gameday/hockey-101/penalties-and-signals/) to indicate the call on the ice and someone will be sent to the box.
 
-Don't worry about whether or not a fight will break out. They don't always, and if they do, each player will be assessed a major penalty and will spend 5+ minutes in the penalty box
+Don't worry about whether or not a fight will break out. They don't always, and if they do, each player will be assessed a major penalty and will spend 5+ minutes in the penalty box.
 
-Don't worry too much about learning the positions (yes .. there are positions in hockey!). The goalie is an obvious one (that's the person with all of the pads, the bigger stick, and the giant, well painted mask in front of the net, but trying to distinguish between a defender and a center ... like just don't worry about it!
+Don't worry too much about learning the positions. The goalie is an obvious one (that's the person with all of the pads, the bigger stick, and the giant, well painted mask in front of the net), but trying to distinguish between a defender and a center ... like just don't worry about it!
 
 ## Conclusion
 
