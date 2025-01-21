@@ -113,7 +113,7 @@ The inhabitants of Rome never got to a spot where none of them knew why it was b
 
 But the thing is ... obvious things are only obvious in the context they were created. It's obvious what Python is. I mean, why would someone use a snake to write code to get a computer to do a thing. EVERYONE knows I'm talking about the programming language Python ... until they don't.
 
-Just right this shit down. Make sure everyone gets into the habit of documenting. Make the documentation public. And if it's not possible to make all of the documentation public, make as much public as possible.
+Just write this shit down. Make sure everyone gets into the habit of documenting. Make the documentation public. And if it's not possible to make all of the documentation public, make as much public as possible.
 
 For the parts that aren't public, make sure they are accessible by the people that will need access to it.
 
