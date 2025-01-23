@@ -16,10 +16,10 @@ RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"
 CATEGORY_FEED_ATOM = "feeds/{slug}.atom.xml"
-TAG_FEED_ATOM = "feeds/{slug}.atom.xml"
+TAG_FEED_ATOM = "feeds/tag-{slug}.atom.xml"
 FEED_ALL_RSS = "feeds/all.rss.xml"
 CATEGORY_FEED_RSS = "feeds/{slug}.rss.xml"
-TAG_FEED_RSS = "feeds/{slug}.rss.xml"
+TAG_FEED_RSS = "feeds/tag-{slug}.rss.xml"
 
 DELETE_OUTPUT_DIRECTORY = True
 
