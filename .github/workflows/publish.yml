@@ -1,8 +1,8 @@
 name: Pelican Publish
 
 on:
-  # schedule:
-  #   - cron: '13 10 * * *'
+  schedule:
+    - cron: '13 10 * * *'
   workflow_dispatch:
 
 jobs:
