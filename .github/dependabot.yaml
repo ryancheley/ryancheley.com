@@ -14,3 +14,17 @@ updates:
       include: "scope"
     labels:
       - "🛠️ maintenance"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    target-branch: "main"
+    commit-message:
+      prefix: "github-actions"
+      include: "scope"
+    labels:
+      - "🛠️ maintenance"
