@@ -6,10 +6,6 @@ Title: Brag Doc
 2. Speaker at DjanogCon US 2023: [Contributing to Django or how I learned to stop worrying and just try to fix an ORM Bug](https://youtu.be/VPldDxuJDsg?si=r2ob3j4zIeYZY7tO)
 3. Guest on [Test & Code episode 183](https://testandcode.com/183) where I spoke about the "challenges of managing software teams, and how to handle them" and other skills
 
-# Guest Writing
-
-1. Have been published on the [PyBites Blog](https://pybit.es/author/ryancheley/)
-
 # OSS Work
 
 1. Contributed to the following open source projects:
@@ -44,6 +40,10 @@ Title: Brag Doc
 
 1. [Google Cloud Platform Cloud Architect](https://www.credential.net/f8e9ee03-67cb-48e3-8d3e-d824afc6265b?key=38397759fd07a2225d694c34d34f994bcdde3b9922962d865e4e9c6df478f139)
 2. Certified EDI Academy Professional
+
+# Guest Writing
+
+1. Have been published on the [PyBites Blog](https://pybit.es/author/ryancheley/)
 
 # Other
 
