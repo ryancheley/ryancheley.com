@@ -408,3 +408,18 @@ body {
   padding-top:10px;
   padding-bottom: 10px;
 }
+
+table {
+  border-collapse: collapse;  /* This removes double borders between cells */
+  width: 100%;               /* Makes table take full width of container */
+}
+
+table, th, td {
+  border: 1px solid #000;    /* Adds borders to all cells and table */
+  padding: 8px;             /* Adds padding inside all cells */
+}
+
+th {
+  background-color: #f2f2f2; /* Optional: gives headers a different background */
+  text-align: left;         /* Optional: aligns header text to left */
+}
