@@ -1,29 +1,27 @@
 Title: How to Watch a Hockey Game - Reading the Standings
-Date: 2025-02-01
+Date: 2025-02-03
 Author: ryan
 Tags: hockey
 Slug: how-to-watch-a-hockey-game-reading-the-standings
 Series: How to Watch a Hockey Game
 Status: published
 
-This is the fourth part of my How to Watch a Hockey Game Series. You can catch up on previous articles [here]()
+This is the fourth part of my How to Watch a Hockey Game Series. You can catch up on previous articles [here](https://www.ryancheley.com/2025/01/27/how-to-watch-a-hockey-game-three-rules/)
 
 ## Game Outcomes
 
-In many North American sports when reading the standings there are typically just Wins (W), and losses (L).[ref]Football also has Ties (T) but they are exceedingly rare and are only ever displayed when the first Tie of the season occurs[/ref]
+In many North American sports when reading the standings there are typically just Wins (W), and Losses (L).[ref]Football also has Ties (T) but they are exceedingly rare and are only ever displayed when the first Tie of the season occurs[/ref]
 
 Hockey is a bit different. When you look at the standings for Hockey you'll see 4 headers:
 
-W: Wins
-L: Losses
-OTL: Overtime Losses
-SOL: Shootout Losses
+* W: Wins
+* L: Losses
+* OTL: Overtime Losses
+* SOL: Shootout Losses
 
-# need to add a link
+As discussed [earlier in this series](https://www.ryancheley.com/2025/01/29/how-to-watch-a-hockey-game-game-play/), if a game is tied at the end of regulation, a five-minute overtime period is played. If either team scores during this Overtime period then the winning team gets a Win, while the losing team gets an Overtime Loss (OTL).
 
-As discussed [earlier in this series](), if a game is tied at the end of regulation, a five-minute overtime period is played. If either team scores during this Overtime period then the winning team gets a Win, while the losing team gets an Overtime Loss (OTL).
-
-If they're still tied at the end of Overtime then a Shootout is played. Once a winner is declared in the shootout they get the Win, while the losing team gets a Shootout Loss.
+If they're still tied then a Shootout is played. Once a winner is declared in the shootout they get the Win, while the losing team gets a Shootout Loss.
 
 Because of this, values are assigned to each type of outcome:
 
@@ -38,7 +36,7 @@ This might best be shown with a concrete example.
 
 ## A Concrete Example
 
-Let's say that the Coachella Valley Firebirds have played 39 games so far. They have won 21 games and lost 13 games. They've also played in 5 games that went into overtime and lost. One (1) in the Overtime period, and 4 in Shootouts. Their record would look like this:
+Let's say that the Coachella Valley Firebirds have played 39 games so far. They have won 21 games and lost 13 games. They've also played in 5 games that went into overtime and lost. Their overtime losses are one (1) in the Overtime period and 4 in Shootouts. Their record would look like this:
 
 Coachella Valley Firebirds: 21-13-1-4
 
@@ -84,8 +82,12 @@ The winning percent is calculated as the Total Points the team has divided by th
 
 That is
 ```text
-    Winning Percentage = Total Points ÷ (Games Played × 2)
+    Winning Percent = Total Points ÷ (Games Played × 2)
 ```
-For example, when looking at the table above, we see that the PCT column for the Firebirds is 0.603. This is calculated by the Points (47) divided by GP * 2 (39 * 2 = 78), that is 47 / 78 = 0.603.
+For example in the table above, we see that the PCT column for the Firebirds is 0.603. This is calculated by the Points (47) divided by GP * 2 (39 * 2 = 78), that is 47 / 78 = 0.603.
 
-The winning percentage allows ranking intra-season when teams haven't played the same number of games. After all games have been played, the rankings are determined by the total number of points a team has.[ref]Depending on the league there are tiebreakers, but that's outside the scope of this article[/ref]
+The winning percent allows ranking intra-season when teams haven't played the same number of games. After all games have been played, the rankings are determined by the total number of points a team has.[ref]Depending on the league there are tiebreakers, but that's outside the scope of this article[/ref]
+
+## Conclusion
+
+You should now be able to parse the standings in a Hockey League and be able to tell how well (or poorly) your team is doing.
