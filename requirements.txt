@@ -121,14 +121,11 @@ pelican==4.11.0
     # via
     #   -r requirements.in
     #   pelican-feed-filter
-    #   pelican-feed-stylesheet
     #   pelican-series
     #   pelican-simple-footnotes
     #   pelican-sitemap
     #   pelican-to-sqlite
 pelican-feed-filter==1.1.0
-    # via -r requirements.in
-pelican-feed-stylesheet==0.0.1
     # via -r requirements.in
 pelican-series==3.0.0
     # via -r requirements.in
