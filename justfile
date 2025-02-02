@@ -22,6 +22,9 @@
 @post title category:
     make newpost title="{{title}}" category="{{category}}"
 
+@micro title:
+    make newpost title="{{title}}" category="microblog"
+
 @reqs:
     make reqs
 
