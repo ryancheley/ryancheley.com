@@ -10,8 +10,6 @@ PATH = "content"
 
 THEME = "pelican-clean-blog"
 
-FEED_STYLESHEET = "/rss-style.xsl"
-
 TIMEZONE = "America/Los_Angeles"
 
 DEFAULT_LANG = "en"
@@ -92,3 +90,13 @@ SITEMAP = {
 }
 
 WITH_FUTURE_DATES = False
+
+FEED_ATOM = "feeds/atom"
+FEED_RSS = "feeds/rss"
+FEED_FILTER = {
+    "feeds/*": {
+        "exclude.categories": [
+            "microblog",
+        ]
+    }
+}
