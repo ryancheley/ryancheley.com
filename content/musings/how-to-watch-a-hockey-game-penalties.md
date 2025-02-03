@@ -4,4 +4,4 @@ Author: ryan
 Tags: hockey
 Slug: how-to-watch-a-hockey-game-penalties
 Series: How to Watch a Hockey Game
-Status: published
+Status: draft
