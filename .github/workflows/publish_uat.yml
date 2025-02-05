@@ -1,6 +1,9 @@
 name: Pelican Publish UAT
 
 on:
+  push:
+    paths:
+      - 'content/microblog/**'
   schedule:
     - cron: '13 13 * * *'
   workflow_dispatch:
