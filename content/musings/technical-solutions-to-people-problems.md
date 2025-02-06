@@ -12,8 +12,6 @@ Status: published
 
 From a [Toot](https://mas.to/@natureworks/113917094844091858) by [Jake Rayson](https://mas.to/@natureworks)
 
-# Technical Solutions to People Problems
-
 In a previous post, I wrote about how to [ask why without sounding like a jerk](https://www.ryancheley.com/2024/08/22/how-to-ask-why-without-sounding-like-a-jerk/). This is a slightly related concept (at least in my head).
 
 Sometimes, as technical people, we are asked to solve problems. The more we dig into them, the more we discover that the problem that needs to be solved isn't a technical one but a people one. In many cases, it's just getting two groups to actually talk to one another.
