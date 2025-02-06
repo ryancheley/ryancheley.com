@@ -1,8 +1,11 @@
 name: Pelican Publish
 
 on:
+  push:
+    paths:
+      - 'content/microblog/**'
   schedule:
-    - cron: '13 10 * * *'
+    - cron: '13 13 * * *'
   workflow_dispatch:
 
 jobs:
