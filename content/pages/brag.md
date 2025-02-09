@@ -2,9 +2,10 @@ Title: Brag Doc
 
 # Speaking / Podcasts
 
-1. Speaker at DjangoCon US 2024: [Error Culture](https://2024.djangocon.us/talks/error-culture/)
-2. Speaker at DjanogCon US 2023: [Contributing to Django or how I learned to stop worrying and just try to fix an ORM Bug](https://youtu.be/VPldDxuJDsg?si=r2ob3j4zIeYZY7tO)
-3. Guest on [Test & Code episode 183](https://testandcode.com/183) where I spoke about the "challenges of managing software teams, and how to handle them" and other skills
+1. Speaker at PyCascades 2025: [Error Culture](https://2025.pycascades.com/program/talks/error-culture/)
+2. Speaker at DjangoCon US 2024: [Error Culture](https://2024.djangocon.us/talks/error-culture/)
+3. Speaker at DjanogCon US 2023: [Contributing to Django or how I learned to stop worrying and just try to fix an ORM Bug](https://youtu.be/VPldDxuJDsg?si=r2ob3j4zIeYZY7tO)
+4. Guest on [Test & Code episode 183](https://testandcode.com/183) where I spoke about the "challenges of managing software teams, and how to handle them" and other skills
 
 # OSS Work
 
