@@ -1,0 +1,20 @@
+Title: Lightening Talk Idea
+Date: 2025-02-17
+Author: ryan
+Tags: hockey
+Slug: lightening-talk-idea
+Status: published
+
+I have an idea for a lightening talk for a conference that involves the use of [datasette](https://datasette.io/), [git scrapping](https://simonwillison.net/2020/Oct/9/git-scraping/), and my love of [the AHL](https://theahl.com/). Specifically [this project](https://ahl-data.ryancheley.com/) that I've been poking at for more than 2 years which uses git scraping to populate data into a sqlite database which is then served up by datasette on a server I run. 
+
+It's a silly little thing, but it lets me do some pretty cool things, like comparing how my beloved [Coachella Valley Firebirds](https://cvfirebirds.com/) are doing [year over year](https://ahl-data.ryancheley.com/games/yoy_performance?team=Coachella+Valley+Firebirds). 
+
+It also lets me see their point totals by day for a specific number of historic years[ref]There are three parameters, years back, team name, and season name. See [here](https://ahl-data.ryancheley.com/games?sql=with+data+as+%28%0D%0A++++select+g.home_team%0D%0A++++%2C+g.away_team%0D%0A++++%2C+g.game_date%0D%0A++++%2C+g.home_team_score%0D%0A++++%2C+g.away_team_score%0D%0A++++%2C+g.game_status%0D%0A++++%2C+d.date%0D%0A++++%2C+case%0D%0A++++++++when+g.home_team+%3D+%3Ateam+and+g.home_team_score+%3E+g.away_team_score+then+1%0D%0A++++++++when+g.away_team+%3D+%3Ateam+and+g.home_team_score+%3C+g.away_team_score+then+1%0D%0A++++++++else+0%0D%0A++++end+as+%27W%27%0D%0A++++%2C+case%0D%0A++++++++when+g.home_team+%3D+%3Ateam+and+g.game_status%3D%27Final%27+and+g.home_team_score+%3C+g.away_team_score+then+1%0D%0A++++++++when+g.away_team+%3D+%3Ateam+and+g.game_status%3D%27Final%27+and+g.home_team_score+%3E+g.away_team_score+then+1%0D%0A++++++++else+0%0D%0A++++end+as+%27L%27%0D%0A++++%2C+case%0D%0A++++++++when+g.home_team+%3D+%3Ateam+and+g.game_status%3D%27Final+OT%27+and+g.home_team_score+%3C+g.away_team_score+then+1%0D%0A++++++++when+g.away_team+%3D+%3Ateam+and+g.game_status%3D%27Final+OT%27+and+g.home_team_score+%3E+g.away_team_score+then+1%0D%0A++++++++else+0%0D%0A++++end+as+%27OTL%27%0D%0A++++%2C+case%0D%0A++++++++when+g.home_team+%3D+%3Ateam+and+g.game_status%3D%27Final+SO%27+and+g.home_team_score+%3C+g.away_team_score+then+1%0D%0A++++++++when+g.away_team+%3D+%3Ateam+and+g.game_status%3D%27Final+SO%27+and+g.home_team_score+%3E+g.away_team_score+then+1%0D%0A++++++++else+0%0D%0A++++end+as+%27SOL%27%0D%0Afrom%0D%0A++++dim_date+d%0D%0Aleft+join+games+g+on+g.game_date+%3D+d.date+and+%28g.home_team+%3D+%3Ateam+or+g.away_team+%3D+%3Ateam%29%0D%0Awhere+d.season+%3D+%3Aseason%0D%0Aand+d.date+%3C%3D+DATE%28%27NOW%27%2C+%3Ayears+%7C%7C+%27+years%27%29%0D%0Aand+d.season_phase+%3D+%27regular%27%29%0D%0A%0D%0Aselect+%0D%0A++++%3Ateam%2C%0D%0A++++date%2C%0D%0A++++SUM%28W%29+OVER+%28ORDER+BY+date%29+as+W%2C%0D%0A++++SUM%28L%29+OVER+%28ORDER+BY+date%29+as+L%2C%0D%0A++++SUM%28OTL%29+OVER+%28ORDER+BY+date%29+as+OTL%2C%0D%0A++++SUM%28SOL%29+OVER+%28ORDER+BY+date%29+as+SOL%2C%0D%0A++++SUM%28W+%2B+L+%2B+OTL+%2B+SOL%29+OVER+%28ORDER+BY+date%29+as+GamesPlayer%2C%0D%0A++++--+Optional%3A+Calculate+points+%282+for+W%2C+1+for+OTL%2FSOL%29%0D%0A++++SUM%28W+*+2+%2B+OTL+%2B+SOL%29+OVER+%28ORDER+BY+date%29+as+Points%0D%0Afrom+data%0D%0Aorder+by+date%3B&years=-2&team=Coachella+Valley+Firebirds&season=2022-23) for an example[/ref] to do some other neat comparisons. 
+
+I've also been trying to work at getting a Django app integrated into it so I can make new tables and populate them with information about franchises, and teams to get a better sense of the history of a franchise and how it relates to any team. 
+
+For example, the current Calgary Wranglers were the previous Stockton Heat. And if you go back far enough they were the Maine Mariners who were the first expansion team to win the Calder Cup back in 1978-79. 
+
+Being able to easily trace the history of a franchise, through its various incarnations, with data seems like a pretty cool thing, at least to a data nerd like me. 
+
+I have **BIG** plans for this, but right now it's just a small, hobby project.
