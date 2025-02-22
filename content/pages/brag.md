@@ -35,6 +35,7 @@ Title: Brag Doc
 6. Navigator for [Djangonaut.space](https://djangonaut.space)
     - Session 1 (Jan 15, 2024 - Mar 11, 2024)
     - Session 2 (Jun 17, 2024 - Aug 12, 2024)
+    - Session 4 (Feb 17, 2025 - Apr 13, 2025)
 8. [Django Commons](https://github.com/django-commons/) admin
 
 # Certifications
