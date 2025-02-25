@@ -1,4 +1,4 @@
-Title: great-swimming
+Title: Great Swimming
 Date: 2025-02-14
 Author: ryan
 Tags: swimming
