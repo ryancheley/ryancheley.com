@@ -1,7 +1,7 @@
 Title: Hummingbird Video Capture
 Date: 2018-04-05 17:46
 Author: ryan
-Tags: Hummingbird, python, video, youtube
+Tags: hummingbird, python, video, youtube
 Slug: hummingbird-video-capture
 Status: published
 

@@ -1,7 +1,7 @@
 Title: The PIR Sensor Debacle of 2018
 Date: 2018-11-10 11:26
 Author: ryan
-Tags: Hummingbird, pir sensor
+Tags: hummingbird, pir sensor
 Slug: the-pir-sensor
 Status: published
 

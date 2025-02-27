@@ -1,7 +1,7 @@
 Title: Taking Down the RPi Camera Over My Hummingbird Feeder
 Date: 2019-06-23 14:43
 Author: ryan
-Tags: Hummingbird, setup
+Tags: hummingbird, setup
 Slug: taking-down-the-rpi-camera-over-my-hummingbird-feeder
 Status: published
 

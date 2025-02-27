@@ -1,7 +1,7 @@
 Title: Monitoring the temperature of my Raspberry Pi Camera
 Date: 2018-12-04 07:07
 Author: ryan
-Tags: automation, Bash, Raspberry Pi
+Tags: automation, Bash, Raspberry Pi, hummingbird
 Slug: monitoring-the-temperature-of-my-raspberry-pi-camera
 Status: published
 
