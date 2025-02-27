@@ -1,11 +1,11 @@
 Title: Finally
 Author: ryan
 Date: 2025-02-23
-Tags: hockey 
+Tags: hockey
 Slug: finally
 Status: published
 
-Over the last 2 seasons the Coachella Valley Firebirds were 15-1 against the San Jose Barracuda. The one loss over those 2 seasons was a 5-3 loss at home that was a bit closer than then score showed. Coming into this season I really didn't have any reason to think anything other than we'd be on the same trajectory of beating the Cuda more often than not. 
+Over the last 2 seasons the Coachella Valley Firebirds were 15-1 against the San Jose Barracuda. The one loss over those 2 seasons was a 5-3 loss at home that was a bit closer than then score showed. Coming into this season I really didn't have any reason to think anything other than we'd be on the same trajectory of beating the Cuda more often than not.
 
 I was wrong.
 
@@ -19,7 +19,7 @@ He replied
 
 > It will be different, let's get it!
 
-He was correct. [The Firebirds finally got a W against the Cuda](https://theahl.com/stats/game-center/1027270) ... although the 5-3 score was closer than I would have liked it to be ...  and there were plenty of chances for the Cuda to tie it up in the last 90 seconds. But finally, the first win. 
+He was correct. [The Firebirds finally got a W against the Cuda](https://theahl.com/stats/game-center/1027270) ... although the 5-3 score was closer than I would have liked it to be ...  and there were plenty of chances for the Cuda to tie it up in the last 90 seconds. But finally, the first win.
 
 For the 2024-25 season we're now 1-4-0-2.
 
