@@ -41,7 +41,7 @@ Think about any Enterprise software you've ever encountered. Would you say that 
 So if the users don't like it, why is it in place? Two reasons:
 
 1. It meets some kind of regulation (this could be a government regulation, but it could also be a regulation of a guild, or union, or something else)
-2. It's easy to maintain by the support system, (i.e. by IT)
+2. It's easy to maintain by the support system
 
 For any software that meets these criteria you are likely to have users that don't like the software, because they are always an afterthought. The primary responsibility of the software developers of these types of systems is always the regulators, and the support infrastructure.
 
