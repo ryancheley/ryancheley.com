@@ -70,7 +70,7 @@ That command will output a whole lines like this:
 
 Great! We have the data we need, now we just want to clean it up.
 
-Again, we'll use `grep` onl this time we want to look for an honest to goodness regular expression. We're trying to identify everything in between the first open angle brackey (<) and the first closed angle bracket (>)
+Again, we'll use `grep` only this time we want to look for an honest to goodness regular expression. We're trying to identify everything in between the first open angle brackey (<) and the first closed angle bracket (>)
 
 A bit of googling, searching stack overflow, and playing with the great site [regex101.com](https://regex101.com) gets you this
 
@@ -78,7 +78,7 @@ A bit of googling, searching stack overflow, and playing with the great site [re
 
 OK, we have the regular expression we need, but what options do we need to use in `grep`? In this case we actually have two options:
 
-1. Use `egrep` (which allos for extended regular expressions)
+1. Use `egrep` (which allows for extended regular expressions)
 2. Use `grep -E` to make grep behave like `egrep`
 
 I chose to go with option 2, use `grep -E`. Next, we want to return ONLY the part of the line that matches the regex. For that, we can use the option `o`. Putting it all together we get

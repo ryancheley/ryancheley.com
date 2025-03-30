@@ -193,7 +193,7 @@ The only problem with it is I called my `DataFrame` `games`, not `df`. Simple en
 
 When I try to run the code I get errors. Lots of them. This is because while i made sure to update the `DataFrame` name to be correct I overlooked that the function was using a parameter called `games` and `Python` got a bit confused about what was what.
 
-OK, round two, replace the paramater `games` with `games_t`:
+OK, round two, replace the parameter `games` with `games_t`:
 
     def rera(games_t, row):
         if row.name+1 < games_t:
@@ -253,7 +253,7 @@ I also noticed that the stats include the playoffs (which I wasn't intending). A
 Legend:
 
 -   Black Dot - ERA on Date of Game
--   Black Solid Line - Cummulative ERA
+-   Black Solid Line - Cumulative ERA
 -   Blue Solid Line - 3-game trailing average ERA
 -   Red Solid Line - 4-game trailing average ERA
 

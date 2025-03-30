@@ -121,4 +121,4 @@ systemctl daemon-reload
 systemctl restart gunicorn
 ```
 
-When we visit our domain we should see our Django Site [fn](# "There are other steps that are neccesary like creating a superuser")
+When we visit our domain we should see our Django Site [fn](# "There are other steps that are necessary like creating a superuser")

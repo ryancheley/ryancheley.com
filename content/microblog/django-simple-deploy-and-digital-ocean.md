@@ -5,7 +5,7 @@ Tags: django, deployment
 Slug: django-simple-deploy-and-digital-ocean
 Status: published
 
-Today on Mastodon [Eric Matthes](https://fosstodon.org/@ehmatthes) posted about his library [django-simple-deploy](https://github.com/django-simple-deploy/django-simple-deploy) and a plugin for it to be able to deploy to [Digitial Ocean](https://www.digitalocean.com/) and I am so pumped for this!
+Today on Mastodon [Eric Matthes](https://fosstodon.org/@ehmatthes) posted about his library [django-simple-deploy](https://github.com/django-simple-deploy/django-simple-deploy) and a plugin for it to be able to deploy to [Digital Ocean](https://www.digitalocean.com/) and I am so pumped for this!
 
 I said as much and Eric asked why.
 

@@ -1,11 +1,11 @@
-Title: Lightening Talk Idea
+Title: Lightning Talk Idea
 Date: 2025-02-17
 Author: ryan
 Tags: hockey
 Slug: lightening-talk-idea
 Status: published
 
-I have an idea for a lightening talk for a conference that involves the use of [datasette](https://datasette.io/), [git scrapping](https://simonwillison.net/2020/Oct/9/git-scraping/), and my love of [the AHL](https://theahl.com/). Specifically [this project](https://ahl-data.ryancheley.com/) that I've been poking at for more than 2 years which uses git scraping to populate data into a sqlite database which is then served up by datasette on a server I run.
+I have an idea for a lightning talk for a conference that involves the use of [datasette](https://datasette.io/), [git scrapping](https://simonwillison.net/2020/Oct/9/git-scraping/), and my love of [the AHL](https://theahl.com/). Specifically [this project](https://ahl-data.ryancheley.com/) that I've been poking at for more than 2 years which uses git scraping to populate data into a sqlite database which is then served up by datasette on a server I run.
 
 It's a silly little thing, but it lets me do some pretty cool things, like comparing how my beloved [Coachella Valley Firebirds](https://cvfirebirds.com/) are doing [year over year](https://ahl-data.ryancheley.com/games/yoy_performance?team=Coachella+Valley+Firebirds).
 

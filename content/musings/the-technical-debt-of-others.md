@@ -53,7 +53,7 @@ I think this response from one of the clinicians sums up this issue
 >
 > While it's relatively easy to follow and resolve the duplication alert if the inactivation and new prescribing is done by the same prescriber, I can see a scenario where prescriber A stops an old ibuprofen 600mg Rx\[\^2\] (say PCP) and patient then goes to see prescriber B (say IC\[\^3\]) who then tries to Rx ibuprofen 800mg…. and end up getting this duplication alert. The second prescriber would almost be lost as to why that message is showing up.
 >
-> The application logic should augment the processes the application was designed to faciliate, **but right now it is a hindrance**. (emphasis added)
+> The application logic should augment the processes the application was designed to facilitate, **but right now it is a hindrance**. (emphasis added)
 
 I know that sometimes we need to build it fast so that we can ship, but developers need to remember, *forever* is a long freaking time.
 

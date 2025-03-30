@@ -24,7 +24,7 @@ The ice rink can be broken into 3 sections from the perspective of 1 team. Let's
 
 ![Ice Hockey Rink](https://www.conceptdraw.com/How-To-Guide/picture/Sport-Hockey-Simple-hockey-field-Template.png "Ice Hockey Rink Diagram")
 
-1. The Defending zone - This is where team A's Goal is located. It starts right behing team A's goal and goes to the right toward the blue line
+1. The Defending zone - This is where team A's Goal is located. It starts right behind team A's goal and goes to the right toward the blue line
 2. Neutral Zone - This is the center of the ice between the two blue lines; it also contains a red line that is called 'Center Ice'
 3. The Attacking Zone - This is where team A are trying to score. It starts at the OTHER blue line and goes back behind Team B's goal
 

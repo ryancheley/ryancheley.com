@@ -44,7 +44,7 @@ Next, we establish the configurations:
 The `ox.config` allows you to specify several options. In this case, I’m:
 
 1.  Specifying that the logs be saved to a file in the log directory
-2.  Supress the output of the log file to the console (this is helpful to have set to `True` when you’re first running the script to see what, if any, errors you have.
+2.  Suppress the output of the log file to the console (this is helpful to have set to `True` when you’re first running the script to see what, if any, errors you have.
 3.  The `use_chache=True` will use a local cache to save/retrieve http responses instead of calling API repetitively for the same request URL
 
 This option will help performance if you have the run the script more than once.

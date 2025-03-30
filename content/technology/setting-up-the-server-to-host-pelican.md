@@ -8,7 +8,7 @@ Status: published
 
 # Creating the user on the server
 
-Each site on my server has it's own user. This is a security consideration, more than anything else. For this site, I used the steps from [some of my scripts for setting up a Django site](https://www.ryancheley.com/2021/02/21/automating-the-deployment/). In particular, I ran the following code fron te shell on the server:
+Each site on my server has it's own user. This is a security consideration, more than anything else. For this site, I used the steps from [some of my scripts for setting up a Django site](https://www.ryancheley.com/2021/02/21/automating-the-deployment/). In particular, I ran the following code from the shell on the server:
 
 ```
 adduser --disabled-password --gecos "" ryancheley
@@ -18,7 +18,7 @@ adduser ryancheley www-data
 
 The first command above creates the user with no password so that they can't actually log in. It also creates the home directory `/home/ryancheley`. This is where the site will be server from.
 
-The second commands adds the user to the `www-data` group. I don't think that's strictly neccesary here, but in order to keep this user consistent with the other web site users, I ran it to add it to the group.
+The second commands adds the user to the `www-data` group. I don't think that's strictly necessary here, but in order to keep this user consistent with the other web site users, I ran it to add it to the group.
 
 # Creating the nginx config file
 

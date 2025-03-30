@@ -27,7 +27,7 @@ It feels a bit dangerous to be able to just do that (I didn’t have to enter a 
 
 OK, so the tutorial above got me most(ish) of the way there, but I needed to sign my own certificate. For that I used this [tutorial](https://www.linode.com/docs/security/ssl/install-lets-encrypt-to-create-ssl-certificates "SSL"). I followed the directions but kept coming up with an error:
 
-`Problem biding to port 443: Could not bind to the IPv4 or IPv6`
+`Problem binding to port 443: Could not bind to the IPv4 or IPv6`
 
 I rebooted my Linode server. I restarted apache. I googled and I couldn’t find the answer I was looking for.
 

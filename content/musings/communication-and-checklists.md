@@ -20,4 +20,4 @@ While reading [Data silos holding back healthcare breakthroughs, outcomes](http:
 
 Here's the 'so what' point of all of this. Using **Big Data** to help patients should be what the healthcare industry is focusing on. But this is difficult because Clinicians and Data Scientists don't always have the vocabulary nor the incentives to collaborate in a meaningful way that leads to improved patient outcomes.
 
-Could check lists for implementing **Big Data** at various types and sizes of organizations help? I think so, because at the very least, it could start the neccesary conversations needed to engender a sense of **team** between Clinicians and Data Scientists which can be sorely lacking in many institutions.
+Could check lists for implementing **Big Data** at various types and sizes of organizations help? I think so, because at the very least, it could start the necessary conversations needed to engender a sense of **team** between Clinicians and Data Scientists which can be sorely lacking in many institutions.

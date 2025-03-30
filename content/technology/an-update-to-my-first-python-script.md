@@ -11,7 +11,7 @@ I decided to try and add images to the [python script I wrote last week](https:/
 
 The first thing I decided to do was to update the code on `pythonista` on my iPad Pro and verify that it would run.
 
-It took some doing (mostly because I *forgot* that the attributes in an `img` tag included what I needed ... initially I was trying to programatically get the name of the person from the image file itelf using [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) ... it didn't work out well).
+It took some doing (mostly because I *forgot* that the attributes in an `img` tag included what I needed ... initially I was trying to programmatically get the name of the person from the image file itelf using [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) ... it didn't work out well).
 
 Once that was done I branched the `master` on GitHub into a `development` branch and copied the changes there. Once that was done I performed a **pull request** on the macOS GitHub Desktop Application.
 

@@ -55,11 +55,11 @@ Related to the item above, but different, a person can receive an alert, but the
 
 I'm reminded of the Episode of [Friends](https://youtu.be/pMuVm1Y669U?si=--E-MDfTWPlHjBqk&t=180) where there is a light switch in Chandler and Joey's apartment and they don't know what it's for. At the end of the episide Monica is idly flipping the switch off and on and the camera pans to a Monica and Rachel's apartment where their TV keeps turning off and on.
 
-Error culture can have a similar feeling. If I get an error every few days, but it doesn't impact me or my work I am likely to ignore it. It could be that the error is unimporatnt for me, but HUGELY important for you. This is a case where the error is being directled incorrectly. If we both got the error you could see that I got the email and then ask, hey, are you going to do anythign about this?
+Error culture can have a similar feeling. If I get an error every few days, but it doesn't impact me or my work I am likely to ignore it. It could be that the error is unimporatnt for me, but HUGELY important for you. This is a case where the error is being directled incorrectly. If we both got the error you could see that I got the email and then ask, hey, are you going to do anything about this?
 
 ### Emphasis on Hero Culture
 
-This is probably the worst of all possibilities. Some cultures tend to emphasize Heros or White Knights. They appreciate when someone comes in and 'Saves the Day'. Sometimes people get promoted because of this.
+This is probably the worst of all possibilities. Some cultures tend to emphasize Heroes or White Knights. They appreciate when someone comes in and 'Saves the Day'. Sometimes people get promoted because of this.
 
 This tends to disincentivize the idea of fixing small problems before they become BIG problems. I might be getting an alert about an issue, but it's not a BIG deal and won't be for some time. Once it becomes a big deal I'll know how to fix it quickly, and I will. When I do, I'll be celebrated. Who wouldn't want that?
 

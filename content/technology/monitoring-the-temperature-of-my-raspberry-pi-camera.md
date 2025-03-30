@@ -31,7 +31,7 @@ At first, I tried adding this code:
        echo "Camera Pi Running Hot" | mail -s "Warning! The Camera Pi is Running Hot!!!" user@domain.tld
     fi
 
-Where the `$MyTemp` came from the above code that get’s logged to the temp.log file.
+Where the `$MyTemp` came from the above code that gets logged to the temp.log file.
 
 It didn’t work. The problem is that the temperature I’m capturing for logging purposes is a float, while the item it was being compared to was an integer. No problem, I’ll just make the “70” into a “70.0” and that will fix the ... oh wait. That didn’t work either.
 

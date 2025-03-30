@@ -55,7 +55,7 @@ Now it's time to start populating some of the `list` variables I created above. 
     player_pass_team.append(gamesaway.team_x)
     player_pass_ha_ind.append(gamesaway.ha_ind)
 
-Now for the looping (everybody's favorite part!). Using `BeautifulSoup` I get the `div` of class `col column-one gamepackage-away-wrap`. Once I have that I get the table rows and then loop through the data in the row to get what I need from the table holding the passer data. Some intersting things happening below:
+Now for the looping (everybody's favorite part!). Using `BeautifulSoup` I get the `div` of class `col column-one gamepackage-away-wrap`. Once I have that I get the table rows and then loop through the data in the row to get what I need from the table holding the passer data. Some interesting things happening below:
 
 -   The Catches / Attempts and Sacks / Yrds Lost are displayed as a single column each (even though each column holds 2 statistics). In order to *fix* this I use the `index()` method and get all of the data to the left of a character (`-` and `/` respectively for each column previously mentioned) and append the resulting 2 items per column (so four in total) to 2 different lists (four in total).
 

@@ -21,11 +21,11 @@ I was struck by several passages in the article:
 
 > > This is the most simple and basic component of life: our struggles determine our successes. So choose your struggles wisely, my friend.
 
-When I was younger I wanted to be many things, a Physicist, an Archtect, an Engineer, a Professor ... but none of those things ever got any closer. I'd be really engaged in the ideas of one of these for weeks or months at a time.
+When I was younger I wanted to be many things, a Physicist, an Architect, an Engineer, a Professor ... but none of those things ever got any closer. I'd be really engaged in the ideas of one of these for weeks or months at a time.
 
 I remember being so enamoured with the idea of Civil Engineering I convinced my parents to get me a drafting board that I had in my room and I used to 'design' a prototype of a Martian Habitat.
 
-But, as soon as I got bored I would move onto something else. From Physics to Archtecture to Engineering and back to Physics. I would always stop when it either got too hard **OR** something else looked more interesting.
+But, as soon as I got bored I would move onto something else. From Physics to Architecture to Engineering and back to Physics. I would always stop when it either got too hard **OR** something else looked more interesting.
 
 I was always awed by my peers that could stay laser focused on a single hobby or dream job and was amazed at the amount of sacrifice they would be willing to make in order to achieve their goals.
 

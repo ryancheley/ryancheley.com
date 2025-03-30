@@ -20,7 +20,7 @@ and got this result:
 
 This is nice, but what is the file that failed to process?
 
-This left me with two optons:
+This left me with two options:
 
 1. Complain that this awesome tool created by someone didn't do the thing I thought it needed to do
 
@@ -30,7 +30,7 @@ OR
 
 I went with option 2 😀
 
-My initial commit was made in a pretty naive way. It did the job, but not in the best way for maintainability. I had a really great exchange with the maintaner [Guilherme Latrova](https://github.com/guilatrova) about the change that was made and he helped to direct me in a different direction.
+My initial commit was made in a pretty naive way. It did the job, but not in the best way for maintainability. I had a really great exchange with the maintainer [Guilherme Latrova](https://github.com/guilatrova) about the change that was made and he helped to direct me in a different direction.
 
 The biggest thing I learned while working on this project (for Python at least) was the `logging` library. Specifically I learned how to add:
 

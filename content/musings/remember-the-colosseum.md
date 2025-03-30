@@ -103,7 +103,7 @@ The other thing that will need to be done is to figure out who uses the system. 
 
 Once you're able to determine who uses the system, you can talk with them about the system and then work to fill in the gaps from above.
 
-Occassionally, you find out who everyone *thinks* is using the system, and discover that actually, it hasn't been used for 5 years because **reasons**, and they didn't know who to tell.
+Occasionally, you find out who everyone *thinks* is using the system, and discover that actually, it hasn't been used for 5 years because **reasons**, and they didn't know who to tell.
 
 Now you can just retire the system using a decommissioning process. You have a technology decommissioning process, right? If you don't, it may be time to look into one!
 

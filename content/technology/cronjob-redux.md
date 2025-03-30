@@ -54,7 +54,7 @@ To this:
 
     (echo '#!/bin/sh'; echo -n "MP4Box"; array=($(ls ~/Documents/python_projects/*.h264)); for index in ${!array[@]}; do if [ "$index" -eq 0 ]; then echo -n " -add ${array[index]}"; else echo -n " -cat ${array[index]}"; fi; done; echo -n " /home/pi/Documents/python_projects/hummingbird.mp4") > /home/pi/Documents/python_projects/create_mp4.sh
 
-The last bit `/home/pi/Documents/python_projects/create_mp4.sh` may not be *neccesary* but I’m not taking any chances.
+The last bit `/home/pi/Documents/python_projects/create_mp4.sh` may not be *necessary* but I’m not taking any chances.
 
 The [video posted tonight](https://www.youtube.com/watch?v=OaRiW1aFk9k) is the first one that was completely automatic!
 

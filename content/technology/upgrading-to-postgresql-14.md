@@ -5,7 +5,7 @@ Tags: postgres
 Slug: upgrading-to-postgresql-14
 Status: published
 
-[Django 4.1 was released on August 3, 2022](https://docs.djangoproject.com/en/4.1/releases/4.1/) and I was excited to upgrade to it. I did the testing locally and then pushed my changes up to GitHub to deploy. The deployment was succesful, but when I went to visit my sites ... womp womp. I got a Server Error 5XX.
+[Django 4.1 was released on August 3, 2022](https://docs.djangoproject.com/en/4.1/releases/4.1/) and I was excited to upgrade to it. I did the testing locally and then pushed my changes up to GitHub to deploy. The deployment was successful, but when I went to visit my sites ... womp womp. I got a Server Error 5XX.
 
 What happened? Well, it turns out that Django 4.1 [dropped support for Postgres 10](https://docs.djangoproject.com/en/4.1/releases/4.1/#dropped-support-for-postgresql-10) and that just so happens to be the version I was running on my production server (but not on my local dev machine ... I was running Postgres 14).
 

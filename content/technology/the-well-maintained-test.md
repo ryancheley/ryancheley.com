@@ -32,7 +32,7 @@ I set out in earnest to do just that on [November 8th](https://github.com/ryanch
 
 What started out as just a simple Click app, quickly turned in a pretty robust CLI using [Will McGugan](https://twitter.com/willmcgugan)'s [Rich](https://github.com/willmcgugan/rich) library.
 
-I started by using the GitHub API to try and answer the questions, but quickly found that it couldn't answer them all. Then I cam across the PyPI API which helped to answer almost all of them programatically.
+I started by using the GitHub API to try and answer the questions, but quickly found that it couldn't answer them all. Then I cam across the PyPI API which helped to answer almost all of them programmatically.
 
 There's still a [bit of work](https://github.com/ryancheley/the-well-maintained-test/issues) to do to get it where I want it to, but it's pretty sweet that I can now run a simple command and review the output to see if the package is well maintained.
 

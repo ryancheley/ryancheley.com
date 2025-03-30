@@ -11,7 +11,7 @@ I read through the [installation instructions at the ReadMe](https://github.com/
 
 I noticed that I was not on the current version (2.3.36 at the time of this writing) and decided that I needed to [update it](https://docs.brew.sh/FAQ#how-do-i-update-my-local-packages).
 
-With the update out of the way I tried to install a version of Python with it, starting at Python 3.10 (becasue why not?!)
+With the update out of the way I tried to install a version of Python with it, starting at Python 3.10 (because why not?!)
 
 ```
 pyenv install 3.10
@@ -23,7 +23,7 @@ But when I ran it I got an error like this:
 BUILD FAILED (OS X 12.3.1 using python-build 20180424)
 ```
 
-Which lead me [here](https://github.com/pyenv/pyenv/issues/2343). There were some comments people left about deleting directories (which always makes me a bit uneasy ... espcially when they're in /Library/)
+Which lead me [here](https://github.com/pyenv/pyenv/issues/2343). There were some comments people left about deleting directories (which always makes me a bit uneasy ... especially when they're in /Library/)
 
 Reading further down I did come across [this comment](https://github.com/pyenv/pyenv/issues/2343#issuecomment-1627994171)
 

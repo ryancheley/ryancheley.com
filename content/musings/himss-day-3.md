@@ -19,7 +19,7 @@ These are some amazing points. My only real question was, If you segregate Proje
 
 There was a real time poll during the session which asked, ‘What is the most significant challenge in your organization?’. Fifty percent of attendees that responded indicated inconsistent priorities as the (which is what I answered as well). Turns out, we’re not alone.
 
-A lot of the talk focused on the process that UI Health uses which had gone through 3 iterations in 2 years. It seemed like it would work for a large(ish) hospital or hospital system, but seemed too beauracratic for my organization.
+A lot of the talk focused on the process that UI Health uses which had gone through 3 iterations in 2 years. It seemed like it would work for a large(ish) hospital or hospital system, but seemed too bureaucratic for my organization.
 
 Overall, a very good talk and I’m glad I went. I believe I have some real actionable ideas that I can take away.
 
@@ -67,7 +67,7 @@ The second poll asked, “Do you collaborate with Clinical Stakeholders?” Most
 
 My Last talk of the day, **How Analytics Can Create a Culture of Continuous Improvement**. It was an interesting talk that focused on using Analytics to drive continuous improvement. Some of the things that really caught my attention were the ideas of implementing continuous improvement is part of the job description. Part of that was something that is stated in the New Employee Orientation, “Do the job you were hired for and make it better.”
 
-Another intersting point was that there is no one Big Bang solution for Emergency Department throughput (though the idea can be applied to any problem you’re facing). You need to look at improving each step a little bit along the way.
+Another interesting point was that there is no one Big Bang solution for Emergency Department throughput (though the idea can be applied to any problem you’re facing). You need to look at improving each step a little bit along the way.
 
 But, in order to do this effectively, you need data, team and a process. This reminded me of the **Breaking Down Barriers with Master Data Management and Data Governance** talk I was at earlier in the day!
 

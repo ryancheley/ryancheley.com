@@ -11,7 +11,7 @@ What I didn’t realize over the weekend is that while I had been trying to depl
 
 While I was working on my Django site I should have realized that something was up when I tried to connect to the blog for the site (still a Wordpress site on my Linode server) and it returned a ‘Can not connect to the server message’. I didn’t pay much attention because I figured (incorrectly) that I had done something specific to that subdomain, and not that I had made all of the sites on my Linode server inaccessible.
 
-Last night at about 9 I thought, “Well, it should’t take long for me to figure out the issue with the new blog. ”
+Last night at about 9 I thought, “Well, it shouldn’t take long for me to figure out the issue with the new blog. ”
 
 By 10:15 I tried everything the internet had told me to try and I was still unable to get apache2 to reload.
 

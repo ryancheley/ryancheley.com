@@ -68,7 +68,7 @@ Now, the only commands to run from the terminal are the following:
 
 ## Round 4
 
-Like any ~~good~~ ~~bad~~ lazy programer I've opted for a rute force method of converting the `doc` files to `docx` files. I opened each one in Word on macOS and saved as `docx`. Problem solved ¯\_(ツ)\_/¯
+Like any ~~good~~ ~~bad~~ lazy programmer I've opted for a brute force method of converting the `doc` files to `docx` files. I opened each one in Word on macOS and saved as `docx`. Problem solved ¯\_(ツ)\_/¯
 
 Step 1: used the command I found here [\^7](http://stackoverflow.com/questions/2709458/bash-script-to-replace-spaces-in-file-names) to recursively replace the spaces in the files names with underscores `_`
 

@@ -29,4 +29,4 @@ Things I like the Djangonauts (and myself) to keep in mind during the program:
     - Writing the Weekly `Updates to Django` section of the [Django News Newsletter](https://django-news.com/)
     - Connect and network with other Djangonauts
 
-The most important thing, I think, is to have fun during this program. This is a unique experience and it should be one that you look back on fondly becuase you learned some stuff, met some awesome people, and most of all had fun.
+The most important thing, I think, is to have fun during this program. This is a unique experience and it should be one that you look back on fondly because you learned some stuff, met some awesome people, and most of all had fun.

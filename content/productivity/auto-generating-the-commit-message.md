@@ -87,7 +87,7 @@ There are a couple of lines here that I need to get the content of for my commit
 - Title
 - Slug
 - Date
-- Status[ref]I will also need the `Status` to do some conditional logic otherwise I may have a post that is in draft status that I want to commit and the GitHub Action will run posting a tweet with an aritcle and URL that don't actually exist yet.
+- Status[ref]I will also need the `Status` to do some conditional logic otherwise I may have a post that is in draft status that I want to commit and the GitHub Action will run posting a tweet with an article and URL that don't actually exist yet.
 [/ref]
 
 I can use `head` to get the first `n` lines of a file. In this case, I need the first 7 lines of the output from `git status --porcelain | sed s/^...//`. To do that, I pipe it to `head`!

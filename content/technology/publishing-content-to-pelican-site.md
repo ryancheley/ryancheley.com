@@ -10,7 +10,7 @@ There are a lot of different ways to get the content for your Pelican site onto 
 
 For automation they talk about the use of either `Invoke` or `Make` (although you could also use [`Just`](https://github.com/casey/just) instead of `Make` which is my preferred command runner.)
 
-I didn't go with any of these options, instaed opting to use GitHub Actions instead.
+I didn't go with any of these options, instead opting to use GitHub Actions instead.
 
 I have [two GitHub Actions](https://github.com/ryancheley/ryancheley.com/tree/main/.github/workflows) that will publish updated content. One action publishes to a UAT version of the site, and the other to the Production version of the site.
 
@@ -68,7 +68,7 @@ In line 13 I invoke the `appleboy/ssh-action@v0.1.2` which allows me to ssh into
 
 On line 20 I remove the folder where the code was previously cloned from, and in line 21 I run the `git clone` command to download the code
 
-Line 23 I activate my virtual environemnt
+Line 23 I activate my virtual environment
 
 Line 25 I copy the code from the cloned repo into the directory of my site
 

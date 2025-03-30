@@ -11,7 +11,7 @@ There was an outdated plugin called [tipue-search](https://github.com/pelican-pl
 
 I thought about it, and since my blag isn't super high trafficked AND you can use google to search a specific site, I could wait a bit and see what options came up.
 
-After waiting a few months, I decided it would be intersting to see if I could write a SQLite utility to get the data from my blog, add it to a SQLite database and then use [datasette](https://datasette.io) to serve it up.
+After waiting a few months, I decided it would be interesting to see if I could write a SQLite utility to get the data from my blog, add it to a SQLite database and then use [datasette](https://datasette.io) to serve it up.
 
 I wrote the beginning scaffolding for it last August in a utility called [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/0.1/), but I ran into several technical issues I just couldn't overcome. I thought about giving up, but sometimes you just need to take a step away from a thing, right?
 

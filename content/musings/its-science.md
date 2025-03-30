@@ -96,13 +96,13 @@ OK, let’s import some libraries:
 
 There are 2 functions to determine `brightness` that I found [here](http://stackoverflow.com/questions/3490727/what-are-some-methods-to-analyze-image-brightness-using-python). They were super useful for this project. As an aside, I love StackOverflow!
 
-    #Covert image to greyscale, return average pixel brightness.
+    #Convert image to greyscale, return average pixel brightness.
     def brightness01( im_file ):
        im = Image.open(im_file).convert('L')
        stat = ImageStat.Stat(im)
        return stat.mean[0]
 
-    #Covert image to greyscale, return RMS pixel brightness.
+    #Convert image to greyscale, return RMS pixel brightness.
     def brightness02( im_file ):
        im = Image.open(im_file).convert('L')
        stat = ImageStat.Stat(im)

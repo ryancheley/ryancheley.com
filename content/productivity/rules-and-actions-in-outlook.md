@@ -42,6 +42,6 @@ The `Review` Action will mark the email with a Flag and move it to a `@Review` f
 
 The `Review with Boss` action is the one action that is used the least of these three. It is useful when I receive an email and need guidance from my boss. If I just need to send her an email about it then I’ll usually mark it as `Review` and follow up with it during my review process or if it will take less than 2 minutes to write up an email I’ll take care of it right then and there.
 
-Usually emails to her take loner than 2 minutes to compose because they need to be short [ref]This idea is cribbed from Blaise Pascal’s statement, “Je n’ai fait celle-ci plus longue que parce que je n’ai pas eu le loisir de la faire plus courte” … in English, “I have made this longer than usual because I have not had time to make it shorter.” Hat tip to [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter/)[/ref]
+Usually emails to her take longer than 2 minutes to compose because they need to be short [ref]This idea is cribbed from Blaise Pascal’s statement, “Je n’ai fait celle-ci plus longue que parce que je n’ai pas eu le loisir de la faire plus courte” … in English, “I have made this longer than usual because I have not had time to make it shorter.” Hat tip to [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter/)[/ref]
 
 In my next post I’ll go over my review process. This is where I go through the 25 - 100 emails that have been marked as `Review` and answer the emails that need attention.

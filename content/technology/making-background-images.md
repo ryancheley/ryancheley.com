@@ -41,7 +41,7 @@ This code will take the background images from my `/Users/Ryan/Relay 5K Backgrou
         draw.text((TextXPos, TextYPos),'Podcasting',TextFontColor,font=font)
         draw.text
         img.save('/Users/Ryan/Relay 5K Backgrounds/Podcasting/'+onlyfiles[i])
-        print('/Users/Ryan/Relay 5K Backgrounds/Podcasting/'+onlyfiles[i]+' succesfully saved!')
+        print('/Users/Ryan/Relay 5K Backgrounds/Podcasting/'+onlyfiles[i]+' successfully saved!')
 
 This was great, but it included all of the images, and some of them are *really* bright. I mean, like *really* bright.
 
@@ -86,7 +86,7 @@ This lead me to update the code to this:
         draw.text((TextXPos, TextYPos),'Podcasting',TextFontColor,font=font)
         draw.text
         img.save('/Users/Ryan/Relay 5K Backgrounds/Podcasting/'+darkimages[i])
-        print('/Users/Ryan/Relay 5K Backgrounds/Podcasting/'+darkimages[i]+' succesfully saved!')
+        print('/Users/Ryan/Relay 5K Backgrounds/Podcasting/'+darkimages[i]+' successfully saved!')
 
 I also wanted to have backgrounds generated for my **Writing** space, so I tacked on this code:
 
@@ -99,7 +99,7 @@ I also wanted to have backgrounds generated for my **Writing** space, so I tacke
         draw.text((TextXPos, TextYPos),'Writing',TextFontColor,font=font)
         draw.text
         img.save('/Users/Ryan/Relay 5K Backgrounds/Writing/'+darkimages[i])
-        print('/Users/Ryan/Relay 5K Backgrounds/Writing/'+darkimages[i]+' succesfully saved!')
+        print('/Users/Ryan/Relay 5K Backgrounds/Writing/'+darkimages[i]+' successfully saved!')
 
 The `print` statements at the end of the `for` loops were so that I could tell that something was actually happening. The images were VERY large (close to 10MB for each one) so the `PIL` library was taking some time to process the data and I was concerned that something had frozen / stopped working
 

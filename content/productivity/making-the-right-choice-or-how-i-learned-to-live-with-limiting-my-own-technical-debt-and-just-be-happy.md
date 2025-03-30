@@ -19,7 +19,7 @@ I documented the fix and linked the `Confluece` article to the `JIRA` issue and 
 
 OK, so two things:
 
-1.  There are two reports that do **EXCATLY** the same thing for two different departments
+1.  There are two reports that do **EXACTLY** the same thing for two different departments
 2.  The report for the other department has user ids hard coded in the `SQL`
 
 What to do?

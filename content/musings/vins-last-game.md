@@ -19,7 +19,7 @@ Vin is able to call a game, with no emotion, just tell the story of the game. Dr
 ```{=html}
 </p>
 ```
-He's quite litterally seen everything. From perfect games to triple plays. He called Hank Aaron's historic record breaking home run. He even saw a pitcher throwing a perfect game through 7 get pulled (I'm looking at you DAve Roberts).
+He's quite literally seen everything. From perfect games to triple plays. He called Hank Aaron's historic record breaking home run. He even saw a pitcher throwing a perfect game through 7 get pulled (I'm looking at you DAve Roberts).
 
 ```{=html}
 </p>

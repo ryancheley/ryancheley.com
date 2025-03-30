@@ -19,7 +19,7 @@ Luckily there isn’t anything that you can break, so I was able to wonder aroun
 
 I forked the GitHub repo and I cloned it locally.
 
-I then spent an **embarasingly** long time trying to figure out where the change was going to need to be made, and exactly what needed to change.
+I then spent an **embarrassingly** long time trying to figure out where the change was going to need to be made, and exactly what needed to change.
 
 Finally, with my changes made, I [pushed my code changes](https://github.com/django/django/pull/12128#issue-344767579) to GitHub and waited.
 

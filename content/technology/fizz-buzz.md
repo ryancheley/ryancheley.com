@@ -9,7 +9,7 @@ I was listening to the most recent episode of [ATP](http://atp.fm/episodes/302) 
 
 I decided that I’d give it a shot when I got home using Python and Bash, just to see if I could (I was sure I could, but you know, wanted to make sure).
 
-Sure enough, with a bit of googling to remember some syntax fo Python, and learn some syntax for bash, I had two stupid little programs for fizz buzz.
+Sure enough, with a bit of googling to remember some syntax of Python, and learn some syntax for bash, I had two stupid little programs for fizz buzz.
 
 ## Python
 

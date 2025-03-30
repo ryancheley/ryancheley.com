@@ -9,7 +9,7 @@ In every organization, three critical elements determine success: People, Proces
 
 This deliberate ordering—Processes at the top, People in the middle, and Priorities as bedrock—creates the most stable and effective organizational structure. When Processes guide how People work and how Priorities are determined, organizations can avoid the chaos of constant priority shifts, reduce dependency on specific individuals, and create consistent frameworks for decision-making.
 
-## Definining Terms
+## Defining Terms
 
 Let's define what each of these mean from an organizational perspective:
 
@@ -19,21 +19,21 @@ Let's define what each of these mean from an organizational perspective:
 
 ## Process
 
-In my experience ranking Priorities first leads to lots of changes to Priorities. This week it's shipping a new feature to make all of the buttons cornflower blue ... next week it's adding AI to the applicaiton. The week after that it's to mine bitcoin. Priorities shift, and that's OK, but priority driven organizations seem to not have a true defining north star to help guide them, which in my experiece that leads to chaos.
+In my experience ranking Priorities first leads to lots of changes to Priorities. This week it's shipping a new feature to make all of the buttons cornflower blue ... next week it's adding AI to the application. The week after that it's to mine bitcoin. Priorities shift, and that's OK, but priority driven organizations seem to not have a true defining north star to help guide them, which in my experience that leads to chaos.
 
-Ranking People first sounds like a good idea. I mean, who doesn't want to put People first? I have found however that when People are prioritized first bad things can happen. Cliques can form. Only Sally can do thing X and they're out for the next three weeks and no, there isn't any documentaiton on how to do that. Management can be lax because that's just Bob being Bob and can lead to toxic work environments.
+Ranking People first sounds like a good idea. I mean, who doesn't want to put People first? I have found however that when People are prioritized first bad things can happen. Cliques can form. Only Sally can do thing X and they're out for the next three weeks and no, there isn't any documentation on how to do that. Management can be lax because that's just Bob being Bob and can lead to toxic work environments.
 
 I think that putting Process first helps to mitigate, though not outright eliminate, these concerns.
 
-Proceses help to determine how we do thing **X**. If Sally is out, that's OK because we have a *Process* and documentation to help us through it. Will we get it done as quickly as Sally would have gotten it done? No, but we will get it done before they come back.
+Processes help to determine how we do thing **X**. If Sally is out, that's OK because we have a *Process* and documentation to help us through it. Will we get it done as quickly as Sally would have gotten it done? No, but we will get it done before they come back.
 
-Processes also help implement things like Codes of Conduct. Again, that won't prevent cliques from forming, and no it won't keep Bob from being a jerk, but it creates a framework to help deal with Bob being a jerk and potentially removing them from the situation entierly.
+Processes also help implement things like Codes of Conduct. Again, that won't prevent cliques from forming, and no it won't keep Bob from being a jerk, but it creates a framework to help deal with Bob being a jerk and potentially removing them from the situation entirely.
 
 Processes can also help with prioritization. Having a Process that helps to guide HOW you prioritize can be very helpful. This doesn't prevent you from switching up your Priorities, but it does help to keep you focused on something long enough to complete it. And when you need to change a priority it's a lot easier (and healthier) to be able to point to the Process that drove the deicsion to change versus a statement like, "I don't know, the CEO saw something on Bloomberg and now we're doing this."
 
 Setting up Processes is hard. And in a small environments it can seem like it's not worth it. For example, asking "Why do we have a 17 page document that talks about how Priorities are chosen if it's just a handful of People?" Yes, that IS hard. And it might not seem like it's worth it. But you don't need a big long document to determine a Process on how to change Priorities. It can be as simple as
 
-> We are small and acknowledge that change is required. We will only change when a concensus of 60% of the team agree with the change OR if the CEO and CFO agree on the change.
+> We are small and acknowledge that change is required. We will only change when a consensus of 60% of the team agree with the change OR if the CEO and CFO agree on the change.
 
 More complicated Processes can come later. But at least now when a change is needed you know HOW you're going to talk about that change!
 
@@ -71,7 +71,7 @@ Always understand why you're doing a thing. Always. This points to the need for 
 
 Why are Priorities last? How can something as important as Priorities be last?
 
-I would argue that Priorities should be the bedrock of you organization and they should be HARD to change. Constantly shifting Priorities leads to disatisfaction, and burnout. It can also lead People to wonder if what they do actuallly matters. If it's always changing, why should I care about what I'm working on right now if it's just going to be different later today, tomorrow, or next week.
+I would argue that Priorities should be the bedrock of you organization and they should be HARD to change. Constantly shifting Priorities leads to dissatisfaction, and burnout. It can also lead People to wonder if what they do actually matters. If it's always changing, why should I care about what I'm working on right now if it's just going to be different later today, tomorrow, or next week.
 
 The interplay between Processes, People, and Priorities forms the backbone of any effective organization. By putting Processes first, we create the infrastructure that enables People to thrive and Priorities to remain stable. Good Processes provide clarity, continuity, and a framework for decision-making that transcends individual preferences or momentary urgencies.
 

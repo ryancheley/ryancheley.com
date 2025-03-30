@@ -15,7 +15,7 @@ It is an extension of `View` and has 5 attributes:
 -   pattern_name: The name of the URL pattern to redirect to. [ref]From the [Django Docs](https://docs.djangoproject.com/en/2.2/ref/class-based-views/base/[/ref] This will be used if no `url` is used.
 -   permanent: a flag to determine if the redirect is permanent or not. If set to `True`, then the [HTTP Status Code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection) [301](https://en.wikipedia.org/wiki/HTTP_301) is returned. If set to `False` the [302](https://en.wikipedia.org/wiki/HTTP_302) is returned
 -   query_string: If `True` then it will pass along the query string from the RedirectView. If it’s `False` it won’t. If this is set to `True` and neither `pattern\_name` nor `url` are set then nothing will be passed to the `RedirectView`
--   url: Where the Redirect should point. It will take precedence over the patter_name so you should only `url` or `patter\_name` but not both. This will need to be an absolute url, not a relative one, otherwise you may get a [404](https://en.wikipedia.org/wiki/HTTP_404) error
+-   url: Where the Redirect should point. It will take precedence over the patter_name so you should only `url` or `pattern\_name` but not both. This will need to be an absolute url, not a relative one, otherwise you may get a [404](https://en.wikipedia.org/wiki/HTTP_404) error
 
 The example below will give a `301` status code:
 

@@ -1,4 +1,4 @@
-Title: Raspbery Pis
+Title: Raspberry Pis
 Date: 2025-02-26
 Author: ryan
 Tags: rpi, raspberrypi
@@ -20,10 +20,10 @@ This raspberry pi sits above the TV in my living room. It reads the MLB API to t
 
 ## Exit Node
 
-I'm a big fan of Tailscale thanks to Jeff Triplett. They have a concept of an 'Exit Node' that allows you to look like you're coming from a different location that you actually are. Now, why would anyone want to do this? I have no eartly idea, but sometimes it's fun to pretend that I'm in an area other than Souther California. This typicaly happens between March and October. But yeah, there's not really a good reason to do this, and I have no idea why one would.
+I'm a big fan of Tailscale thanks to Jeff Triplett. They have a concept of an 'Exit Node' that allows you to look like you're coming from a different location that you actually are. Now, why would anyone want to do this? I have no eartly idea, but sometimes it's fun to pretend that I'm in an area other than Souther California. This typically happens between March and October. But yeah, there's not really a good reason to do this, and I have no idea why one would.
 
 ## Extra One
 
-The last one mostly just sits around looking sad. It wants to be a thing, but I haven't quite figured out what it can be. At one point it lived as a motion capture camera above a humming bird feeder. It would take snap shots when it saw motion and then at the end of the day it would compile them into a movie and automatically upload them to YouTube. Why? No good reason other than I thought it would be fun to do. I've written a suprising number of posts on [this](https://search.ryancheley.com/pelican/article_search?text=hummingbird)
+The last one mostly just sits around looking sad. It wants to be a thing, but I haven't quite figured out what it can be. At one point it lived as a motion capture camera above a humming bird feeder. It would take snap shots when it saw motion and then at the end of the day it would compile them into a movie and automatically upload them to YouTube. Why? No good reason other than I thought it would be fun to do. I've written a surprising number of posts on [this](https://search.ryancheley.com/pelican/article_search?text=hummingbird)
 
 Raspberry Pi are fun. I highly recommend getting even one to just kind of play around with it.

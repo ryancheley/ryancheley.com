@@ -23,7 +23,7 @@ With this idea in hand, I reviewed it with the Supervisor and then scheduled a c
 During this meeting, I wanted to review:
 
 1. The motivation behind why we would want to use it
-2. How we could leverage it to do [Rapid Prototying](https://datasette.io/for/rapid-prototyping)
+2. How we could leverage it to do [Rapid Prototyping](https://datasette.io/for/rapid-prototyping)
 3. Give a quick demo data from the stored procedure that did the current data return for the legacy project.
 
 In all it took less than 10 minutes to go from nothing to a local instance of `datasette` running with a prototype JSON API for the web developers to see.

@@ -35,7 +35,7 @@ My first response to the sender was
 
 > Ideally any reports that are being delivered on printed paper by courrier would be better served to be delivered via some electronic means. Can you tell me, what are these reports and who are the intended recpients?
 
-I wanted to explicityly ask who the intended recipients were (I work in Healthcare and these reports are 'for the doctors' but they might actually be getting delivered to an office manager, a front desk person, or anyone other than the doctor).
+I wanted to explicitly ask who the intended recipients were (I work in Healthcare and these reports are 'for the doctors' but they might actually be getting delivered to an office manager, a front desk person, or anyone other than the doctor).
 
 The sender responded back
 
@@ -47,7 +47,7 @@ Next I asked if the recipients had been surveyed on the usefulness of the report
 
 ## The Solution
 
-At the end we decided that before anywork was done to 'automate' the delivery of these reports, that we really needed to address the contents of the reports and detemine which parts of them were helpful, and what parts weren't. Once we have a single report, or potentially a suite of reports, the automation and delivery work could actually start.
+At the end we decided that before anywork was done to 'automate' the delivery of these reports, that we really needed to address the contents of the reports and determine which parts of them were helpful, and what parts weren't. Once we have a single report, or potentially a suite of reports, the automation and delivery work could actually start.
 
 By working through and trying to determine the actual problem that needed to be solved by asking questions to help both me and the requester better understand what the real ask was, we saved a ton of development time and have a better path forward for making the information we have more relevant and actionable by the doctors' offices.
 
