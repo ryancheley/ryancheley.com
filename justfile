@@ -30,3 +30,6 @@
 
 @check:
     pre-commit run --all-files
+
+@codespell:
+    codespell content -i 3
