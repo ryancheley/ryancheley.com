@@ -32,4 +32,4 @@
     pre-commit run --all-files
 
 @codespell:
-    codespell content -i 3 --ignore-words-list=ignore-words.txt
+    codespell content -i 3 --ignore-words=ignore-words.txt
