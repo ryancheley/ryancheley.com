@@ -2,7 +2,13 @@ Title: CV
 
 # R. RYAN CHELEY
 
-### July 2016 - Present
+### April 2025 - Present
+
+**Associate Vice President Business Informatics, DESERT OASIS HEALTHCARE**
+
+Lead strategic development and implementation of Business Information, NextGen EHR systems, and reporting processes across multiple Heritage Provider Network companies, including Desert Oasis Healthcare, Arizona Priority Care, and Heritage Victor Valley Medical Group.
+
+### July 2016 - March 2025
 
 **Senior Regional Director Business Informatics, DESERT OASIS HEALTHCARE**
 
