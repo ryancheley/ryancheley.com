@@ -87,6 +87,10 @@ idna==3.4
     #   anyio
     #   httpx
     #   requests
+importlib-metadata==8.6.1
+    # via
+    #   build
+    #   markdown
 itsdangerous==2.1.2
     # via
     #   asgi-csrf
@@ -97,7 +101,7 @@ jinja2==3.1.2
     # via
     #   datasette
     #   pelican
-markdown==3.7
+markdown==3.8
     # via -r requirements.in
 markdown-it-py==3.0.0
     # via rich
@@ -135,10 +139,6 @@ pelican-to-sqlite==0.6.0
     # via -r requirements.in
 pint==0.22
     # via datasette
-pip==25.0.1
-    # via
-    #   datasette
-    #   pip-tools
 pip-tools==7.4.1
     # via -r requirements.in
 platformdirs==3.9.1
@@ -176,11 +176,6 @@ requests==2.31.0
     # via mastodon-py
 rich==13.7.0
     # via pelican
-setuptools==78.1.0
-    # via
-    #   datasette
-    #   nodeenv
-    #   pip-tools
 six==1.16.0
     # via
     #   html5lib
@@ -224,3 +219,5 @@ webencodings==0.5.1
     # via html5lib
 wheel==0.41.0
     # via pip-tools
+zipp==3.21.0
+    # via importlib-metadata
