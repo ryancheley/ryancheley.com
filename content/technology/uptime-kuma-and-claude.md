@@ -1,5 +1,5 @@
 Title: Uptime Kuma and Claude
-Date: 2025-05-07
+Date: 2025-05-08
 Author: ryan
 Tags: oss, monitoring
 Slug: uptime-kuma-and-claude
