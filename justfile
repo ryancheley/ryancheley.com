@@ -1,3 +1,6 @@
+@_default:
+    just --list
+
 @html:
     make html
 
