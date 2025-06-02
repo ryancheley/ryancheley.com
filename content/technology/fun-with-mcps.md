@@ -40,7 +40,7 @@ In Pydantic AI the use of the MCPServerStdio is using this same syntax only it b
 - command
 - args
 
-The command is any application in your $PATH like `uvx` or `docker` or `npm`, or you can explicitly define where the executable is by calling out its path, like `/Users/ryancheley/.local/share/mise/installs/bun/latest/bin/bunx`
+The command is any application in your $PATH like `uvx` or `docker` or `npx`, or you can explicitly define where the executable is by calling out its path, like `/Users/ryancheley/.local/share/mise/installs/bun/latest/bin/bunx`
 
 The args are the commands you'd pass to your application.
 
@@ -66,17 +66,17 @@ I created a `support.csv` file that contains the following information
 - Common Name of the Application
 - URL of the Application
 - Support Email
-- Support Number
+- Support Extension
 - Department
 
-I use the following prompt
+I used the following prompt
 
 > Review the file `support.csv` and help me determine who I contact about questions related to CarePath Analytics.
 
 Here are the contents of the `support.csv` file
 
-| Name | URL | Support Email | Support Number | Department |
-|------|-----|---------------|----------------|------------|
+| Name | URL | Support Email | Support Extension | Department |
+|------|-----|---------------|-------------------|------------|
 | MedFlow Solutions | https://medflow.com | support@medflow.com | 1234 | Clinical Systems |
 | HealthTech Portal | https://healthtech-portal.org | help@medflow.com | 3456 | Patient Services |
 | CarePath Analytics | https://carepath.io | support@medflow.com | 4567 | Data Analytics |
@@ -141,11 +141,12 @@ if __name__ == "__main__":
 
 As a user, if I ask, who do I contact about questions related to CarePath Analytics the LLM will search through the `support.csv` file and supply the email contact. 
 
-While this example shows a command-line script, but you could extend this to also include an MCP to write and send an email on the user's behalf. It could even ask probing questions to help make sure that the email had more context for the support team.
+This example shows a command line script, and a Web Interface would probably be better for most users. That would be the next thing I'd try to do here. 
+
+Once that was done you could extend it to also include an MCP to write an email on the user's behalf. It could even ask probing questions to help make sure that the email had more context for the support team.
 
 Some support systems have their own ticketing / issue tracking systems and it would be really valuable if this ticket could be written directly to that system. With the MCP this is possible. 
 
 We'd need to update the `support.csv` file with some information about direct writes via an API, and we'd need to secure the crap out of this, but it is possible. 
 
 Now, the user can be more confident that their issue will go to the team that it needs to and that their question / issue can be resolved much more quickly. 
-
