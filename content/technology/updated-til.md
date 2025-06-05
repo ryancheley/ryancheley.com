@@ -1846,4 +1846,4 @@ jobs:
       uses: actions/deploy-pages@v4
 ```
 
-All told from start to finish, this took about 20 minutes. There are still some tweaks that need to be made to it (the markdown isn't rendering as HTML, and there's a TIL that seems to have a bad title) but for 20 minutes of work I was able to take a 'wild' idea that I would have never been able to do before and had something that I'm actually excited about! And it has the added bonus of encouraging me to write more TILs because I now have [this nice looking timeline](https://ryancheley.github.io/til/) of my TILs.
+All told from start to finish, this took about 20 minutes. There are still some potential updates, but for 20 minutes of work I was able to take a 'wild' idea that I would have never been able to do before and had something that I'm actually excited about! And it has the added bonus of encouraging me to write more TILs because I now have [this nice looking timeline](https://ryancheley.github.io/til/) of my TILs.
