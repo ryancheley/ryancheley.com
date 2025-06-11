@@ -2,11 +2,37 @@ Title: CV
 
 # R. RYAN CHELEY
 
+# Associate Vice President Business Informatics Section
+
 ### April 2025 - Present
 
 **Associate Vice President Business Informatics, DESERT OASIS HEALTHCARE**
 
-Lead strategic development and implementation of Business Information, NextGen EHR systems, and reporting processes across multiple Heritage Provider Network companies, including Desert Oasis Healthcare, Arizona Priority Care, and Heritage Victor Valley Medical Group.
+Lead strategic development and implementation of Business Information systems, NextGen EHR platforms, and enterprise reporting processes across multiple Heritage Provider Network companies, including Desert Oasis Healthcare, Arizona Priority Care, and Heritage Victor Valley Medical Group.
+
+**Strategic Technology Leadership**
+
+* Direct comprehensive technology initiatives spanning electronic health records, business intelligence, web application development, and data integration across multi-site healthcare organizations
+* Oversee enterprise-wide EHR optimization, system integrations, and regulatory compliance initiatives
+* Drive digital transformation through modern development practices, data governance, and workflow automation
+
+**Enterprise Systems Management**
+
+* Architect and implement scalable healthcare technology solutions supporting clinical and operational decision-making
+* Lead full-stack development teams building custom healthcare applications using C#, and Angular
+* Manage complex data warehouse operations, ETL processes, and business intelligence platforms
+
+**Multi-State Operations**
+
+* Direct cross-functional teams across multiple locations, fostering collaboration between clinical, technical, and operational stakeholders
+* Coordinate enterprise-wide initiatives including system upgrades, and performance optimization
+
+**Innovation & Quality Improvement**
+
+* Champion adoption of emerging healthcare technologies and industry best practices
+* Translate complex healthcare workflows into efficient, compliant technology solutions
+* Drive continuous improvement through data-driven insights and automated reporting capabilities
+
 
 ### July 2016 - March 2025
 
