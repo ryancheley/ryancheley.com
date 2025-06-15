@@ -1,4 +1,6 @@
-Title: What I'm Doing Now
+Title: Now
+
+# What I am Doing Now
 
 ## Location
 
