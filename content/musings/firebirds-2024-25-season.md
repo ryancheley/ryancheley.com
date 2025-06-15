@@ -32,7 +32,7 @@ Needless to say, this was just a hard set of games to watch. The season was hard
 
 There was an article in the Desert Sun that spoke about how proud Coach Laxdal was of the players and how much effort that they gave. And I agree, they did give a lot of effort and he spoke about how young they are. 
 
-And again, they are young, and missed their captain [Max McCormick](https://theahl.com/stats/player/5611) for basically two thirds of the season. But they did have some veteran players out there [Mitchell Stephens](https://theahl.com/stats/player/6306/88/mitchell-stephens), [Brandon Biro](https://theahl.com/stats/player/8513/88/brandon-biro), [Cale Fleury](https://theahl.com/stats/player/7382/88/cale-fleury) and [Gustav Olofsson](https://theahl.com/stats/player/5471/88/gustav-olofsson). Unfortunatly it was just too much to try and overcome.
+And again, they are young, and missed their captain [Max McCormick](https://theahl.com/stats/player/5611) for basically two thirds of the season. But they did have some veteran players out there [Mitchell Stephens](https://theahl.com/stats/player/6306/88/mitchell-stephens), [Brandon Biro](https://theahl.com/stats/player/8513/88/brandon-biro), [Cale Fleury](https://theahl.com/stats/player/7382/88/cale-fleury) and [Gustav Olofsson](https://theahl.com/stats/player/5471/88/gustav-olofsson). Unfortunately it was just too much to try and overcome.
 
 One of the things that Coach Laxdal also commented on was exactly how much younger next year's team might be. And so while I am again very excited about watching hockey in six months, which is just so long away. I am lowering my expectations for the 25-26 season even lower than they were this year. I'm really hoping we make the playoffs, but won't be surprised if we don't. 
 
