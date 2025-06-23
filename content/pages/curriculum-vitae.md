@@ -2,8 +2,6 @@ Title: CV
 
 # R. RYAN CHELEY
 
-# Associate Vice President Business Informatics Section
-
 ### April 2025 - Present
 
 **Associate Vice President Business Informatics, DESERT OASIS HEALTHCARE**
