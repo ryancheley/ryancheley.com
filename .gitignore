@@ -156,3 +156,9 @@ cog_articles/*
 # mastodon
 toot.py
 *.secret
+
+# Claude
+.claude/
+
+# Obsidian
+content/.obsidian
