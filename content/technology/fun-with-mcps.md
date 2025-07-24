@@ -7,9 +7,9 @@ Status: published
 
 Special Thanks to [Jeff Triplett](https://mastodon.social/@webology) who provided an example that really got me started on better understanding of how this all works.
 
-In trying to wrap my head around MCPs over the long Memorial weekend I had a breakthrough. I'm not really sure why this was so hard for me to [grok](https://en.wikipedia.org/wiki/Grok), but now something seems to have clicked. 
+In trying to wrap my head around MCPs over the long Memorial weekend I had a breakthrough. I'm not really sure why this was so hard for me to [grok](https://en.wikipedia.org/wiki/Grok), but now something seems to have clicked.
 
-I am working with [Pydantic AI](https://ai.pydantic.dev/) and so I'll be using that as an example, but since MCPs are a standard protocol, these concepts apply broadly across different implementations. 
+I am working with [Pydantic AI](https://ai.pydantic.dev/) and so I'll be using that as an example, but since MCPs are a standard protocol, these concepts apply broadly across different implementations.
 
 ## What is Model Context Protocol (MCP)?
 
@@ -17,13 +17,13 @@ Per the [Anthropic announcement](https://www.anthropic.com/news/model-context-pr
 
 > The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools. The architecture is straightforward: developers can either expose their data through MCP servers or build AI applications (MCP clients) that connect to these servers.
 
-What this means is that there is a standard way to extend models like Claude, or OpenAI to include other information. That information can be files on the file system, data in a database, etc. 
+What this means is that there is a standard way to extend models like Claude, or OpenAI to include other information. That information can be files on the file system, data in a database, etc.
 
 ## (Potential) Real World Example
 
-I work for a Healthcare organization in Southern California. One of the biggest challenges with onboarding new hires (and honestly can be a challenge for people that have been with the organization for a long time) is who to reach out to for support on which specific application. 
+I work for a Healthcare organization in Southern California. One of the biggest challenges with onboarding new hires (and honestly can be a challenge for people that have been with the organization for a long time) is who to reach out to for support on which specific application.
 
-Typically a user will send an email to one of the support teams, and the email request can get bounced around for a while until it finally lands on the 'right' support desk. There's the potential to have the applications themselves include who to contact, but some applications are vendor supplied and there isn't always a way to do that. 
+Typically a user will send an email to one of the support teams, and the email request can get bounced around for a while until it finally lands on the 'right' support desk. There's the potential to have the applications themselves include who to contact, but some applications are vendor supplied and there isn't always a way to do that.
 
 Even if there were, in my experience those are often not noticed by users OR the users will think that the support email is for non-technical issues, like "Please update the phone number for this patient" and not issues like, "The web page isn't returning any results for me, but it is for my coworker."
 
@@ -59,7 +59,7 @@ MCPServerStdio(
 
 ## Application of MCP with the Example
 
-Since I work in Healthcare, and I want to be mindful of the protection of patient data, even if that data won't be exposed to this LLM, I'll use ollama to construct my example. 
+Since I work in Healthcare, and I want to be mindful of the protection of patient data, even if that data won't be exposed to this LLM, I'll use ollama to construct my example.
 
 I created a `support.csv` file that contains the following information
 
@@ -139,14 +139,14 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-As a user, if I ask, who do I contact about questions related to CarePath Analytics the LLM will search through the `support.csv` file and supply the email contact. 
+As a user, if I ask, who do I contact about questions related to CarePath Analytics the LLM will search through the `support.csv` file and supply the email contact.
 
-This example shows a command line script, and a Web Interface would probably be better for most users. That would be the next thing I'd try to do here. 
+This example shows a command line script, and a Web Interface would probably be better for most users. That would be the next thing I'd try to do here.
 
 Once that was done you could extend it to also include an MCP to write an email on the user's behalf. It could even ask probing questions to help make sure that the email had more context for the support team.
 
-Some support systems have their own ticketing / issue tracking systems and it would be really valuable if this ticket could be written directly to that system. With the MCP this is possible. 
+Some support systems have their own ticketing / issue tracking systems and it would be really valuable if this ticket could be written directly to that system. With the MCP this is possible.
 
-We'd need to update the `support.csv` file with some information about direct writes via an API, and we'd need to secure the crap out of this, but it is possible. 
+We'd need to update the `support.csv` file with some information about direct writes via an API, and we'd need to secure the crap out of this, but it is possible.
 
-Now, the user can be more confident that their issue will go to the team that it needs to and that their question / issue can be resolved much more quickly. 
+Now, the user can be more confident that their issue will go to the team that it needs to and that their question / issue can be resolved much more quickly.
