@@ -2,7 +2,7 @@ Title: Details on My Candidate Statement for the DSF
 Date: 2025-11-04
 Author: ryan
 Tags: dsf
-Slug: details-on-my-candidate-statement-for-the-dsf
+Slug: dsf-candidate-statement
 Status: published
 
 The Django Software Foundation Board of Directors elections are scheduled for November 2025 and I’ve decided to throw my hat into the ring and run. My hope specifically, if elected, is to be selected as the Treasurer. I have 4 main objectives I’d like to push through over my two year term. 
