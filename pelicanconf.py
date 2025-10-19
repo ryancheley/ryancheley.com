@@ -6,6 +6,8 @@ SITENAME = "RyanCheley.com"
 SITESUBTITLE = "My Place on the Internet"
 SITEURL = ""
 
+IGNORE_FILES = ['dsf-candidate-statement']
+
 PATH = "content"
 
 THEME = "pelican-clean-blog"
