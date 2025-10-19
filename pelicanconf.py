@@ -26,6 +26,7 @@ STATIC_PATHS = [
     "static/favicon.ico",
     ".well-known/webfinger",
     "static/rss-style.xsl",
+    "static/dsf-candidate-statement",
 ]
 
 EXTRA_PATH_METADATA = {
@@ -33,6 +34,7 @@ EXTRA_PATH_METADATA = {
     "static/favicon.ico": {"path": "favicon.ico"},
     "static/rss-style.xsl": {"path": "rss-style.xsl"},
     ".well-known/webfinger": {"path": ".well-known/webfinger"},
+    "static/dsf-candidate-statement/index.html": {"path": "dsf-candidate-statement/index.html"},
 }
 
 DISPLAY_CATEGORIES_ON_MENU = False
