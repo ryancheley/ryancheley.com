@@ -126,7 +126,7 @@ If elected, here's my concrete plan:
 - Report results to board
 - If we've secured commitments for additional $30K-$50K in annual 
   recurring revenue, propose budget to hire part-time ED
-- Begin ED recruitment process
+- Continue to push forward the ED recruitment process
 
 This is realistic volunteer-level effort (5-8 hours/week) that 
 proves the concept before committing to an ED hire. Once we have 
@@ -179,7 +179,7 @@ A fiscal sponsorship program would allow the DSF to serve as the legal and finan
 
 ### Why This Matters
 
-Right now, valuable Django ecosystem projects are essentially flying without a net. If Django Commons needs to accept a $10,000 corporate donation to fund security audits, there's no clear path to do so. If a critical package needs to pay for CI/CD infrastructure or compensate a maintainer for urgent security fixes, they're stuck. Some projects have tried to solve this individually—creating their own 501(c)(3)s or using platforms like Open Collective—but this fragments the community and creates overhead.
+Right now, valuable Django ecosystem projects are essentially flying without a net. If Django Commons needs to accept a $10,000 corporate donation to fund security audits, there's no clear path to do so. If a critical package needs to pay for CI/CD infrastructure or compensate a maintainer for urgent security fixes, they're stuck. Some projects, such as Djangonaut Space, have tried to solve this individually—creating their own 501(c)(3)s or using platforms like Open Collective—but this fragments the community and creates overhead.
 
 The Python Software Foundation already does this successfully for PyPI, PyLadies, and regional Python conferences. NumFOCUS sponsors dozens of scientific Python projects. There's no reason Django's ecosystem shouldn't have similar support.
 
