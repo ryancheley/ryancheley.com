@@ -35,7 +35,7 @@ Right now we're missing opportunities because volunteer bandwidth is maxed out. 
 
 As Treasurer, hiring an ED would be my top priority. Based on comparable nonprofit ED salaries, a part-time ED (20 hours/week) would cost approximately $60,000-$75,000 annually including benefits and overhead. A full-time ED would be $120,000-$150,000.
 
-The DSF's current annual budget is roughly $250,000. Adding even a part-time ED would require increasing revenue by 25-30%. This is exactly why my second priority focuses on corporate sponsorships - we need sustainable revenue growth to support professional operations.
+The DSF's current annual budget is roughly $300,000. Adding even a part-time ED would require increasing revenue by 25-30%. This is exactly why my second priority focuses on corporate sponsorships - we need sustainable revenue growth to support professional operations.
 
 The path forward is phased: board members initiate corporate outreach to fund a part-time ED, who then scales up fundraising efforts to eventually become full-time and bring us toward that $1M budget Jacob outlined. We bootstrap professional operations through volunteer effort, then let the professional accelerate what volunteers started.
 
