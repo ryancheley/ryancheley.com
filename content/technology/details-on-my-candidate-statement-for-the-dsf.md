@@ -5,7 +5,7 @@ Tags: dsf
 Slug: dsf-candidate-statement
 Status: published
 
-The [Django Software Foundation Board of Directors elections](https://www.djangoproject.com/weblog/2025/oct/11/2026-dsf-board-nominations/) are scheduled for November 2025 and I’ve decided to throw my hat into the ring and run. My hope specifically, if elected, is to be selected as the Treasurer. I have 4 main objectives I’d like to push through over my two year term.
+The [Django Software Foundation Board of Directors elections](https://www.djangoproject.com/weblog/2025/oct/11/2026-dsf-board-nominations/) are scheduled for November 2025 and I’ve decided to throw my hat into the ring. My hope specifically, if elected, is to be selected as the Treasurer. I have 4 main objectives over my two year term.
 
 1. Getting an Executive Director (ED) to help run the day-to-day operations of the DSF
 2. Identifying small to midsized companies for sponsorships
@@ -27,7 +27,7 @@ An ED provides day-to-day operational capacity that volunteer boards simply cann
 - Write grant applications to foundations that fund open source
 - Prepare board materials so directors can focus on governance, not research
 
-As Jacob Kaplan-Moss says in his [DCUS24 talk](https://youtu.be/5nS1SSuHk9I?si=iWUzoiHnTKtY2mKe&t=322)
+As Jacob Kaplan-Moss says in his [2024 DjangoCon US talk](https://youtu.be/5nS1SSuHk9I?si=iWUzoiHnTKtY2mKe&t=322)
 
 > We’re already at the limit of what a volunteer board can accomplish
 
@@ -85,7 +85,7 @@ This is realistic volunteer-level effort (5-8 hours/week) that proves the concep
 
 ## Implementing a formal strategic planning process
 
-The DSF needs a strategic plan - not just as a bureaucratic exercise, but as a practical tool for making decisions and measuring progress.
+The DSF needs a strategic plan - not as a bureaucratic exercise, but as a practical tool for making decisions and measuring progress.
 
 Right now, we operate somewhat reactively. The Fellows program exists because it was created years ago. DjangoCons happen because organizers step up. Corporate sponsorships come in when companies reach out to us. This isn't necessarily bad, but it means we're not proactively asking: What should Django's ecosystem look like in 5 years? How do we get there?
 
@@ -118,9 +118,9 @@ This connects directly to my other goals: we need a strategic plan to guide ED h
 
 ## Setting up a fiscal sponsorship program to allow support of initiatives like Django Commons
 
-Django's success isn't just about the framework itself—it's about the ecosystem of packages, tools, and community organizations that have grown around it. Projects like Django Commons, Django Packages, regional Django user groups, and specialized packages serve thousands of developers daily. Yet these projects face a common challenge: they lack the legal and financial infrastructure to accept donations, pay for infrastructure, or compensate maintainers.
+Django's success isn't just about the framework itself. It's about the ecosystem of packages, tools, and community organizations that have grown around it. Projects like Django Commons, Django Packages, regional Django user groups, and specialized packages serve thousands of developers daily. Yet these projects face a common challenge: they lack the legal and financial infrastructure to accept donations, pay for infrastructure, or compensate maintainers.
 
-A fiscal sponsorship program would allow the DSF to serve as the legal and financial home for vetted Django ecosystem projects. Think of it as the DSF saying: "We'll handle the paperwork, taxes, and compliance—you focus on serving the community."
+A fiscal sponsorship program would allow the DSF to serve as the legal and financial home for vetted Django ecosystem projects. Think of it as the DSF saying: "We'll handle the paperwork, taxes, and compliance; you focus on serving the community."
 
 ### Who This Helps
 
@@ -132,7 +132,7 @@ A fiscal sponsorship program would allow the DSF to serve as the legal and finan
 
 ### Why This Matters
 
-Right now, valuable Django ecosystem projects are essentially flying without a net. If Django Commons needs to accept a $10,000 corporate donation to fund security audits, there's no clear path to do so. If a critical package needs to pay for CI/CD infrastructure or compensate a maintainer for urgent security fixes, they're stuck. Some projects, such as [Djangonaut Space](https://djangonaut.space/), have tried to solve this individually—creating their own 501(c)(3)s or using platforms like Open Collective—but this fragments the community and creates overhead.
+Right now, valuable Django ecosystem projects are essentially flying without a net. If Django Commons needs to accept a $10,000 corporate donation to fund security audits, there's no clear path to doing so. If a critical package needs to pay for CI/CD infrastructure or compensate a maintainer for urgent security fixes, they're stuck. Some projects, such as [Djangonaut Space](https://djangonaut.space/), have tried to solve this individually by creating their own 501(c)(3)s or using platforms like Open Collective, but this fragments the community and creates overhead.
 
 The Python Software Foundation already does this successfully for PyPI, PyLadies, and regional Python conferences. NumFOCUS sponsors dozens of scientific Python projects. There's no reason Django's ecosystem shouldn't have similar support.
 
