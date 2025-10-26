@@ -180,8 +180,10 @@ Without setting `SITE_URL`, all links will point to the production domain (https
 ```
 .
 ├── Dockerfile              # Multi-stage build configuration
-├── docker-compose.yml      # Production service orchestration
+├── docker-compose.yaml     # Production service orchestration
 ├── docker-compose.dev.yml  # Development service orchestration
+├── .env.example           # Environment variable template
+├── .env                   # Your local environment (git-ignored)
 ├── nginx.conf             # Custom nginx config (enables /drafts/ listing)
 ├── .dockerignore          # Files excluded from build context
 ├── DOCKER.md              # This file
