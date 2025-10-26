@@ -131,12 +131,35 @@ The `docker-compose.yaml` file follows Coolify best practices:
 
 ### Environment Variables
 
-Coolify will auto-detect these variables (defaults are provided for local development):
+Coolify will auto-detect these variables. **IMPORTANT**: These must be set as **build-time** environment variables in Coolify, not runtime variables.
 
-- `SITE_URL`: Production URL (default: https://www.ryancheley.com)
+#### Build-Time Variables (Required)
+
+- `SITE_URL`: **CRITICAL** - The full URL where the site will be deployed (e.g., `https://hetzner.uat.ryancheley.com`)
+  - This is used by Pelican to generate all internal links
+  - Must be set at BUILD time, not runtime
+  - Default: `https://www.ryancheley.com`
+
+#### Runtime Variables (Optional)
+
 - `SITE_NAME`: Site name (default: RyanCheley.com)
 - `AUTHOR`: Author name (default: Ryan Cheley)
 - `TIMEZONE`: Timezone (default: America/Los_Angeles)
+
+#### Setting SITE_URL in Coolify
+
+To deploy to a custom domain (e.g., UAT):
+
+1. In Coolify, go to your application
+2. Click on **"Environment Variables"** or **"Build Variables"**
+3. Add a **build-time** variable:
+   ```
+   SITE_URL=https://hetzner.uat.ryancheley.com
+   ```
+4. **Important**: Make sure it's marked as a **build variable**, not just a runtime variable
+5. Save and redeploy
+
+Without setting `SITE_URL`, all links will point to the production domain (https://www.ryancheley.com), even when deployed to UAT or other environments.
 
 ### Deployment Steps
 
@@ -190,6 +213,25 @@ services:
       - SITE_URL=${SITE_URL:-https://www.ryancheley.com}
     # NO ports: section here!
 ```
+
+### Links Point to Wrong Domain
+
+**Problem**: After deploying to UAT or custom domain, all internal links still point to `https://www.ryancheley.com`
+
+**Cause**: The `SITE_URL` build variable isn't set in Coolify, so Pelican uses the default production URL when generating the site.
+
+**Solution**: Set `SITE_URL` as a **build-time** environment variable in Coolify:
+
+1. Go to your application in Coolify
+2. Navigate to **Environment Variables**
+3. Add:
+   ```
+   SITE_URL=https://hetzner.uat.ryancheley.com
+   ```
+4. Ensure it's marked as a **build variable** (not just runtime)
+5. Redeploy the application
+
+After redeployment, all internal links will use the correct domain.
 
 ### Build Failures
 
