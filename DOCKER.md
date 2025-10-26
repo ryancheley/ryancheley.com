@@ -24,7 +24,7 @@ Stop the container:
 docker compose -f docker-compose.dev.yml down
 ```
 
-### Production Mode
+### Production Mode (Local Testing)
 
 Build and run using production configuration (no drafts):
 
@@ -33,7 +33,9 @@ docker compose build
 docker compose up -d
 ```
 
-The site will be available at http://localhost
+**Note**: The production docker-compose.yaml doesn't map port 80 to localhost (for Coolify compatibility). To test production builds locally, you can either:
+1. Temporarily add `ports: ["80:80"]` to docker-compose.yaml, or
+2. Use the dev configuration: `docker compose -f docker-compose.dev.yml build --build-arg BUILD_ENV=production && docker compose -f docker-compose.dev.yml up -d`
 
 Stop the container:
 ```bash
@@ -117,12 +119,15 @@ This project is configured for deployment with [Coolify](https://coolify.io/).
 
 ### Configuration
 
-The `docker-compose.yml` file follows Coolify best practices:
+The `docker-compose.yaml` file follows Coolify best practices:
 
-- **Port 80 Exposure**: The service exposes port 80 for Coolify's proxy to route traffic
+- **No Port Mapping**: Coolify manages networking through its own proxy, so we don't map ports to the host (no `ports:` section)
+- **Internal Port 80**: The service listens on port 80 internally (defined in Dockerfile with `EXPOSE 80`)
 - **Environment Variables**: Uses Docker Compose variable syntax (${VAR:-default}) for Coolify auto-detection
 - **Healthcheck**: Integrated healthcheck for deployment status monitoring
 - **Restart Policy**: `unless-stopped` for automatic recovery
+
+**Important**: The production `docker-compose.yaml` does NOT include a `ports:` section because Coolify handles routing. Port mapping is only needed for local development (see `docker-compose.dev.yml`).
 
 ### Environment Variables
 
@@ -166,15 +171,36 @@ Coolify will auto-detect these variables (defaults are provided for local develo
 
 ## Troubleshooting
 
+### Coolify Deployment: "port is already allocated" Error
+
+**Error**: `Bind for 0.0.0.0:80 failed: port is already allocated`
+
+**Cause**: The docker-compose.yaml file has a `ports:` section mapping port 80 to the host.
+
+**Solution**: Remove the `ports:` section from docker-compose.yaml. Coolify manages networking through its own proxy and doesn't need direct port mapping. The service should only expose port 80 internally (via `EXPOSE 80` in the Dockerfile).
+
+**Correct docker-compose.yaml** (no ports section):
+```yaml
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SITE_URL=${SITE_URL:-https://www.ryancheley.com}
+    # NO ports: section here!
+```
+
 ### Build Failures
 
 If the build fails during dependency installation:
 - Check that requirements.txt is valid
 - Ensure build-essential is included in Dockerfile (needed for packages with native extensions)
 
-### Site Not Accessible
+### Site Not Accessible (Local Development)
 
-If the site isn't accessible after starting:
+If the site isn't accessible after starting locally:
+- Make sure you're using `docker-compose.dev.yml` which includes port mapping
 - Check container status: `docker compose ps`
 - View logs: `docker compose logs web`
 - Verify port 80 isn't in use: `lsof -i :80`
