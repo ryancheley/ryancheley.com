@@ -131,75 +131,35 @@ The `docker-compose.yaml` file follows Coolify best practices:
 
 ### Environment Variables
 
-This project uses a `.env` file for environment-specific configuration. The docker-compose.yaml file reads from `.env` automatically.
+Coolify will auto-detect these variables. **IMPORTANT**: These must be set as **build-time** environment variables in Coolify, not runtime variables.
 
-#### Configuration Files
+#### Build-Time Variables (Required)
 
-- **`.env.example`** - Template showing all available variables with defaults
-- **`.env`** - Your local environment file (git-ignored, create from .env.example)
-
-#### Available Variables
-
-##### Build-Time Variables (Required for correct URLs)
-
-- `SITE_URL`: **CRITICAL** - The full URL where the site will be deployed
+- `SITE_URL`: **CRITICAL** - The full URL where the site will be deployed (e.g., `https://hetzner.uat.ryancheley.com`)
   - This is used by Pelican to generate all internal links
   - Must be set at BUILD time, not runtime
-  - Examples:
-    - Production: `https://www.ryancheley.com`
-    - UAT: `https://hetzner.uat.ryancheley.com`
-    - Local: `http://localhost`
+  - Default: `https://www.ryancheley.com`
 
-##### Runtime Variables (Optional)
+#### Runtime Variables (Optional)
 
 - `SITE_NAME`: Site name (default: RyanCheley.com)
 - `AUTHOR`: Author name (default: Ryan Cheley)
 - `TIMEZONE`: Timezone (default: America/Los_Angeles)
 
-#### Local Development
+#### Setting SITE_URL in Coolify
 
-```bash
-# Copy the example file
-cp .env.example .env
-
-# Edit .env with your local settings
-# For local dev, you typically want:
-# SITE_URL=http://localhost
-
-# Run docker compose (it will automatically use .env)
-docker compose -f docker-compose.dev.yml up -d
-```
-
-#### Coolify Deployment
-
-Coolify needs to set environment variables for each deployment. There are two approaches:
-
-##### Option 1: Using Coolify's Environment Variables (Recommended)
+To deploy to a custom domain (e.g., UAT):
 
 1. In Coolify, go to your application
-2. Navigate to **"Environment Variables"**
-3. Add these variables with **"Build Time"** enabled:
+2. Click on **"Environment Variables"** or **"Build Variables"**
+3. Add a **build-time** variable:
    ```
    SITE_URL=https://hetzner.uat.ryancheley.com
    ```
-4. Save and redeploy
+4. **Important**: Make sure it's marked as a **build variable**, not just a runtime variable
+5. Save and redeploy
 
-**Important**: The variable must be available at **build time** because Pelican generates static HTML during the Docker build process.
-
-##### Option 2: Commit Environment-Specific .env Files (Alternative)
-
-If Coolify doesn't easily support build-time variables, you can:
-
-1. Create environment-specific branches or use a different approach
-2. Commit a `.env.uat` file to your repo:
-   ```bash
-   echo "SITE_URL=https://hetzner.uat.ryancheley.com" > .env.uat
-   git add .env.uat
-   ```
-3. Modify docker-compose.yaml to use `.env.uat` for that deployment
-4. Configure Coolify to use the appropriate file
-
-However, **Option 1 is preferred** as it keeps secrets out of git.
+Without setting `SITE_URL`, all links will point to the production domain (https://www.ryancheley.com), even when deployed to UAT or other environments.
 
 ### Deployment Steps
 
@@ -262,7 +222,7 @@ services:
 
 **Cause**: The `SITE_URL` build variable isn't set in Coolify, so Pelican uses the default production URL when generating the site.
 
-**Solution 1**: Set `SITE_URL` as a **build-time** environment variable in Coolify:
+**Solution**: Set `SITE_URL` as a **build-time** environment variable in Coolify:
 
 1. Go to your application in Coolify
 2. Navigate to **Environment Variables**
@@ -270,26 +230,8 @@ services:
    ```
    SITE_URL=https://hetzner.uat.ryancheley.com
    ```
-4. **Critical**: Look for a checkbox or toggle that says:
-   - "Available at build time"
-   - "Build variable"
-   - "Build time environment variable"
-
-   Make sure this is **enabled/checked**.
-5. Save and redeploy
-
-**Solution 2**: If build-time variables aren't working in your Coolify version:
-
-Create a `.env.uat` file in your repository:
-```bash
-echo "SITE_URL=https://hetzner.uat.ryancheley.com" > .env.uat
-git add .env.uat
-git commit -m "Add UAT environment configuration"
-```
-
-Then in Coolify, configure it to copy this file:
-- Add a pre-build command: `cp .env.uat .env`
-- Or modify your docker-compose.yaml to reference the specific env file
+4. Ensure it's marked as a **build variable** (not just runtime)
+5. Redeploy the application
 
 After redeployment, all internal links will use the correct domain.
 
