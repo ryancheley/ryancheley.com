@@ -3,8 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "80:80"
     environment:
       # Coolify will auto-detect these environment variables
       # Default values are provided for local development
