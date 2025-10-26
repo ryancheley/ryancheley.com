@@ -2,8 +2,12 @@
 # Stage 1: Build the Pelican site
 FROM python:3.13-slim AS builder
 
-# Build argument to choose between dev and production config
+# Build arguments
 ARG BUILD_ENV=production
+ARG SITE_URL=https://www.ryancheley.com
+
+# Set environment variable so Pelican can use it
+ENV SITE_URL=${SITE_URL}
 
 # Set working directory
 WORKDIR /app

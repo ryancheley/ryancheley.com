@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
       args:
         BUILD_ENV: development
+        SITE_URL: ${SITE_URL:-http://localhost}
     ports:
       - "80:80"
     environment:

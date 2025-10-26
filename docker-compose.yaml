@@ -3,6 +3,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        BUILD_ENV: production
+        SITE_URL: ${SITE_URL:-https://www.ryancheley.com}
     environment:
       # Coolify will auto-detect these environment variables
       # Default values are provided for local development

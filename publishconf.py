@@ -11,7 +11,8 @@ sys.path.append(os.curdir)
 from pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
-SITEURL = "https://www.ryancheley.com"
+# Read from SITE_URL environment variable, defaulting to production URL
+SITEURL = os.environ.get("SITE_URL", "https://www.ryancheley.com")
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = "feeds/all.atom.xml"
