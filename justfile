@@ -36,3 +36,13 @@
 
 @codespell:
     codespell content -i 3 --ignore-words=ignore-words.txt
+
+# Bring up Docker containers
+[group('docker')]
+@up *ARGS:
+    docker compose -f docker-compose.dev.yml up {{ ARGS }}
+
+# Bring down Docker containers
+[group('docker')]
+@down *ARGS:
+    docker compose down {{ ARGS }}
