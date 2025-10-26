@@ -4,11 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
+        # Build-time arguments - read from .env file
+        # These are used during Docker build to generate the static site
         BUILD_ENV: production
         SITE_URL: ${SITE_URL:-https://www.ryancheley.com}
     environment:
-      # Coolify will auto-detect these environment variables
-      # Default values are provided for local development
+      # Runtime environment variables - read from .env file
+      # Docker Compose automatically loads .env if present
+      # For Coolify: set SITE_URL as build-time variable or use .env.uat
       - SITE_URL=${SITE_URL:-https://www.ryancheley.com}
       - SITE_NAME=${SITE_NAME:-RyanCheley.com}
       - AUTHOR=${AUTHOR:-Ryan Cheley}
