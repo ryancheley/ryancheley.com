@@ -46,3 +46,9 @@
 [group('docker')]
 @down *ARGS:
     docker compose down {{ ARGS }}
+
+
+# Builds the Docker Images with optional arguments
+[group('docker')]
+@build *ARGS:
+    docker compose {{ ARGS }} build

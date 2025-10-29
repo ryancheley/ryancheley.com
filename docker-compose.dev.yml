@@ -11,7 +11,7 @@ services:
     environment:
       # Development environment variables
       - SITE_URL=${SITE_URL:-http://localhost}
-      - SITE_NAME=${SITE_NAME:-RyanCheley.com}
+      - SITE_NAME=${SITE_NAME:-RyanCheley.com (local)}
       - AUTHOR=${AUTHOR:-Ryan Cheley}
       - TIMEZONE=${TIMEZONE:-America/Los_Angeles}
     restart: unless-stopped
