@@ -10,7 +10,7 @@ The [Django Software Foundation Board of Directors elections](https://www.django
 1. Getting an Executive Director (ED) to help run the day-to-day operations of the DSF
 2. Identifying small to midsized companies for sponsorships
 3. Implementing a formal strategic planning process
-4. Setting up a fiscal sponsorship program to allow support of initiatives like Django Commons
+4. Setting up a fiscal sponsorship program to allow support of initiatives like [Django Commons](https://django-commons.org/)
 
 These are outlined in my [candidate statement](link-goes-here), but I want to provide a bit more detail why I think they’re important, and some high level details on a plan to get them to completion.
 
@@ -118,7 +118,7 @@ This connects directly to my other goals: we need a strategic plan to guide ED h
 
 ## Setting up a fiscal sponsorship program to allow support of initiatives like Django Commons
 
-Django's success isn't just about the framework itself. It's about the ecosystem of packages, tools, and community organizations that have grown around it. Projects like Django Commons, Django Packages, regional Django user groups, and specialized packages serve thousands of developers daily. Yet these projects face a common challenge: they lack the legal and financial infrastructure to accept donations, pay for infrastructure, or compensate maintainers.
+Django's success isn't just about the framework itself. It's about the ecosystem of packages, tools, and community organizations that have grown around it. Projects like [Django Commons](https://django-commons.org/), [Django Packages](https://djangopackages.org/), regional Django user groups, and specialized packages serve thousands of developers daily. Yet these projects face a common challenge: they lack the legal and financial infrastructure to accept donations, pay for infrastructure, or compensate maintainers.
 
 A fiscal sponsorship program would allow the DSF to serve as the legal and financial home for vetted Django ecosystem projects. Think of it as the DSF saying: "We'll handle the paperwork, taxes, and compliance; you focus on serving the community."
 
@@ -134,13 +134,13 @@ A fiscal sponsorship program would allow the DSF to serve as the legal and finan
 
 Right now, valuable Django ecosystem projects are essentially flying without a net. If Django Commons needs to accept a $10,000 corporate donation to fund security audits, there's no clear path to doing so. If a critical package needs to pay for CI/CD infrastructure or compensate a maintainer for urgent security fixes, they're stuck. Some projects, such as [Djangonaut Space](https://djangonaut.space/), have tried to solve this individually by creating their own 501(c)(3)s or using platforms like Open Collective, but this fragments the community and creates overhead.
 
-The Python Software Foundation already does this successfully for PyPI, PyLadies, and regional Python conferences. NumFOCUS sponsors dozens of scientific Python projects. There's no reason Django's ecosystem shouldn't have similar support.
+The Python Software Foundation already does this successfully for [PyPI](https://pypi.org/), [PyLadies](https://pyladies.com/), and regional Python conferences. [NumFOCUS](https://numfocus.org/) sponsors [dozens of scientific Python projects](https://numfocus.org/sponsored-projects). There's no reason Django's ecosystem shouldn't have similar support.
 
 For the DSF, this is also about long-term sustainability. A healthy Django depends on a healthy ecosystem. When popular packages go unmaintained or community initiatives shut down due to funding constraints, Django suffers. By providing fiscal sponsorship, we strengthen the entire Django community while also creating a new (modest) revenue stream through administrative fees that can fund DSF operations.
 
 ## Moving Forward Together
 
-These four initiatives - hiring an Executive Director, growing corporate sponsorships, implementing strategic planning, and launching fiscal sponsorship - represent an ambitious but achievable vision for the DSF's next two years. They're not just ideas; they're a roadmap for taking Django from a volunteer-run project to a professionally-supported ecosystem that can serve millions of developers for decades to come.
+These four initiatives - (1) hiring an Executive Director, (2) growing corporate sponsorships, (3) implementing strategic planning, and (4) launching fiscal sponsorship - represent an ambitious but achievable vision for the DSF's next two years. They're not just ideas; they're a roadmap for taking Django from a volunteer-run project to a professionally-supported ecosystem that can serve millions of developers for decades to come.
 
 If you believe in this vision and think I can help make it happen, I'd be honored to have your vote. You can find more about my background and community involvement in my [candidate statement](link).
 
