@@ -16,7 +16,7 @@ These are outlined in my [candidate statement](link-goes-here), but I want to pr
 
 These four goals are interconnected. We need an ED to scale operations, but funding an ED requires increased revenue through corporate sponsorships. Both benefit from having a strategic plan that guides priorities. And fiscal sponsorship potentially creates a new revenue stream while strengthening the ecosystem. This isn't four separate initiatives - it's a coherent plan for sustainable growth.
 
-## Getting an Executive Director to help run the day-to-day operations of the DSF
+## Getting an Executive Director (ED) to help run the day-to-day operations of the DSF
 
 An ED provides day-to-day operational capacity that volunteer boards simply cannot match. While board members juggle DSF work with full-time jobs, an ED could:
 
@@ -49,9 +49,9 @@ Consider the numbers: US Census data shows roughly 80,000-400,000 small to mid-s
 
 **The challenge isn't identifying companies - it's having capacity to reach them.** This is where an Executive Director becomes critical.
 
-### What an ED Would Enable
+### What an Executive Director Would Enable
 
-A part-time ED could:
+A part-time Executive Director (ED) could:
 
 - Dedicate 10+ hours weekly to corporate outreach instead of the 1-2 hours volunteer board members can spare
 - Maintain a CRM system tracking sponsor relationships, touchpoints, and renewal cycles
