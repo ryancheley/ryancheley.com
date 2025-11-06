@@ -142,4 +142,6 @@ For the DSF, this is also about long-term sustainability. A healthy Django depen
 
 These four initiatives - (1) hiring an Executive Director, (2) growing corporate sponsorships, (3) implementing strategic planning, and (4) launching fiscal sponsorship - represent an ambitious but achievable vision for the DSF's next two years. They're not just ideas; they're a roadmap for taking Django from a volunteer-run project to a professionally-supported ecosystem that can serve millions of developers for decades to come.
 
+If you believe in this vision and think I can help make it happen, I'd be honored to have your vote. You can find more about my background and community involvement in my [candidate statement](https://www.djangoproject.com/weblog/2025/nov/05/2026-dsf-board-candidates/#ryan-cheley).
+
 Thank you for taking the time to read this, and regardless of the election outcome, I'm committed to supporting Django's continued success.
