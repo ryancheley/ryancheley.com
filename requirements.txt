@@ -10,7 +10,7 @@ asgi-csrf==0.9
     # via datasette
 asgiref==3.7.2
     # via datasette
-beautifulsoup4==4.14.2
+beautifulsoup4==4.14.3
     # via -r requirements.in
 blinker==1.7.0
     # via pelican
