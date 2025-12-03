@@ -6,8 +6,8 @@ SITEURL=${SITEURL:-"https://ryancheley.com"}
 
 echo "Building site with SITEURL: $SITEURL"
 
-# Generate the static site with the SITEURL environment variable
-pelican content -s publishconf.py -e SITEURL="'${SITEURL}'"
+# Generate the static site with properly JSON-formatted SITEURL
+pelican content -s publishconf.py -e SITEURL='"'${SITEURL}'"'
 
 echo "Starting HTTP server on port 80"
 
