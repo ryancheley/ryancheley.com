@@ -11,9 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application
 COPY . .
 
-# Generate the static site
-RUN pelican content -s publishconf.py
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# Serve the static files on port 80, listening on all interfaces
 EXPOSE 80
-CMD ["python", "-m", "http.server", "80", "--bind", "0.0.0.0", "--directory", "output"]
+ENTRYPOINT ["/entrypoint.sh"]
