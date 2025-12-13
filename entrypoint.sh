@@ -9,7 +9,10 @@ echo "Building site with SITEURL: $SITEURL"
 # Generate the static site with properly JSON-formatted SITEURL
 pelican content -s publishconf.py -e SITEURL='"'${SITEURL}'"'
 
-echo "Starting HTTP server on port 80"
+# Copy generated files to nginx html directory
+cp -r output/* /usr/share/nginx/html/
 
-# Serve the static files
-exec python -m http.server 80 --bind 0.0.0.0 --directory output
+echo "Starting nginx server on port 80"
+
+# Start nginx in foreground
+exec nginx -g 'daemon off;'
