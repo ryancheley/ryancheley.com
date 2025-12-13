@@ -3,7 +3,8 @@ FROM python:3.12-slim
 WORKDIR /app
 
 # Install nginx
-RUN apt-get update && apt-get install -y nginx && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y nginx && rm -rf /var/lib/apt/lists/* && \
+    rm /etc/nginx/sites-enabled/default
 
 # Copy dependency files
 COPY requirements.txt ./
@@ -19,7 +20,8 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Copy nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/sites-available/default
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]
