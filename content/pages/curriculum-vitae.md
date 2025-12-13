@@ -127,5 +127,5 @@ BS Economics/Finance, Minor in Statistics, California Polytechnic State Universi
 - Member of HIMSS December 2016 - present
 - Member of the American Heart Associated Executive Leadership Team, December 2020 - December 2021
 - Member of the [Python Software Foundation](https://www.python.org/users/rcheley/), May 2020 - Present
-- Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/individual-members/), November 2021 - Present
+- Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/individual-members/), November 2021 - Present; elected to the Board of Directors as Treasurer (2025 - Present)
 - Ran 13 half marathons in 13 months, December 2013 - December 2014

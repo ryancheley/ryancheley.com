@@ -29,6 +29,10 @@ Watching to Dodgers ... some days [smiling](https://www.espn.com/mlb/game/_/game
 - [Stanley Cup Finals](https://www.nhl.com/news/2025-stanley-cup-final-schedule-television-results)
 - [Calder Cup Finals](https://theahl.com/stats/playoffs/88)
 
+## Community Leadership
+
+Serving on the [Django Software Foundation](https://www.djangoproject.com/foundation/) Board of Directors as Treasurer (2025 - Present)
+
 ## Projects
 
 [Django Packages](https://djangopackages.org/)

@@ -31,7 +31,7 @@ Title: Brag Doc
       - [pelican-to-sqlite](https://pypi.org/project/pelican-to-sqlite/) which I wrote about [here](https://www.ryancheley.com/2022/01/16/adding-search-to-my-pelican-blog-with-datasette/)
 3. One of the Maintainers of [Django Packages](https://djangopackages.org) with [Jeff Triplett](https://github.com/jefftriplett) and [Maksudul Haque](https://fosstodon.org/@saadmk11)
 4. Member of the [Python Software Foundation](https://www.python.org/users/rcheley/)
-5. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/minutes/2021/nov/11/dsf-board-monthly-meeting/)
+5. Member of the [Django Software Foundation](https://www.djangoproject.com/foundation/individual-members/), elected to the Board of Directors as Treasurer (2025 - Present)
 6. Navigator for [Djangonaut.space](https://djangonaut.space)
     - Session 1 (Jan 15, 2024 - Mar 11, 2024)
     - Session 2 (Jun 17, 2024 - Aug 12, 2024)
