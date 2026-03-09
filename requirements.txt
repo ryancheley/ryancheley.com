@@ -40,7 +40,7 @@ click-default-group-wheel==1.2.2
     # via
     #   datasette
     #   sqlite-utils
-codespell==2.4.1
+codespell==2.4.2
     # via -r requirements.in
 datasette==0.64.3
     # via
