@@ -13,7 +13,7 @@ This also involves a lot of not eating. So you can get hangry. Or at least most 
 
 On the day of my colonoscopy the staff at the office were all really nice. I even got a "First Colonoscopy" sticker!
 
-I was wheeled into the procedure room, introduced to the doctor and told to look at the wall. The next thing I knew I was being wheeled out to the recovery room. I laid there for a few minutes and then I saw my wife Emily. I was still a bit groggy from the anesthetic but I was *so* happy to see her. It was the best feeling.
+I was wheeled into the procedure room, introduced to the doctor and told to look at the wall. The next thing I knew I was being wheeled out to the recovery room. I laid there for a few minutes and then I saw my wife Emily. I was still a bit groggy from the anesthesia but I was *so* happy to see her. It was the best feeling.
 
 She came next to the bed I was laying on and the doctor came over. He let Emily know that she may want to sit down. She said she preferred to stand. The doctor then told me that during the procedure they found a tumor.
 
@@ -21,7 +21,7 @@ You have cancer
 
 I let the phrase sink in ... "You have cancer" ... "I have cancer".
 
-The doctor was not very comfortable delivering this news. You could tell this wasn't the type of thing he was used to doing. Emily even heard him saying "at the other place I don't have to deliver tell patients this".
+The doctor was not very comfortable delivering this news. You could tell this wasn't the type of thing he was used to doing. Emily even heard him saying "at the other place I don't have to tell patients this".
 
 I think he tried his best to be positive about the diagnosis, but honestly it was a pretty shitty delivery. He kept saying things like "you're young" (at the time I was 47) ... "you're good looking" ... "you're married"
 
@@ -79,7 +79,7 @@ On March 5th I met with a surgeon. Before meeting with the surgeon I needed to h
 
 The day of the surgery consult came. He was going to tell me the next steps. From what I heard surgery was likely to be my next step. My wife and I went to the appointment, she's been going to all of my appointments with me.
 
-The staff were so nice and friendly and helpful. I started in one exam room and was moved to another exam room. My first thought was, "Oh no, was I in the 'you're going to be fine room' and got moved to the 'You're going to die' room? But the nurse let me know the reason for the move. A simple reason. No big deal. Except it was. It was the biggest deal. But she took the time to let me know the why of the move.
+The staff were so nice and friendly and helpful. I started in one exam room and was moved to another exam room. My first thought was, "Oh no, was I in the 'you're going to be fine room' and got moved to the 'You're going to die' room? But the nurse let me know the reason for the move. A simple reason. No big deal. Except it was. It was the biggest deal. But she took the time to let me know the `why` of the move.
 
 I went through the exam. Emily came back so the surgeon could talk to us.
 
@@ -107,7 +107,7 @@ As part of the treatment you go in for a prep session. During this session they 
 
 I always thought my first tattoo would be of something way cooler 🤷🏻‍♂️
 
-Before my diagnosis I had some plans for this year. I was going to go to PyCon US, PyOhio, and DjangoCon US. I even toyed with the idea of going to North Bay Python.
+Before my diagnosis I had some plans for this year. I was going to go to [PyCon US](https://us.pycon.org/2026/), [PyOhio](https://www.pyohio.org/2026/), and [DjangoCon US](https://2026.djangocon.us/). I even toyed with the idea of going to [North Bay Python](https://pretix.northbaypython.org/nbpy/nbpy-2026/).
 
 I won't be able to do any of these. Although my treatment will be done by late May, I'm not sure I can commit to much travel. I'm not sure how I'll be feeling.
 
