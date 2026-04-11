@@ -27,7 +27,7 @@ cfgv==3.3.1
     # via pre-commit
 charset-normalizer==3.2.0
     # via requests
-click==8.3.1
+click==8.3.2
     # via
     #   -r requirements.in
     #   click-default-group-wheel
@@ -40,7 +40,7 @@ click-default-group-wheel==1.2.2
     # via
     #   datasette
     #   sqlite-utils
-codespell==2.4.1
+codespell==2.4.2
     # via -r requirements.in
 datasette==0.64.3
     # via
@@ -119,7 +119,7 @@ pelican==4.11.0.post0
     #   pelican-to-sqlite
 pelican-feed-filter==1.1.0
     # via -r requirements.in
-pelican-series==3.1.0
+pelican-series==3.1.1
     # via -r requirements.in
 pelican-simple-footnotes==1.0.3
     # via -r requirements.in
