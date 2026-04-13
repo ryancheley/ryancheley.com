@@ -1,5 +1,8 @@
 FROM python:3.14-slim
 
+# Set timezone
+ENV TZ=America/Los_Angeles
+
 WORKDIR /app
 
 # Install nginx and build dependencies
