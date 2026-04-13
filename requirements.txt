@@ -14,8 +14,6 @@ beautifulsoup4==4.14.3
     # via -r requirements.in
 blinker==1.7.0
     # via pelican
-blurhash==1.1.4
-    # via mastodon-py
 build==1.1.1
     # via pip-tools
 certifi==2023.7.22
@@ -97,7 +95,7 @@ markdown-it-py==3.0.0
     # via rich
 markupsafe==2.1.3
     # via jinja2
-mastodon-py==2.1.4
+mastodon-py==2.2.1
     # via -r requirements.in
 mdurl==0.1.2
     # via markdown-it-py
@@ -152,8 +150,6 @@ python-dateutil==2.8.2
     #   mastodon-py
     #   pelican
     #   sqlite-utils
-python-magic==0.4.27
-    # via mastodon-py
 python-multipart==0.0.6
     # via asgi-csrf
 pytz==2023.3
