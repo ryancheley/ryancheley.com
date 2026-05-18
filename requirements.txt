@@ -25,7 +25,7 @@ cfgv==3.3.1
     # via pre-commit
 charset-normalizer==3.2.0
     # via requests
-click==8.3.3
+click==8.4.0
     # via
     #   -r requirements.in
     #   click-default-group-wheel
