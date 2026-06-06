@@ -14,5 +14,5 @@ cp -r output/* /usr/share/nginx/html/
 
 echo "Starting nginx server on port 80"
 
-# Start nginx in foreground
-exec nginx -g 'daemon off;'
+# Start nginx in foreground (pid in /tmp so the non-root user can write it)
+exec nginx -g 'pid /tmp/nginx.pid; daemon off;'
