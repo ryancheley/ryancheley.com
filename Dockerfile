@@ -15,6 +15,9 @@ COPY requirements.txt ./
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Create non-root user
+RUN useradd -m -u 1000 ryan
+
 # Remove build dependencies to reduce image size
 RUN apt-get remove -y build-essential && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
@@ -29,5 +32,13 @@ RUN chmod +x /entrypoint.sh
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
-EXPOSE 80
+# Drop the "user" directive (only valid when nginx runs as root), move the PID
+# file to a path the non-root user can write, and give that user ownership of
+# every path nginx and the build step write to
+RUN sed -i -e '/^user /d' -e 's#/run/nginx.pid#/tmp/nginx.pid#' /etc/nginx/nginx.conf && \
+    chown -R ryan:ryan /app /usr/share/nginx/html /var/log/nginx /var/lib/nginx
+
+USER ryan
+
+EXPOSE 8080
 ENTRYPOINT ["/entrypoint.sh"]

@@ -12,7 +12,7 @@ pelican content -s publishconf.py -e SITEURL='"'${SITEURL}'"'
 # Copy generated files to nginx html directory
 cp -r output/* /usr/share/nginx/html/
 
-echo "Starting nginx server on port 80"
+echo "Starting nginx server on port 8080"
 
 # Start nginx in foreground
 exec nginx -g 'daemon off;'
