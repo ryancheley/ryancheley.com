@@ -32,9 +32,10 @@ RUN chmod +x /entrypoint.sh
 COPY nginx.conf /etc/nginx/sites-available/default
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
-# Drop the "user" directive (only valid when nginx runs as root) and give the
-# non-root user ownership of every path nginx and the build step write to
-RUN sed -i '/^user /d' /etc/nginx/nginx.conf && \
+# Drop the "user" directive (only valid when nginx runs as root), move the PID
+# file to a path the non-root user can write, and give that user ownership of
+# every path nginx and the build step write to
+RUN sed -i -e '/^user /d' -e 's#/run/nginx.pid#/tmp/nginx.pid#' /etc/nginx/nginx.conf && \
     chown -R ryan:ryan /app /usr/share/nginx/html /var/log/nginx /var/lib/nginx
 
 USER ryan
