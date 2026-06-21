@@ -1,0 +1,72 @@
+/* Datasette theme to match the pelican-clean-blog blog at ryancheley.com */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Lora:ital@0;1&display=swap');
+
+:root {
+  --accent: #0085a1;
+  --accent-dark: #006a80;
+  --ink: #404040;
+}
+
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--ink);
+}
+
+/* Headings use Lora, like the blog */
+h1, h2, h3,
+.page-header h1 {
+  font-family: 'Lora', 'Times New Roman', serif;
+}
+
+/* Datasette's top nav bar -> dark, like the blog nav/footer */
+header.hd,
+.hd {
+  background-color: var(--ink);
+}
+
+header.hd a,
+.hd a {
+  color: #fff;
+}
+
+/* Links and accent teal */
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+/* Buttons (search / "Run SQL" / apply) */
+.core button,
+button[type=submit],
+input[type=submit],
+.dt-button {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.core button:hover,
+button[type=submit]:hover,
+input[type=submit]:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+/* Search and filter inputs */
+input[type=search],
+input[type=text],
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+
+/* Table header row */
+table.rows-and-columns thead th {
+  background-color: #f2f2f2;
+  border-bottom: 2px solid var(--accent);
+}
