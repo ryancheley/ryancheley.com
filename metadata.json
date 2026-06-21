@@ -1,4 +1,7 @@
 {
+    "extra_css_urls": [
+        "https://cdn.jsdelivr.net/gh/ryancheley/ryancheley.com@main/datasette-custom.css"
+    ],
     "databases": {
         "pelican": {
             "queries": {
