@@ -88,3 +88,41 @@ table.rows-and-columns thead th {
   background-color: #f2f2f2;
   border-bottom: 2px solid var(--accent);
 }
+
+/* Blog-style hero masthead (paired with datasette-templates/base.html) */
+.masthead {
+  background-color: #808080; /* fallback before image loads */
+  background-image: url('https://www.ryancheley.com/theme/images/home-bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.masthead-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 1rem 90px;
+  text-align: center;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 50px;
+}
+
+.masthead h1 a:link,
+.masthead h1 a:visited,
+.masthead h1 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.masthead-subheading {
+  margin: 10px 0 0;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+}
