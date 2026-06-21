@@ -1,4 +1,9 @@
-/* Datasette theme to match the pelican-clean-blog blog at ryancheley.com */
+/* Datasette theme to match the pelican-clean-blog blog at ryancheley.com
+ *
+ * Selectors mirror datasette's default app.css exactly so they win on the
+ * cascade (this sheet is loaded after app.css). Datasette uses pseudo-class
+ * link rules (a:link / a:visited) and a plain <header> element, so plain
+ * `a` / `.hd` overrides are too weak and get ignored. */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Lora:ital@0;1&display=swap');
 
@@ -19,50 +24,63 @@ h1, h2, h3,
   font-family: 'Lora', 'Times New Roman', serif;
 }
 
-/* Datasette's top nav bar -> dark, like the blog nav/footer */
-header.hd,
-.hd {
-  background-color: var(--ink);
+/* Header + footer bars -> brand teal (datasette default is #276890) */
+header,
+footer {
+  background-color: var(--accent);
 }
 
-header.hd a,
-.hd a {
-  color: #fff;
-}
-
-/* Links and accent teal */
-a {
+/* Body links: override datasette's a:link / a:visited pseudo-class rules */
+a:link,
+a:visited {
   color: var(--accent);
 }
 
-a:hover {
+a:hover,
+a:focus,
+a:active {
   color: var(--accent-dark);
 }
 
-/* Buttons (search / "Run SQL" / apply) */
-.core button,
-button[type=submit],
-input[type=submit],
-.dt-button {
+/* Keep the header/footer links readable on the teal bar */
+header a:link,
+header a:visited,
+header a:hover,
+header a:focus,
+header a:active,
+footer a:link,
+footer a:visited,
+footer a:hover,
+footer a:focus,
+footer a:active {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Primary submit buttons (search / Run SQL) -> teal (default is #007bff) */
+form input[type=submit] {
   background-color: var(--accent);
   border-color: var(--accent);
   color: #fff;
 }
 
-.core button:hover,
-button[type=submit]:hover,
-input[type=submit]:hover {
+form input[type=submit]:hover,
+form input[type=submit]:focus {
   background-color: var(--accent-dark);
   border-color: var(--accent-dark);
 }
 
-/* Search and filter inputs */
-input[type=search],
-input[type=text],
-textarea {
+/* Text + search inputs */
+form input[type=text],
+form input[type=search] {
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 6px 8px;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+form input[type=text]:focus,
+form input[type=search]:focus {
+  border-color: var(--accent);
+  outline: none;
 }
 
 /* Table header row */
