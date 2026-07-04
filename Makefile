@@ -92,8 +92,11 @@ newpost:
 	echo "Series: Remove if Not Needed"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 	echo "Status: draft"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 
+# Regenerate the pinned lockfile from pyproject.toml. The -c constraint keeps
+# existing pins stable (reproducible builds); to upgrade a package, drop
+# "-c requirements.txt" (or pass --upgrade-package <name>) and re-run.
 reqs:
-	pip-compile
+	uv pip compile pyproject.toml --extra dev -c requirements.txt -o requirements.txt
 	pip install -r requirements.txt
 
 draft:
