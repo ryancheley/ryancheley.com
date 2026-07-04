@@ -1,0 +1,43 @@
+[project]
+name = "ryancheley-com"
+version = "0.1.0"
+description = "Ryan Cheley's personal blog (Pelican static site)"
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4",
+    "click",
+    "datasette-edit-templates",
+    "datasette-publish-vercel",
+    "Markdown",
+    "Mastodon.py",
+    "pelican",
+    "pelican-feed-filter",
+    "pelican-series",
+    "pelican-simple-footnotes",
+    "pelican-sitemap",
+    "pelican-to-sqlite",
+]
+
+# Build/developer tooling. Compiled into requirements.txt with `--extra dev`
+# (see the `reqs` target in Makefile) so a clean checkout still gets these
+# without polluting the runtime dependency list.
+[project.optional-dependencies]
+dev = [
+    "codespell",
+    "pip-tools",
+    "pre-commit",
+]
+
+# ---------------------------------------------------------------------------
+# Linting & formatting (replaces black + flake8 + isort).
+# Style intent carried forward from the former setup.cfg [flake8]:
+#   max-line-length = 130, ignore = E203, W605,
+#   exclude = .git, *venv*, tasks.py, publishconf.py
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 130
+extend-exclude = ["tasks.py", "publishconf.py"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E203", "W605"]
