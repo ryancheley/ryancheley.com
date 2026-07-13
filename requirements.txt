@@ -4,7 +4,7 @@ aiofiles==25.1.0
     # via
     #   -c requirements.txt
     #   datasette
-anyio==4.14.1
+anyio==4.14.2
     # via
     #   -c requirements.txt
     #   httpx
@@ -25,7 +25,7 @@ blinker==1.9.0
     # via
     #   -c requirements.txt
     #   pelican
-build==1.5.0
+build==1.5.1
     # via
     #   -c requirements.txt
     #   pip-tools
@@ -39,7 +39,7 @@ cfgv==3.5.0
     # via
     #   -c requirements.txt
     #   pre-commit
-charset-normalizer==3.4.7
+charset-normalizer==3.4.9
     # via
     #   -c requirements.txt
     #   requests
@@ -91,7 +91,7 @@ feedgenerator==2.2.1
     # via
     #   -c requirements.txt
     #   pelican
-filelock==3.29.5
+filelock==3.29.7
     # via
     #   -c requirements.txt
     #   python-discovery
@@ -244,7 +244,7 @@ pre-commit==4.6.0
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   -c requirements.txt
     #   pelican
@@ -260,7 +260,7 @@ python-dateutil==2.9.0.post0
     #   mastodon-py
     #   pelican
     #   sqlite-utils
-python-discovery==1.4.3
+python-discovery==1.4.4
     # via
     #   -c requirements.txt
     #   virtualenv
@@ -299,7 +299,7 @@ sqlite-fts4==1.0.3
     # via
     #   -c requirements.txt
     #   sqlite-utils
-sqlite-utils==3.39
+sqlite-utils==4.1.1
     # via
     #   -c requirements.txt
     #   pelican-to-sqlite
@@ -322,11 +322,11 @@ urllib3==2.7.0
     # via
     #   -c requirements.txt
     #   requests
-uvicorn==0.50.0
+uvicorn==0.51.0
     # via
     #   -c requirements.txt
     #   datasette
-virtualenv==21.5.1
+virtualenv==21.6.1
     # via
     #   -c requirements.txt
     #   pre-commit
