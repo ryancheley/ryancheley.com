@@ -10,7 +10,7 @@ I grew up in the Coachella Valley and left for 10 years. I returned back 'home' 
 
 ## Listening
 
-My current lisenting obsessions are:
+My current listening obsessions are:
 
 - Lisa's "Alter Ego"
 - Doechii's "Aligator Bites Never Heal"
@@ -22,12 +22,11 @@ My current lisenting obsessions are:
 
 ### Baseball
 
-Watching to Dodgers ... some days [smiling](https://www.espn.com/mlb/game/_/gameId/401695777/yankees-dodgers), some days [crying](https://www.espn.com/mlb/game/_/gameId/401695910/dodgers-padres)
+Watching the Dodgers — some days [smiling](https://www.espn.com/mlb/game/_/gameId/401695777/yankees-dodgers), some days [crying](https://www.espn.com/mlb/game/_/gameId/401695910/dodgers-padres)
 
 ### Hockey
 
-- [Stanley Cup Finals](https://www.nhl.com/news/2025-stanley-cup-final-schedule-television-results)
-- [Calder Cup Finals](https://theahl.com/stats/playoffs/88)
+Waiting for Coachella Valley Firebirds season to start up!
 
 ## Community Leadership
 
@@ -35,6 +34,6 @@ Serving on the [Django Software Foundation](https://www.djangoproject.com/founda
 
 ## Projects
 
-[Django Packages](https://djangopackages.org/)
-[Django Commons](https://django-commons.org/)
-[Other WIP projects](https://github.com/ryancheley?tab=repositories&q=&type=source)
+- [Django Packages](https://djangopackages.org/)
+- [Django Commons](https://django-commons.org/)
+- [Other WIP projects](https://github.com/ryancheley?tab=repositories&q=&type=source)

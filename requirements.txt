@@ -244,7 +244,7 @@ pre-commit==4.6.0
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
-pygments==2.20.0
+pygments==2.19.2
     # via
     #   -c requirements.txt
     #   pelican

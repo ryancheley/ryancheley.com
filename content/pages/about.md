@@ -6,4 +6,6 @@ I like writing [Python](https://www.python.org), and when developing web stuff, 
 
 The source code for [DoesTatisJrHaveAnErrorToday.com](https://doestatisjrhaveanerrortoday.com) can be found [here](https://github.com/ryancheley/tatis).
 
+I currently serve as the Treasurer on the Board of Directors for the [Django Software Foundation](https://www.djangoproject.com/foundation/).
+
 If you're really interested, you can find my CV [here](/cv/).
