@@ -29,7 +29,7 @@ build==1.5.0
     # via
     #   -c requirements.txt
     #   pip-tools
-certifi==2026.6.17
+certifi==2026.7.22
     # via
     #   -c requirements.txt
     #   httpcore
@@ -91,7 +91,7 @@ feedgenerator==2.2.1
     # via
     #   -c requirements.txt
     #   pelican
-filelock==3.31.1
+filelock==3.32.0
     # via
     #   -c requirements.txt
     #   python-discovery
@@ -229,7 +229,7 @@ pip-tools==7.6.0
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
-platformdirs==4.10.1
+platformdirs==4.11.0
     # via
     #   -c requirements.txt
     #   datasette
@@ -240,11 +240,11 @@ pluggy==1.6.0
     #   -c requirements.txt
     #   datasette
     #   sqlite-utils
-pre-commit==4.6.0
+pre-commit==4.6.1
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   -c requirements.txt
     #   pelican
@@ -260,7 +260,7 @@ python-dateutil==2.9.0.post0
     #   mastodon-py
     #   pelican
     #   sqlite-utils
-python-discovery==1.4.4
+python-discovery==1.5.0
     # via
     #   -c requirements.txt
     #   virtualenv
@@ -291,7 +291,7 @@ six==1.17.0
     #   -c requirements.txt
     #   html5lib
     #   python-dateutil
-soupsieve==2.9
+soupsieve==2.9.1
     # via
     #   -c requirements.txt
     #   beautifulsoup4
@@ -326,7 +326,7 @@ uvicorn==0.51.0
     # via
     #   -c requirements.txt
     #   datasette
-virtualenv==21.6.1
+virtualenv==21.7.0
     # via
     #   -c requirements.txt
     #   pre-commit
