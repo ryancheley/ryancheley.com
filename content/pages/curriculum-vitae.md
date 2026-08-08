@@ -25,6 +25,11 @@ Lead strategic development and implementation of Business Information systems, N
 * Direct cross-functional teams across multiple locations, fostering collaboration between clinical, technical, and operational stakeholders
 * Coordinate enterprise-wide initiatives including system upgrades, and performance optimization
 
+**Leadership & Team Development**
+
+* Achieved 97% employee satisfaction across all teams in the division
+* Drove +27-point and +16-point increases in employee satisfaction on two teams inherited within the past year
+
 **Innovation & Quality Improvement**
 
 * Champion adoption of emerging healthcare technologies and industry best practices
