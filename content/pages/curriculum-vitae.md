@@ -31,6 +31,11 @@ Lead strategic development and implementation of Business Information systems, N
 * Translate complex healthcare workflows into efficient, compliant technology solutions
 * Drive continuous improvement through data-driven insights and automated reporting capabilities
 
+**Leadership & Team Development**
+
+* Sustained a 97% employee satisfaction rating across teams in the division
+* Increased employee satisfaction by 27 and 16 points on two teams within one year of assuming leadership of them
+
 
 ### July 2016 - March 2025
 
