@@ -165,7 +165,7 @@ markupsafe==3.0.3
     # via
     #   -c requirements.txt
     #   jinja2
-mastodon-py==2.2.1
+mastodon-py==2.2.2
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
@@ -185,7 +185,7 @@ ordered-set==4.1.0
     # via
     #   -c requirements.txt
     #   pelican
-packaging==26.2
+packaging==26.3
     # via
     #   -c requirements.txt
     #   build
@@ -219,7 +219,7 @@ pelican-to-sqlite==0.7.0
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
-pip==26.2
+pip==26.2.1
     # via
     #   -c requirements.txt
     #   datasette
@@ -260,7 +260,7 @@ python-dateutil==2.9.0.post0
     #   mastodon-py
     #   pelican
     #   sqlite-utils
-python-discovery==1.5.0
+python-discovery==1.5.1
     # via
     #   -c requirements.txt
     #   virtualenv
@@ -322,7 +322,7 @@ urllib3==2.7.0
     # via
     #   -c requirements.txt
     #   requests
-uvicorn==0.52.0
+uvicorn==0.52.1
     # via
     #   -c requirements.txt
     #   datasette
