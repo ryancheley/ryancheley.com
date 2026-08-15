@@ -1,9 +1,9 @@
 Title: What if Maintainer Burnout Isn't Burnout
-Date: 2026-08-12
+Date: 2026-08-18
 Author: ryan
-Tags:
+Tags: oss, burnout, languishing
 Slug: what-if-maintainer-burnout-isn-t-burnout
-Status: draft
+Status: published
 
 Imagine you're staring at your 11th AI-generated pull request of the morning.
 
@@ -53,11 +53,13 @@ Silletti's key metaphor is **administrative sediment.** He writes about how heal
 
 Open source has its own sediment. And it accumulated the same way. Slowly, without malice, each piece seeming reasonable at the time.
 
-Open source was never just about writing code. It was about building something, sometimes just to scratch your own itch. But it was always about building.
+Open source was never just about writing code. Each maintainer will likely have their own *why* for doing open source, but I think it centers around building. Building a library, building relationships with likeminded people, building understanding.
+
+But it is always about building.
 
 GitHub popularized the idea of social coding. It allowed for strangers to submit issues. Some of those strangers also submitted Pull Requests for those issues. Some people would only do a single issue, or a single PR. Others would stay around, forming a community.
 
-The people that helped to form a community were always outnumbered by those that just stopped in to drop a PR or two. The community members were also outnumbered by those that reported issues. Over time, the people that reported issues went from having a sense of 'just wanted to let you know' to 'you need to fix this now'. And the 'you need to fix this now' crowd went from being a small percentage of reporters, to a larger percentage.
+The people that helped to form a community were always outnumbered by those that just stopped in to drop a PR or two. The community members were also outnumbered by those that reported issues. Over time, the people that reported issues went from having a sense of 'just wanted to let you know' to 'you need to fix this now'. And the 'you need to fix this now' crowd feels like it went from being a small percentage of reporters, to a larger percentage.
 
 Maintainers that were simply offering up something for free were suddenly being treated as tech support. Sometimes by large companies that weren't paying for anything.
 
@@ -109,9 +111,9 @@ Here's my version for open source: **does this task bring the maintainer closer 
 
 Triage of intentional, well thought out and reported issues? Closer. PR review for a human who wants to learn? Closer. Mentoring a new human contributor? Closer. AI-generated spam? Further.
 
-## Am I Wrong?
+## Is it Burnout or Languishing?
 
-Christina Maslach, the person who literally *invented* burnout research, I think would push back hard on this whole framing. Her three-dimensional model already includes cynicism (detachment from work) and reduced personal efficacy (loss of belief in your competence). [ref] https://pmc.ncbi.nlm.nih.gov/articles/PMC4911781/ [/ref] Those overlap heavily with what I'm calling languishing.
+Christina Maslach, the person who literally *invented* burnout research, I think would push back hard on this whole framing. Her three-dimensional model already includes cynicism (detachment from work) and reduced personal efficacy (loss of belief in your competence). [ref] https://pmc.ncbi.nlm.nih.gov/articles/PMC4911781/ [/ref] Those overlap heavily with the idea of languishing introduced earlier.
 
 And her Six Areas of Worklife framework lists *values* as one of the mismatch areas that cause burnout. A values mismatch IS a meaning crisis. [ref] https://www.demenzemedicinagenerale.net/images/mens-sana/Burnout_Organizational_Predictor.pdf [/ref] So maybe languishing is just burnout without the exhaustion dimension? Maybe the distinction is academic.
 
@@ -157,4 +159,4 @@ I think if we're honest, a lot of us are languishing. Not burning out. The tank 
 
 We've just forgotten where we were going.
 
-*But that's a fixable problem. If we stop calling it the wrong thing.*
+*it's a fixable problem, but we have to stop calling it the wrong thing.*
