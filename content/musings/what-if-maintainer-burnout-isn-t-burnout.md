@@ -155,8 +155,6 @@ For us, that means:
 
 I'll be honest. I maintain a few, trivial, open source projects. I'm on the Django Software Foundation board. I'm on the Django Commons admin team. And I've felt this. Not the exhaustion, the *emptiness.* The mechanical closing of PRs. The realization that I'm going through the motions.
 
-I think if we're honest, a lot of us are languishing. Not burning out. The tank has gas.
+So what do we actually **do**? Start smaller than a framework. Next PR that lands in your queue, run it through the question above before you touch it: does reviewing this bring you closer to the building[ref]keep in mind that `building` could mean one of many different things, and it's what you think of as building[/ref], or further from it? If it's further, close it. Full stop. Do that ten times and you'll know more about your own maintainer practice than any framework could tell you.
 
-We've just forgotten where we were going.
-
-*it's a fixable problem, but we have to stop calling it the wrong thing.*
+And name it correctly. Not burnout, not laziness. Languishing. The tank has gas, we just forgot where we were pointed. Naming it right is the first task on the list, because you can't fix a diagnosis you keep getting wrong.
