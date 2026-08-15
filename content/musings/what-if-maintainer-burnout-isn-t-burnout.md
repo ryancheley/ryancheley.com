@@ -1,5 +1,5 @@
 Title: What if Maintainer Burnout Isn't Burnout
-Date: 2026-08-18
+Date: 2026-08-17
 Author: ryan
 Tags: oss, burnout, languishing
 Slug: what-if-maintainer-burnout-isn-t-burnout
