@@ -92,14 +92,16 @@ newpost:
 	echo "Series: Remove if Not Needed"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 	echo "Status: draft"  >> content/$$(echo $${category})/$$(echo $${title} | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
 
-# Regenerate the pinned lockfile from pyproject.toml. The -c constraint keeps
-# existing pins stable (reproducible builds); to upgrade a package, drop
-# "-c requirements.txt" (or pass --upgrade-package <name>) and re-run.
-reqs:
-	uv pip compile pyproject.toml --extra dev -c requirements.txt -o requirements.txt
-	pip install -r requirements.txt
+# Sync the local venv to the pinned lockfile (uv.lock).
+sync:
+	uv sync
+
+# Refresh uv.lock after editing dependencies in pyproject.toml. To upgrade a
+# package: `uv lock --upgrade-package <name>`.
+lock:
+	uv lock
 
 draft:
 	./find_draft_status.sh
 
-.PHONY: html help clean regenerate serve serve-global devserver publish vercel tweet reqs
+.PHONY: html help clean regenerate serve serve-global devserver publish vercel tweet sync lock

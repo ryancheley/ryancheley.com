@@ -9,11 +9,17 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y nginx build-essential && rm -rf /var/lib/apt/lists/* && \
     rm /etc/nginx/sites-enabled/default
 
-# Copy dependency files
-COPY requirements.txt ./
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:0.12 /uv /uvx /bin/
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy dependency files
+COPY pyproject.toml uv.lock ./
+
+# Install runtime dependencies (no dev group) into /app/.venv from the lockfile
+RUN uv sync --frozen --no-dev --no-cache
+
+# Put the venv on PATH so pelican/datasette resolve without `uv run`
+ENV PATH="/app/.venv/bin:$PATH"
 
 # Create non-root user
 RUN useradd -m -u 1000 ryan
