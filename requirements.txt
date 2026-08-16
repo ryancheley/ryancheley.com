@@ -39,7 +39,7 @@ cfgv==3.5.0
     # via
     #   -c requirements.txt
     #   pre-commit
-charset-normalizer==3.4.9
+charset-normalizer==3.5.0
     # via
     #   -c requirements.txt
     #   requests
@@ -62,7 +62,7 @@ codespell==2.4.3
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
-datasette==0.65.2
+datasette==0.65.3
     # via
     #   -c requirements.txt
     #   datasette-edit-templates
@@ -225,11 +225,11 @@ pip==26.2.1
     #   datasette
     #   pip-tools
     #   sqlite-utils
-pip-tools==7.6.0
+pip-tools==7.6.1
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
-platformdirs==4.11.0
+platformdirs==4.11.2
     # via
     #   -c requirements.txt
     #   datasette
@@ -240,7 +240,7 @@ pluggy==1.6.0
     #   -c requirements.txt
     #   datasette
     #   sqlite-utils
-pre-commit==4.6.1
+pre-commit==4.6.2
     # via
     #   -c requirements.txt
     #   ryancheley-com (pyproject.toml)
@@ -260,7 +260,7 @@ python-dateutil==2.9.0.post0
     #   mastodon-py
     #   pelican
     #   sqlite-utils
-python-discovery==1.5.1
+python-discovery==1.5.2
     # via
     #   -c requirements.txt
     #   virtualenv
@@ -281,7 +281,7 @@ rich==15.0.0
     # via
     #   -c requirements.txt
     #   pelican
-setuptools==83.0.0
+setuptools==84.0.0
     # via
     #   -c requirements.txt
     #   datasette
@@ -291,7 +291,7 @@ six==1.17.0
     #   -c requirements.txt
     #   html5lib
     #   python-dateutil
-soupsieve==2.9.1
+soupsieve==2.9.2
     # via
     #   -c requirements.txt
     #   beautifulsoup4
@@ -326,7 +326,7 @@ uvicorn==0.52.1
     # via
     #   -c requirements.txt
     #   datasette
-virtualenv==21.7.1
+virtualenv==21.7.4
     # via
     #   -c requirements.txt
     #   pre-commit
@@ -338,7 +338,7 @@ webencodings==0.5.1
     # via
     #   -c requirements.txt
     #   html5lib
-wheel==0.47.0
+wheel==0.48.0
     # via
     #   -c requirements.txt
     #   pip-tools
