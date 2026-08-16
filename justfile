@@ -28,8 +28,11 @@
 @micro title:
     make newpost title="{{title}}" category="microblog"
 
-@reqs:
-    make reqs
+@sync:
+    make sync
+
+@lock:
+    make lock
 
 @check:
     pre-commit run --all-files

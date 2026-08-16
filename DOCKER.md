@@ -94,7 +94,7 @@ The Dockerfile uses a multi-stage build process:
 
 1. **Builder Stage** (Python 3.13-slim)
    - Installs build dependencies (git, build-essential)
-   - Installs Python dependencies from requirements.txt
+   - Installs Python dependencies from uv.lock via `uv sync --frozen --no-dev`
    - Copies project files (content, config, theme)
    - Generates static site using `pelican content -s publishconf.py`
 
@@ -187,7 +187,8 @@ Without setting `SITE_URL`, all links will point to the production domain (https
 ├── nginx.conf             # Custom nginx config (enables /drafts/ listing)
 ├── .dockerignore          # Files excluded from build context
 ├── DOCKER.md              # This file
-├── requirements.txt       # Python dependencies
+├── pyproject.toml         # Python dependencies (source of truth)
+├── uv.lock                # Pinned dependency lockfile
 ├── pelicanconf.py         # Pelican development config
 ├── publishconf.py         # Pelican production config
 ├── content/               # Blog content
@@ -238,7 +239,7 @@ After redeployment, all internal links will use the correct domain.
 ### Build Failures
 
 If the build fails during dependency installation:
-- Check that requirements.txt is valid
+- Check that uv.lock is in sync with pyproject.toml (`uv lock --check`)
 - Ensure build-essential is included in Dockerfile (needed for packages with native extensions)
 
 ### Site Not Accessible (Local Development)
