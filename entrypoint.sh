@@ -12,6 +12,10 @@ pelican content -s publishconf.py -e SITEURL='"'${SITEURL}'"'
 # Copy generated files to nginx html directory
 cp -r output/* /usr/share/nginx/html/
 
+# nginx won't create the log dir itself; a persisted volume may shadow the
+# image's dir, so ensure it exists on every start
+mkdir -p /var/log/nginx/ryancheley.com
+
 echo "Starting nginx server on port 8080"
 
 # Start nginx in foreground

@@ -26,6 +26,9 @@ services:
     labels:
       # Coolify labels for better integration
       - "coolify.managed=true"
+    volumes:
+      # Persist nginx logs to host. Dir must be owned by uid 1000 (see note).
+      - /var/log/nginx/ryancheley.com:/var/log/nginx/ryancheley.com
     networks:
       - pelican-network
 
