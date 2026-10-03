@@ -1,11 +1,6 @@
 Title: How to Ryan
-Date: 2018-06-15 16:00
-Author: ryan
-Tags: getting to know me, introvert, Meetings
-Slug: how-to-ryan
-Status: published
 
-Hi, welcome to the team. I'm so glad you are here at \$COMPANY.
+Hi, welcome to the team. I'm so glad you are here at $COMPANY.
 
 It's going to take a solid 90 days to figure this place out. I understand the importance of first impressions, and I know you want to get a check in the win column, but this is a complex place full of equally complex humans. Take your time, meet everyone, write things down, and ask all the questions - especially about all those baffling acronyms … healthcare is full of them
 
@@ -15,11 +10,11 @@ One of the working relationships we need to define is ours. The following is a u
 
 We'll have a 1:1 every week for about 30 minutes. I try to never cancel this meeting so it might get moved around a bit. I would like to apologize for this in advance.
 
-If you are curious about the 1:1s I have with my manager I’m more than happy to tell you about their frequency and duration. I meet with my boss at least once a week for anywhere from 30 - 90 minutes. It just depends on the week.
+If you are curious about the 1:1s I have with my manager I’m more than happy to tell you about their frequency and duration. I meet with my boss every other week for anywhere from 30 - 90 minutes. It just depends on the week.
 
 The purpose of our meeting is to discusses topics of substance, not updates (there are other platforms for that). Sometimes they can morph into update type meetings. I’ll do my best to keep that from happening, and I ask that you do the same. I have a running list of items that I will want to discuss with you and I encourage you do have the same.
 
-We have scrum every day. The purpose of the scrum is to tell the **team** three things:
+We have scrum every day. The purpose of the scrum is to tell the **team** (not me) three things:
 
 1.  What I did yesterday
 2.  What I’m doing today
@@ -49,9 +44,9 @@ Sometimes I work on the weekends. Sometime I work late. Unless we have a big pro
 
 I firmly believe that feedback is at the core of building trust and respect in a team.
 
-At \$COMPANY, there is a formal feedback cycle which occurs once a year per employee.
+At $COMPANY, there is a formal feedback cycle which occurs once a year per employee.
 
-During that formal feedback cycle (also called the Annual Review) we will discuss the previous year. There’s a form (\$COMPANY **loves** forms). I’ll fill it out and we’ll discuss it.
+During that formal feedback cycle (also called the Annual Review) we will discuss the previous year. There’s a form ($COMPANY **loves** forms). I’ll fill it out and we’ll discuss it.
 
 This means that at anyone time I could be finishing up 5 reviews or 1.
 
@@ -62,6 +57,22 @@ If during the Annual Review you are surprised (positively or negatively) by anyt
 I won’t assume you know what I’m thinking, and I ask that you don’t assume I know what you’re thinking.
 
 Disagreement is feedback and the sooner we learn how to efficiently disagree with each other, the sooner we'll trust and respect each other more. Ideas don't get better with agreement.
+
+I believe that frequent, timely, feedback is essential to your success and growth at $COMPANY. To facilitate that I will ask you, "Can I give you some feedback?" If you're in a place where you can accept the feedback, say yes. If you're not, say no. I'll follow up with you. The feedback takes less than 30 seconds. There's no big ceremony or meeting required.
+
+The feedback will go like this:
+
+Enforcing feedback
+
+> Hey, can I give you some feedback? When you do X it leads to Y. Keep it up!
+
+Corrective Feedback
+
+> Hey, can I give you some feedback? When you do X it causes Y. Can you do better next time?
+
+I encourage you to use this feedback model with me, and with your team members. To my knowledge, ours is the only team at $COMPANY that utilizes this feedback model.
+
+One note about saying No to being in a spot to accept feedback. I will respect that boundary, but if you say no for a third time, I will indicate that it's feedback that needs to be delivered and deliver it. This isn't meant to ignore your feelings, but, as I said, I believe that frequent, timely feedback is what helps everyone get better
 
 ## Meeting Protocol
 
@@ -81,7 +92,7 @@ If a meeting completes its intended purpose before it's scheduled to end, let's 
 
 **During meetings in my office** I will put my phone on DND and log out of my computer if we won’t be using it. If we will be using my computer I close Outlook and only have the applications open that need to be open. During meetings I will take notes on my phone. I have a series of actions programmed on my iPhone to help keep me on top of things that I need to do. Rest assured, I’m not texting anyone, or checking the next available movie time. When I am done typing a note, I will put the phone down.
 
-**During meetings over Zoom, Slack, etc.** I will put all communication apps on DND and close Outlook. Some people like to use the camera during meetings. Others don't. I am good either way. During team **only** meetings I do like that everyone has the camera on. I will typically use my iPad to take notes during meetings. As stated above, I have many workflows built into my phone and the use of my iPad helps to keep things straight for me. Rest assured, I'm not checking the score of the big game. 
+**During meetings over Zoom, Slack, etc.** I will put all communication apps on DND and close Outlook. Cameras are required. During team **only** meetings I do like that everyone has the camera on. I will typically use my iPad to take notes during meetings. As stated above, I have many workflows built into my phone and the use of my iPad helps to keep things straight for me. Rest assured, I'm not checking the score of the big game. 
 
 **Humans stating opinions as facts** are a trigger for me.
 
@@ -93,3 +104,4 @@ If a meeting completes its intended purpose before it's scheduled to end, let's 
 
 -   Original Date: June 15, 2018
 -   Updated: March 20, 2021
+-   Updated: October 3, 2026
