@@ -40,6 +40,17 @@
 @codespell:
     codespell content -i 3 --ignore-words=ignore-words.txt
 
+# Generate resume and cover letter PDFs from the Markdown in resume-resources/
+@resume:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    cd resume-resources
+    header=$(mktemp)
+    printf '\\AtBeginDocument{\\raggedright}\n' > "$header"
+    pandoc resume.md -o "Ryan Cheley Resume.pdf" --pdf-engine=xelatex -V geometry:margin=1in -V linkcolor:blue -H "$header"
+    pandoc cover-letter.md -o "Ryan Cheley Cover Letter.pdf" --pdf-engine=xelatex -V geometry:margin=1in -V linkcolor:blue -H "$header"
+    rm -f "$header"
+
 # Bring up Docker containers
 [group('docker')]
 @up *ARGS:
