@@ -2,7 +2,7 @@
 name = "ryancheley-com"
 version = "0.1.0"
 description = "Ryan Cheley's personal blog (Pelican static site)"
-requires-python = ">=3.14"
+requires-python = ">=3.15"
 dependencies = [
     "beautifulsoup4",
     "click",
