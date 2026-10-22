@@ -1,5 +1,4 @@
-@_default:
-    just --list
+set default-list := true
 
 @html:
     make html
