@@ -4,7 +4,7 @@ Author: ryan
 Tags: just, justfile
 Slug: have-you-heard-the-good-news-about-just
 Series: learnings-on-leave
-Status: published
+Status: draft
 
 Because of my current cancer treatment I'm on medical leave from work. I spend a LOT of my day resting, or doing very non-active things ...  like watching TV Shows. I'm currently binging [Star Trek: Strange New Worlds](https://en.wikipedia.org/wiki/Star_Trek:_Strange_New_Worlds) and it's really good.
 
