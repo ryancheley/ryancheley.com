@@ -8,7 +8,7 @@ Status: draft
 
 Because of my current cancer treatment I'm on medical leave from work. I spend a LOT of my day resting, or doing very non-active things ...  like watching TV Shows. I'm currently binging [Star Trek: Strange New Worlds](https://en.wikipedia.org/wiki/Star_Trek:_Strange_New_Worlds) and it's really good.
 
-In order to help stave off brain rot I decided that I would spend some time learning about various technologies that I use or would like to use, and fing out more about them. In this week's installment, I'm taking a look at [just](https://just.systems/man/en/), a command runner that is so good.
+In order to help stave off brain rot I decided that I would spend some time learning about various technologies that I use or would like to use, and finding out more about them. In this week's installment, I'm taking a look at [just](https://just.systems/man/en/), a command runner that is so good.
 
 ## justfile
 
@@ -23,7 +23,7 @@ When you run `just` in your terminal it will run the first recipe listed in your
     just --list
 ```
 
-This would cause `just` to list all of the command available (with comments if they exist)
+This would cause `just` to list all of the commands available (with comments if they exist)
 
 However, there's a different way to do this. You can add
 
@@ -44,7 +44,7 @@ One of the recipes I rely on frequently is
     docker compose -f docker-compose.dev.yml up {{ ARGS }}
 ```
 
-The `*ARGS` is what's known as a variadic parameters. These can accept a (potentially) infinite number of parameters passed to them. You can either use `+` to incdiate 1 or more parameters, or a `*` to indicate 0 or more parameters.
+The `*ARGS` is what's known as a variadic parameter. These can accept a (potentially) infinite number of parameters passed to them. You can either use `+` to indicate 1 or more parameters, or a `*` to indicate 0 or more parameters.
 
 The recipe above allows the following invocations
 
@@ -70,7 +70,7 @@ The new thing I learned is that they can also accept defaults. This means that I
 ```just
 # Bring up Docker containers
 [group('docker')]
-@up *ARGS'-d':
+@up *ARGS='-d':
     docker compose -f docker-compose.dev.yml up {{ ARGS }}
 ```
 
@@ -101,12 +101,12 @@ I'm trying to figure out the best use case for this, but it did seem like an int
 
 ### 3. Variadic parameters limits
 
-You may want to limit the number of parameters you allow on a variadic parameter. Just allows you to control this by using `[arg('ARGS', min='2', max='4')]` like this
+You may want to limit the number of parameters you allow on a variadic parameter. Just allows you to control this by using `[arg('ARGS', min='1', max='4')]` like this
 
 ```just
 # Bring up Docker containers
 [group('docker')]
-[arg('ARGS', min='0', max='4')]
+[arg('ARGS', min='1', max='4')]
 @up *ARGS:
     docker compose -f docker-compose.dev.yml up {{ ARGS }}
 ```
@@ -123,7 +123,7 @@ set lists
 
 ### 4. Parameter constraints
 
-You can constrain parameters using `[arg('flag', pattern='--help|--version')]`.
+You can constrain parameters using `[arg('ARGS', pattern='--help|--version')]`.
 
 Per the [docs](https://just.systems/man/en/recipe-parameters.html)
 
@@ -134,7 +134,7 @@ We again can update the just recipe from before to be
 ```just
 # Bring up Docker containers
 [group('docker')]
-[arg('flag', pattern='-d|--build')]
+[arg('ARGS', pattern='-d|--build')]
 @up *ARGS:
     docker compose -f docker-compose.dev.yml up {{ ARGS }}
 ```
@@ -348,13 +348,13 @@ could be changed to
     just --fmt --unstable
 ```
 
-This would cause the `fmt` recipe to not be listed when showng all of the recipes.
+This would cause the `fmt` recipe to not be listed when showing all of the recipes.
 
 ### 11. Shell expanded strings
 
 Per the [docs](https://just.systems/man/en/strings.html#shell-expanded-strings)
 
-> Strings prefixed with x are shell expanded (as of version 1.27.0)
+> Strings prefixed with `x` are shell expanded (as of version 1.27.0)
 
 One interesting thing that can be done here is that you can keep common recipes in one place and pull them into every project’s `justfile` like this:
 
@@ -366,7 +366,7 @@ More on common `justfile`s a little later
 
 ### 12. Set your shell
 
-You can set the shell that just will use . This can be especially helpful on Windows where you are running Powershell instead of WSL.
+You can set the shell that just will use. This can be especially helpful on Windows where you are running Powershell instead of WSL.
 
 On Windows you can set it like this:
 
@@ -470,11 +470,9 @@ import 'docker.just'
 set default-list := true
 ```
 
-We can set what ever other settings in the `justfile` we want. This allows us to have a separation of concerns for our just recipes.
+We can set whatever other settings in the `justfile` we want. This allows us to have a separation of concerns for our just recipes.
 
-See the [docs](https://just.systems/man/en/imports.html) for more details
-
-See tip 11
+See the [docs](https://just.systems/man/en/imports.html) for more details. You can also pull shared recipes in from a common file — see tip 11.
 
 ### 15. set fallback
 
@@ -605,7 +603,7 @@ fetch:
 
 ### 17. The `--choose` flag
 
-The `--choose` flag will list out recipes (with some exceptions) so you can select them; good for learning about the recipes available. Requires fzf to be installed `brew install fzf`. See [this](https://just.systems/man/en/selecting-recipes-to-run-with-an-interactive-chooser.html).
+The `--choose` flag will list out recipes (with some exceptions) so you can select them; good for learning about the recipes available. In order to use this you'll need to install fzf. This can be installed with `brew install fzf` on macOS. See [this](https://just.systems/man/en/selecting-recipes-to-run-with-an-interactive-chooser.html).
 
 One caveat here is that it won't list out recipes that have arguments passed to them. Additionally private recipes (item 10) and aliases are skipped.
 
@@ -618,7 +616,7 @@ delete-all:
     rm -rf *
 ```
 
-When you run `just delete-all` it will run the command without prompting. You can prevent that behavior by added the `[confirm]` attribute to the recipe
+When you run `just delete-all` it will run the command without prompting. You can prevent that behavior by adding the `[confirm]` attribute to the recipe
 
 ```just
 [confirm]
@@ -626,7 +624,7 @@ delete-all:
     rm -rf *
 ```
 
-So when you run `just delete-all` instead of nukig all of the files, you'll get prompted to confirm that decision
+So when you run `just delete-all` instead of nuking all of the files, you'll get prompted to confirm that decision
 
 ```bash
 Run recipe `delete-all`?
