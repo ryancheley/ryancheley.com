@@ -166,7 +166,7 @@ This can be helpful when you aren't sure what the arguments are for a just recip
 
 You can have recipes run at the end of a recipe, not just the beginning. Typically when running a `just` recipe any dependencies will run before the invoked recipe.
 
-For example, assume you have these recipes;
+For example, assume you have these recipes:
 
 ```just
 test: build
@@ -176,7 +176,7 @@ build:
     build project
 ```
 
-If you run `just test` it will first run the build recipe and then the test recipe.
+If you run `just test` it will first run the `build` recipe and then the `test` recipe.
 
 Let's assume you also have a deployment recipe that you want to run AFTER the build recipe runs successfully. You could have the following `justfile`:
 
@@ -327,7 +327,7 @@ For more information, try '--help'.
 
 ### 10. Private Recipes
 
-There is a concept of private recipes by using the `[private]`. The main use is **helper recipes that exist only to be dependencies or building blocks.**
+There is a concept of private recipes by using the `[private]` attribute. The main use is **helper recipes that exist only to be dependencies or building blocks.**
 
 For example, in the Django Packages justfile the recipe
 
@@ -366,7 +366,7 @@ More on common `justfile`s a little later
 
 ### 12. Set your shell
 
-You can set the shell that just will use. This can be especially helpful on Windows where you are running Powershell instead of WSL.
+You can set the shell that `just` will use. This can be especially helpful on Windows where you are running Powershell instead of WSL.
 
 On Windows you can set it like this:
 
@@ -579,7 +579,17 @@ If you wanted to run the `usage` recipe you'd get an error like this:
 error: justfile does not contain recipe `usage`
 ```
 
-However, if you add `set fallback` to the top of the `justfile` in `~/code/ryancheley.com` then the recipe will run without issue
+However, if you add `set fallback` to the top of the `justfile` in `~/code/ryancheley.com` then the recipe will run without issue. For example:
+
+```just
+set default-list := true
+set fallback
+
+@html:
+    make html
+
+...
+```
 
 See [docs](https://just.systems/man/en/fallback-to-parent-justfiles.html) for more details
 
@@ -601,11 +611,15 @@ fetch:
     curl https://raw.githubusercontent.com/djangopackages/djangopackages/refs/heads/main/justfile > djangopackages.just
 ```
 
+In order to have the `djangopackages.just` file you'll need to run the `just fetch` recipe.
+
 ### 17. The `--choose` flag
 
-The `--choose` flag will list out recipes (with some exceptions) so you can select them; good for learning about the recipes available. In order to use this you'll need to install fzf. This can be installed with `brew install fzf` on macOS. See [this](https://just.systems/man/en/selecting-recipes-to-run-with-an-interactive-chooser.html).
+The `--choose` flag will list out recipes (with some exceptions) so you can select them; good for learning about the recipes available. In order to use this you'll need to install `fzf`. This can be installed with `brew install fzf` on macOS.
 
 One caveat here is that it won't list out recipes that have arguments passed to them. Additionally private recipes (item 10) and aliases are skipped.
+
+See the [docs](https://just.systems/man/en/selecting-recipes-to-run-with-an-interactive-chooser.html) here.
 
 ### 18. Confirm attribute
 
