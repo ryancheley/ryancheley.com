@@ -6,7 +6,7 @@ Slug: atuin-the-magical-shell-tool
 Series: learnings-on-leave
 Status: published
 
-In part two of my series, "Learning on Leave" I spent some time going through the [docs](https://docs.atuin.sh/latest/) for [Atuin](https://atuin.sh/). I even went down a rabbit hole of roling my own sync server!
+In part two of my series, "Learning on Leave" I spent some time going through the [docs](https://docs.atuin.sh/latest/) for [Atuin](https://atuin.sh/). I even went down a rabbit hole of rolling my own sync server!
 
 ## What is Atuin and why would I use it?
 
@@ -16,15 +16,15 @@ Atuin is "Shell history supercharged". Per their [website](https://atuin.sh/):
 
 I first learned about it on Mastodon from [b0rk](https://mastodon.social/@b0rk). As an aside, she's also where I first learned about [fish](https://fishshell.com/) which is a great shell!
 
-It's been a real game changer for me. Logging into different servers and having access to my shell history across all machines it kind of a game changer.
+It's been a real game changer for me. Logging into different servers and having access to my shell history across all machines is kind of a game changer.
 
 ## Things I learned
 
 1. `ctrl-r`
 
-When I migrated from just the standard `zsh` history to Atuin, I was just used to pressing using `ctrl-r` to search, but Atuin offered use of the `up-arrow` key to browse through my history. This seemeed easier to me, so I started to use that exclusively and the completely forgot that `ctrl-r` ever existed 🤦🏻‍♂️
+When I migrated from just the standard `zsh` history to Atuin, I was just used to using `ctrl-r` to search, but Atuin offered use of the `up-arrow` key to browse through my history. This seemed easier to me, so I started to use that exclusively and then completely forgot that `ctrl-r` ever existed 🤦🏻‍♂️
 
-The thing is, `ctrl-r` will also allow you to cycle through the filter modes (global, host, session, directory, workspace, session-preload). This allows you to see all commands, or focus on just the session history. You can update the settings to have the history set to a specific filter mode. The default is `global` which means all of the synced history from all servers. After learning about this I decided to update mine to `host`. One note, `workspace` is only available inside a git repository or if you've set [`workspaces = false`] in your settings.
+The thing is, `ctrl-r` will also allow you to cycle through the filter modes (global, host, session, directory, workspace, session-preload). This allows you to see all commands, or focus on just the session history. You can update the settings to have the history set to a specific filter mode. The default is `global` which means all of the synced history from all servers. After learning about this I decided to update mine to `host`.
 
 
 See the [docs](https://docs.atuin.sh/latest/guide/advanced-usage/#filter-mode) for more on filter mode.
@@ -38,11 +38,11 @@ While you're in the history (using `ctrl-r`) you can use `ctrl-o` to show you th
 
 3. Agent integration
 
-There is agent integration via `atuin hook install claude-code` and then `atuin mcp install claude-code`.
+There is agent integration via `atuin hook install claude-code` and/or `atuin mcp install claude-code`.
 
-Using `atuin hook install claude-code` allows Atuin to capture commands that your agents are running. Atuin tags these so they are easy to search on our filter out.
+Using `atuin hook install claude-code` allows Atuin to capture commands that your agents are running. Atuin tags these so they are easy to search on or filter out.
 
-If you want to use `atuin mcp install claude-code` you will need to have your sync server set to to Atuin's sync server, or, if you decided to roll your own sync server, you'll need to set up a self hosted agent server too.
+If you want to use `atuin mcp install claude-code` you will need to have your sync server set to Atuin's sync server, or, if you decided to roll your own sync server, you'll need to set up a self hosted agent server too.
 
 See the [docs](https://docs.atuin.sh/latest/guide/agent-hooks/) for more details.
 
@@ -51,7 +51,7 @@ See the [docs](https://docs.atuin.sh/latest/ai/mcp/) for more details.
 
 4. Deduplicating your history
 
-There is a command that will dedup your history to clean it up if needed. Why would you want to do this if the point of Atuin is to have all of your history? It can be super helpful after you've imported your history, or if a runaway script pollutted your history. There are other use cases too I'm sure. But just knowing it's there in case it's needed is pretty nice.
+There is a command that will dedup your history to clean it up if needed. Why would you want to do this if the point of Atuin is to have all of your history? It can be super helpful after you've imported your history, or if a runaway script polluted your history. There are other use cases too I'm sure. But just knowing it's there in case it's needed is pretty nice.
 
 An example would be
 
@@ -64,7 +64,7 @@ This would perform a dry run of what would be removed for anything from before J
 To perform the deduplication
 
 ```bash
-atuin history dedup --dry-run --before "2025-01-01" --dupkeep 1
+atuin history dedup --before "2025-01-01" --dupkeep 1
 ```
 
 See the [docs](https://docs.atuin.sh/latest/guide/delete-history/#deduplicating-history) for more details.
@@ -91,7 +91,7 @@ AlertWarn = "#ffb86c"     # Dracula Orange
 AlertError = "#ff5555"    # Dracula Red
 ```
 
-And is placed in ~/.atuin/themes/dracula.toml.
+And is placed in `~/.config/atuin/themes/dracula.toml`.
 
 I then updated my `config.toml` with this block
 
@@ -103,7 +103,7 @@ name = "dracula"
 
 6. `atuin info`
 
-The command `atuin info` will shows the location of config files on your system. When I run it on my local macBook Pro I get
+The command `atuin info` shows the location of config files on your system. When I run it on my local macBook Pro I get
 
 ```bash
 Config files:
@@ -124,11 +124,11 @@ commit:  4532ceacd860885c2310ab8fab92a1bc00d6d7e8
 
 This command can be especially helpful when you're trying to figure out why your `config.toml` isn't applying your settings the way you expect. In my case, the default one from the atuin install was being used instead of my user one. To fix it I deleted the one set up by atuin. If there are multiple `config.toml` files you do get a warning when running `atuin info` so you can see that there is something amiss.
 
-(https://docs.atuin.sh/latest/reference/info/)
+See the [docs](https://docs.atuin.sh/latest/reference/info/) for more details.
 
 7. `atuin output search`
 
-`atuin output search` allows for cli search capabilities for the output from commands. The command will return the output in addition to the command that prmopted the output.
+`atuin output search` allows for cli search capabilities for the output from commands. The command will return the output in addition to the command that prompted the output.
 
 Per the [docs](https://docs.atuin.sh/latest/reference/output/):
 
@@ -147,11 +147,11 @@ See the [docs](https://docs.atuin.sh/latest/reference/output/) for full details.
 
 8. Search
 
-The highlight feature of Atuin is it's search capabilities and yeah, there's a lot of power in the search.
+The highlight feature of Atuin is its search capabilities and yeah, there's a lot of power in the search.
 
-You can interactively search using a TUI with `atuin search -i`. This isn't any different than `ctrl-r` or the `up-arrow`. BUT if you combine it with a search term, like `atuin search -i docker` you'll immediately be searching only you `docker` commands in your history.
+You can interactively search using a TUI with `atuin search -i`. This isn't any different than `ctrl-r` or the `up-arrow`. BUT if you combine it with a search term, like `atuin search -i docker` you'll immediately be searching only your `docker` commands in your history.
 
-There are also some great example of what's available [here](https://docs.atuin.sh/latest/reference/search/#examples)
+There are also some great examples of what's available [here](https://docs.atuin.sh/latest/reference/search/#examples)
 
 9. `atuin stats`
 
@@ -177,7 +177,7 @@ Total commands:   12
 Unique commands:  14
 ```
 
-Notice that I was able to set the `--filter-mode` to look only at my session status.
+Notice that I was able to set the `--filter-mode` to look only at my session history.
 
 You can also pass time arguments like this
 
@@ -189,7 +189,7 @@ This will get you everything since last Thursday at 3pm
 
 10. `atuin store status`
 
-The store `atuin status command` can tell you the status of each machine that has atuin attached to it. The host it displays is a uuid. You can get a pretty hostname, but you need to run
+The `atuin store status` command can tell you the status of each machine that has atuin attached to it. The host it displays is a uuid. You can get a pretty hostname, but you need to run
 
 ```bash
 printf '%s %s\n' (cat ~/.local/share/atuin/host_id) (hostname -s)
@@ -198,7 +198,7 @@ printf '%s %s\n' (cat ~/.local/share/atuin/host_id) (hostname -s)
 on each machine.
 
 11. `atuin scripts`
-The `atuin scripts` command is currentlyl an undocumented feature. There was a [blog post](https://blog.atuin.sh/atuin-scripts-shareable-syncable-shell-snippets/) announcing it though.
+The `atuin scripts` command is currently an undocumented feature. There was a [blog post](https://blog.atuin.sh/atuin-scripts-shareable-syncable-shell-snippets/) announcing it though.
 
 I continue to struggle with how this is helpful, BUT this doesn't have to be useful for me to be useful in general!
 
@@ -208,7 +208,7 @@ One thing that does look interesting is this invocation:
 atuin scripts new script-name --last N --tags my-tag --description "Does the thing!"
 ```
 
-This will take the last N commands, add a tag called `my-tag` and a description `Does the thing!` and generate a script you can run with `atuin scripts run my-script`
+This will take the last N commands, add a tag called `my-tag` and a description `Does the thing!` and generate a script you can run with `atuin scripts run script-name`
 
 If you run `atuin scripts list` you'll get this output
 
@@ -222,7 +222,7 @@ This can be especially helpful if you are going to need to do the same thing ove
 
 12. Key Bindings
 
-This is where we can control, amongst other things, whether or not the `up-arrow` will invoke Atuin or not. One thing I've been struggling with is that in herdr the up arrow is captured by a scrolling up mouse as well. This is frustrating for me when I want to scroll up the page out output in a shell. I instead have to remember to use the `Page-up` key instead. I am not a fan.
+This is where we can control, amongst other things, whether or not the `up-arrow` will invoke Atuin or not. One thing I've been struggling with is that in Herdr the up arrow is captured by a scrolling up mouse as well. This is frustrating for me when I want to scroll up the page output in a shell. I instead have to remember to use the `Page-up` key instead. I am not a fan.
 
 So, I updated my key bindings to eliminate the `up-arrow` behavior for Atuin so that the mouse scroll doesn't get stolen by Atuin.
 
@@ -238,8 +238,7 @@ I'll give a run down of some of the ones that I found most interesting
 - [filter_mode](https://docs.atuin.sh/latest/configuration/config/#filter_mode): this is what allows you to determine which history you start your search in. The default is `global`, but I changed it to `host`. You can use `ctrl-r` to cycle through the filter_mode though should you need to
 - [inline_height](https://docs.atuin.sh/latest/configuration/config/#inline_height): the default is 40, but I set mine to 15 because I liked the way it looked better. This setting will determine the maximum number of lines Atuin's interface should take up.
 - [enter_accept](https://docs.atuin.sh/latest/configuration/config/#enter_accept): This defaults to `false` but it kept breaking my brain, so I updated it to `true`. When this is set to `true`, Atuin will immediately execute a command rather than the user having to press enter twice. Pressing tab returns me to the shell and allows me a chance to edit the command if I want.
-- [theme](https://docs.atuin.sh/latest/configuration/config/#theme): allows you to set you theme to a custom theme. I've set mine to `dracula`
--
+- [theme](https://docs.atuin.sh/latest/configuration/config/#theme): allows you to set your theme to a custom theme. I've set mine to `dracula`
 
 ## Rabbit Hole
 
