@@ -104,3 +104,15 @@ FEED_FILTER = {
         ]
     }
 }
+
+MARKDOWN = {
+    "extension_configs": {
+        "markdown.extensions.codehilite": {"css_class": "highlight"},
+        "markdown.extensions.extra": {},
+        "markdown.extensions.meta": {},
+        "markdown.extensions.toc": {
+            "permalink": True,  # optional: adds a clickable ¶ next to each heading
+        },
+    },
+    "output_format": "html5",
+}
