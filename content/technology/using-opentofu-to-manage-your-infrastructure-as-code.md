@@ -12,26 +12,28 @@ While we have done this since the very beginning (though we initially started wi
 
 > OpenTofu is an open source forked alternative to Terraform version 1.5.6. Why an open source alternative? HashiCorp changed the license from Mozilla Public License (MPL) 2.0 to the Business Source License (BSL) on August 10, 2023. For more, read their [Manifesto](https://opentofu.org/manifesto/).
 
-## Key Concepts
+## Start with what you want to manage
 
-Before getting into my own setup, there are a few key concepts worth going over:
+The easiest way to understand OpenTofu is to start with the thing you want to manage and work backwards. At Django Commons that's things like the members and teams of our GitHub organization. For me, it was the servers, firewalls and DNS records I have on Hetzner (and, eventually, a handful of other services).
 
-- [Provider](#provider)
-- [Resource](#resource)
-- [Module](#module)
-- [Root Module](#root-module)
-- [Variable](#variable)
-- [Output](#output)
-- [State](#state)
-- [Workspaces](#workspaces)
+Once you know *what* you want to manage, you can work out what OpenTofu needs to manage it:
+
+1. A [provider](#provider) to talk to the service
+2. The [resources](#resource) you want it to manage
+3. Somewhere to keep [state](#state-and-backend), the record of what it manages
+4. [Variables](#variable) (and maybe [outputs](#output)) for the values that change or are secret
+
+[Modules](#module) come last, once there's enough that you want to break it into smaller pieces.
 
 ### Provider
 
-OpenTofu has a LOT of [providers](https://search.opentofu.org/providers). Providers are plugins that let OpenTofu create, read, update, and delete resources on a given platform (AWS, GitHub, Hetzner, etc). You write your configuration in a consistent way, and the provider takes care of talking to that platform's API for you.
+Providers are connectors. Each one is a plugin that lets OpenTofu create, read, update, and delete resources on a given platform (AWS, GitHub, Hetzner, etc). You write your configuration in a consistent way, and the provider takes care of talking to that platform's API for you. There are a LOT of [providers](https://search.opentofu.org/providers).
+
+For Django Commons managing GitHub members, that's the GitHub provider. For my Hetzner servers, it's the `hcloud` provider.
 
 ### Resource
 
-Resources are the actual things you're managing ... servers, DNS records, firewalls, etc. Per the [docs](https://opentofu.org/docs/language/resources/behavior/):
+Resources are the actual things you're managing ... users, servers, DNS records, firewalls, etc. Per the [docs](https://opentofu.org/docs/language/resources/behavior/):
 
 > In summary, applying an OpenTofu configuration will:
 >
@@ -41,14 +43,14 @@ Resources are the actual things you're managing ... servers, DNS records, firewa
 > - _Update in-place_ resources whose arguments have changed.
 > - _Destroy and re-create_ resources whose arguments have changed but which cannot be updated in-place due to remote API limitations.
 
-Each resource type is implemented by a [provider](https://opentofu.org/docs/language/providers/requirements/). There are also several meta-arguments you can set:
+Each resource type is implemented by a [provider](https://opentofu.org/docs/language/providers/requirements/). You can also change how OpenTofu treats a resource with a `lifecycle` block. Some of the arguments it takes:
 
 - `create_before_destroy`: does what it says, but there are some limitations depending on the API you're interacting with
-- `enabled`: determines if the resource is managed by OpenTofu at all (similar to the idea of managed tables in Django)
 - `prevent_destroy`: stops OpenTofu from destroying the resource. You'll see me use this below when I set up Hetzner
-- `destroy`: when set to `false` it acts kind of like a soft delete flag
 - `ignore_changes`: useful for things that might change outside of OpenTofu. The example in the docs is tags that get added to a resource at the source
-- `lifecycle.precondition` and `lifecycle.postcondition`: these "can help capture assumptions, helping future maintainers understand the configuration design and intent" per the [docs](https://opentofu.org/docs/language/resources/syntax/#custom-condition-checks)
+- `enabled`: when set to `false`, OpenTofu acts as if the resource isn't in the configuration at all. If it's already in state, that means it gets **destroyed**. It's tempting to compare this to `managed = False` in Django, but that's nearly the opposite: Django leaves an unmanaged table alone, while OpenTofu deletes a disabled resource
+- `destroy`: when set to `false`, removing the resource from the configuration makes OpenTofu *forget* it (drop it from state) instead of destroying the real thing. It works like a [`removed`](https://opentofu.org/docs/language/resources/syntax/#removing-resources) block
+- `precondition` and `postcondition`: these "can help capture assumptions, helping future maintainers understand the configuration design and intent" per the [docs](https://opentofu.org/docs/language/resources/syntax/#custom-condition-checks)
 
 A few other things that stood out:
 
@@ -58,16 +60,35 @@ A few other things that stood out:
 
 One last thing on resources. [File Provisioners](https://opentofu.org/docs/language/resources/provisioners/syntax/#provisioners-are-a-last-resort) should be used as a last resort. The docs suggest using `cloud-init` instead.
 
-### Module
+### State and backend
 
-Modules are how you group resources together. A couple of things I noticed:
+State is how OpenTofu remembers what it manages. Its primary purpose is to store the bindings between objects in a remote system and the resources declared in your configuration. When you run `tofu plan`, OpenTofu compares three things: your configuration, the state, and what actually exists.
 
-- Only provider *configurations* are inherited by child modules, not provider source or version requirements. Each module has to [declare its own provider requirements](https://opentofu.org/docs/language/providers/requirements/). This is especially important for non-HashiCorp providers.
-- When you've outgrown your initial configuration, check out [Refactoring](https://opentofu.org/docs/language/modules/develop/refactoring/) in the docs
+The [backend](https://opentofu.org/docs/language/settings/backends/configuration/) is *where* that state lives. If you don't configure one, it's a `terraform.tfstate` file in the directory you run `tofu` from. That's fine for trying things out, but it means the state only exists on your laptop.
 
-### Root Module
+Where to keep state was one of the bigger decisions at Django Commons. We started with the state file stored on GitHub, and then [Tim set up an AWS backend](https://github.com/django-commons/membership/pull/514) so that everyone on the team works from one shared state file.
 
-Every OpenTofu configuration has at least one module, known as its [root module](https://opentofu.org/docs/language/modules/#the-root-module). This is just the resources defined in the `.tf` or `.tofu` files in the directory you're running `tofu` from.
+For my own infrastructure I started with local state, and then moved it to an S3 backend. Every directory ([root module](#module)) gets its own state file in the same bucket:
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket       = "ryancheley-tofu-state"
+    key          = "hetzner/terraform.tfstate"
+    region       = "us-west-2"
+    use_lockfile = true
+  }
+}
+```
+
+The bucket is versioned, so a bad state write can be undone by restoring an older version, and `use_lockfile = true` stops two runs from writing state at the same time. Changing the backend means running `tofu init -migrate-state`, which copies the existing state to the new location.[ref]There's a fun chicken-and-egg problem here: the bucket itself is managed by my `aws` module, which also keeps its state in that bucket. If the bucket ever disappears, the `aws` module has to fall back to local state long enough to recreate it.[/ref]
+
+A couple of other things on state:
+
+- `import` is how you bring in [existing resources](https://opentofu.org/docs/language/import/). This is what I ended up using for my own infrastructure
+- [Workspaces](https://opentofu.org/docs/language/state/workspaces/) let one configuration have more than one state. Despite what a [video I watched](https://youtu.be/BZ2TLtf3yFg?si=un-QoHhEaZyiHYwq) implied, they aren't meant for separate environments (separate directories like `envs/prod` and `envs/staging` are). Neither Django Commons nor I use them
+
+The [`terraform_remote_state` docs](https://opentofu.org/docs/language/state/remote-state-data/#example-usage-remote-backend) look scary at first. I initially read them as a lot of "You can do this, but you shouldn't." The concern is that `terraform_remote_state` exposes the entire state file, which can include secrets that another team maybe shouldn't have access to. This is one of those questions of: will my current setup ALWAYS be just me and NEVER change? If the answer is yes, then this is a perfectly acceptable way to proceed ... but remember, ALWAYS and NEVER are very long times.
 
 ### Variable
 
@@ -95,27 +116,14 @@ Per the [docs](https://opentofu.org/docs/language/values/outputs/):
 
 You can use `precondition` and `postcondition` here too, and there's a `depends_on` key that works a lot like it does in docker compose.
 
-### State
+### Module
 
-The primary purpose of state is to store the bindings between objects in a remote system and the resources declared in your configuration. A couple of things here:
+Modules are how you group resources together, and they're what you reach for once a configuration gets big enough that you want to break it into smaller pieces. Every OpenTofu configuration has at least one module, known as its [root module](https://opentofu.org/docs/language/modules/#the-root-module). This is just the resources defined in the `.tf` or `.tofu` files in the directory you're running `tofu` from. For my own setup, each provider gets its own directory, so each one is its own root module with its own state.
 
-- `import` is how you bring in [existing resources](https://opentofu.org/docs/language/import/). This is what I ended up using for my own infrastructure
-- [Remote State](https://opentofu.org/docs/language/state/remote/) is what lets you store a single state file that everyone on a team has access to ... similar to what [Tim set up for us](https://github.com/django-commons/membership/pull/514) at Django Commons
+A couple of things I noticed:
 
-The [`terraform_remote_state` docs](https://opentofu.org/docs/language/state/remote-state-data/#example-usage-remote-backend) look scary at first. I initially read them as a lot of "You can do this, but you shouldn't." The concern is that `terraform_remote_state` exposes the entire state file, which can include secrets that another team maybe shouldn't have access to. This is one of those questions of: will my current setup ALWAYS be just me and NEVER change? If the answer is yes, then this is a perfectly acceptable way to proceed ... but remember, ALWAYS and NEVER are very long times.
-
-### Workspaces
-
-A [video I watched](https://youtu.be/BZ2TLtf3yFg?si=un-QoHhEaZyiHYwq) seemed to imply that workspaces could be used for different environments. Based on the [docs](https://opentofu.org/docs/language/state/workspaces/) that doesn't seem to be true.
-
-I asked Claude and it seems I'm reading it correctly. For separate environments you really want different directories like `envs/prod` and `envs/staging`. The best use case for workspaces is temporary clones where you want to test something out before applying it to prod. Something like:
-
-```bash
-tofu workspace new scratch
-tofu apply # throwaway copy, e.g. a test Hetzner server
-tofu destroy
-tofu workspace select default
-```
+- Only provider *configurations* are inherited by child modules, not provider source or version requirements. Each module has to [declare its own provider requirements](https://opentofu.org/docs/language/providers/requirements/). This is especially important for non-HashiCorp providers.
+- When you've outgrown your initial configuration, check out [Refactoring](https://opentofu.org/docs/language/modules/develop/refactoring/) in the docs
 
 ---
 
@@ -148,52 +156,61 @@ Here's a quick walkthrough of setting up Hetzner with OpenTofu:
     }
     ```
 
-7. Encrypted the state file (this was a [pita](https://www.merriam-webster.com/slang/pita)). State holds everything OpenTofu knows about your resources, and depending on the provider that can include secrets, so I wanted it encrypted. OpenTofu has [native state encryption](https://opentofu.org/docs/language/state/encryption/) built in, which is one of the things it has that Terraform doesn't. I added an `encryption` block to the `terraform` block:
-
-    ```hcl
-    terraform {
-      encryption {
-        key_provider "pbkdf2" "main" {
-          passphrase = var.state_passphrase # at least 16 characters
-        }
-        method "aes_gcm" "main" {
-          keys = key_provider.pbkdf2.main
-        }
-        state {
-          method   = method.aes_gcm.main
-          enforced = true
-        }
-        plan {
-          method   = method.aes_gcm.main
-          enforced = true
-        }
-      }
-    }
-    ```
-
-    along with a `state_passphrase` variable (marked `sensitive`). The passphrase lives in 1Password, and I pass it in as `TF_VAR_state_passphrase` with `op run`. `enforced = true` means OpenTofu will refuse to write state or plans unencrypted.
-
-    It was a pita because I had already imported everything, so my state file was sitting there unencrypted, and OpenTofu won't read it once you've told it everything should be encrypted. To migrate it I had to:
-
-    1. Back up `terraform.tfstate` (just in case!)
-    2. Remove `enforced = true` for now. While it's set you get "Unable to use unencrypted method since the enforced flag is set."
-    3. Add a temporary `method "unencrypted" "migrate" {}` and a `fallback { method = method.unencrypted.migrate }` inside both `state` and `plan`. This lets OpenTofu read the plain state one last time
-    4. Run `tofu apply -refresh-only`, then check with `grep -c encrypted_data terraform.tfstate`. If it prints 1, the state is encrypted
-    5. Remove the `unencrypted` method and both `fallback` blocks, put `enforced = true` back, and make sure `tofu plan` reports "No changes"
-
-    A few gotchas:
-
-    - Plain `tofu init` stops working. The encryption block needs the passphrase, so even `init` has to run through `op run`
-    - Don't lose the passphrase! Without it, the state is unreadable. Same goes for removing the `encryption` block later ... treat it as permanent
-    - Keep the passphrase in its own 1Password item, not as a field on a provider's API token item. Otherwise rotating that token could change your state key
-
-    If I were doing this again (which I did for every other provider after Hetzner), I'd turn encryption on *before* the first import and skip the whole migration dance.
+7. Ran `tofu apply` to bring everything into state
+8. Later, moved the state from a local file to the S3 backend described [above](#state-and-backend)
 
 Some caveats:
 
 1. For Hetzner, make sure every server has `prevent_destroy = true` (see step 6 above). You do NOT want a typo to delete a server
 2. For Tailscale, import your ACL policy and use `tailscale_device` data sources for your machines (all ten in my case). Be careful though ... a bad policy can lock you out of your machines[ref]I actually saw this manifest on my Coolify server when it couldn't reach any of the servers via Tailscale any longer. It was a quick fix, but there was a bit of "Oh SHIT!" when Coolify stopped being able to interact with my hetzner servers![/ref]
 3. Don't let Coolify create Hetzner servers, as they will collide with the `hcloud` provider
+
+### Encrypting my state
+
+This part is specific to my setup. Django Commons doesn't encrypt its state (we use 1Password there to manage access to AWS).
+
+State holds everything OpenTofu knows about your resources, and depending on the provider that can include secrets, so I wanted mine encrypted. OpenTofu has [native state encryption](https://opentofu.org/docs/language/state/encryption/) built in, which is one of the things it has that Terraform doesn't. I added an `encryption` block to the `terraform` block:
+
+```hcl
+terraform {
+  encryption {
+    key_provider "pbkdf2" "main" {
+      passphrase = var.state_passphrase # at least 16 characters
+    }
+    method "aes_gcm" "main" {
+      keys = key_provider.pbkdf2.main
+    }
+    state {
+      method   = method.aes_gcm.main
+      enforced = true
+    }
+    plan {
+      method   = method.aes_gcm.main
+      enforced = true
+    }
+  }
+}
+```
+
+along with a `state_passphrase` variable (marked `sensitive`). The passphrase lives in 1Password, and I pass it in as `TF_VAR_state_passphrase` with `op run`. `enforced = true` means OpenTofu will refuse to write state or plans unencrypted.
+
+This was a [pita](https://www.merriam-webster.com/slang/pita) because I had already imported everything, so my state file was sitting there unencrypted, and OpenTofu won't read it once you've told it everything should be encrypted. To migrate it I had to:
+
+1. Back up `terraform.tfstate` (just in case!)
+2. Remove `enforced = true` for now. While it's set you get "Unable to use unencrypted method since the enforced flag is set."
+3. Add a temporary `method "unencrypted" "migrate" {}` and a `fallback { method = method.unencrypted.migrate }` inside both `state` and `plan`. This lets OpenTofu read the plain state one last time
+4. Run `tofu apply -refresh-only`, then check with `grep -c encrypted_data terraform.tfstate`. If it prints 1, the state is encrypted
+5. Remove the `unencrypted` method and both `fallback` blocks, put `enforced = true` back, and make sure `tofu plan` reports "No changes"
+
+A few gotchas:
+
+- Plain `tofu init` stops working. The encryption block needs the passphrase, so even `init` has to run through `op run`
+- Don't lose the passphrase! Without it, the state is unreadable. Same goes for removing the `encryption` block later ... treat it as permanent
+- Keep the passphrase in its own 1Password item, not as a field on a provider's API token item. Otherwise rotating that token could change your state key
+
+If I were doing this again (which I did for every other provider after Hetzner), I'd turn encryption on *before* the first import and skip the whole migration dance.
+
+### Does the order of the files matter?
 
 As things evolved, I refactored from having just `main.tf` and `generated.tf` to having the following `*.tf` files:
 
@@ -221,58 +238,17 @@ A little more detail on how that works:
 - It then builds a dependency graph from the references between blocks. If `hcloud_server.webp1` uses `hcloud_firewall.firewall.id`, the firewall is handled first, no matter which file each one is defined in. Resources that don't depend on each other run in parallel, 10 at a time by default
 - If the graph misses a dependency, you add `depends_on`. My Tailscale config does this so the ACL is applied before the auth key. Renaming or reordering files will never fix ordering
 
-Here's the whole thing as a diagram, from `op run` resolving secrets through to the encrypted state being written back:
+Here's the overall flow of a `tofu plan` or `tofu apply`:
 
 ```mermaid
-flowchart TD
-    start(["op run --env-file=.env -- tofu plan / apply"]) --> env["op run resolves op:// refs in .env<br/>and injects them as env vars<br/>(provider creds, TF_VAR_state_passphrase)"]
-    env --> scan["Scan the module directory<br/>(not subdirectories)"]
-
-    subgraph sg_load["1. Load files: names don't set order"]
-        scan --> pick{"File type?"}
-        pick -- ".tf / .tf.json" --> primary["Primary config file"]
-        pick -- ".tofu / .tofu.json" --> tofu["Primary config file<br/>(replaces a same-named .tf)"]
-        pick -- "override.tf / *_override.tf" --> ovr["Override file<br/>(held until the end)"]
-        pick -- ".tftest.hcl, *~, other extensions" --> skip["Ignored<br/>(policy.hujson is read later via file())"]
-        primary --> merge["Merge every block into one configuration<br/>versions.tf + providers.tf + variables.tf + servers.tf + ..."]
-        tofu --> merge
-        ovr --> apply_ovr["Merge override blocks into<br/>same-named blocks"]
-        merge --> apply_ovr
-    end
-
-    apply_ovr --> dup{"Any block defined twice?<br/>(e.g. two provider blocks)"}
-    dup -- yes --> err1(["Error: duplicate configuration"])
-    dup -- no --> init{"Providers in .terraform/ match<br/>versions.tf pins + .terraform.lock.hcl?"}
-    init -- no --> err2(["Error: run tofu init"])
-    init -- yes --> decrypt["Read terraform.tfstate and decrypt it<br/>(encryption block in versions.tf, enforced = true)"]
-
-    subgraph sg_graph["2. Build the dependency graph"]
-        decrypt --> refs["Find references between blocks<br/>hcloud_server -> hcloud_firewall.firewall.id<br/>plus explicit depends_on"]
-        refs --> dag["Graph of resources, data sources,<br/>locals, variables, outputs"]
-    end
-
-    subgraph sg_plan["3. Plan"]
-        dag --> imports["Process import / moved blocks"]
-        imports --> refresh["Refresh: read real state from each API<br/>(walk the graph, 10 at a time)"]
-        refresh --> diff["Compare config vs state vs reality<br/>(minus ignore_changes)"]
-        diff --> show["Show plan:<br/>N to add / change / destroy"]
-    end
-
-    show --> which{"plan or apply?"}
-    which -- plan --> done1(["Done: nothing changed"])
-    which -- apply --> confirm{"Confirm 'yes'?"}
-    confirm -- no --> done2(["Cancelled"])
-
-    subgraph sg_apply["4. Apply"]
-        confirm -- yes --> exec["Make changes in dependency order,<br/>independent resources in parallel<br/>(prevent_destroy blocks deletes)"]
-        exec --> write["Encrypt and write terraform.tfstate"]
-    end
-
-    write --> done3(["Done"])
+flowchart LR
+    load["1 · Load and merge<br/>every .tf file"] --> readstate["2 · Read state<br/>from the backend"]
+    readstate --> deps["3 · Build the<br/>dependency graph"]
+    deps --> plan["4 · Plan: compare<br/>config, state, reality"]
+    plan --> apply["5 · Apply changes,<br/>write state back"]
 ```
 
-
-This is also why, when I moved my state bucket from `main.tf` into `s3.tf` as part of my refactor, the plan showed no changes. A resource's address (`aws_s3_bucket.resource_name`) is the same no matter which file it's in.
+This is also why, when I moved my state bucket's configuration from `main.tf` into `s3.tf` as part of my refactor, the plan showed no changes. A resource's address (`aws_s3_bucket.resource_name`) is the same no matter which file it's in.
 
 That said, there are a few cases where file names DO matter:
 
@@ -286,75 +262,33 @@ That said, there are a few cases where file names DO matter:
 
 After doing this for six providers, I wrote up a checklist so the next one doesn't involve rediscovering the same gotchas. It assumes you're adopting infrastructure that already exists, and that each provider gets its own root module with its own state. Work through it top to bottom, and stop at any **Bail out** point that applies.
 
-Here's the whole process on one page. The section numbers match the checklist below. `op run --env-file=.env --` is 1Password's runner; use your own secrets manager's equivalent.
+Here's the process at a glance. The section numbers match the checklist below.
 
 ```mermaid
 flowchart TD
-    start(["Start"]) --> tools["Install tools<br/>OpenTofu >= 1.10, a secrets manager CLI (op)"]
-    tools --> signin["Sign in to the secrets manager<br/>(op signin)"]
-    signin --> clone["Clone the repo, update main"]
-    clone --> branch["Create a branch"]
-    branch --> exists{"Module directory<br/>already exists?"}
-
-    subgraph sg_new["New module (sections 1-4)"]
-        exists -- no --> vet["Discover what exists,<br/>vet the provider"]
-        vet --> scaffold["Create #lt;module#gt;/ with<br/>versions.tf, providers.tf, variables.tf"]
-        scaffold --> creds["Store a scoped token<br/>in the secrets manager"]
-    end
-
-    exists -- yes --> hasenv
-    creds --> hasenv{"#lt;module#gt;/.env exists?"}
-    hasenv -- no --> mkenv["Create .env with secret references only<br/>(provider creds + TF_VAR_state_passphrase)"]
-    hasenv -- "yes: never overwrite it" --> init
-    mkenv --> init
-
-    init["op run --env-file=.env --<br/>tofu init<br/>downloads providers into .terraform/,<br/>writes or checks .terraform.lock.hcl"]
-    init --> baseline["op run --env-file=.env --<br/>tofu plan"]
-    baseline --> clean0{"No changes?"}
-    clean0 -- no --> drift["Deal with existing drift first<br/>(fix config or apply on its own)"]
-    drift --> baseline
-    clean0 -- yes --> kind{"What kind of change?"}
-
-    subgraph sg_adopt["Adopt an existing resource (section 5)"]
-        kind -- import --> imp["Add import {} block"]
-        imp --> gen["op run --env-file=.env --<br/>tofu plan -generate-config-out=generated.tf"]
-        gen --> tidy["Clean up generated config<br/>(nulls, secrets, ignore_changes)<br/>move into #lt;kind#gt;.tf, delete generated.tf"]
-    end
-
-    subgraph sg_edit["Change managed config (section 6)"]
-        kind -- edit --> edit["Edit #lt;kind#gt;.tf"]
-        kind -- rename --> mv["Change name + add moved {} block"]
-        kind -- "provider version" --> ver["Edit versions.tf"]
-        ver --> reinit["op run --env-file=.env --<br/>tofu init -upgrade"]
-    end
-
-    tidy --> check
-    edit --> check
-    mv --> check
-    reinit --> check
-
-    check["tofu fmt && tofu validate"] --> plan["op run --env-file=.env --<br/>tofu plan"]
-    plan --> review{"Plan is what you expect?<br/>no 'must be replaced'"}
-    review -- no --> fix["Adjust config"]
-    fix --> check
-    review -- yes --> apply["op run --env-file=.env --<br/>tofu apply"]
-    apply --> ok{"Apply succeeded?"}
-    ok -- no --> recheck["Check the service: a failed apply<br/>may have made the change<br/>(import it, don't recreate)"]
-    recheck --> plan
-    ok -- yes --> cleanup["Remove one-time import {} / moved {} blocks"]
-    cleanup --> final["op run --env-file=.env --<br/>tofu plan"]
-    final --> clean1{"No changes?"}
-    clean1 -- no --> fix
-    clean1 -- yes --> commit["tofu fmt -check<br/>commit, including .terraform.lock.hcl"]
-
-    subgraph sg_ship["Document and ship (section 7)"]
-        commit --> merge["Open a pull request,<br/>merge once checks pass"]
-    end
-
-    merge --> again{"Another change?"}
-    again -- yes --> branch
-    again -- no --> done(["Done"])
+    discover["1 · Discover what exists"] --> vet["2 · Vet the provider"]
+    vet --> creds["3 · Set up credentials"]
+    creds --> scaffold["4 · Scaffold the module<br/>tofu init, tofu plan = no changes"]
+    scaffold --> imp["5 · Import resources"]
+    imp --> change["6 · Change and clean up"]
+    change --> ship["7 · Document and ship"]
 ```
+
+Every change after that (an import, an edit, a provider upgrade) follows the same loop:
+
+```mermaid
+flowchart LR
+    edit["Edit config"] --> check["tofu fmt<br/>tofu validate"]
+    check --> plan["tofu plan"]
+    plan --> ok{"What you<br/>expected?"}
+    ok -- no --> edit
+    ok -- yes --> apply["tofu apply"]
+    apply --> clean{"tofu plan:<br/>no changes?"}
+    clean -- no --> edit
+    clean -- yes --> pr["Commit, open a PR"]
+```
+
+`tofu` commands run through `op run --env-file=.env --`, which is 1Password's runner; use your own secrets manager's equivalent.
 
 ### 1. Discover what exists
 
@@ -401,7 +335,7 @@ flowchart TD
 - Name the directory after the provider, in lowercase (`hetzner/`, `digitalocean/`).
 - Split the config across three files. Use the same names in every module, so you always know where to look. Skip `main.tf`: with resources in one file per type, it ends up meaning something different in every module. File names are for people; OpenTofu merges every file in the directory into one configuration (more on that above).
 
-    `versions.tf` holds the OpenTofu and provider versions and the state encryption:
+    `versions.tf` holds the OpenTofu and provider versions, the backend, and the state encryption:
 
     ```hcl
     terraform {
@@ -412,6 +346,13 @@ flowchart TD
           source  = "example-org/example"
           version = "~> 1.4"
         }
+      }
+
+      backend "s3" {
+        bucket       = "my-tofu-state"
+        key          = "example/terraform.tfstate"
+        region       = "us-west-2"
+        use_lockfile = true
       }
 
       encryption {
@@ -448,7 +389,7 @@ flowchart TD
     }
     ```
 
-    The `encryption` block is OpenTofu's native state and plan encryption, and the passphrase must be at least 16 characters. Once state is written with it, removing the block leaves the state unreadable, so treat it as permanent. `enforced = true` makes OpenTofu refuse to write state or plans unencrypted. Pin the provider with `~>` to the major and minor version you install, so a new release can't change behaviour without you noticing. The lock file pins the exact version on top of that. Keep the key under `required_providers` the same as the provider name. Leave the `provider` block empty and let credentials come from the environment. Add an `outputs.tf` only once the module has outputs.
+    Each module uses the same bucket with its own `key`. The `encryption` block is OpenTofu's native state and plan encryption, and the passphrase must be at least 16 characters. Once state is written with it, removing the block leaves the state unreadable, so treat it as permanent. `enforced = true` makes OpenTofu refuse to write state or plans unencrypted. Pin the provider with `~>` to the major and minor version you install, so a new release can't change behaviour without you noticing. The lock file pins the exact version on top of that. Keep the key under `required_providers` the same as the provider name. Leave the `provider` block empty and let credentials come from the environment. Add an `outputs.tf` only once the module has outputs.
 
 - Add one aliased `provider` block per extra region (for AWS, a second `provider "aws"` with `alias = "use1"` and `region = "us-east-1"`). A resource in another region needs `provider = aws.use1` on both its import block and its resource.
 - Keep `required_providers` and each default `provider` block in exactly one file. OpenTofu loads every `.tf` file in the directory as one configuration, so a second copy is a "Duplicate provider configuration" error.
@@ -469,7 +410,7 @@ flowchart TD
 
 #### If the module already has unencrypted state
 
-See the migration steps in step 7 of the Hetzner walkthrough above. It's easier to turn encryption on before the first import.
+See the migration steps in [Encrypting my state](#encrypting-my-state) above. It's easier to turn encryption on before the first import.
 
 ### 5. Import resources
 
@@ -541,4 +482,8 @@ See the migration steps in step 7 of the Hetzner walkthrough above. It's easier 
 
 ## Conclusion
 
-This was one of those procsesses where I ended up going **really** deep [down a rabbit hole](https://en.wikipedia.org/wiki/Down_the_rabbit_hole) or two. BUT, I did learn a lot and now feel more comfortable with the OpenTofu process within Django Commons, which was my goal at the start.
+This was one of those processes where I ended up going **really** deep [down a rabbit hole](https://en.wikipedia.org/wiki/Down_the_rabbit_hole) or two. BUT, I did learn a lot and now feel more comfortable with the OpenTofu process within Django Commons, which was my goal at the start.
+
+## Thanks
+
+A big thank you to [Daniel Moran](https://github.com/cunla) for reviewing an earlier draft of this post. His feedback was invaluable. Any mistakes that remain are my own.
