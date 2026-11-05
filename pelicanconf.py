@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+from pymdownx.superfences import fence_code_format
 
 AUTHOR = "Ryan Cheley"
 SITENAME = "RyanCheley.com"
@@ -103,4 +104,31 @@ FEED_FILTER = {
             "microblog",
         ]
     }
+}
+
+MARKDOWN = {
+    "extension_configs": {
+        "markdown.extensions.codehilite": {"css_class": "highlight"},
+        # "extra" minus fenced_code: superfences replaces it so fences work inside lists
+        "markdown.extensions.abbr": {},
+        "markdown.extensions.attr_list": {},
+        "markdown.extensions.def_list": {},
+        "markdown.extensions.footnotes": {},
+        "markdown.extensions.md_in_html": {},
+        "markdown.extensions.tables": {},
+        "pymdownx.superfences": {
+            "custom_fences": [
+                {
+                    "name": "mermaid",
+                    "class": "mermaid",
+                    "format": fence_code_format,
+                }
+            ]
+        },
+        "markdown.extensions.meta": {},
+        "markdown.extensions.toc": {
+            "permalink": True,  # optional: adds a clickable ¶ next to each heading
+        },
+    },
+    "output_format": "html5",
 }

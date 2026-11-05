@@ -16,6 +16,7 @@ dependencies = [
     "pelican-simple-footnotes",
     "pelican-sitemap",
     "pelican-to-sqlite",
+    "pymdown-extensions>=12.3",
 ]
 
 # Developer tooling. Installed by `uv sync` (default group) and excluded from
