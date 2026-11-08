@@ -1,5 +1,5 @@
 Title: Onboarding new team members
-Date:
+Date: 2026-11-08
 Author: ryan
 Tags:
 Slug: onboarding-new-team-members
