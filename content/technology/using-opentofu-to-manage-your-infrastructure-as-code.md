@@ -66,7 +66,7 @@ State is how OpenTofu remembers what it manages. Its primary purpose is to store
 
 The [backend](https://opentofu.org/docs/language/settings/backends/configuration/) is *where* that state lives. If you don't configure one, it's a `terraform.tfstate` file in the directory you run `tofu` from. That's fine for trying things out, but it means the state only exists on your laptop.
 
-Where to keep state was one of the bigger decisions at Django Commons. We started with the state file stored on GitHub, and then [Tim set up an AWS backend](https://github.com/django-commons/membership/pull/514) so that everyone on the team works from one shared state file.
+Where to keep state was one of the bigger decisions at Django Commons. We started with the state file stored on GitHub, and then [Daniel and Tim set up an AWS backend](https://github.com/django-commons/membership/pull/514) so that everyone on the team works from one shared state file.
 
 For my own infrastructure I started with local state, and then moved it to an S3 backend. Every directory ([root module](#module)) gets its own state file in the same bucket:
 
