@@ -8,7 +8,7 @@ Status: published
 
 In the [Django Commons](https://github.com/django-commons) organization we use [OpenTofu](https://opentofu.org/) to manage our Infrastructure as Code (IaC).
 
-While we have done this since the very beginning (though we initially started with Terraform instead of OpenTofu), I was always a bit unsure as to what is actually happening. I decided the best way to understand it was to just dive in, head first, and use it for some of my own personal infrastructure.
+While we have done this since the very beginning (though we initially started with [Terraform](https://developer.hashicorp.com/terraform) instead of OpenTofu), I was always a bit unsure as to what is actually happening. I decided the best way to understand it was to just dive in, head first, and use it for some of my own personal infrastructure.
 
 > OpenTofu is an open source forked alternative to Terraform version 1.5.6. Why an open source alternative? HashiCorp changed the license from Mozilla Public License (MPL) 2.0 to the Business Source License (BSL) on August 10, 2023. For more, read their [Manifesto](https://opentofu.org/manifesto/).
 
@@ -29,7 +29,7 @@ Once you know *what* you want to manage, you can work out what OpenTofu needs to
 
 Providers are connectors. Each one is a plugin that lets OpenTofu create, read, update, and delete resources on a given platform (AWS, GitHub, Hetzner, etc). You write your configuration in a consistent way, and the provider takes care of talking to that platform's API for you. There are a LOT of [providers](https://search.opentofu.org/providers).
 
-For Django Commons managing GitHub members, that's the GitHub provider. For my Hetzner servers, it's the `hcloud` provider.
+For Django Commons managing GitHub members, that's the `github` provider. For my Hetzner servers, it's the `hcloud` provider.
 
 ### Resource
 
@@ -233,7 +233,7 @@ terraform {
 }
 ```
 
-along with a `state_passphrase` variable (marked `sensitive`). The passphrase lives in 1Password, and I pass it in as `TF_VAR_state_passphrase` with `op run`. `enforced = true` means OpenTofu will refuse to write state or plans unencrypted.
+Along with a `state_passphrase` variable (marked `sensitive`). The passphrase lives in 1Password, and I pass it in as `TF_VAR_state_passphrase` with `op run`. `enforced = true` means OpenTofu will refuse to write state or plans unencrypted.
 
 This was a [pita](https://www.merriam-webster.com/slang/pita) because I had already imported everything, so my state file was sitting there unencrypted, and OpenTofu won't read it once you've told it everything should be encrypted. To migrate it I had to:
 
