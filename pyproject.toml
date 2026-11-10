@@ -6,8 +6,10 @@ requires-python = ">=3.15"
 dependencies = [
     "beautifulsoup4",
     "click",
+    "cogapp>=3.6.0",
     "datasette-edit-templates",
     "datasette-publish-vercel",
+    "httpx2>=2.16.0",
     "Markdown",
     "Mastodon.py",
     "pelican",
