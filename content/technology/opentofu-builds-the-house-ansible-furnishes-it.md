@@ -242,10 +242,13 @@ When you put it all together, this is what my full playbook looks like
 
 <!-- [[[cog
 import cog
-import httpx2
-response = httpx2.get('https://raw.githubusercontent.com/ryancheley/infra/refs/heads/main/ansible/bootstrap.yml?token=GHSAT0AAAAAACAG7UW5QQSZU7YPZJ3HWUFK2XTOFGA')
-output = f'```\n{response.text}\n```'
-cog.outl(output)
+import subprocess
+text = subprocess.run(
+    ["gh", "api", "repos/ryancheley/infra/contents/ansible/bootstrap.yml",
+     "-H", "Accept: application/vnd.github.raw"],
+    capture_output=True, text=True, check=True,
+).stdout
+cog.outl(f"```\n{text}\n```")
 ]]] -->
 ```
 - name: Bootstrap server
