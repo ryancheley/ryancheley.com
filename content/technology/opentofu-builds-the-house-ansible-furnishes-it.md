@@ -21,24 +21,28 @@ To that end, the things I want the most out of a new server are:
 5. Install my dotfiles
 6. Ensure SSH is closed off and the server is only accessible via my tailnet
 
-This first playbook covers items 1, 2, 4, and 6 (plus setting the hostname and timezone). Installing my tools and dotfiles will come in a later post.
+The playbook below covers all six (plus setting the hostname and timezone). The one exception is Docker: Coolify installs it when it sets up a server, so I leave that to Coolify.
 
-In order to do this, I used 10 different modules.
+In order to do this, I used 14 different modules.
 
 Below, I'll walk through my initial playbook step by step, with a final version of it. [ref]You can also use Ansible to keep your server updated over time (which is actually why I wanted to learn Ansible initially), but Coolify has a setting to do automatic updates on servers, so I'm leaving ongoing updates to Coolify. The playbook only does a one-time upgrade when the server is first bootstrapped.[/ref]
 
 The modules I used were:
 
-1. [Ansible.builtin.assert](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/assert_module.html#ansible-collections-ansible-builtin-assert-module)
-2. [Ansible.builtin.apt](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_module.html#ansible-collections-ansible-builtin-apt-module)
-3. [Ansible.builtin.hostname](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/hostname_module.html#ansible-collections-ansible-builtin-hostname-module)
-4. [Ansible.builtin.user](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/user_module.html#ansible-collections-ansible-builtin-user-module)
-5. [Ansible.builtin.copy](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/copy_module.html#ansible-collections-ansible-builtin-copy-module)
-6. [Ansible.builtin.deb822_repository](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/deb822_repository_module.html#ansible-collections-ansible-builtin-deb822-repository-module)
-7. [Ansible.builtin.command](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/command_module.html#ansible-collections-ansible-builtin-command-module)
-8. [Ansible.builtin.service](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/service_module.html#ansible-collections-ansible-builtin-service-module)
-9. [Ansible.posix.authorized_key](https://docs.ansible.com/projects/ansible/latest/collections/ansible/posix/authorized_key_module.html)
+1. [ansible.builtin.assert](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/assert_module.html#ansible-collections-ansible-builtin-assert-module)
+2. [ansible.builtin.apt](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/apt_module.html#ansible-collections-ansible-builtin-apt-module)
+3. [ansible.builtin.hostname](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/hostname_module.html#ansible-collections-ansible-builtin-hostname-module)
+4. [ansible.builtin.user](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/user_module.html#ansible-collections-ansible-builtin-user-module)
+5. [ansible.builtin.copy](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/copy_module.html#ansible-collections-ansible-builtin-copy-module)
+6. [ansible.builtin.deb822_repository](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/deb822_repository_module.html#ansible-collections-ansible-builtin-deb822-repository-module)
+7. [ansible.builtin.command](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/command_module.html#ansible-collections-ansible-builtin-command-module)
+8. [ansible.builtin.service](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/service_module.html#ansible-collections-ansible-builtin-service-module)
+9. [ansible.posix.authorized_key](https://docs.ansible.com/projects/ansible/latest/collections/ansible/posix/authorized_key_module.html)
 10. [community.general.timezone](https://docs.ansible.com/projects/ansible/latest/collections/community/general/timezone_module.html)
+11. [ansible.builtin.unarchive](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/unarchive_module.html#ansible-collections-ansible-builtin-unarchive-module)
+12. [ansible.builtin.git](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/git_module.html#ansible-collections-ansible-builtin-git-module)
+13. [ansible.builtin.meta](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/meta_module.html#ansible-collections-ansible-builtin-meta-module)
+14. [community.general.ufw](https://docs.ansible.com/projects/ansible/latest/collections/community/general/ufw_module.html)
 
 ## The Setup
 
@@ -72,7 +76,7 @@ I created a `.env` file to hold various secrets. In order to access them I set u
 
 Each of the blocks below would go under the `tasks` key from above.
 
-## Ansible.builtin.assert
+## ansible.builtin.assert
 
 This module asserts that a given expression is true. In order to require environment variables, we have to assert that their length is greater than 0. To do this I have this block:
 
@@ -88,7 +92,7 @@ This module asserts that a given expression is true. In order to require environ
 
 Because we set up the variables in the setup step above, this is just ensuring that the data read from the environment variables are present.
 
-## Ansible.builtin.apt
+## ansible.builtin.apt
 
 This module manages apt-packages. Since my server is running Ubuntu I can use apt for package management. If you're using a different distro you'll want to change this to use its package manager
 
@@ -104,7 +108,7 @@ There are two parameters defined here:
 1. `update_cache`: This is the same as running `apt-get update` before the operation
 2. `upgrade`: Setting this to `dist` runs `apt-get dist-upgrade`, which upgrades all packages and will add or remove dependencies if needed
 
-## Ansible.builtin.hostname
+## ansible.builtin.hostname
 
 This module manages the hostname for the server
 
@@ -116,7 +120,7 @@ This module manages the hostname for the server
 
 You'll notice here that the name is set to `"{{ inventory_hostname }}"`. The hostname that is being used is stored in my inventory file (more on that later). This prevents hardcoding the hostname and having a potential hostname collision on servers.
 
-## Ansible.builtin.user
+## ansible.builtin.user
 
 The user module manages user accounts.
 
@@ -126,19 +130,19 @@ The user module manages user accounts.
     name: "{{ username }}"
     groups: sudo
     append: true
-    shell: /bin/bash
+    shell: /usr/bin/fish
     create_home: true
     password: "{{ user_password | password_hash('sha512', 65534 | random(seed=inventory_hostname) | string) }}"
   no_log: true
 ```
 
-The command above will create the user specified in the environment variables, add them to the sudo group, set their shell to bash and create a home directory for them. It will also set the password for the user and hash it with sha512. The append parameter is allowing the user to be appended to the `sudo` group.
+The command above will create the user specified in the environment variables, add them to the sudo group, set their shell to fish (installed in an earlier task) and create a home directory for them. It will also set the password for the user and hash it with sha512. The append parameter is allowing the user to be appended to the `sudo` group.
 
 If it was set to false then on each run if a user was added to other groups (either manually on the server OR via a task in a different playbook, or a task before) they would be removed from those groups.
 
 The `no_log: true` keeps Ansible from printing the task's arguments (including the password hash) in its output.
 
-## Ansible.builtin.copy
+## ansible.builtin.copy
 
 The copy module will copy files to remote locations, similar to `scp` or `rsync`. Under the hood it uses SFTP or SCP to move the file, controlled by the `transfer_method` setting in the `[ssh_connection]` section of `ansible.cfg`. The default, `smart`, tries SFTP first and falls back to SCP, so I didn't need to set it.
 
@@ -158,7 +162,7 @@ There are several parameters here. The `src` defaults to looking at the `files` 
 
 The `notify` task keyword checks a handler which is defined later.
 
-## Ansible.builtin.deb822_repository
+## ansible.builtin.deb822_repository
 
 This module will add and remove [deb822 formatted](https://repolib.readthedocs.io/en/latest/deb822-format.html) repositories.
 
@@ -187,7 +191,7 @@ With the repository in place, Tailscale can be installed using the `apt` module 
 
 Setting `update_cache: true` is important here so apt picks up the newly added repository before trying to install from it.
 
-## Ansible.builtin.command
+## ansible.builtin.command
 
 This module allows you to run a command on a target machine. I used a few of them for my setup.
 
@@ -209,7 +213,7 @@ Above there is a command to check the status of tailscale on the server. The out
 
 One caveat: if the `tailscaled` service isn't running yet, `tailscale status --json` returns nothing and the `from_json` filter will fail. In practice the apt install starts the service, so this hasn't bitten me.
 
-## Ansible.builtin.service
+## ansible.builtin.service
 
 The service module manages services on remote hosts.
 
@@ -225,7 +229,7 @@ Here I'm creating a handler (which was referenced above in `Copy ssh configurati
 
 This handler will reload ssh if a new configuration was added / copied to the remote host. The name here has to match the `notify` parameter exactly in order for it to be called.
 
-## Ansible.posix.authorized_key
+## ansible.posix.authorized_key
 
 This will add or remove an SSH Authorized Key to allow passwordless entry into a server.
 
@@ -253,6 +257,114 @@ This allows you to configure the timezone setting for the remote host.
 Since I live in the `America/Los_Angeles` timezone, I'm setting the server timezone to match me.
 
 The `become: true` isn't actually needed here, since the inventory connects as `root` and every task already runs with root privileges. It would matter if you connected as a non-root user, in which case you'd want `become: true` at the play level rather than on a single task.
+
+## ansible.builtin.unarchive
+
+This module unpacks an archive, optionally downloading it first. Most of the tools I want on a server (fish, git, and direnv) can be installed with the `apt` module from earlier:
+
+```yaml
+- name: Install tools
+  ansible.builtin.apt:
+    name: [fish, git, direnv]
+    state: present
+```
+
+But [Starship](https://starship.rs/) and [Atuin](https://atuin.sh/) aren't packaged for Ubuntu. Both projects publish prebuilt binaries on GitHub, so I download and extract them directly:
+
+```yaml
+- name: Install starship
+  ansible.builtin.unarchive:
+    src: "https://github.com/starship/starship/releases/latest/download/starship-{{ ansible_facts['architecture'] }}-unknown-linux-musl.tar.gz"
+    dest: /usr/local/bin
+    remote_src: true
+    creates: /usr/local/bin/starship
+- name: Install atuin
+  ansible.builtin.unarchive:
+    src: "https://github.com/atuinsh/atuin/releases/latest/download/atuin-{{ ansible_facts['architecture'] }}-unknown-linux-musl.tar.gz"
+    dest: /usr/local/bin
+    remote_src: true
+    extra_opts: [--strip-components=1, --wildcards, "*/atuin"]
+    creates: /usr/local/bin/atuin
+```
+
+There are a few parameters worth calling out:
+
+1. `remote_src`: Tells Ansible the archive is fetched by the server itself rather than copied from my machine
+2. `{{ ansible_facts['architecture'] }}`: Resolves to `x86_64` or `aarch64`, which matches the names of the release files, so this works on ARM servers too
+3. `extra_opts`: The Atuin archive wraps the binary in a directory (along with a README and license), so these `tar` options pull out just the `atuin` binary
+4. `creates`: Skips the task if the binary already exists, which keeps the playbook idempotent. The trade-off is that Ansible won't upgrade either tool; to update, delete the binary and re-run the playbook
+
+I could have piped each project's install script to `sh` instead, but those scripts can modify shell configuration files, which would fight with my dotfiles.
+
+## ansible.builtin.git
+
+This module manages git checkouts. My [dotfiles](https://github.com/ryancheley/dotfiles) live in a public GitHub repo, and its `setup.sh` script symlinks each config into `~/.config`.
+
+```yaml
+- name: Clone dotfiles
+  ansible.builtin.git:
+    repo: https://github.com/ryancheley/dotfiles.git
+    dest: "/home/{{ username }}/code/dotfiles"
+    version: main
+  become: true
+  become_user: "{{ username }}"
+- name: Link dotfiles
+  ansible.builtin.command: ./setup.sh
+  args:
+    chdir: "/home/{{ username }}/code/dotfiles"
+    creates: "/home/{{ username }}/.config/fish"
+  become: true
+  become_user: "{{ username }}"
+```
+
+The `become_user` parameter runs both tasks as the user created earlier, so the files belong to them rather than `root`. Since `version` is set to `main`, each run pulls the latest commits, and because `setup.sh` creates symlinks the changes show up immediately.
+
+The second task uses the `command` module from earlier. The `creates` parameter means `setup.sh` only runs once, when `~/.config/fish` doesn't exist yet.
+
+## ansible.builtin.meta
+
+This module runs special actions that change how Ansible itself executes the playbook. I use it for one thing:
+
+```yaml
+- name: Reload ssh before locking down the firewall
+  ansible.builtin.meta: flush_handlers
+```
+
+Normally handlers (like `Reload ssh` from earlier) run at the end of the play. `flush_handlers` runs any pending handlers right away. I need that here because the next step closes off public SSH access, and I want the SSH configuration reloaded before that happens.
+
+## community.general.ufw
+
+This module manages [UFW](https://help.ubuntu.com/community/UFW) (Uncomplicated Firewall), which ships with Ubuntu. This is what makes SSH only accessible over my tailnet.
+
+```yaml
+- name: Allow SSH only over the tailnet
+  community.general.ufw:
+    rule: allow
+    interface: tailscale0
+    direction: in
+    port: "22"
+    proto: tcp
+- name: Allow web traffic
+  community.general.ufw:
+    rule: allow
+    port: "{{ item }}"
+    proto: tcp
+  loop: ["80", "443"]
+- name: Enable firewall and deny all other incoming traffic
+  community.general.ufw:
+    state: enabled
+    policy: deny
+    direction: incoming
+```
+
+The first task allows SSH only on `tailscale0`, the network interface Tailscale creates. The second keeps ports 80 and 443 open to everyone, since this server will host web apps through Coolify. The last task turns the firewall on and blocks every other incoming connection.
+
+These tasks are the last ones in the playbook on purpose. UFW allows connections that are already established, so the SSH session Ansible is using survives, but any new connection to the public IP would be blocked. After the first run, the inventory needs to point at the server's tailnet name instead of its public IP (more on that below).
+
+Two caveats:
+
+- Docker writes its own firewall rules, so any port a container publishes is reachable regardless of UFW
+- Coolify manages servers over SSH, so the server needs to be added to Coolify using its tailnet address
 
 ## Full Playbook
 
@@ -292,12 +404,29 @@ cog.outl(f"```yaml\n{text.rstrip()}\n```")
     - name: Set hostname
       ansible.builtin.hostname:
         name: "{{ inventory_hostname }}"
+    - name: Install tools
+      ansible.builtin.apt:
+        name: [fish, git, direnv]
+        state: present
+    - name: Install starship
+      ansible.builtin.unarchive:
+        src: "https://github.com/starship/starship/releases/latest/download/starship-{{ ansible_facts['architecture'] }}-unknown-linux-musl.tar.gz"
+        dest: /usr/local/bin
+        remote_src: true
+        creates: /usr/local/bin/starship
+    - name: Install atuin
+      ansible.builtin.unarchive:
+        src: "https://github.com/atuinsh/atuin/releases/latest/download/atuin-{{ ansible_facts['architecture'] }}-unknown-linux-musl.tar.gz"
+        dest: /usr/local/bin
+        remote_src: true
+        extra_opts: [--strip-components=1, --wildcards, "*/atuin"]
+        creates: /usr/local/bin/atuin
     - name: Create a user
       ansible.builtin.user:
         name: "{{ username }}"
         groups: sudo
         append: true
-        shell: /bin/bash
+        shell: /usr/bin/fish
         create_home: true
         # Per-host stable salt keeps this idempotent while still syncing password changes from 1Password.
         password: "{{ user_password | password_hash('sha512', 65534 | random(seed=inventory_hostname) | string) }}"
@@ -307,6 +436,20 @@ cog.outl(f"```yaml\n{text.rstrip()}\n```")
         user: "{{ username }}"
         state: present
         key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+    - name: Clone dotfiles
+      ansible.builtin.git:
+        repo: https://github.com/ryancheley/dotfiles.git
+        dest: "/home/{{ username }}/code/dotfiles"
+        version: main
+      become: true
+      become_user: "{{ username }}"
+    - name: Link dotfiles
+      ansible.builtin.command: ./setup.sh
+      args:
+        chdir: "/home/{{ username }}/code/dotfiles"
+        creates: "/home/{{ username }}/.config/fish"
+      become: true
+      become_user: "{{ username }}"
     - name: Copy ssh configuration
       ansible.builtin.copy:
         src: 10-hardening.conf
@@ -344,6 +487,26 @@ cog.outl(f"```yaml\n{text.rstrip()}\n```")
       become: true
       community.general.timezone:
         name: America/Los_Angeles
+    - name: Reload ssh before locking down the firewall
+      ansible.builtin.meta: flush_handlers
+    - name: Allow SSH only over the tailnet
+      community.general.ufw:
+        rule: allow
+        interface: tailscale0
+        direction: in
+        port: "22"
+        proto: tcp
+    - name: Allow web traffic
+      community.general.ufw:
+        rule: allow
+        port: "{{ item }}"
+        proto: tcp
+      loop: ["80", "443"]
+    - name: Enable firewall and deny all other incoming traffic
+      community.general.ufw:
+        state: enabled
+        policy: deny
+        direction: incoming
   handlers:
     - name: Reload ssh
       ansible.builtin.service:
@@ -372,11 +535,18 @@ interpreter_python = /usr/bin/python3
 
 The inventory.ini file defines the inventory of remote hosts that you'll be interacting with. It allows you to give them a short name and then define the hostname, the host IP Address, and the user to be used when logging in
 
-My file looks like this:
+Because the playbook closes off public SSH, the inventory entry changes after the first run. The first time, Ansible has to connect to the server's public IP:
 
 ```ini
 [lab]
 h-ansible-p-001 ansible_host=IP_ADDRESS ansible_user=root
+```
+
+After that, the server is only reachable over the tailnet. The playbook sets the hostname before joining the tailnet, so Tailscale's MagicDNS knows the server as `h-ansible-p-001`. Dropping `ansible_host` makes Ansible connect using that name:
+
+```ini
+[lab]
+h-ansible-p-001 ansible_user=root
 ```
 
 ### requirements.yml
