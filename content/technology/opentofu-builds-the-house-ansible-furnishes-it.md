@@ -21,9 +21,9 @@ To that end, the things I want the most out of a new server are:
 5. Install my dotfiles
 6. Ensure SSH is closed off and the server is only accessible via my tailnet
 
-The playbook below covers all six (plus setting the hostname and timezone). The one exception is Docker: Coolify installs it when it sets up a server, so I leave that to Coolify.
+The playbook below covers all six (plus setting the hostname and timezone), with one assist from OpenTofu: closing off public SSH for item 6 is done with a cloud firewall rather than in Ansible. The one exception is Docker: Coolify installs it when it sets up a server, so I leave that to Coolify.
 
-In order to do this, I used 14 different modules.
+In order to do this, I used 12 different modules.
 
 Below, I'll walk through my initial playbook step by step, with a final version of it. [ref]You can also use Ansible to keep your server updated over time (which is actually why I wanted to learn Ansible initially), but Coolify has a setting to do automatic updates on servers, so I'm leaving ongoing updates to Coolify. The playbook only does a one-time upgrade when the server is first bootstrapped.[/ref]
 
@@ -41,8 +41,6 @@ The modules I used were:
 10. [community.general.timezone](https://docs.ansible.com/projects/ansible/latest/collections/community/general/timezone_module.html)
 11. [ansible.builtin.unarchive](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/unarchive_module.html#ansible-collections-ansible-builtin-unarchive-module)
 12. [ansible.builtin.git](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/git_module.html#ansible-collections-ansible-builtin-git-module)
-13. [ansible.builtin.meta](https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/meta_module.html#ansible-collections-ansible-builtin-meta-module)
-14. [community.general.ufw](https://docs.ansible.com/projects/ansible/latest/collections/community/general/ufw_module.html)
 
 ## The Setup
 
@@ -321,50 +319,51 @@ The `become_user` parameter runs both tasks as the user created earlier, so the 
 
 The second task uses the `command` module from earlier. The `creates` parameter means `setup.sh` only runs once, when `~/.config/fish` doesn't exist yet.
 
-## ansible.builtin.meta
+## Closing off public SSH (with OpenTofu)
 
-This module runs special actions that change how Ansible itself executes the playbook. I use it for one thing:
+My first version of this playbook used Ansible's `community.general.ufw` module to only allow SSH over my tailnet. I took it out for two reasons. First, I already manage my server firewalls with OpenTofu, and having two tools in charge of who can reach port 22 is a recipe for confusion. Second, Docker writes its own firewall rules, so any port a container publishes skips UFW entirely, which matters on a Coolify server.
 
-```yaml
-- name: Reload ssh before locking down the firewall
-  ansible.builtin.meta: flush_handlers
+A firewall is part of building the house, not furnishing it, so it belongs in OpenTofu:
+
+```hcl
+resource "hcloud_firewall" "tailnet_only" {
+  name = "tailnet-only-firewall"
+  rule {
+    direction  = "in"
+    protocol   = "icmp"
+    source_ips = ["0.0.0.0/0", "::/0"]
+  }
+  rule {
+    description = "Tailscale direct connections"
+    direction   = "in"
+    port        = "41641"
+    protocol    = "udp"
+    source_ips  = ["0.0.0.0/0", "::/0"]
+  }
+  rule {
+    direction  = "in"
+    port       = "80"
+    protocol   = "tcp"
+    source_ips = ["0.0.0.0/0", "::/0"]
+  }
+  rule {
+    direction  = "in"
+    port       = "443"
+    protocol   = "tcp"
+    source_ips = ["0.0.0.0/0", "::/0"]
+  }
+}
 ```
 
-Normally handlers (like `Reload ssh` from earlier) run at the end of the play. `flush_handlers` runs any pending handlers right away. I need that here because the next step closes off public SSH access, and I want the SSH configuration reloaded before that happens.
+There's no rule for port 22. SSH over Tailscale travels inside an encrypted WireGuard tunnel, so the cloud firewall never sees it as SSH traffic.
 
-## community.general.ufw
+The catch is that Ansible needs public SSH the first time, before the server has joined my tailnet. So a new server goes through three steps:
 
-This module manages [UFW](https://help.ubuntu.com/community/UFW) (Uncomplicated Firewall), which ships with Ubuntu. This is what makes SSH only accessible over my tailnet.
+1. OpenTofu creates the server with a firewall that allows SSH
+2. Ansible runs the bootstrap playbook, which joins the server to my tailnet
+3. I switch the server to the `tailnet_only` firewall and run `tofu apply`
 
-```yaml
-- name: Allow SSH only over the tailnet
-  community.general.ufw:
-    rule: allow
-    interface: tailscale0
-    direction: in
-    port: "22"
-    proto: tcp
-- name: Allow web traffic
-  community.general.ufw:
-    rule: allow
-    port: "{{ item }}"
-    proto: tcp
-  loop: ["80", "443"]
-- name: Enable firewall and deny all other incoming traffic
-  community.general.ufw:
-    state: enabled
-    policy: deny
-    direction: incoming
-```
-
-The first task allows SSH only on `tailscale0`, the network interface Tailscale creates. The second keeps ports 80 and 443 open to everyone, since this server will host web apps through Coolify. The last task turns the firewall on and blocks every other incoming connection.
-
-These tasks are the last ones in the playbook on purpose. UFW allows connections that are already established, so the SSH session Ansible is using survives, but any new connection to the public IP would be blocked. After the first run, the inventory needs to point at the server's tailnet name instead of its public IP (more on that below).
-
-Two caveats:
-
-- Docker writes its own firewall rules, so any port a container publishes is reachable regardless of UFW
-- Coolify manages servers over SSH, so the server needs to be added to Coolify using its tailnet address
+From then on, the server is only reachable over SSH through my tailnet. Since Coolify manages servers over SSH, the server also needs to be added to Coolify using its tailnet address.
 
 ## Full Playbook
 
@@ -487,26 +486,6 @@ cog.outl(f"```yaml\n{text.rstrip()}\n```")
       become: true
       community.general.timezone:
         name: America/Los_Angeles
-    - name: Reload ssh before locking down the firewall
-      ansible.builtin.meta: flush_handlers
-    - name: Allow SSH only over the tailnet
-      community.general.ufw:
-        rule: allow
-        interface: tailscale0
-        direction: in
-        port: "22"
-        proto: tcp
-    - name: Allow web traffic
-      community.general.ufw:
-        rule: allow
-        port: "{{ item }}"
-        proto: tcp
-      loop: ["80", "443"]
-    - name: Enable firewall and deny all other incoming traffic
-      community.general.ufw:
-        state: enabled
-        policy: deny
-        direction: incoming
   handlers:
     - name: Reload ssh
       ansible.builtin.service:
@@ -535,7 +514,7 @@ interpreter_python = /usr/bin/python3
 
 The inventory.ini file defines the inventory of remote hosts that you'll be interacting with. It allows you to give them a short name and then define the hostname, the host IP Address, and the user to be used when logging in
 
-Because the playbook closes off public SSH, the inventory entry changes after the first run. The first time, Ansible has to connect to the server's public IP:
+Because public SSH is closed off once the server moves to the tailnet-only firewall, the inventory entry changes after the first run. The first time, Ansible has to connect to the server's public IP:
 
 ```ini
 [lab]
