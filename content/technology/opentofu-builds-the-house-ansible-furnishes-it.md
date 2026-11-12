@@ -8,9 +8,9 @@ Status: published
 
 If [OpenTofu](https://opentofu.org/) is the thing that builds your infrastructure, [Ansible](https://docs.ansible.com/) is the thing that configures it. While there is some overlap between the two, you should have each set of code do its own thing.
 
-I think about OpenTofu as the construction team that builds the house, while Ansible is the team the puts the stuff inside (appliances, furniture, decorations, etc). That is, OpenTofu will build the server, and Ansible will configure it.
+I think about OpenTofu as the construction team that builds the house, while Ansible is the team that puts the stuff inside (appliances, furniture, decorations, etc.). That is, OpenTofu will build the server, and Ansible will configure it.
 
-As I worked through learning Ansible I watched some videos, and did some tutorials. But what really worked for me to learn it was to identify what I want to have installed and configured on any new server.
+As I worked through learning Ansible, I watched some videos and did some tutorials. But what really worked for me to learn it was to identify what I want to have installed and configured on any new server.
 
 To that end, the things I want the most out of a new server are:
 
@@ -60,7 +60,7 @@ The Ansible playbook I created had the following format:
         parameters:
 ```
 
-I created a `.env` file to hold various secrets. In order to access them I set up a `vars` key like this:
+I created a `.env` file to hold various secrets. In order to access them, I set up a `vars` key like this:
 
 ```yaml
 - name: Bootstrap server
@@ -88,11 +88,11 @@ This module asserts that a given expression is true. In order to require environ
     fail_msg: BOOTSTRAP_USERNAME, BOOTSTRAP_PASSWORD, and TS_AUTHKEY must be set (run via op run --env-file=.env)
 ```
 
-Because we set up the variables in the setup step above, this is just ensuring that the data read from the environment variables are present.
+Because we set up the variables in the setup step above, this is just ensuring that the data read from the environment variables is present.
 
 ## ansible.builtin.apt
 
-This module manages apt-packages. Since my server is running Ubuntu I can use apt for package management. If you're using a different distro you'll want to change this to use its package manager
+This module manages apt packages. Since my server is running Ubuntu, I can use apt for package management. If you're using a different distro, you'll want to change this to use its package manager.
 
 ```yaml
 - name: Update apt cache and upgrade packages
@@ -106,9 +106,18 @@ There are two parameters defined here:
 1. `update_cache`: This is the same as running `apt-get update` before the operation
 2. `upgrade`: Setting this to `dist` runs `apt-get dist-upgrade`, which upgrades all packages and will add or remove dependencies if needed
 
+I also use `apt` to install the tools I want on every server:
+
+```yaml
+- name: Install tools
+  ansible.builtin.apt:
+    name: [fish, git, direnv]
+    state: present
+```
+
 ## ansible.builtin.hostname
 
-This module manages the hostname for the server
+This module manages the hostname for the server.
 
 ```yaml
 - name: Set hostname
@@ -134,9 +143,9 @@ The user module manages user accounts.
   no_log: true
 ```
 
-The command above will create the user specified in the environment variables, add them to the sudo group, set their shell to fish (installed in an earlier task) and create a home directory for them. It will also set the password for the user and hash it with sha512. The append parameter is allowing the user to be appended to the `sudo` group.
+The command above will create the user specified in the environment variables, add them to the sudo group, set their shell to fish (installed in an earlier task) and create a home directory for them. It will also set the password for the user and hash it with sha512. The `append` parameter adds the user to the `sudo` group without removing them from any other groups.
 
-If it was set to false then on each run if a user was added to other groups (either manually on the server OR via a task in a different playbook, or a task before) they would be removed from those groups.
+If it were set to `false`, then on each run the user would be removed from any other groups they'd been added to (either manually on the server OR via a task in a different playbook, or a task before).
 
 The `no_log: true` keeps Ansible from printing the task's arguments (including the password hash) in its output.
 
@@ -156,9 +165,9 @@ The copy module will copy files to remote locations, similar to `scp` or `rsync`
   notify: Reload ssh
 ```
 
-There are several parameters here. The `src` defaults to looking at the `files` directory. The `dest` indicates where the file will be copied to. The `validate` parameter ensures that the file copied over is valid which prevents bad things from being able to happen when copying over the config file.
+There are several parameters here. The `src` defaults to looking at the `files` directory. The `dest` indicates where the file will be copied to. The `validate` parameter ensures that the file copied over is valid, which prevents a broken config from locking you out.
 
-The `notify` task keyword checks a handler which is defined later.
+The `notify` task keyword triggers a handler which is defined later.
 
 ## ansible.builtin.deb822_repository
 
@@ -191,7 +200,7 @@ Setting `update_cache: true` is important here so apt picks up the newly added r
 
 ## ansible.builtin.command
 
-This module allows you to run a command on a target machine. I used a few of them for my setup.
+This module allows you to run a command on a target machine. I used it a few times in my setup.
 
 ```yaml
 - name: Check tailscale status
@@ -207,7 +216,7 @@ This module allows you to run a command on a target machine. I used a few of the
   changed_when: true
 ```
 
-Above there is a command to check the status of tailscale on the server. The output is saved into a variable called `ts_status` which is then used to check the state of tailscale. If it's not running then tailscale will be enabled using the `{{ ts_authkey }}` that was defined above in the `vars` section.
+Above there is a command to check the status of Tailscale on the server. The output is saved into a variable called `ts_status` which is then used to check the state of Tailscale. If it's not running, the server joins the tailnet using the `{{ ts_authkey }}` that was defined above in the `vars` section.
 
 One caveat: if the `tailscaled` service isn't running yet, `tailscale status --json` returns nothing and the `from_json` filter will fail. In practice the apt install starts the service, so this hasn't bitten me.
 
@@ -223,13 +232,13 @@ handlers:
       state: reloaded
 ```
 
-Here I'm creating a handler (which was referenced above in `Copy ssh configuration` task which used the `ansible.builtin.copy` section).
+Here I'm creating a handler (which was referenced above in the `Copy ssh configuration` task in the `ansible.builtin.copy` section).
 
-This handler will reload ssh if a new configuration was added / copied to the remote host. The name here has to match the `notify` parameter exactly in order for it to be called.
+This handler will reload ssh if a new configuration was copied to the remote host. The name here has to match the `notify` parameter exactly in order for it to be called.
 
 ## ansible.posix.authorized_key
 
-This will add or remove an SSH Authorized Key to allow passwordless entry into a server.
+This module adds or removes an SSH authorized key to allow passwordless entry into a server.
 
 ```yaml
 - name: Add SSH to user
@@ -239,7 +248,7 @@ This will add or remove an SSH Authorized Key to allow passwordless entry into a
     key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
 ```
 
-Here I'm setting the user and copying the `id_ed25519.pub` to the server so that `{{ username }}` can just ssh into the server without the use of a password.
+Here I'm setting the user and copying the `id_ed25519.pub` to the server so that `{{ username }}` can just SSH into the server without the use of a password.
 
 ## community.general.timezone
 
@@ -258,16 +267,7 @@ The `become: true` isn't actually needed here, since the inventory connects as `
 
 ## ansible.builtin.unarchive
 
-This module unpacks an archive, optionally downloading it first. Most of the tools I want on a server (fish, git, and direnv) can be installed with the `apt` module from earlier:
-
-```yaml
-- name: Install tools
-  ansible.builtin.apt:
-    name: [fish, git, direnv]
-    state: present
-```
-
-But [Starship](https://starship.rs/) and [Atuin](https://atuin.sh/) aren't packaged for Ubuntu. Both projects publish prebuilt binaries on GitHub, so I download and extract them directly:
+This module unpacks an archive, optionally downloading it first. Fish, git, and direnv are installed with `apt`, but [Starship](https://starship.rs/) and [Atuin](https://atuin.sh/) aren't packaged for Ubuntu. Both projects publish prebuilt binaries on GitHub, so I download and extract them directly:
 
 ```yaml
 - name: Install starship
@@ -367,7 +367,7 @@ From then on, the server is only reachable over SSH through my tailnet. Since Co
 
 ## Full Playbook
 
-When you put it all together, this is what my full playbook looks like
+When you put it all together, this is what my full playbook looks like:
 
 <!-- [[[cog
 import cog
@@ -496,13 +496,13 @@ cog.outl(f"```yaml\n{text.rstrip()}\n```")
 
 ## Other needed files
 
-The playbook defines WHAT is going to be done, but there are some supporting files that need to be set up as well
+The playbook defines *what* is going to be done, but there are some supporting files that need to be set up as well.
 
 ### ansible.cfg
 
 The `ansible.cfg` file sets the configuration for Ansible. Some of the items you can define are where the inventory file to be used is located (by default it's at `/etc/ansible/hosts`). It can also be used to indicate the location of the Python interpreter.
 
-My file looks like this
+My file looks like this:
 
 ```cfg
 [defaults]
@@ -512,7 +512,7 @@ interpreter_python = /usr/bin/python3
 
 ### inventory.ini
 
-The inventory.ini file defines the inventory of remote hosts that you'll be interacting with. It allows you to give them a short name and then define the hostname, the host IP Address, and the user to be used when logging in
+The `inventory.ini` file defines the inventory of remote hosts that you'll be interacting with. It allows you to give them a short name and then define the hostname, the host IP address, and the user to be used when logging in.
 
 Because public SSH is closed off once the server moves to the tailnet-only firewall, the inventory entry changes after the first run. The first time, Ansible has to connect to the server's public IP:
 
@@ -548,7 +548,7 @@ uvx --from ansible-core ansible-galaxy collection install -r requirements.yml
 
 ## Running the playbook
 
-With the playbook and the support files now ready, we can use `ansible-playbook bootstrap.yml` to run the playbook. Of course, since I'm a big fan of [just](https://ryancheley.com/2026/10/26/have-you-heard-the-good-news-about-just/) I created a few just recipes
+With the playbook and the support files now ready, we can use `ansible-playbook bootstrap.yml` to run the playbook. Of course, since I'm a big fan of [just](https://ryancheley.com/2026/10/26/have-you-heard-the-good-news-about-just/), I created a few just recipes:
 
 ```just
 [group('ansible')]
@@ -565,16 +565,15 @@ lint *args:
 
 The first recipe, `just run-playbook bootstrap.yml`, runs the bootstrap playbook. Since it passes any arguments straight through to `ansible-playbook`, I can use the same recipe for any other playbook I write (e.g. `just run-playbook other.yml --check`).
 
-The second command `just lint` will lint the file and make sure it's formatted correctly.
-
+The second recipe, `just lint`, lints the playbook and makes sure it's formatted correctly.
 
 ## What I learned
 
-This was a really good learning experience. A few things that I learned
+This was a really good learning experience. A few things that I learned:
 
-- You can pass multiple inventory files (https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#passing-multiple-inventory-sources) e.g. `ansible-playbook get_logs.yml -i staging -i production`
-- You can split inventory files into logical groupings and then drop them into a directory (like `inventory`) and then reference the directory instead of a specific inventory file (https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#organizing-inventory-in-a-directory)
-- you can add host ranges (https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#adding-ranges-of-hosts)
+- You can [pass multiple inventory files](https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#passing-multiple-inventory-sources), e.g. `ansible-playbook get_logs.yml -i staging -i production`
+- You can split inventory files into logical groupings and then drop them into a directory (like `inventory`) and then [reference the directory](https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#organizing-inventory-in-a-directory) instead of a specific inventory file
+- You can add [host ranges](https://docs.ansible.com/projects/ansible/latest/inventory_guide/intro_inventory.html#adding-ranges-of-hosts)
 - A good rule of thumb is that anything you'd click in a cloud console belongs in Terraform/OpenTofu, and anything you'd do after SSHing in belongs in Ansible.
 
 Initially I ran through a tutorial to help get me oriented to Ansible, but I found that I really wanted to have a playbook that would do the things that I **wanted** to have done. It was at that point that I outlined what I would want on a server and started to construct a playbook based on that.
@@ -583,6 +582,6 @@ Initially I ran through a tutorial to help get me oriented to Ansible, but I fou
 
 There are so many potential modules to use, but I think the best way to start applying them is to figure out what problem you need to solve and then reach for the module that helps you solve that.
 
-Ansible has a lot of potential for my future workflows and I'm looking forward to incorporating these learnings into those workflows.
+Ansible has a lot of potential for my future workflows and I'm looking forward to incorporating these learnings into them.
 
-One wild idea I have is to create a GitHub repo, commit a Django project to that repo and then have OpenTofu create whatever resources it needs, Ansible to configure any remote hosts that are required, and Coolify to automatically deploy this project. I really think that this will help to get a project up and running really quickly.
+One wild idea I have is to create a GitHub repo, commit a Django project to that repo, and then have OpenTofu create whatever resources it needs, Ansible to configure any remote hosts that are required, and Coolify to automatically deploy this project. I think that this will help to get a project up and running really quickly.
