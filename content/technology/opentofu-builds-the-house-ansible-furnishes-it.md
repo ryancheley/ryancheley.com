@@ -16,7 +16,7 @@ To that end, the things I want the most out of a new server are:
 
 1. Add it to my tailnet
 2. Make sure everything is updated after the initial build
-3. Make sure the tools I need are installed (Docker, Atuin, fish, etc.)
+3. Make sure the tools I need are installed (Atuin, fish, etc.)
 4. Add user(s) that are locked down
 5. Install my dotfiles
 6. Ensure SSH is closed off and the server is only accessible via my tailnet
