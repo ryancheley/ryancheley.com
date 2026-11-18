@@ -2,6 +2,11 @@
     "extra_css_urls": [
         "https://cdn.jsdelivr.net/gh/ryancheley/ryancheley.com@main/datasette-custom.css"
     ],
+    "plugins": {
+        "datasette-block-robots": {
+            "allow_only_index": true
+        }
+    },
     "databases": {
         "pelican": {
             "queries": {
